@@ -1,0 +1,148 @@
+html, body {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	background: url(/i/page-bg.png) #3b3c44;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	color: #d3d3d3;
+	min-height: 100%;
+	position: absolute;
+}
+
+body:before,
+body:after {
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 162px;
+	content: '';
+}
+
+body:before {
+	left: 0;
+	background-image: url(/i/page-sha-left.png);
+}
+
+body:after {
+	right: 0;
+	background-image: url(/i/page-sha-right.png);
+}
+
+a {
+	color: #bfe394;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #7acb17;
+	text-shadow: -1px 1px 1px #000;
+	margin-bottom: 0.5em;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3 {
+	line-height: 1.1;
+}
+
+h2, h3, h4, h5, h6 {
+	margin-top: 2em;
+	margin-bottom: 0.2em;
+}
+
+p {
+	margin-top: 0;
+}
+
+.page {
+	margin: 125px auto 70px;
+	width: 815px;
+	position: relative;
+	z-index: 1;
+}
+
+.page-header {
+	width: 170px;
+	margin-right: -170px;
+	float: left;
+}
+
+.site-name {
+	border-bottom: 1px solid #4c4e55;
+	position: relative;
+}
+
+.site-name__title {
+	color: #fff;
+	font-weight: bold;
+	font-size: 3em;
+	text-shadow: -2px 2px 1px #000;
+	margin: 0;
+}
+
+.site-name__caption {
+	margin: 0;
+	font-family: georgia, serif;
+	font-size: 0.85em;
+	font-style: italic;
+	color: #636363;
+	border-bottom: 1px solid #35373d;
+	padding-top: 1px;
+	padding-bottom: 9px;
+}
+
+.site-nav {
+	list-style: none;
+	text-transform: uppercase;
+	padding: 0;
+	margin: 40px 0;
+	font-size: 0.85em;
+	border-bottom: 1px solid #4c4e55;
+}
+
+.site-nav__item {
+	margin: 0;
+	padding: 0;
+	text-shadow: -1px 1px 0 #000;
+	color: #c3c1c1;
+	border-bottom: 1px solid #35373d;
+	border-top: 1px solid #4c4e55;
+}
+
+.site-nav__item:first-child {
+	border-top: none;
+}
+
+.site-nav__label {
+	text-decoration: none;
+	color: inherit;
+	display: block;
+	padding: 13px;
+	margin: -1px -13px;
+}
+
+.site-nav__item_selected > .site-nav__label {
+	background: #fff;
+	box-shadow: inset 2px 2px 5px rgba(0,0,0,0.5);
+	color: #000;
+	text-shadow: none;
+}
+
+.page-content {
+	width: 565px;
+	margin-left: 250px;
+	font-family: georgia, serif;
+	line-height: 1.6;
+	font-size: 1.1em;
+}
+
+.page-footer {
+	clear: both;
+}
