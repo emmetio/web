@@ -1,0 +1,16 @@
+.btn {
+	display: inline-block;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 10px 20px;
+	line-height: 1;
+	font-family: 'Helvetica Neue', Helvetica, arial, sans-serif;
+	color: #f0f0f0;
+	text-decoration: none;
+	background: #131417;
+	border-bottom: 1px solid #484951;
+
+	-webkit-border-radius: 1.5em;
+	-moz-border-radius: 1.5em;
+	border-radius: 1.5em;
+}

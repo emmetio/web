@@ -1,0 +1,22 @@
+.tiles {
+	margin: 15px -30px 15px -15px;
+	padding: 0;
+	display: block;
+	list-style-type: none;
+}
+
+.tiles__item {
+	padding: 15px;
+	margin-right: 15px;
+	display: inline-block;
+	background: #fff;
+	min-height: 3em;
+	width: 160px;
+	vertical-align: top;
+	color: #000;
+	text-align: justify;
+
+	-webkit-box-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+	-moz-box-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+}
