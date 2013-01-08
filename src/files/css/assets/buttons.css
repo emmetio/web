@@ -14,3 +14,21 @@
 	-moz-border-radius: 1.5em;
 	border-radius: 1.5em;
 }
+
+.btn_demo {
+	color: #000;
+	border: 1px solid #ccc;
+	font-size: 11px;
+	background: transparent;
+	padding: 5px 10px;
+
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.btn_demo:hover {
+	background: #7acb16;
+	color: #fff;
+	border-color: #48770d;
+}

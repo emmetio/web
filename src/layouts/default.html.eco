@@ -1,0 +1,106 @@
+---
+css: "/c/main.css"
+---
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie10 lt-ie9"> <![endif]-->
+<!--[if IE 9]><html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<title><%= @document.title %></title>
+<% for url in @assets('css'): %>
+<link rel="stylesheet" href="<%= url %>" />
+<% end %>
+<script>document.write('<script src="/j/' + ('__proto__' in {} ? 'zepto.min' : 'jquery-1.8.2.min') + '.js"><\/script>')</script>
+<% for url in @assets('js'): %>
+<script src="<%= url %>"></script>
+<% end %>
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body>
+	<div class="page layout">
+		<header class="page-header layout__sidebar">
+			<div class="site-name">
+				<% site_title = (content) => %>
+					<h1 class="site-name__title">
+						<% if @document.url == '/index.html': %>
+							<%- content %>
+						<% else: %>	
+							<a href="/"><%- content %></a>
+						<% end %>
+					</h1>
+				<% end %>
+				<%- site_title '<img src="/i/logo.svg" alt="Emmet" width="65" height="65" class="site-name__logo" />Emmet' %>
+				<p class="site-name__caption">Tools for web-developers</p>
+			</div>
+
+			<nav>
+				<%- @partial('menu.html.eco', {menuItems: @generateMenu(@document.url)}) %>
+			</nav>
+
+			<p class="donate-href"><a href="/donate/" class="btn"><i class="text-icon">&#128077;</i> Donate</a></p>
+
+			<div class="tweet-stream">
+				<h2 class="tweet-stream__title">Twitter: <a href="http://twitter.com/emmetio">@emmetio</a></h2>
+				<div class="box">
+					<ul class="tweet-stream__scroller">
+						<li class="tweet-stream__item">
+							<img src="https://si0.twimg.com/profile_images/2930624630/73433e4da66934c054f18d3fc08c32dc_normal.png" class="tweet-stream__avatar" />
+							<h3 class="tweet-stream__name">Smashing Magazine</h3>
+							<h4 class="tweet-stream__user"><a href="http://twitter.com/smashingmag">@smashingmag</a></h4>
+							<p class="tweet-stream__message">Check out the *official* <a href="http://twitter.com/emmetio">@emmetio</a> (zen coding) extension for @brackets! -- <a href="http://emmet.io">http://emmet.io</a></p>
+						</li>
+						<li class="tweet-stream__item">
+							<img src="https://si0.twimg.com/profile_images/2930624630/73433e4da66934c054f18d3fc08c32dc_normal.png" class="tweet-stream__avatar" />
+							<h3 class="tweet-stream__name">Smashing Magazine</h3>
+							<h4 class="tweet-stream__user"><a href="http://twitter.com/smashingmag">@smashingmag</a></h4>
+							<p class="tweet-stream__message">Check out the *official* <a href="http://twitter.com/emmetio">@emmetio</a> (zen coding) extension for @brackets! -- <a href="http://emmet.io">http://emmet.io</a></p>
+						</li>
+						<li class="tweet-stream__item">
+							<img src="https://si0.twimg.com/profile_images/2930624630/73433e4da66934c054f18d3fc08c32dc_normal.png" class="tweet-stream__avatar" />
+							<h3 class="tweet-stream__name">Smashing Magazine</h3>
+							<h4 class="tweet-stream__user"><a href="http://twitter.com/smashingmag">@smashingmag</a></h4>
+							<p class="tweet-stream__message">Check out the *official* <a href="http://twitter.com/emmetio">@emmetio</a> (zen coding) extension for @brackets! -- <a href="http://emmet.io">http://emmet.io</a></p>
+						</li>
+					</ul>
+				</div>
+				<p>Please use <a href="">#emmetio</a> hashtag to spread a word about Emmet.</p>
+			</div>
+		</header>
+
+		<div class="page-content layout__main">
+			<%- @content %>
+		</div>
+	</div>
+	<footer class="page-footer">
+		<div class="layout">
+			<div class="layout__sidebar">
+				<div class="site-name">
+					<h1 class="site-name__title">Emmet</h1>
+					<p class="site-name__caption">Tools for web-developers</p>
+				</div>
+				<div class="copyrights">
+					<p>Support: <a href="mailto:info@emmet.io">info@emmet.io</a></p>
+					<p>Web-site design is based on <a href="http://rockablethemes.com/theme/briefcase/">BriefCase</a> and <a href="http://designmodo.com/futurico/">Futurico UI</a></p>
+				</div>
+			</div>
+			<div class="layout__main">
+				<h2>From blog</h2>
+				<ul class="blog-entries">
+					<li class="blog-entries__item">
+						<h3 class="blog-entries__title"><a href="/blog/">Emmet v1.0 released</a></h3>
+						<p class="blog-entries__info">December 22<sup>th</sup>, 2012, 6 comments</p>
+					</li>
+				</ul>
+				<a href="https://github.com/emmetio" class="page-footer__github"><img src="/i/github.png" alt="GitHub" width="147" height="66" /></a>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</footer>
+</body>
+</html>

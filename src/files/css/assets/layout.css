@@ -106,9 +106,9 @@ dt {
 	display: inline-block;
 	font-family: Entypo;
 	font-style: normal;
-	font-size: 3em;
-	line-height: 0.2;
-	vertical-align: top;
+	font-weight: normal;
+	font-size: 2em;
+	line-height: 0.4;
 }
 
 .page {
@@ -191,8 +191,6 @@ dt {
 	color: #c3c1c1;
 	border-bottom: 1px solid #35373d;
 	border-top: 1px solid #4c4e55;
-
-	
 }
 
 .site-nav__item:first-child {
@@ -205,6 +203,15 @@ dt {
 	display: block;
 	padding: 13px;
 	margin: -1px -13px;
+}
+
+.site-nav__label_ext:after {
+	content: ' \E741';
+	font-family: 'Entypo';
+	font-size: 1.5em;
+	display: inline-block;
+	margin-left: 0.3em;
+	opacity: .6;
 }
 
 .site-nav__item_selected > .site-nav__label {
@@ -293,6 +300,12 @@ dt {
 .donate-href {
 	margin-left: -20px;
 	margin-bottom: 40px;
+}
+
+.donate-href .text-icon {
+	font-size: 3em;
+	line-height: 0.2;
+	vertical-align: top;
 }
 
 .tweet-stream__title {

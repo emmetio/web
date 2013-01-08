@@ -1,0 +1,18 @@
+<% renderMenu = (items) => %>
+<ul class="site-nav">
+	<% for item in items: %>
+		<li class="site-nav__item<% if item.state: %> site-nav__item_selected<% end %>">
+			<% labelClass = if /^https?:/.test(item.meta.url or item.url) then ' site-nav__label_ext' else '' %>
+			<% if item.state != 'current': %>
+				<a href="<%= item.meta.url or item.url %>" class="site-nav__label<%- labelClass %>"><%- item.title%></a>
+			<% else: %>
+				<strong class="site-nav__label<%- labelClass %>"><%- item.title %></strong>
+			<% end %>
+			<% if item.children: %>
+				<%- renderMenu(item.children) %>
+			<% end %>
+		</li>
+	<% end %>
+</ul>	
+<% end %>
+<%= renderMenu @menuItems %>

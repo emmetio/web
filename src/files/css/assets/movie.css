@@ -1,0 +1,52 @@
+.CodeMirror-movie__splash {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	color: #000;
+	background: #dfdfdf;
+	background: rgba(255, 255, 255, 0.9);
+	z-index: 10;
+	cursor: pointer;
+}
+
+.CodeMirror-movie__splash-text {
+	font-size: 3.3em;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	top: 50%;
+	margin-top: -1.2em;
+	line-height: 1em;
+}
+
+.CodeMirror-movie__splash-play-btn {
+	display: inline-block;
+	font-size: 1.5em;
+	line-height: 1em;
+	width: 1em;
+	height: 1em;
+	padding: 0.33em 0.2em 0.27em 0.4em;
+	background: #1c1c20;
+	color: #7acb16;
+	border-radius: 100%;
+	vertical-align: middle;
+}
+
+.CodeMirror-movie__splash:hover .CodeMirror-movie__splash-play-btn {
+	color: #baffa9;
+}
+
+.CodeMirror-movie__splash_playing {
+	background: transparent;
+}
+
+.CodeMirror-movie__splash_playing .CodeMirror-movie__splash-text {
+	display: none;
+}
+
+.CodeMirror-scroll {
+	height: 100% !important;
+}

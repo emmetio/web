@@ -1,0 +1,43 @@
+---
+layout: page
+title: Emmet — the essential toolkit for web-developers
+css100: "http://docs.emmet.io/2/c/movie.css"
+js100: "http://docs.emmet.io/2/j/movie.js, /j/main.js"
+---
+<p>Emmet is a web-developer’s toolkit that can greatly improve your HTML &amp; CSS workflow:</p>
+<div class="incut">
+<textarea class="movie-def">
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;title&gt;Demo&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    |
+&lt;/body&gt;
+&lt;/html&gt;
+~~~
+tooltip: Type CSS-like abbreviation
+type: ul#nav>li.item$*4>a{Item $}
+wait: 1000
+tooltip: Run “Expand Abbreviation” action to expand it into HTML
+wait: 600
+run: emmet.expand_abbreviation
+wait: 1000
+tooltip: Traverse between important code points with “Next/Previous Edit Point” action
+wait: 1000
+run: {command: 'emmet.next_edit_point', times: 7}
+wait: 1000
+tooltip: Select tags with “Match Tag Pair” action
+run: {command: 'emmet.match_pair_outward', times: 3}
+wait: 1000
+moveTo: 102
+tooltip: Select important parts with “Select Next/Previous Item” action
+run: {command: 'emmet.select_next_item', times: 7, beforeDelay: 300}
+wait: 2000
+moveTo: 95
+wait: 1000
+tooltip: Quickly comment full tag with “Toggle Comment” action
+run: {command: 'emmet.toggle_comment', times: 2, beforeDelay: 1000}
+</textarea>
+</div>
