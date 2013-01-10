@@ -45,32 +45,15 @@ css: "/c/main.css"
 
 			<p class="donate-href"><a href="/donate/" class="btn"><i class="text-icon">&#128077;</i> Donate</a></p>
 
-			<div class="tweet-stream">
-				<h2 class="tweet-stream__title">Twitter: <a href="http://twitter.com/emmetio">@emmetio</a></h2>
-				<div class="box">
-					<ul class="tweet-stream__scroller">
-						<li class="tweet-stream__item">
-							<img src="https://si0.twimg.com/profile_images/2930624630/73433e4da66934c054f18d3fc08c32dc_normal.png" class="tweet-stream__avatar" />
-							<h3 class="tweet-stream__name">Smashing Magazine</h3>
-							<h4 class="tweet-stream__user"><a href="http://twitter.com/smashingmag">@smashingmag</a></h4>
-							<p class="tweet-stream__message">Check out the *official* <a href="http://twitter.com/emmetio">@emmetio</a> (zen coding) extension for @brackets! -- <a href="http://emmet.io">http://emmet.io</a></p>
-						</li>
-						<li class="tweet-stream__item">
-							<img src="https://si0.twimg.com/profile_images/2930624630/73433e4da66934c054f18d3fc08c32dc_normal.png" class="tweet-stream__avatar" />
-							<h3 class="tweet-stream__name">Smashing Magazine</h3>
-							<h4 class="tweet-stream__user"><a href="http://twitter.com/smashingmag">@smashingmag</a></h4>
-							<p class="tweet-stream__message">Check out the *official* <a href="http://twitter.com/emmetio">@emmetio</a> (zen coding) extension for @brackets! -- <a href="http://emmet.io">http://emmet.io</a></p>
-						</li>
-						<li class="tweet-stream__item">
-							<img src="https://si0.twimg.com/profile_images/2930624630/73433e4da66934c054f18d3fc08c32dc_normal.png" class="tweet-stream__avatar" />
-							<h3 class="tweet-stream__name">Smashing Magazine</h3>
-							<h4 class="tweet-stream__user"><a href="http://twitter.com/smashingmag">@smashingmag</a></h4>
-							<p class="tweet-stream__message">Check out the *official* <a href="http://twitter.com/emmetio">@emmetio</a> (zen coding) extension for @brackets! -- <a href="http://emmet.io">http://emmet.io</a></p>
-						</li>
-					</ul>
-				</div>
-				<p>Please use <a href="">#emmetio</a> hashtag to spread a word about Emmet.</p>
-			</div>
+			<ul class="social">
+				<li class="social__item">
+					<div class="fb-like" data-href="http://emmet.io" data-send="false" data-layout="button_count" data-width="170" data-show-faces="false" data-action="recommend"></div>
+				</li>
+				<li class="social__item">
+					<a href="https://twitter.com/emmetio" class="twitter-follow-button" data-show-count="false">Follow @emmetio</a>
+				</li>
+			</ul>
+			
 		</header>
 
 		<div class="page-content layout__main">
@@ -102,5 +85,21 @@ css: "/c/main.css"
 		</div>
 		<div class="clear"></div>
 	</footer>
+	<div id="fb-root"></div>
+	<script>
+	// facebook
+	(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	
+	// twitter
+	!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs"); 
+	</script>
+
+
 </body>
 </html>

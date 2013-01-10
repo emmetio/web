@@ -60,6 +60,10 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+h1 {
+	margin-top: 0.3em;
+}
+
 h1, h2, h3 {
 	line-height: 1.1;
 }
@@ -133,6 +137,7 @@ dt {
 	width: 570px;
 	margin-left: 250px;
 	position: relative;
+	float: left;
 }
 
 .clear {
@@ -216,6 +221,8 @@ dt {
 
 .site-nav__item_selected > .site-nav__label {
 	background: #fff;
+	-webkit-box-shadow: inset 2px 2px 5px rgba(0,0,0,0.5);
+	-moz-box-shadow: inset 2px 2px 5px rgba(0,0,0,0.5);
 	box-shadow: inset 2px 2px 5px rgba(0,0,0,0.5);
 	color: #000;
 	text-shadow: none;
@@ -225,6 +232,14 @@ dt {
 	/* font-family: georgia, serif; */
 	line-height: 1.6;
 	font-size: 1.15em;
+}
+
+.page:after {
+	content: '';
+	display: block;
+	height: 0;
+	width: 100%;
+	clear: both;
 }
 
 .page-footer {
@@ -390,4 +405,112 @@ dt {
 	-webkit-box-shadow: 1px 1px 5px rgba(0,0,0,0.6);
 	-moz-box-shadow: 1px 1px 5px rgba(0,0,0,0.6);
 	box-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+}
+
+.social {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.social__item {
+	margin: 10px 0;
+	padding: 0;
+}
+
+.download__title {
+	margin: 0;
+	color: inherit;
+	text-shadow: none;
+	font-size: 1.3em;
+	padding-top: 0.3em;
+}
+
+.download__comment {
+	font-family: georgia, serif;
+	font-style: italic;
+	font-size: 0.9em;
+	color: #999;
+}
+
+.tiles__item .download__href {
+	display: block;
+	position: relative;
+	padding-left: 45px;
+	text-decoration: none;
+	color: inherit;
+	height: 4.6em;
+	color: #000;
+}
+
+.download__img {
+	position: absolute;
+	left: -5px;
+}
+
+.download .tiles__item {
+	min-height: auto;
+}
+
+.author-info {
+	float: right;
+	padding: 15px;
+	background: #fff;
+	margin: -10px -100px 2em 2em;
+	position: relative;
+
+	-webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+	box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.author-info__title {
+	text-shadow: none;
+	color: #000;
+	margin: 10px 0 0.5em;
+}
+
+.author-info__links {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.author-info__links-item {
+	margin: 0.2em;
+	padding: 0;
+	font-size: 0.8em;
+}
+
+.author-info__links-item a {
+	color: #666;
+}
+
+.author-info__links-item a:hover {
+	color: #000 !important;
+}
+
+
+/* Main page */
+.download-frontpage {
+	text-align: center;
+	margin: 2em 0;
+}
+
+.download-frontpage .btn {
+	font-size: 3em;
+	padding-left: 2em;
+	padding-right: 2em;
+}
+
+.download-frontpage__comment {
+	display: block;
+	font-size: 12px;
+	margin-top: 0.3em;
+	font-style: italic;
+	font-weight: normal;
+	font-family: georgia, serif;
+	opacity: 0.7;
+	white-space: nowrap;
+	/* text-shadow: none; */
 }

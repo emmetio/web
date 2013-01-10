@@ -8,9 +8,6 @@
 			<% else: %>
 				<strong class="site-nav__label<%- labelClass %>"><%- item.title %></strong>
 			<% end %>
-			<% if item.children: %>
-				<%- renderMenu(item.children) %>
-			<% end %>
 		</li>
 	<% end %>
 </ul>	

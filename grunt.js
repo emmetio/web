@@ -18,14 +18,16 @@ module.exports = function(grunt) {
 		},
 
 		frontend: {
-			css: {
-				src: './src/files/css',
-				dest: './out/c'
-			},
-			js: {
-				'./out/j/main.js': [
-					'./src/files/js/movie-definition.js'
-				]
+			main: {
+				css: {
+					src: './src/files/css',
+					dest: './out/c'
+				},
+				js: {
+					'./out/j/main.js': [
+						'./src/files/js/movie-definition.js'
+					]
+				}
 			}
 		}
 	});

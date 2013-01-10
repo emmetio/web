@@ -1,0 +1,65 @@
+---
+layout: page
+title: Download
+menuOrder: 2
+editors:
+	- title: Sublime Text 2
+	  url: https://github.com/sergeche/emmet-sublime#readme
+	  icon: st.png
+	  comment: cross-platform
+	- title: Eclipse/Aptana
+	  url: https://github.com/emmetio/emmet-eclipse#readme
+	  icon: eclipse.png
+	  comment: cross-platform
+	- title: TextMate 1.x
+	  url: https://github.com/emmetio/Emmet.tmbundle#readme
+	  icon: textmate.png
+	  comment: Mac OS
+	- title: Coda
+	  url: https://github.com/emmetio/Emmet.codaplugin#readme
+	  icon: coda.png
+	  comment: Mac OS
+	- title: Espresso
+	  url: https://github.com/emmetio/Emmet.sugar#readme
+	  icon: espresso.png
+	  comment: Mac OS
+	- title: Chocolat
+	  url: https://github.com/sergeche/emmet.chocmixin#readme
+	  icon: chocolat.png
+	  comment: Mac OS
+	- title: Komodo Edit/IDE
+	  url: http://community.activestate.com/xpi/zen-coding#readme
+	  icon: chocolat.png
+	  comment: cross-platform
+	- title: Notepad++
+	  url: https://github.com/emmetio/emmet/downloads
+	  icon: npp.png
+	  comment: Windows
+	- title: PSPad
+	  url: https://github.com/emmetio/emmet/downloads
+	  icon: pspad.png
+	  comment: Windows
+	- title: textarea
+	  url: https://github.com/emmetio/emmet/downloads
+	  icon: textarea.png
+	  comment: browser based, cross-platform
+	- title: CodeMirror
+	  url: https://github.com/emmetio/emmet/downloads
+	  icon: codemirror.png
+	  comment: browser based, cross-platform
+	- title: Brackets
+	  url: https://github.com/emmetio/emmet/downloads
+	  icon: brackets.png
+	  comment: cross-platform
+---
+<ul class="tiles download">
+	<% for editor in @document.editors: %>
+		<li class="tiles__item">
+			<a href="<%- editor.url %>" class="download__href">
+				<img src="/i/editors/<%= editor.icon %>" class="download__img" />
+				<h3 class="download__title"><%= editor.title %></h3>
+				<p class="download__comment"><%- editor.comment %></p>
+			</a>
+		</li>
+	<% end %>
+</ul>

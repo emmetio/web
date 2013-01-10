@@ -32,3 +32,32 @@
 	color: #fff;
 	border-color: #48770d;
 }
+
+.btn_primary {
+	text-transform: none;
+	background-color: #5b9615;
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#90d14a), to(#5b9615));
+	background-image: -webkit-linear-gradient(#90d14a, #5b9615);
+	background-image: -moz-linear-gradient(#90d14a, #5b9615);
+	background-image: -o-linear-gradient(#90d14a, #5b9615);
+	background-image: linear-gradient(#90d14a, #5b9615);
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+	padding: 0.4em 0.6em;
+
+	border: none;
+	border-left: 1px solid #99c16c;
+	border-top: 1px solid #b4e284;
+
+	-webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0 1px 4px rgba(0,0,0,0.5);
+	box-shadow: 0 1px 4px rgba(0,0,0,0.5);
+
+	-webkit-border-radius: 0.2em;
+	-moz-border-radius: 0.2em;
+	border-radius: 0.2em;
+}
+
+.btn_extra-large {
+	font-size: 3em;
+}
