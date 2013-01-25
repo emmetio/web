@@ -1,24 +1,24 @@
 ---
 layout: page
-title: Вышел Emmet v1.0
+title: Emmet v1.0 is out
 ---
-Я рад сообщить, что после более полугода разработки в свет вышел [Emmet](http://emmet.io) (бывший Zen Coding) v1.0. Возможно, вы уже используете Emmet в течение нескольких месяцев, но только сейчас, после многочисленных исправлений ошибок и улучшений, я могу сказать, что он работает так, как надо.
+I’m happy to announce that after more than six months of development the [Emmet](http://emmet.io) (formerly Zen Coding) v1.0 is officially released. Maybe you’ve already used Emmet for months, but only now, after numerous bug fixes and improvements, I can say that it works as expected.
 
-Что поменялось со времён Zen Coding?
+What was changed since the Zen Coding?
 
-Во-первых, поменялось название. Emmet будет брэндом для новых инструментов и не все они будут связаны с написанием кода (coding).
+At first, the project name was changed. “Emmet” is gonna be brand name for new tools and not all of them will be related to “coding”.
 
-Во-вторых, у проекта появился [полноценный сайт](http://emmet.io) и [обширная документация](http://docs.emmet.io) по всем возможностям. Теперь не надо искать в интернете обрывки информации о том, как пользоваться проектом, вся наиболее полная информация собрана в одном месте.
+Secondly, the project received [official web-site](http://emmet.io) and [extensive documentation](http://docs.emmet.io) about all available features.
 
-В-третьих, улучшилась работа с CSS: значения свойств можно писать прямо в аббревиатуре. Также был учтён опыт и пожелания пользователей: благодаря модулю [нечётного поиска](http://docs.emmet.io/css-abbreviations/fuzzy-search/) вам необязательно запоминать громоздкие названия аббревиатур, достаточно написать всего несколько символов (например, `ov:h` == `ov-h` == `o-h` == `oh` == `overflow: hidden`);
+Thirdly, improved CSS support: you can write property values [directly in the abbreviation](http://docs.emmet.io/css-abbreviations/), [create gradients](http://docs.emmet.io/css-abbreviations/gradients/) and [vendor-prefixed properties](http://docs.emmet.io/css-abbreviations/vendor-prefixes/). Also, user’s reports about lengthy and hard-to-remember CSS abbreviations were considered and now Emmet utilizes [fuzzy search](http://docs.emmet.io/css-abbreviations/fuzzy-search/) for CSS abbreviations.
 
-Вот список остальных значимых изменений:
+Here is a list of other significant changes:
 
-* Полностью переписан код проекта. Он стал более модульным и расширяемым.
-* Отказ от Python-версии. Мне было довольно сложно поддерживать две версии ядра. Вместо отдельной версии теперь используются мосты на [Python](https://github.com/sergeche/emmet-sublime/tree/master/emmet), [Objective-C](https://github.com/emmetio/emmet-objc) и [Java](https://github.com/emmetio/emmet-eclipse), это позволит править баги и добавлять новые возможности очень быстро и сразу на все платформы.
-* Улучшен [модуль определения неявных имён тэгов](http://docs.emmet.io/abbreviations/implicit-names/). Ранее, если вы пытались развернуть аббревиатуру вроде `.item`, то в результате могли получить либо `<div class="item">`, либо `<span class="item">`, в зависимости от типа родительского тэга. Теперь модуль смотрит на название тэга и может вывести, например, `<li>`, `<td>`, `<option>`.
-* [Поддержка расширений](http://docs.emmet.io/customization/). Теперь, чтобы добавить новую аббревиатуру или настроить вывод вывод результата, не надо лезть в код плагина, достаточно создать несколько простых JSON-файлов в специальной папке.
-* [Генератор «Lorem Ipsum»](http://docs.emmet.io/abbreviations/lorem-ipsum/). Ранее, чтобы получить «рыбный» текст для сайта, надо было пользоваться сторонними ресурсами, а затем форматировать результат. Теперь получить такой текст можно прямо в редакторе, причём количество слов в тексте можно регулировать просто дописав число после аббревиатуры. Более того, генератор использует все возможности аббревиатур Emmet, позволяя дописывать нужные атрибуты к генерируемым элементам и регулировать количество создаваемых блоков.
-* [Новый оператор `^`](http://docs.emmet.io/abbreviations/syntax/#climb-up-). Несмотря на то, что в Emmet/Zen Coding довольно давно существует более мощный инструмент в виде [группировки элементов](http://docs.emmet.io/abbreviations/syntax/#grouping-), зачастую осознание того, что следующий элемент в аббревиатуре должен находится уровнем выше, приходит довольно поздно. Пользователям приходилось возвращаться обратно, добавлять скобки и дописывать нужный элемент. Теперь достаточно написать оператор `^`, чтобы подняться на уровень выше, причём можно использовать несколько операторов подряд.
+* The project’s code base was rewritten from scratch. It has become more modular and extensible.
+* The Python version was discarded. I found it quite difficult to maintain two versions of the core. Instead, Emmet uses bridges for [Python](https://github.com/sergeche/emmet-sublime/tree/master/emmet), [Objective-C](https://github.com/emmetio/emmet- objc) and [Java](https://github.com/emmetio/emmet-eclipse), which allows to fix bugs and add new features for all platforms very quickly.
+* Improved [implicit tag name resolver](http://docs.emmet.io/abbreviations/implicit-names/). Previously, if you tried to expand abbreviations like `.item`, you could receive either `<div class="item">`, or `<span class="item">`, depending on the parent tag. The resolver is now looking at a parent tag’s name and can produce, for example, `<li>`, `<td>`, `<option>`.
+* [Extensions support](http://docs.emmet.io/customization/). Now, to add a new abbreviation or customize the output format, there’s no need to dig into the plugin code, you just have to create simple JSON files in a special folder.
+* [“Lorem Ipsum” generator](http://docs.emmet.io/abbreviations/lorem-ipsum/). Previously, to get a “dummy” text for the web-site, you had to use third-party services to generate “dummy” text and then format it. Now you can get it right in your text editor, and you can control the number of generated words by simply appending a number after the abbreviation. Moreover, the generator uses all Emmet abbreviations features, allowing you to add attributes to the generated elements and control the number of created blocks.
+* [New `^` operator](http://docs.emmet.io/abbreviations/syntax/#climb-up-). Despite the fact that there is a more powerful [grouping operator](http://docs.emmet.io/abbreviations/syntax/#grouping-), often the realization that the next item in the abbreviation must appear one level up, comes rather late. Users had to go back and add the brackets and then append the item. Now it is sufficient to write the `^` operator to output next element one level up the tree.
 
-Исходный код и плагины доступны в [специальном репозитории](https://github.com/emmetio). Если вы обнаружили ошибки или у вас есть пожелания по улучшению, буду рад узнать о них в разделе [Issues](https://github.com/emmetio/emmet).
+The project source code and plug-ins are available in [special repository](https://github.com/emmetio). If you find any errors or have suggestions for improvement, I’ll be glad to know about them in the  [Issues](https://github.com/emmetio/emmet) section.
