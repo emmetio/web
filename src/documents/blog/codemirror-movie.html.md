@@ -2,36 +2,36 @@
 layout: page
 title: CodeMirror Movie
 ---
-Для создания Emmet было создано несколько сторонних проектов, с которыми я вас познакомлю в нескольких постах этого блога.
+During Emmet project development, I’ve created a few open-source tools and I’d like to introduce them to you.
 
-Первое, с чем я хотел бы вас познакомить, это [CodeMirror Movie](https://github.com/sergeche/codemirror-movie). Его вы можете у видеть на многих страницах [сайта с документацией](http://docs.emmet.io): это тот самый механизм, который показывает интерактивные презентации.
+The first thing I would like to introduce to you is a [CodeMirror Movie](https://github.com/sergeche/codemirror-movie). You can see it in many pages of [documentation web-site](http://docs.emmet.io): it is the plugin that shows interactive code demos.
 
-Когда я только начинал работу над документацией, мне хотелось более наглядно показать работу действий Emmet. Читать длинные тексты, описывающие особенности работы, всегда скучно и утомительно, гораздо приятнее смотреть как это работает «в живую».
+When I started working on the documentation, I wanted to demonstrate all Emmet features in a more descriptive manner. Reading long texts describing how actions work is always boring and tedious, it is much nicer to see “live” how they works.
 
-Обычно такие задачи решаются записью видео-роликов, но такой вариант не устраивал меня по многим причинам:
+Usually, developers are recording videos with demos, but it’s not my case for many reasons:
 
-* Запись *качественного* ролика требует слишком много времени. Например, на создание [шестиминутного ролика про Zen Coding v0.5](https://vimeo.com/7405114) у меня ушло около четырёх часов.
-* Видео довольно сложно обновлять. Например, если обнаружится ошибка или пользователям будет не понятно, как работает какое-то действие, скорее всего, понадобится ещё несколько часов на перезапись ролика.
-* Так как сам Emmet написан на чистом JS (а значит работает в браузерах), хотелось, чтобы пользователи не только *смотрели*, как работает Emmet, но и *пробовали его в действии* прямо на страницах документации.
+* Recording a *high-quality* video takes too much time. For example, it took me about four hours to create a [six-minute video about Zen Coding v0.5](https://vimeo.com/7405114).
+* The video is hard to update. For example, if someone finds errors  or users will not understand how action works, it’s likely required to create a new movie.
+* Because Emmet is written in pure JavaScript (and hence works in web browsers), I wanted users to not only *see* how things work, but *try* them in action right in documentation pages.
 
-Для решения этих и многих других проблем и был создан [CodeMirror Movie](https://github.com/sergeche/codemirror-movie). Принцип его работы довольно прост: вы создаёте небольшой *сценарий*, в котором указываете, что нужно сделать, например, написать текст, немного подождать, а потом показать всплывающую подсказку.
+To solve these and other problems, and I’ve created [CodeMirror Movie](https://github.com/sergeche/codemirror-movie) plugin. It’s pretty easy to use it: you create a small *script*, which defines what should be done by plugin. For example, ”write the text, wait a moment, and then show the tooltip on current caret position”.
 
-Как можно догадаться из названия, в основе проекта лежит замечательный редактор [CodeMirror](http://codemirror.net), а это значит, что вы можете создавать презентации для любого языка программирования, который поддерживает этот редактор.
+As you can guess from the plugin name, it is based on amazing [CodeMirror](http://codemirror.net) editor, which means that you can create demos for any programming language supported by this editor.
 
-## Создание презентации
+## Creating a movie
 
-Как правило, для создания экземпляра редактора CodeMirror вы создаёте элемент `<textarea>` с начальным содержимым редактора и вызываете следующий JS-код:
+Usually, to create CodeMirror editor instance you create a `<textarea>` element with the initial contents of the editor and call the following JS code:
 
 ```javascript
 var myCodeMirror = CodeMirror.fromTextArea(myTextArea);
 ```
 
-Создать презентацию так же легко: вы создаёте `<textarea>` с начальным содержимым редактора и дописываете туда сценарий презентации, разделив эти секции строкой `@@@`:
+To create a movie, you need create a `<textarea>` too with initial contents and *movie scenario*, separated by `@@@` line:
 
 ```html
 <textarea id="code">
 &lt;div class="content"&gt;
-    |
+    |
 &lt;/div&gt;
 @@@
 type: Hello world
@@ -40,24 +40,24 @@ tooltip: Sample tooltip
 </textarea>
 ```
 
-Для инициализации ролика нужно вызвать метод `CodeMirror.movie()`, передав первым параметром ID элемента `<textarea>` или сам элемент:
+To initialize the movie, you should call `CodeMirror.movie()` method and pass `<textarea>` ID (or element reference) as the first argument:
 
 ```javascript
 var movie = CodeMirror.movie('code');
 
-// начинаем воспроизведение
+// start playback
 movie.play();
 ```
 
-## Сценарий презентации
+## Movie scenario
 
-Как было отмечено выше, для создания презентации вам нужно написать её *сценарий*. 
+As noted above, to create a movie you need to write its *scenario*.
 
-Сценарий представляет собой *список команд*, которые нужно выполнить. Каждая команда пишется на отдельной строке в виде `название: значение`. В качестве значения записывается JS-объект с параметрами команды, однако каждая команда имеет довольно неплохие базовые значения, поэтому достаточно передать всего лишь значение самого главного параметра. Например, вот как выглядит сценарий ролика, который должен набрать «Hello world», а через секунду после завершения набора показать всплывающую подсказку с текстом «Movie tooltip»:
+A scenario is a *list* of commands to be executed. Each command is written on a separate line in the `name: value` form. The value cam be written as JS object with command options, but each command has a pretty good default values so you can pass just a string value of the most important option. For example, the following scenario tells CodeMirror Movie to type “Hello world”, then wait for a second and show “CodeMirror rocks!” tooltip:
 
-	type: Hello world
-	wait: 1000
-	tooltip: Movie tooltip
-	
+type: Hello world
+wait: 1000
+tooltip: CodeMirror rocks!
 
-Более подробную информацию о всех командах и примеры использования можно найти на [странице плагина](https://github.com/sergeche/codemirror-movie). Сам плагин вы можете использовать как угодно (лицензия MIT), особенно хорошо он будет смотреться в JS-движках презентаций вроде [impress.js](http://bartaz.github.com/impress.js/) или [reveal.js](http://lab.hakim.se/reveal-js/). Надеюсь, вам понравится!
+
+For more info about all available scenario commands and examples visit [plugin page](https://github.com/sergeche/codemirror-movie). You can use this plugin whatever you like (MIT license). It looks especially great in JS-based presentation engines like [impress.js](http://bartaz.github.com/impress.js/) or [reveal.js](http://lab.hakim.se/reveal-js/). I hope you enjoy it!
