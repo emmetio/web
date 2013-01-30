@@ -1,5 +1,6 @@
 ---
 layout: page
+blogDate: 2013-02-01 00:01
 title: CodeMirror Movie
 ---
 During Emmet project development, I’ve created a few open-source tools and I’d like to introduce them to you.

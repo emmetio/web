@@ -75,10 +75,16 @@ css: "/c/main.css"
 			<div class="layout__main">
 				<h2>From blog</h2>
 				<ul class="blog-entries">
-					<li class="blog-entries__item">
+					<% for item in @blogPosts(): %>
+						<li class="blog-entries__item">
+							<h3 class="blog-entries__title"><a href="<%= item.url %>"><%= item.title %></a></h3>
+							<p class="blog-entries__info"><%- item.blogDateText %></p>
+						</li>
+					<% end %>
+					<!-- <li class="blog-entries__item">
 						<h3 class="blog-entries__title"><a href="/blog/">Emmet v1.0 released</a></h3>
 						<p class="blog-entries__info">December 22<sup>th</sup>, 2012, 6 comments</p>
-					</li>
+					</li> -->
 				</ul>
 				<a href="https://github.com/emmetio" class="page-footer__github"><img src="/i/github.png" alt="GitHub" width="147" height="66" /></a>
 			</div>

@@ -228,6 +228,10 @@ dt {
 	text-shadow: none;
 }
 
+.site-nav__item_selected > a.site-nav__label:hover {
+	color: #666 !important;
+}
+
 .page-content {
 	/* font-family: georgia, serif; */
 	line-height: 1.6;

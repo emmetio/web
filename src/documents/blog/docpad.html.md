@@ -1,5 +1,6 @@
 ---
 layout: page
+blogDate: 2013-02-01 00:02
 title: Create professional websites with DocPad
 ---
 Continue to introduce my open-source tools, created during Emmet development. Last time it was [CodeMirror Movie](/blog/codemirror-movie/) and this time I’ll introduce you to the process of creating a [documentation web-site](http://docs.emmet.io) with DocPad.
@@ -18,13 +19,13 @@ But DocPad, like many other generators, has a several disadvantages, which does 
 
 If you are not familiar with DocPad, I recommend you see and read [Introduction to DocPad](https://docpad.org/docs/intro) to better understand what I’m going to talk about.
 
-### Menu generation
+## Menu generation
 
 The [docpad-plugin-menu](https://github.com/sergeche/docpad-plugin-menu) can generate a structured menu for all documents of your website (that is, for all the files in `src/documents` folder). This plugin adds a `generateMenu(url)` method to the `templateData` object: the context object of all templates rendering. This method takes the URL of the page for which the menu should be generated and returns a menu object, which can be rendered, for example, using [partials](https://github.com/docpad/docpad-plugin-partials/).
 
 For further information about the plugin and usage examples visit [project’s main page](https://github.com/sergeche/docpad-plugin-menu#readme).
 
-### Building front-end assets
+## Building front-end assets
 
 For convenience, during development I split-up my CSS and JS into several files, which are concatenated and minified for production web-site. It’s a common practice for high-performance websites development. For building, I’m using [Grunt.js](http://gruntjs.com) which seem to have all the required plug-ins for concatenation and minification.
 
@@ -38,7 +39,7 @@ The `grunt-frontend` plugin uses Yandex’s [CSSO](https://github.com/css/csso) 
 
 For more info visit plugin’s [project page](https://github.com/sergeche/grunt-frontend).
 
-### Assets management
+## Assets management
 
 Very often there is a need to manage collections of CSS and JS files on different pages of your website. For example, you want all pages to use a `set1` files collection; all pages of `/about/` section must additionally use `set2` and `set3` collections, but for the  `/about/contacts/` page you want to use `set4` instead of `set2` (i.e. `set1`, `set4`, `set3`, in exactly that order). Additionally, each resource URL must contain file’s last modification date for effective cache resetting.
 
@@ -76,7 +77,7 @@ As you can see, plugin usage is pretty simple: come up with a prefix for resourc
 
 For more info about how to use plugin visit [project’s home page](https://github.com/sergeche/docpad-plugin-frontend#readme).
 
-### Debug Mode ###
+## Debug Mode
 
 Very often, users of your website may send you error reports: a JavaScript or CSS layout problems in specific web-browser. But all your CSS and JS files are minified and it’s pretty hard to track the problem source.
 
@@ -97,7 +98,7 @@ Now if you run `DocPad` with `debug` environment, you get a HTML-page with the o
 
     docpad run --env​​=debug
 
-### Automatic deploy from GitHub
+## Automatically deploy from GitHub
 
 I’ve set-up my server so it can automatically re-generate a full website after each commit into `master` branch of [project’s GitHub repo](https://github.com/emmetio/emmet-docs).
 
@@ -150,7 +151,7 @@ The `deploy.sh` script looks like this:
     docpad generate
     find ./out -type f \( -name '*.html' -o -name '*.css' -o -name '*.js' \)  -exec sh -c "gzip -7 -f < {} > {}.gz" \;
 
-### Configuring nginx
+## Configuring nginx
 
 As a web server, I use [nginx](http://nginx.org), which is highly optimized for static files serving. In website config, we need to specify the following:
 
@@ -186,7 +187,7 @@ My nginx config looks like this:
         gzip_static on;
     }
 
-## tl;dr - How to make a professional high-performance website with DocPad
+## tl;dr - Tools to make a professional high-performance website with DocPad
 
 * Use [docpad-plugin-menu](https://github.com/sergeche/docpad-plugin-menu) for automatic menu generation for your website.
 * Use [grunt-frontend](https://github.com/sergeche/grunt-frontend) and [docpad-plugin-frontend](https://github.com/sergeche/docpad-plugin-frontend) to minify CSS and JS files and cache them properly.
