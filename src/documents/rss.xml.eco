@@ -1,0 +1,29 @@
+---
+menuHidden: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" version="2.0">
+	<channel>
+		<% posts = @blogPosts()[0..20] %>
+		<title><%= @site.title %></title>
+		<link><%= @site.url %></link>
+		<description><%= @site.description %></description>
+		<lastBuildDate><%= posts[0].blogDate.toUTCString() %></lastBuildDate>
+		<language>en</language>
+		<sy:updatePeriod>hourly</sy:updatePeriod>
+		<sy:updateFrequency>1</sy:updateFrequency>
+		<% for post in posts: %>
+			<item>
+				<title><%= post.title %></title>
+				<link><%= @site.url %><%= post.blogUrl %></link>
+				<description><%= post.blogExcerpt %></description>
+				<content:encoded>
+					<![CDATA[<%- post.contentRenderedWithoutLayouts %>]]>
+				</content:encoded>
+				<pubDate><%= post.blogDate.toUTCString() %></pubDate>
+				<guid><%= @site.url %><%= post.blogUrl %></guid>
+				<comments><%= @site.url %><%= post.blogUrl %>#comments</comments>
+			</item>
+		<% end %>
+	</channel>
+</rss>

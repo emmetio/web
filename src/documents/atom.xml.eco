@@ -1,0 +1,26 @@
+---
+menuHidden: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title><%= @site.title %></title>
+	<subtitle><%= @site.description %></subtitle>
+	<link href="<%= @site.url %>/atom.xml" rel="self" />
+	<link href="<%= @site.url %>" />
+	<updated><%= @site.date.toISOString() %></updated>
+	<id><%= @site.url %></id>
+	<author>
+		<name><%= @site.author %></name>
+		<email><%= @site.email %></email>
+	</author>
+
+	<% for post in @blogPosts()[0..20]: %>
+		<entry>
+			<title><%= post.title %></title>
+			<link href="<%= @site.url %><%= post.blogUrl %>"/>
+			<updated><%= post.date.toISOString() %></updated>
+			<id><%= @site.url %><%= post.blogUrl %></id>
+			<content type="html"><%= post.contentRenderedWithoutLayouts %></content>
+		</entry>
+	<% end %>
+</feed>

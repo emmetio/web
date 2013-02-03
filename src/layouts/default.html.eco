@@ -1,5 +1,6 @@
 ---
 css: "/c/main.css"
+js: "/j/main.js"
 ---
 <!doctype html>
 <!--[if lt IE 7]><html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -11,6 +12,7 @@ css: "/c/main.css"
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="chrome=1" />
 <title><%= @document.title %></title>
+<link rel="alternate" type="application/rss+xml" title="<%= @site.description %>" href="http://emmet.io/rss.xml" />
 <% for url in @assets('css'): %>
 <link rel="stylesheet" href="<%= url %>" />
 <% end %>
@@ -43,7 +45,7 @@ css: "/c/main.css"
 				<%- @partial('menu.html.eco', {menuItems: @generateMenu(@document.url)}) %>
 			</nav>
 
-			<p class="donate-href"><a href="/donate/" class="btn"><i class="text-icon">&#128077;</i> Donate</a></p>
+			<p class="donate"><a href="/donate/" class="btn btn_flat"><i class="text-icon">&#128077;</i> Donate</a></p>
 
 			<ul class="social">
 				<li class="social__item">
@@ -51,6 +53,9 @@ css: "/c/main.css"
 				</li>
 				<li class="social__item">
 					<a href="https://twitter.com/emmetio" class="twitter-follow-button" data-show-count="false">Follow @emmetio</a>
+				</li>
+				<li class="social__item">
+					<div class="g-plusone" data-size="medium"></div>
 				</li>
 			</ul>
 			
@@ -77,14 +82,10 @@ css: "/c/main.css"
 				<ul class="blog-entries">
 					<% for item in @blogPosts(): %>
 						<li class="blog-entries__item">
-							<h3 class="blog-entries__title"><a href="<%= item.url %>"><%= item.title %></a></h3>
-							<p class="blog-entries__info"><%- item.blogDateText %></p>
+							<h3 class="blog-entries__title"><a href="<%= item.blogUrl %>"><%= item.title %></a></h3>
+							<p class="blog-entries__info"><%- item.blogDateText %>, <a href="<%= item.blogUrl %>#disqus_thread">no comments</a></p>
 						</li>
 					<% end %>
-					<!-- <li class="blog-entries__item">
-						<h3 class="blog-entries__title"><a href="/blog/">Emmet v1.0 released</a></h3>
-						<p class="blog-entries__info">December 22<sup>th</sup>, 2012, 6 comments</p>
-					</li> -->
 				</ul>
 				<a href="https://github.com/emmetio" class="page-footer__github"><img src="/i/github.png" alt="GitHub" width="147" height="66" /></a>
 			</div>
@@ -104,8 +105,23 @@ css: "/c/main.css"
 	
 	// twitter
 	!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs"); 
+	
+	// disqus
+	var disqus_shortname = 'emmet';
+	
+	(function () {
+		var s = document.createElement('script'); s.async = true;
+		s.type = 'text/javascript';
+		s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+		(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+	}());
+
+	// g+
+	(function() {
+	var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+	po.src = 'https://apis.google.com/js/plusone.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	})();
 	</script>
-
-
 </body>
 </html>

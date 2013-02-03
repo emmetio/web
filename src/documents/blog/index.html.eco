@@ -1,0 +1,21 @@
+---
+layout: page
+title: Blog
+documentTitle: "Blog <a href=\"/rss.xml\" class=\"rss\">RSS</a> <a href=\"/atom.xml\" class=\"atom\">Atom</a>"
+menuOrder: 4
+---
+<% for item in @blogPosts()[0..20]: %>
+	<section class="blog__item">
+		<h2 class="blog__title"><a href="<%= item.blogUrl %>"><%= item.title %></a></h2>
+		<div class="blog__excerpt">
+			<p><%- item.blogExcerpt %></p>
+		</div>
+
+		<a href="<%= item.blogUrl %>" class="btn blog__read-btn">Read →</a>
+
+		<ul class="blog__toolbar">
+			<li class="blog__toolbar-item"><span class="blog__date"><%- item.blogDateText %></span></li>
+			<li class="blog__toolbar-item"><a href="<%= item.blogUrl %>#disqus_thread" class="blog__comments">No comments</a></li>
+		</ul>
+	</section>
+<% end %>

@@ -9,29 +9,57 @@ daySuffix = (d) ->
     last = d.substr(-Math.min(d.length, 2))
     if last > 3 and last < 21 then "th" else s[Math.min(Number(d) % 10, 4)]
 
+parseBlogDate = (date) ->
+	m = (date or '').match /^(\d{4})\-(\d{2})-(\d{2})/
+	if m
+		return new Date(+m[1], +m[2] - 1, m[3])
+
 docpadConfig = {
 	templateData:
 		site:
 			author: "Sergey Chikuyonok"
-			name: "Emmet Main Web-site"
+			email: "info@emmet.io"
+			title: "Emmet"
+			description: "Emmet — the essential toolkit for web-developers"
+			url: "http://emmet.io"
 
 		blogPosts: () ->
 			@getCollection('posts').toJSON().map (item) =>
-				item.blogDateText = @blogDate(item.blogDate)
-				item.url = item.url.replace /\.html$/, '/'
+				item.blogDate = parseBlogDate(item.blogDate)
+				if item.blogDate
+					item.blogDateText = @formatBlogDate(item.blogDate)
+				item.blogUrl = item.url.replace /\.html$/, '/'
 				item
 
 
-		blogDate: (date) ->
-			m = date.match /^(\d{4})\-(\d{2})-(\d{2})/
-			if m
-				day = parseInt(m[3], 10) + "<sup>#{daySuffix(m[3])}</sup>"
-				month = months[+m[2] - 1]
-				year = if (new Date).getFullYear() isnt +m[1] then ", #{m[1]}" else ''
+		formatBlogDate: (date) ->
+			d = date.getDate()
+			day = "#{d}<sup>#{daySuffix(d)}</sup>"
+			month = months[date.getMonth()]
+			year = if (new Date).getFullYear() isnt date.getFullYear() then ", #{m[1]}" else ''
+			"#{month} #{day}#{year}"
 
-				return "#{month} #{day}#{year}"
+		nextBlogPost: (url) ->
+			posts = @blogPosts()
+			ix = -1
+			for i, post of posts
+				if post.url is url
+					ix = +i
+					break
 
-			return date
+			if ix > 0
+				return posts[ix - 1]
+
+		prevBlogPost: (url) ->
+			posts = @blogPosts()
+			ix = -1
+			for i, post of posts
+				if post.url is url
+					ix = +i
+					break
+
+			if ix isnt -1 and ix < posts.length - 1
+				return posts[ix + 1]
 
 
 	plugins:
@@ -76,7 +104,6 @@ docpadConfig = {
 				next()
 
 			server.get /^\/blog\/([\w\-]+)\/?$/, (req, res, next) ->
-				console.log 'Rewite to ' + req.url.replace(/\/$/, '') + '.html'
 				req.url = req.url.replace(/\/$/, '') + '.html'
 				next()
 }

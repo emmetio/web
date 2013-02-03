@@ -14,19 +14,19 @@ editors:
 	- title: TextMate 1.x
 	  url: https://github.com/emmetio/Emmet.tmbundle#readme
 	  icon: textmate.png
-	  comment: Mac OS
+	  comment: Mac
 	- title: Coda
 	  url: https://github.com/emmetio/Emmet.codaplugin#readme
 	  icon: coda.png
-	  comment: Mac OS
+	  comment: Mac
 	- title: Espresso
 	  url: https://github.com/emmetio/Emmet.sugar#readme
 	  icon: espresso.png
-	  comment: Mac OS
+	  comment: Mac
 	- title: Chocolat
 	  url: https://github.com/sergeche/emmet.chocmixin#readme
 	  icon: chocolat.png
-	  comment: Mac OS
+	  comment: Mac
 	- title: Komodo Edit/IDE
 	  url: http://community.activestate.com/xpi/zen-coding#readme
 	  icon: chocolat.png
@@ -51,15 +51,50 @@ editors:
 	  url: https://github.com/emmetio/emmet/downloads
 	  icon: brackets.png
 	  comment: cross-platform
+
+onlineServices:
+	- title: JSFiddle
+	  url: http://jsfiddle.net
+	  icon: jsfiddle.png
+	  comment: The Web Playground
+	- title: JS Bin
+	  url: http://jsbin.com
+	  icon: jsbin.png
+	  comment: A JavaScript, HTML and CSS playground
+	- title: ICEcoder
+	  url: http://icecoder.net
+	  icon: icecoder.png
+	  comment: Online IDE
+
+thirdParty:
+	- title: SynWrite
+	  url: http://www.uvviewsoft.com/synwrite/
+	  icon: synwrite.png
+	  comment: Windows
 ---
+<% tiles = (items) => %>
 <ul class="tiles download">
-	<% for editor in @document.editors: %>
+	<% for editor in items: %>
 		<li class="tiles__item">
 			<a href="<%- editor.url %>" class="download__href">
 				<img src="/i/editors/<%= editor.icon %>" class="download__img" />
 				<h3 class="download__title"><%= editor.title %></h3>
-				<p class="download__comment"><%- editor.comment %></p>
+				<% if editor.comment: %>
+					<p class="download__comment"><%- editor.comment %></p>
+				<% end %>
 			</a>
 		</li>
 	<% end %>
-</ul>
+</ul>	
+<% end %>
+
+
+<%- tiles @document.editors %>
+
+<h2>Online services</h2>
+<%- tiles @document.onlineServices %>
+
+<h2>Third-party plugins</h2>
+<p>These plugins are using official Emmet engine and developed by third-party developers. May not support all Emmet features and actions.</p>
+<%- tiles @document.thirdParty %>
+

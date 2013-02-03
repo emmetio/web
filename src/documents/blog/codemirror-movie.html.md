@@ -1,6 +1,7 @@
 ---
-layout: page
+layout: blogPost
 blogDate: 2013-02-01 00:01
+blogExcerpt: "During Emmet project development, I’ve created a few open-source tools and I’d like to introduce them to you. The first thing I would like to introduce to you is a CodeMirror Movie. You can see it in many pages of documentation web-site: it is the plugin that shows interactive code demos."
 title: CodeMirror Movie
 ---
 During Emmet project development, I’ve created a few open-source tools and I’d like to introduce them to you.

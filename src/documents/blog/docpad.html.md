@@ -1,6 +1,7 @@
 ---
-layout: page
+layout: blogPost
 blogDate: 2013-02-01 00:02
+blogExcerpt: "Continue to introduce my open-source tools, created during Emmet development. Last time it was CodeMirror Movie and this time I’ll introduce you to the process of creating a documentation web-site with DocPad."
 title: Create professional websites with DocPad
 ---
 Continue to introduce my open-source tools, created during Emmet development. Last time it was [CodeMirror Movie](/blog/codemirror-movie/) and this time I’ll introduce you to the process of creating a [documentation web-site](http://docs.emmet.io) with DocPad.

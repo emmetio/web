@@ -25,6 +25,7 @@ module.exports = function(grunt) {
 				},
 				js: {
 					'./out/j/main.js': [
+						'./src/files/js/main.js',
 						'./src/files/js/movie-definition.js'
 					]
 				}
