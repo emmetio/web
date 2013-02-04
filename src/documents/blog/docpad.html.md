@@ -8,17 +8,17 @@ Continue to introduce my open-source tools, created during Emmet development. La
 
 ---
 
-[DocPad](https://docpad.org) is a static website generator written in CoffeeScript. Unlike web-sites created with regular CMS like Django, Drupal and Wordpress, static websites consume very little of server resources as these are a set of simple pre-generated HTML files. That is, you need web server like Apache or nginx only to serve such website.
+[DocPad](https://docpad.org) is a static website generator written in CoffeeScript. Unlike websites created with regular CMS as Django, Drupal and Wordpress, static websites, being a set of simple pre-generated HTML files, consume very little of server resources. That’s why you need web server like Apache or nginx only to serve such websites
 
-It was an ideal solution for [Emmet documentation](http://docs.emmet.io) ([source code](https://github.com/emmetio/emmet-docs)) website since it not only provides a simplified development process, but allows me to reduce my hosting costs greatly.
+It was an ideal solution for [Emmet documentation](http://docs.emmet.io) ([source code](https://github.com/emmetio/emmet-docs)) website because it not only provides a simplified development process, but allows me to reduce my hosting costs greatly.
 
-But DocPad, like many other generators, has a several disadvantages, which does not allows to create a truly professional and fast web-sites. So I decided to fix them by writing a few plug-ins:
+But DocPad, like many other generators, has a several disadvantages, which do not allow to create a truly professional and fast websites. So I decided to fix them by writing a few plug-ins:
 
 * [docpad-plugin-menu](https://github.com/sergeche/docpad-plugin-menu) - Automatic web-site menu generation.
 * [grunt-frontend](https://github.com/sergeche/grunt-frontend) - “smart” front-end assets builder.
 * [docpad-plugin-frontend](https://github.com/sergeche/docpad-plugin-frontend) - outputs CSS and JS files, builded  with `grunt-frontend`, with proper correct caching, and provides assets management across templates.
 
-If you are not familiar with DocPad, I recommend you see and read [Introduction to DocPad](https://docpad.org/docs/intro) to better understand what I’m going to talk about.
+If you are not familiar with DocPad, I recommend you to see and read [Introduction to DocPad](https://docpad.org/docs/intro) for better understanding what I’m going to talk about.
 
 ## Menu generation
 
@@ -28,11 +28,11 @@ For further information about the plugin and usage examples visit [project’s m
 
 ## Building front-end assets
 
-For convenience, during development I split-up my CSS and JS into several files, which are concatenated and minified for production web-site. It’s a common practice for high-performance websites development. For building, I’m using [Grunt.js](http://gruntjs.com) which seem to have all the required plug-ins for concatenation and minification.
+For convenience, I usually split-up my CSS and JS into several files, which are concatenated and minified for production website. It’s a common practice for high-performance websites development. For building, I use [Grunt.js](http://gruntjs.com) which seems to have all the required plug-ins for concatenation and minification.
 
-But I didn’t found anything suitable there. The problem is that minified file’s *modification date* is very important to me since I’m going to use it file’s URL to effectively reset file cache. Therefore the destination file should be updated only if any of the source files did.
+But I didn’t find anything suitable there. The problem is that minified file’s *modification date* is very important for me because I’m going to use it in file’s URL to effectively reset file cache. Therefore, the destination file should be updated only if any of the source files did.
 
-To solve this problem, I wrote the [grunt-frontend](https://github.com/sergeche/grunt-frontend) plugin. Here’s how it works. During concatenation and minification of source files, it writes files list and their md5 hashes into a special `.build-catalog.json` file. On next build plugin compares saved file list state with the original one and if nothing changed, it doesn‘t update the destination file.
+To solve this problem I wrote the [grunt-frontend](https://github.com/sergeche/grunt-frontend) plugin. Here’s how it works. During concatenation and minification of source files, it writes files list and their md5 hashes into a special `.build-catalog.json` file. On the next build plugin compares saved file list state with the original one and if nothing changed, it doesn‘t update the destination file.
 
 This not only reduces the build time, but also allows you to save important data of destination file such as modification date and md5 hash. This data is stored in `.build-catalog.json` (it’s better to keep this file out of version control) and can be read by third-party apps.
 
@@ -80,9 +80,9 @@ For more info about how to use plugin visit [project’s home page](https://gith
 
 ## Debug Mode
 
-Very often, users of your website may send you error reports: a JavaScript or CSS layout problems in specific web-browser. But all your CSS and JS files are minified and it’s pretty hard to track the problem source.
+Very often users of your website may send you error reports: a JavaScript or CSS layout problems in specific web-browser. But all your CSS and JS files are minified and it’s pretty hard to track the problem source.
 
-In the future, you can track issues using [Source Maps](http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/), but currently not every minifier and web-browsers supports them.
+You can track issues using [Source Maps](http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/) in the future, but currently not every minifier and web-browsers supports them.
 
 The `docpad-plugin-frontend` has a special debugging mode. Since the structure of minified files is stored in the JSON catalog, we can easily extract source files and use them instead on minified ones when necessary.
 
@@ -95,7 +95,7 @@ To do this, you can create a separate DocPad _environment_ with `frontendDebug: 
                 frontendDebug: true
     }
 
-Now if you run `DocPad` with `debug` environment, you get a HTML-page with the original CSS and JS files so you can spot errors:
+Now if you run `DocPad` with `debug` environment, you will get a HTML-page with the original CSS and JS files so you will be able to  spot errors:
 
     docpad run --env​​=debug
 
@@ -154,12 +154,12 @@ The `deploy.sh` script looks like this:
 
 ## Configuring nginx
 
-As a web server, I use [nginx](http://nginx.org), which is highly optimized for static files serving. In website config, we need to specify the following:
+I use [nginx](http://nginx.org) as a web server, which is highly optimized for static files serving. In nginx website config, we need to specify the following:
 
 * Rewrite paths for static files: remove the timestamp prefix from URL and send the correct caching headers.
 * Serve static files gzipped to reduce the amount of transferred data.
 
-If you take a closer look at the `deploy.sh` script, you’ll see that in the last step we are creating a gzipped versions of HTML, CSS and JS files. There is a special nginx [HttpGzipStaticModule](http://wiki.nginx.org/HttpGzipStaticModule) which can serve a precompressed `.gz` file (if it exists at the same location) instead of compressing it for each request. This trick allows us to save CPU resources. To use this module, you must add it to nginx at compile time:
+If you take a closer look at the `deploy.sh` script, you’ll see that in the last step we created a gzipped versions of HTML, CSS and JS files. There is a special nginx [HttpGzipStaticModule](http://wiki.nginx.org/HttpGzipStaticModule) which can serve a precompressed `.gz` file (if it exists at the same location) instead of compressing it for each request. This trick allows us to save CPU resources. To use this module, you must add it to nginx at compile time:
 
     ./configure --with-http_gzip_static_module
 

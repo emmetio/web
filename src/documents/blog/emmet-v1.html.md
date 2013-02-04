@@ -4,7 +4,7 @@ blogDate: 2013-02-01 00:00
 title: Emmet v1.0 is out
 blogExcerpt: "I’m happy to announce that after more than six months of development the Emmet v1.0 is officially released. Maybe you’ve already used Emmet for months, but only now, after numerous bug fixes and improvements, I can say that it works as expected."
 ---
-I’m happy to announce that after more than six months of development the [Emmet](http://emmet.io) (formerly Zen Coding) v1.0 is officially released. Maybe you’ve already used Emmet for months, but only now, after numerous bug fixes and improvements, I can say that it works as expected.
+I’m happy to announce that after more than six months of development the [Emmet](http://emmet.io) (formerly Zen Coding) v1.0 is officially released. Maybe you’ve already been using Emmet for months, but only now, after numerous bug fixes and improvements, I can say that it works as expected.
 
 What has been changed since the Zen Coding?
 
