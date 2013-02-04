@@ -29,7 +29,7 @@ editors:
 	  comment: Mac
 	- title: Komodo Edit/IDE
 	  url: http://community.activestate.com/xpi/zen-coding#readme
-	  icon: chocolat.png
+	  icon: komodo.png
 	  comment: cross-platform
 	- title: Notepad++
 	  url: https://github.com/emmetio/emmet/downloads
