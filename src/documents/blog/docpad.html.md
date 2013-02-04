@@ -1,16 +1,16 @@
 ---
 layout: blogPost
 blogDate: 2013-02-01 00:02
-blogExcerpt: "Continue to introduce my open-source tools, created during Emmet development. Last time it was CodeMirror Movie and this time I’ll introduce you to the process of creating a documentation web-site with DocPad."
+blogExcerpt: "Continue to introduce my open-source tools, created during Emmet development. Last time it was CodeMirror Movie and this time I’ll introduce you the process of creating a documentation web-site with DocPad."
 title: Create professional websites with DocPad
 ---
-Continue to introduce my open-source tools, created during Emmet development. Last time it was [CodeMirror Movie](/blog/codemirror-movie/) and this time I’ll introduce you to the process of creating a [documentation web-site](http://docs.emmet.io) with DocPad.
+Continue to introduce my open-source tools, created during Emmet development. Last time it was [CodeMirror Movie](/blog/codemirror-movie/) and this time I’ll introduce you the process of creating a [documentation web-site](http://docs.emmet.io) with DocPad.
 
 ---
 
-[DocPad](https://docpad.org) is a static web-site generator written in CoffeeScript. Unlike web-sites created with regular CMS like Django, Drupal and Wordpress, static web-sites consumes very little of server resources as these are a set of simple pre-generated HTML files. That is, you need web server like Apache or nginx only to serve such web-site.
+[DocPad](https://docpad.org) is a static website generator written in CoffeeScript. Unlike web-sites created with regular CMS like Django, Drupal and Wordpress, static websites consume very little of server resources as these are a set of simple pre-generated HTML files. That is, you need web server like Apache or nginx only to serve such website.
 
-It was an ideal solution for [Emmet documentation](http://docs.emmet.io) ([source code](https://github.com/emmetio/emmet-docs)) web-site since it not only provides a simplified development process, but allows me to reduce my hosting costs greatly.
+It was an ideal solution for [Emmet documentation](http://docs.emmet.io) ([source code](https://github.com/emmetio/emmet-docs)) website since it not only provides a simplified development process, but allows me to reduce my hosting costs greatly.
 
 But DocPad, like many other generators, has a several disadvantages, which does not allows to create a truly professional and fast web-sites. So I decided to fix them by writing a few plug-ins:
 
