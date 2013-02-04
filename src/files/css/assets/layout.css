@@ -363,7 +363,7 @@ dt {
 }
 
 .download .tiles__item {
-	min-height: auto;
+	min-height: 0;
 }
 
 .author-info {
