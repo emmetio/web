@@ -3,7 +3,7 @@ layout: page
 title: Download
 menuOrder: 2
 editors:
-	- title: Sublime Text 2
+	- title: Sublime Text
 	  url: https://github.com/sergeche/emmet-sublime#readme
 	  icon: st.png
 	  comment: cross-platform
@@ -14,25 +14,25 @@ editors:
 	- title: TextMate 1.x
 	  url: https://github.com/emmetio/Emmet.tmbundle#readme
 	  icon: textmate.png
-	  comment: Mac
+	  comment: "OS X"
 	- title: Coda
 	  url: https://github.com/emmetio/Emmet.codaplugin#readme
 	  icon: coda.png
-	  comment: Mac
+	  comment: "OS X"
 	- title: Espresso
 	  url: https://github.com/emmetio/Emmet.sugar#readme
 	  icon: espresso.png
-	  comment: Mac
+	  comment: "OS X"
 	- title: Chocolat
 	  url: https://github.com/sergeche/emmet.chocmixin#readme
 	  icon: chocolat.png
-	  comment: Mac
-	- title: Komodo Edit/IDE
+	  comment: "OS X"
+	- title: Komodo Edit
 	  url: http://community.activestate.com/xpi/zen-coding#readme
 	  icon: komodo.png
 	  comment: cross-platform
 	- title: Notepad++
-	  url: https://github.com/emmetio/emmet/downloads
+	  url: https://github.com/emmetio/npp#readme
 	  icon: npp.png
 	  comment: Windows
 	- title: PSPad
@@ -44,11 +44,11 @@ editors:
 	  icon: textarea.png
 	  comment: browser based, cross-platform
 	- title: CodeMirror
-	  url: https://github.com/emmetio/emmet/downloads
+	  url: https://github.com/emmetio/codemirror#readme
 	  icon: codemirror.png
 	  comment: browser based, cross-platform
 	- title: Brackets
-	  url: https://github.com/emmetio/emmet/downloads
+	  url: https://github.com/emmetio/brackets-emmet#readme
 	  icon: brackets.png
 	  comment: cross-platform
 
@@ -71,6 +71,10 @@ thirdParty:
 	  url: http://www.uvviewsoft.com/synwrite/
 	  icon: synwrite.png
 	  comment: Windows
+	- title: WebStorm
+	  url: http://www.jetbrains.com/webstorm/
+	  icon: webstorm.png
+	  comment: cross-platform
 ---
 <% tiles = (items) => %>
 <ul class="tiles download">
