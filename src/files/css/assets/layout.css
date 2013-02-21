@@ -117,6 +117,7 @@ dt {
 
 .page {
 	margin-top: 125px;
+	margin-bottom: 26em;
 	position: relative;
 	z-index: 1;
 }
@@ -268,9 +269,13 @@ dt {
 	clear: both;
 	background: #000;
 	padding: 50px 0;
-	margin-top: 80px;
-	position: relative;
+	position: absolute;
 	color: #656565;
+	width: 100%;
+	bottom: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .page-footer:before {
@@ -346,6 +351,7 @@ dt {
 	list-style: none;
 	margin: 0;
 	padding: 0;
+	min-height: 90px;
 }
 
 .social__item {
@@ -366,6 +372,8 @@ dt {
 	font-style: italic;
 	font-size: 0.9em;
 	color: #999;
+	line-height: 1.4;
+	margin-top: 0.3em;
 }
 
 .tiles__item .download__href {

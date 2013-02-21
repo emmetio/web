@@ -65,6 +65,10 @@ onlineServices:
 	  url: http://icecoder.net
 	  icon: icecoder.png
 	  comment: Online IDE
+	- title: Divshot
+	  url: http://www.divshot.com
+	  icon: divshot.png
+	  comment: The Interface Builder for Web Apps
 
 thirdParty:
 	- title: SynWrite

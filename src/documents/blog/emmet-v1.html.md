@@ -23,4 +23,16 @@ Here is a list of other significant changes:
 * [“Lorem Ipsum” generator](http://docs.emmet.io/abbreviations/lorem-ipsum/). Previously, to get a “dummy” text for the web-site, you had to use third-party services to generate “dummy” text and then format it. Now you can get it right in your text editor, and you can control the number of generated words by simply appending a number after the abbreviation. Moreover, the generator uses all Emmet abbreviations features, allowing you to add attributes to the generated elements and control the number of created blocks.
 * [New `^` operator](http://docs.emmet.io/abbreviations/syntax/#climb-up-). Despite the fact that there is a more powerful [grouping operator](http://docs.emmet.io/abbreviations/syntax/#grouping-), often it takes too much time to update abbreviation with braces to output the next element one level up. Now it is sufficient to write the `^` operator to output next element one level up the tree.
 
+## What’s new since beta release
+
+* You can [control numbering base and direction](http://docs.emmet.io/abbreviations/syntax/#changing-numbering-base-and-direction) with `@` modifier. For example, `ul>li.item$@-*5` will number items in descending order (e.g. from 5 to 1).
+* To automatically align expanded CSS properties with vendor prefixes, set [`css.alignVendor` preference](http://docs.emmet.io/customization/preferences/) to `true`.
+* In most editors, “Update Image Size” will also work for remote images (like `http://example.com/image.png`).
+* [Fuzzy search](http://docs.emmet.io/css-abbreviations/fuzzy-search/) for CSS abbreviations.
+* [Embedded color values](http://docs.emmet.io/css-abbreviations/#color-values) in CSS abbreviations.
+* [Espresso](https://github.com/emmetio/Emmet.sugar#readme), [Coda](https://github.com/emmetio/Emmet.codaplugin#readme) and [TextMate](https://github.com/emmetio/Emmet.tmbundle#readme) plugins are automatically updated via Sparkle.
+* [Notepad++ plugin](https://github.com/emmetio/npp) now uses Python Script base (thanks to Dave Brotherstone) which is more stable and feature-rich than previous one. Also, it’s available in Plugin Manager.
+
+----
+
 The project source code and plug-ins are available in [special repository](https://github.com/emmetio). If you find any errors or have suggestions for improvement, please [let me know](https://github.com/emmetio/emmet/issues).
