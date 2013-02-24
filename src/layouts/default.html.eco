@@ -56,7 +56,7 @@ js: "/j/main.js"
 					<a href="https://twitter.com/emmetio" class="twitter-follow-button" data-show-count="false">Follow @emmetio</a>
 				</li>
 				<li class="social__item">
-					<div class="g-plusone" data-size="medium"></div>
+					<div class="g-plusone" data-href="http://emmet.io" data-size="medium"></div>
 				</li>
 			</ul>
 			
