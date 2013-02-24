@@ -329,8 +329,9 @@ dt {
 }
 
 .donate .text-icon {
-	font-size: 3em;
-	line-height: 0.5;
+	font-size: 40px;
+	line-height: 20px;
+	height: 40px;
 	margin: -.4em 0;
 	vertical-align: baseline;
 	position: relative;

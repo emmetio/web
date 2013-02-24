@@ -103,6 +103,6 @@ thirdParty:
 <%- tiles @document.onlineServices %>
 
 <h2>Third-party support</h2>
-<p>These editors and plugins are using official Emmet engine and developed by third-party developers. May not support all Emmet features and actions.</p>
+<p>The plugins for these editors are developed by third-party developers. May not support all Emmet features and actions.</p>
 <%- tiles @document.thirdParty %>
 
