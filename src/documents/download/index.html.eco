@@ -28,7 +28,7 @@ editors:
 	  icon: chocolat.png
 	  comment: "OS X"
 	- title: Komodo Edit
-	  url: http://community.activestate.com/xpi/zen-coding#readme
+	  url: http://community.activestate.com/xpi/zen-coding
 	  icon: komodo.png
 	  comment: cross-platform
 	- title: Notepad++
