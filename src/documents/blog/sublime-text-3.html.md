@@ -1,6 +1,6 @@
 ---
 layout: blogPost
-blogDate: 2013-02-25 00:03
+blogDate: 2013-24-25 00:03
 blogExcerpt: "Emmet now supports Sublime Text 3 beta! "
 title: Sublime Text 3 support
 ---
