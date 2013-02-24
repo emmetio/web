@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Blog
-documentTitle: "Blog <a href=\"/rss.xml\" class=\"rss\">RSS</a> <a href=\"/atom.xml\" class=\"atom\">Atom</a>"
+documentTitle: "Blog <a href=\"http://feeds.feedburner.com/emmet/EEpM\" class=\"rss\">RSS</a>"
 menuOrder: 4
 ---
 <% for item in @blogPosts()[0..20]: %>

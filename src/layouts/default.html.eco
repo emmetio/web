@@ -13,7 +13,7 @@ js: "/j/main.js"
 <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
 <title><%= @document.title %></title>
 <link rel="shortcut icon" href="/favicon.ico" />
-<link rel="alternate" type="application/rss+xml" title="<%= @site.description %>" href="/rss.xml" />
+<link rel="alternate" type="application/rss+xml" title="<%= @site.description %>" href="http://feeds.feedburner.com/emmet/EEpM" />
 <% for url in @assets('css'): %>
 <link rel="stylesheet" href="<%= url %>" />
 <% end %>
