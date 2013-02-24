@@ -101,6 +101,11 @@ pre, .box {
 	border-radius: 6px;
 }
 
+blockquote {
+	font-family: georgia, serif;
+	font-style: italic;
+}
+
 dt {
 	font-weight: bold;
 	color: #fff;
