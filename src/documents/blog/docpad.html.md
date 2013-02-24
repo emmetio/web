@@ -8,6 +8,16 @@ Continue to introduce my open-source tools, created during Emmet development. La
 
 ---
 
+## tl;dr - Tools to make a professional high-performance website with DocPad
+
+* Use [docpad-plugin-menu](https://github.com/sergeche/docpad-plugin-menu) for automatic menu generation for your website.
+* Use [grunt-frontend](https://github.com/sergeche/grunt-frontend) and [docpad-plugin-frontend](https://github.com/sergeche/docpad-plugin-frontend) to minify CSS and JS files and cache them properly.
+* Create a special debugging environment for `docpad-plugin-frontend` to use source CSS and JS files instead of minified ones.
+* Set up a web hooks on GitHub and [Gith](http://weblog.bocoup.com/introducing-gith-github-webhooks-for-node/) on your server to automatically deploy website after each commit.
+* Setting up nginx to properly cache static files and save CPU resources.
+
+---
+
 [DocPad](https://docpad.org) is a static website generator written in CoffeeScript. Unlike websites created with regular CMS as Django, Drupal and Wordpress, static websites, being a set of simple pre-generated HTML files, consume very little of server resources. That’s why you need web server like Apache or nginx only to serve such websites
 
 It was an ideal solution for [Emmet documentation](http://docs.emmet.io) ([source code](https://github.com/emmetio/emmet-docs)) website because it not only provides a simplified development process, but allows me to reduce my hosting costs greatly.
@@ -187,11 +197,3 @@ My nginx config looks like this:
         # enable precompressed .gz files serving
         gzip_static on;
     }
-
-## tl;dr - Tools to make a professional high-performance website with DocPad
-
-* Use [docpad-plugin-menu](https://github.com/sergeche/docpad-plugin-menu) for automatic menu generation for your website.
-* Use [grunt-frontend](https://github.com/sergeche/grunt-frontend) and [docpad-plugin-frontend](https://github.com/sergeche/docpad-plugin-frontend) to minify CSS and JS files and cache them properly.
-* Create a special debugging environment for `docpad-plugin-frontend` to use source CSS and JS files instead of minified ones.
-* Set up a web hooks on GitHub and [Gith](http://weblog.bocoup.com/introducing-gith-github-webhooks-for-node/) on your server to automatically deploy website after each commit.
-* Setting up nginx to properly cache static files and save CPU resources.
