@@ -79,6 +79,10 @@ thirdParty:
 	  url: http://www.jetbrains.com/webstorm/
 	  icon: webstorm.png
 	  comment: cross-platform
+	- title: Vim
+	  url: https://github.com/mattn/zencoding-vim
+	  icon: vim.png
+	  comment: cross-platform
 ---
 <% tiles = (items) => %>
 <ul class="tiles download">
