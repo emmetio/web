@@ -181,3 +181,12 @@
 	content: '←';
 	left: -1.5em;
 }
+
+.blog-post__date {
+	font-family: georgia, serif;
+	font-style: italic;
+	font-size: 0.9em;
+	margin-top: -0.7em;
+	color: #fff;
+
+}

@@ -1,6 +1,7 @@
 ---
 layout: page
 ---
+<p class="blog-post__date"><%- @formatBlogDate(@document.blogDate) %></p>
 <%- @content %>
 
 <% blogLink = (item, dir) => %>

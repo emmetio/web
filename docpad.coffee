@@ -1,5 +1,6 @@
 exec = require('child_process').exec
 hljs = require './plugins/highlight.js'
+_ = require 'underscore'
 
 months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
@@ -33,6 +34,8 @@ docpadConfig = {
 
 
 		formatBlogDate: (date) ->
+			if _.isString date
+				date = parseBlogDate(date)
 			d = date.getDate()
 			day = "#{d}<sup>#{daySuffix(d)}</sup>"
 			month = months[date.getMonth()]
