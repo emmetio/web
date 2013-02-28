@@ -14,6 +14,7 @@ js: "/j/main.js"
 <title><%= @document.title %></title>
 <link rel="shortcut icon" href="/favicon.ico" />
 <link rel="alternate" type="application/rss+xml" title="<%= @site.description %>" href="http://feeds.feedburner.com/emmet/EEpM" />
+<meta property="og:image" content="<%= @site.url %>/i/logo-large.png" />
 <% for url in @assets('css'): %>
 <link rel="stylesheet" href="<%= url %>" />
 <% end %>
