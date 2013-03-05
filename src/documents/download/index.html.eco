@@ -12,7 +12,7 @@ editors:
 	  icon: eclipse.png
 	  comment: cross-platform
 	- title: TextMate 1.x
-	  url: https://github.com/emmetio/Emmet.tmbundle#readme
+	  url: https://github.com/emmetio/Emmet.tmplugin#readme
 	  icon: textmate.png
 	  comment: "OS X"
 	- title: Coda
