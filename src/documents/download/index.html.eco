@@ -79,6 +79,10 @@ thirdParty:
 	  url: http://www.jetbrains.com/webstorm/
 	  icon: webstorm.png
 	  comment: cross-platform
+	- title: PhpStorm
+	  url: http://www.jetbrains.com/phpstorm/
+	  icon: phpstorm.png
+	  comment: cross-platform
 	- title: Vim
 	  url: https://github.com/mattn/zencoding-vim
 	  icon: vim.png
