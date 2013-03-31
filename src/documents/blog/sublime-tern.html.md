@@ -4,7 +4,7 @@ blogDate: 2013-04-01 00:00
 blogExcerpt: "Intelligent JavaScript editing in Sublime Text"
 title: TernJS plugin for Sublime Text
 ---
-As [Credits](/credits/) page says, Emmet is going to be a brand name for tools for web-developers. And today I want you to present a new tool: [*Sublime Tern*](https://github.com/emmetio/ternjs-sublime).
+As [Credits](/credits/) page says, Emmet is going to be a brand name for tools for web-developers. And today I want you to present a new tool: [*Sublime Tern*](https://github.com/emmetio/sublime-tern).
 
 ## What is TernJS?
 
