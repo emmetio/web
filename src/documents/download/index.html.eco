@@ -36,11 +36,11 @@ editors:
 	  icon: npp.png
 	  comment: Windows
 	- title: PSPad
-	  url: https://github.com/emmetio/emmet/downloads
+	  url: https://github.com/emmetio/pspad
 	  icon: pspad.png
 	  comment: Windows
 	- title: textarea
-	  url: https://github.com/emmetio/emmet/downloads
+	  url: https://github.com/emmetio/textarea
 	  icon: textarea.png
 	  comment: browser based, cross-platform
 	- title: CodeMirror
