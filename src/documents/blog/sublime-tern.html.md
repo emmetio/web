@@ -89,6 +89,20 @@ Available options:
 * `libs`: array of static type descriptions. These are JSON files with types structure that can be cheaply loaded by TernJS for code completions. See [list of predefined descriptions](https://github.com/emmetio/sublime-tern/tree/master/ternjs/defs). You can also specify a path (either relative to current project or absolute) to your custom JSON files.
 * `plugins`: set of plugins for TernJS instance. Plugins can extend inferring engine and provide completions for some complex situations, for example, to resolve Require.JS or Node.JS modules. See [list of redefined plugins](https://github.com/emmetio/sublime-tern/tree/master/ternjs/plugin). For custom plugins, add `pluginPath` property into your plugin config with path to plugin folder.
 
+## Known issues
+
+Sometimes, especially on complex libraries like jQuery or Underscore.js, you may experience heavy slowdowns or even crashes. Check ST console for possible errors. If you see something like this:
+
+```
+RangeError: Maximum call stack size exceeded ( js/infer.js @ 43 : 21 )
+```
+
+…you should:
+
+1. Report to [main TernJS repo](https://github.com/marijnh/tern) ([like so](https://github.com/marijnh/tern/issues/16)).
+2. Exclude this file(s) from project config with `include` and `exclude` preferences (see “Configuring Project” section above).
+
+
 ---
 
 Please note that Sublime Tern (as TernJS itself) is in early beta stage and may not work properly or even crash your editor. If you experience issues with code completions or crashes, you should report directly to [main TernJS repo](https://github.com/marijnh/tern/issues) or [Sublime Tern plugin repo](https://github.com/emmetio/sublime-tern/issues).
