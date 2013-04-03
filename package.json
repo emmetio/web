@@ -1,18 +1,19 @@
 {
-	"name": "emmet-web",
-	"description": "Emmet Main Web-site",
-	"version": "1.0.0",
-	"private": true,
-	"dependencies": {
-		"underscore": "*",
-
-		"docpad-plugin-marked": ">=2",
-		"docpad-plugin-eco": ">=2",
-		"docpad-plugin-partials": "2.x",
-		"docpad-plugin-menu": "*",
-		"docpad-plugin-frontend": "*",
-
-		"grunt-contrib-copy": ">=0.3.x",
-		"grunt-frontend": ">=1.0.2"
-	}
+  "name": "emmet-web",
+  "description": "Emmet Main Web-site",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "underscore": "*",
+    "docpad-plugin-marked": ">=2",
+    "docpad-plugin-eco": ">=2",
+    "docpad-plugin-partials": "2.x",
+    "docpad-plugin-menu": "*",
+    "docpad-plugin-frontend": "*",
+    "grunt-contrib-copy": ">=0.3.x",
+    "grunt-frontend": ">=1.0.2"
+  },
+  "devDependencies": {
+    "grunt": "~0.3.17"
+  }
 }
