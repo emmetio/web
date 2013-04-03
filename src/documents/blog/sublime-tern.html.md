@@ -1,6 +1,6 @@
 ---
 layout: blogPost
-blogDate: 2013-04-01 00:00
+blogDate: 2013-04-03 00:00
 blogExcerpt: "Intelligent JavaScript editing in Sublime Text"
 title: TernJS plugin for Sublime Text
 ---
