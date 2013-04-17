@@ -11,7 +11,7 @@ editors:
 	  url: https://github.com/emmetio/emmet-eclipse#readme
 	  icon: eclipse.png
 	  comment: cross-platform
-	- title: TextMate 1.x
+	- title: TextMate
 	  url: https://github.com/emmetio/Emmet.tmplugin#readme
 	  icon: textmate.png
 	  comment: "OS X"
@@ -50,6 +50,10 @@ editors:
 	- title: Brackets
 	  url: https://github.com/emmetio/brackets-emmet#readme
 	  icon: brackets.png
+	  comment: cross-platform
+	- title: NetBeans
+	  url: https://github.com/emmetio/netbeans#readme
+	  icon: netbeans.png
 	  comment: cross-platform
 
 onlineServices:
