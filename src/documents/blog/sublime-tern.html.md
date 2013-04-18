@@ -54,9 +54,16 @@ If you create or update files outside ST editor, or you believe that TernJS does
 * **Code Completions**. Press `Ctrl+Space` to show completions for current context. They can also appear automatically, depending on your ST preferences.
 * **Jump to definition**: goes to file and position where context variable/function in defined.
 * **Rename variable**: marks context object occurrences and allows you to rename them. Press `Enter` or `Esc` to commit changes.
+* **Next/Previous occurrence**: selects next/previous occurrence of context variable/method.
 * **Reload**: reloads all JS files from project. Use this action if your files were changed outside ST editor.
 
-All actions are available in ST’s Command Palette and have no default keyboard shortcuts. You can [define them by your own](http://docs.sublimetext.info/en/latest/customization/key_bindings.html), valid command names are `ternjs_jump_to_definition`, `ternjs_rename_variable`, `ternjs_reload`.
+All actions are available in ST’s Command Palette and have no default keyboard shortcuts. You can [define them by your own](http://docs.sublimetext.info/en/latest/customization/key_bindings.html), valid command names are: 
+
+* `ternjs_jump_to_definition`
+* `ternjs_rename_variable`
+* `ternjs_next_occurance`
+* `ternjs_previous_occurance`
+* `ternjs_reload`
 
 ## Configuring project
 
