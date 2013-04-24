@@ -65,6 +65,10 @@ onlineServices:
 	  url: http://jsbin.com
 	  icon: jsbin.png
 	  comment: A JavaScript, HTML and CSS playground
+	- title: CodePen
+	  url: http://codepen.io
+	  icon: codepen.png
+	  comment: A front-end playground
 	- title: ICEcoder
 	  url: http://icecoder.net
 	  icon: icecoder.png
