@@ -9,11 +9,11 @@
     "docpad-plugin-eco": ">=2",
     "docpad-plugin-partials": "2.x",
     "docpad-plugin-menu": "*",
-    "docpad-plugin-frontend": "*",
-    "grunt-contrib-copy": ">=0.3.x",
-    "grunt-frontend": ">=1.0.2"
+    "docpad-plugin-frontend": "~1.1.0",
+    "grunt-frontend": "~1.1.2"
   },
   "devDependencies": {
-    "grunt": "~0.3.17"
+    "grunt": "~0.4",
+    "grunt-contrib-copy": "~0.4.1"
   }
 }

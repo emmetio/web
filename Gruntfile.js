@@ -8,13 +8,22 @@ module.exports = function(grunt) {
 		},
 
 		copy: {
-			'./out/j/': [
-				'./src/files/js/jquery-*.js', 
-				'./src/files/js/zepto.min.js'
-			],
-			'./out/c/entypo/': [
-				'./src/files/css/entypo/*.*'
-			]
+			main: {
+				files: [
+					{
+						expand: true,
+						flatten: true,
+						src: ['./src/files/js/jquery-*.js', './src/files/js/zepto.min.js'], 
+						dest: './out/j/'
+					},
+					{
+						expand: true,
+						flatten: true,
+						src: ['./src/files/css/entypo/*.*'],
+						dest: './out/c/entypo/'
+					}
+				]
+			}
 		},
 
 		frontend: {
@@ -38,5 +47,5 @@ module.exports = function(grunt) {
 
 
 	// Default task.
-	grunt.registerTask('default', 'copy frontend');
+	grunt.registerTask('default', ['copy', 'frontend']);
 };
