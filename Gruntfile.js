@@ -33,10 +33,12 @@ module.exports = function(grunt) {
 					dest: './out/c'
 				},
 				js: {
-					'./out/j/main.js': [
-						'./src/files/js/main.js',
-						'./src/files/js/movie-definition.js'
-					]
+					files: {
+						'./out/j/main.js': [
+							'./src/files/js/main.js',
+							'./src/files/js/movie-definition.js'
+						]
+					}
 				}
 			}
 		}
