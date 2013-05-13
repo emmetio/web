@@ -2,11 +2,6 @@ module.exports = function(grunt) {
 
 	// Project configuration.
 	grunt.initConfig({
-		frontendConfig: {
-			srcWebroot: './src/files',
-			webroot: './out'
-		},
-
 		copy: {
 			main: {
 				files: [
@@ -28,6 +23,10 @@ module.exports = function(grunt) {
 
 		frontend: {
 			main: {
+				options: {
+					srcWebroot: './src/files',
+					webroot: './out'
+				},
 				css: {
 					src: './src/files/css',
 					dest: './out/c'

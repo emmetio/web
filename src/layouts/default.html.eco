@@ -59,6 +59,9 @@ js: "/j/main.js"
 				<li class="social__item">
 					<div class="g-plusone" data-href="http://emmet.io" data-size="medium"></div>
 				</li>
+				<li class="social__item">
+					<a href="//pinterest.com/pin/create/button/?url=http%3A%2F%2Femmet.io&amp;media=http%3A%2F%2Femmet.io%2Fi%2Flogo-large.png&amp;description=Emmet%20%E2%80%94%20the%20essential%20toolkit%20for%20web-developers" data-pin-do="buttonPin" data-pin-config="beside"><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" /></a>
+				</li>
 			</ul>
 			
 		</header>
@@ -134,6 +137,15 @@ js: "/j/main.js"
 	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	})();
+
+	// pinterest
+	(function(d){
+	  var f = d.getElementsByTagName('SCRIPT')[0], p = d.createElement('SCRIPT');
+	  p.type = 'text/javascript';
+	  p.async = true;
+	  p.src = '//assets.pinterest.com/js/pinit.js';
+	  f.parentNode.insertBefore(p, f);
+	}(document));
 	</script>
 </body>
 </html>
