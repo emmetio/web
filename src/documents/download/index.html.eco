@@ -55,6 +55,10 @@ editors:
 	  url: https://github.com/emmetio/netbeans#readme
 	  icon: netbeans.png
 	  comment: cross-platform
+	- title: Adobe Dreamweaver
+	  url: https://github.com/emmetio/dreamweaver#readme
+	  icon: dreamweaver.png
+	  comment: Windows, OSX
 
 onlineServices:
 	- title: JSFiddle
