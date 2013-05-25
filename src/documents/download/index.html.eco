@@ -103,6 +103,10 @@ thirdParty:
 	  url: https://github.com/mattn/zencoding-vim
 	  icon: vim.png
 	  comment: cross-platform
+	- title: HTML-Kit
+	  url: http://www.htmlkit.com/
+	  icon: htmlkit.png
+	  comment: Window
 ---
 <% tiles = (items) => %>
 <ul class="tiles download">
