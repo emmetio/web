@@ -106,7 +106,7 @@ thirdParty:
 	- title: HTML-Kit
 	  url: http://www.htmlkit.com/
 	  icon: htmlkit.png
-	  comment: Window
+	  comment: Windows
 ---
 <% tiles = (items) => %>
 <ul class="tiles download">
