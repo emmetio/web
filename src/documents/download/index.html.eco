@@ -81,6 +81,10 @@ onlineServices:
 	  url: http://www.divshot.com
 	  icon: divshot.png
 	  comment: The Interface Builder for Web Apps
+	- title: Codio
+	  url: http://codio.com
+	  icon: codio.png
+	  comment: Web IDE for web development, teaching and learning
 
 thirdParty:
 	- title: SynWrite
