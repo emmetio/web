@@ -107,6 +107,10 @@ thirdParty:
 	  url: http://www.htmlkit.com/
 	  icon: htmlkit.png
 	  comment: Windows
+	- title: HippoEDIT
+	  url: http://wiki.hippoedit.com/plugins/emmet
+	  icon: hippoedit.png
+	  comment: Windows
 ---
 <% tiles = (items) => %>
 <ul class="tiles download">
