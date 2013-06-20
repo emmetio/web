@@ -111,6 +111,10 @@ thirdParty:
 	  url: http://wiki.hippoedit.com/plugins/emmet
 	  icon: hippoedit.png
 	  comment: Windows
+	- title: CodeLobster PHP Edition
+	  url: http://www.codelobster.com
+	  icon: codelobster.png
+	  comment: Windows
 ---
 <% tiles = (items) => %>
 <ul class="tiles download">
