@@ -100,7 +100,7 @@ thirdParty:
 	  icon: phpstorm.png
 	  comment: cross-platform
 	- title: Vim
-	  url: https://github.com/mattn/zencoding-vim
+	  url: https://github.com/mattn/emmet-vim
 	  icon: vim.png
 	  comment: cross-platform
 	- title: HTML-Kit
