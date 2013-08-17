@@ -115,6 +115,10 @@ thirdParty:
 	  url: http://www.codelobster.com
 	  icon: codelobster.png
 	  comment: Windows
+	- title: TinyMCE
+	  url: https://github.com/e-sites/tinymce-emmet-plugin#readme
+	  icon: tinymce.png
+	  comment: browser based, cross-platform
 ---
 <% tiles = (items) => %>
 <ul class="tiles download">
