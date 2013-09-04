@@ -121,7 +121,7 @@ dt {
 }
 
 .page {
-	margin-top: 125px;
+	margin-top: 55px;
 	margin-bottom: 26em;
 	position: relative;
 	z-index: 1;
@@ -204,7 +204,7 @@ dt {
 	list-style: none;
 	text-transform: uppercase;
 	padding: 0;
-	margin: 40px 0;
+	margin: 25px 0;
 	font-size: 0.85em;
 	border-bottom: 1px solid #4c4e55;
 }
@@ -466,4 +466,13 @@ dt {
 
 .FlattrButton {
 	margin-right: 10px;
+}
+
+#carbonads-container {
+	margin-bottom: 25px;
+	min-height: 215px;
+}
+
+.carbonad {
+	border: 1px solid #7c7c7c !important;
 }
