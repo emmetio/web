@@ -119,6 +119,10 @@ thirdParty:
 	  url: https://github.com/e-sites/tinymce-emmet-plugin#readme
 	  icon: tinymce.png
 	  comment: browser based, cross-platform
+	- title: EverEdit
+	  url: http://www.everedit.net
+	  icon: everedit.png
+	  comment: Windows
 ---
 <% tiles = (items) => %>
 <ul class="tiles download">
