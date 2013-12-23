@@ -23,7 +23,7 @@ I’m happy to announce that first big update of Emmet is on its way! And it’s
 * **New “Update Tag” action** allows you to easily update any existing HTML tag with Emmet abbreviation. For example, if you have `<div class="c1">` element, place caret on it, run “Update Tag” action (Ctrl+Shift+U) and enter `.+c2[title=Hello]` to update tag to `<div class="c1 c2" title="Hello">`. This action uses additional syntax to *overwrite*, *modify* or *remove* attribute. By default, all attributes in abbreviation will overwrite existing ones. Precede attribute or class name with `+` to *append* value, add `-` before attribute or class name to *remove* it. More docs and examples will be available later.
 * **“Match Tag Pair” was renamed to “Balance”** and now works with CSS. You can quickly select property value, full property or selector content.
 * **Option to write CSS abbreviations on single line**: in `syntaxProfiles.json`, set CSS’ output profile to `css_line`. [Read docs](http://docs.emmet.io/customization/syntax-profiles/) about output profiles.
-* **New syntax to write RGBA colors.** You can and `.N` after color value in CSS abbreviation to produce RGBA color: `c#dca.7` will produce `color: rgba(221, 204, 170, 0.7)`.
+* **New syntax to write RGBA colors.** You can add `.N` after color value in CSS abbreviation to produce RGBA color: `c#dca.7` will produce `color: rgba(221, 204, 170, 0.7)`.
 
 ### Under the hood
 * Emmet is now fully Node.JS-compliant. You can use Emmet in your own packages (npm package will be available later).
