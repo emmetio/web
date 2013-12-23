@@ -111,6 +111,10 @@ dt {
 	color: #fff;
 }
 
+strong {
+	color: #fff;
+}
+
 .text-icon {
 	display: inline-block;
 	font-family: Entypo;
