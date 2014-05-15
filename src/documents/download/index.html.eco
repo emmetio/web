@@ -7,6 +7,10 @@ editors:
 	  url: https://github.com/sergeche/emmet-sublime#readme
 	  icon: st.png
 	  comment: cross-platform
+	- title: Atom
+	  url: https://github.com/emmetio/emmet-atom#readme
+	  icon: atom.png
+	  comment: OSX
 	- title: Eclipse/Aptana
 	  url: https://github.com/emmetio/emmet-eclipse#readme
 	  icon: eclipse.png
