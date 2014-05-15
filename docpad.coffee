@@ -39,7 +39,7 @@ docpadConfig = {
 			d = date.getDate()
 			day = "#{d}<sup>#{daySuffix(d)}</sup>"
 			month = months[date.getMonth()]
-			year = if (new Date).getFullYear() isnt date.getFullYear() then ", #{m[1]}" else ''
+			year = if (new Date).getFullYear() isnt date.getFullYear() then ", #{date.getFullYear()}" else ''
 			"#{month} #{day}#{year}"
 
 		nextBlogPost: (url) ->
