@@ -127,6 +127,14 @@ thirdParty:
 	  url: http://www.everedit.net
 	  icon: everedit.png
 	  comment: Windows
+	- title: EditPlus
+	  url: http://www.editplus.com/
+	  icon: editplus.png
+	  comment: Windows
+	- title: Emacs
+	  url: https://github.com/smihica/emmet-mode
+	  icon: emacs.png
+	  comment: cross-platform
 ---
 <% tiles = (items) => %>
 <ul class="tiles download">
