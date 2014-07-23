@@ -28,7 +28,7 @@ editors:
 	  icon: espresso.png
 	  comment: "OS X"
 	- title: Chocolat
-	  url: https://github.com/sergeche/emmet.chocmixin#readme
+	  url: https://github.com/emmetio/emmet.chocmixin#readme
 	  icon: chocolat.png
 	  comment: "OS X"
 	- title: Komodo Edit
