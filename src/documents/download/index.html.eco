@@ -89,6 +89,10 @@ onlineServices:
 	  url: http://codio.com
 	  icon: codio.png
 	  comment: Web IDE for web development, teaching and learning
+	- title: Codeanywhere
+	  url: https://codeanywhere.com
+	  icon: codeanywhere.png
+	  comment: Multi-platform cloud editor
 
 thirdParty:
 	- title: SynWrite
