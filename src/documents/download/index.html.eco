@@ -139,6 +139,10 @@ thirdParty:
 	  url: https://github.com/smihica/emmet-mode
 	  icon: emacs.png
 	  comment: cross-platform
+	- title: WeBuilder
+	  url: http://www.webuilderapp.com/editions.php
+	  icon: webuilder.png
+	  comment: Windows
 ---
 <% tiles = (items) => %>
 <ul class="tiles download">
