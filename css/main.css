@@ -1,4 +1,8 @@
 @import url(assets/normalize.css);
+
+@import url(../node_modules/codemirror/lib/codemirror.css);
+@import url(../node_modules/codemirror-movie/dist/movie.css);
+
 @import url(assets/buttons.css);
 @import url(assets/tiles.css);
 @import url(assets/movie.css);

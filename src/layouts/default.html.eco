@@ -1,13 +1,9 @@
 ---
-css: "/c/main.css"
-js: "/j/main.js"
+css: "/css/main.css"
+js: "/js/main.js"
 ---
 <!doctype html>
-<!--[if lt IE 7]><html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]><html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]><html class="no-js lt-ie10 lt-ie9"> <![endif]-->
-<!--[if IE 9]><html class="no-js lt-ie10"> <![endif]-->
-<!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]-->
+<html class="no-js">
 <head>
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
@@ -18,13 +14,6 @@ js: "/j/main.js"
 <% for url in @assets('css'): %>
 <link rel="stylesheet" href="<%= url %>" />
 <% end %>
-<script>document.write('<script src="/j/' + ('__proto__' in {} ? 'zepto.min' : 'jquery-1.8.2.min') + '.js"><\/script>')</script>
-<% for url in @assets('js'): %>
-<script src="<%= url %>"></script>
-<% end %>
-<!--[if lt IE 9]>
-<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
 </head>
 <body>
 	<div class="page layout">
@@ -39,7 +28,7 @@ js: "/j/main.js"
 						<% end %>
 					</h1>
 				<% end %>
-				<%- site_title '<img src="/i/logo.svg" alt="Emmet" class="site-name__logo site-name__logo_svg" /><img src="/i/logo.png" alt="Emmet" class="site-name__logo site-name__logo_png" />Emmet' %>
+				<%- site_title '<img src="/i/logo.svg" alt="Emmet" class="site-name__logo site-name__logo_svg" />Emmet' %>
 				<p class="site-name__caption">Tools for web-developers</p>
 			</div>
 
@@ -47,7 +36,11 @@ js: "/j/main.js"
 				<%- @partial('menu.html.eco', {menuItems: @generateMenu(@document.url)}) %>
 			</nav>
 
-			<div id="carbonads-container"><div class="carbonad"><div id="azcarbon"></div><script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/50357/azcarbon_2_1_0_VERTDARK"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script></div></div>
+			<div id="carbonads-container">
+				<div class="carbonad">
+					<div id="azcarbon"></div>
+				</div>
+			</div>
 
 			<p class="donate"><a href="/donate/" class="btn btn_flat"><i class="text-icon">&#128077;</i> Donate</a></p>
 
@@ -100,7 +93,21 @@ js: "/j/main.js"
 		<div class="clear"></div>
 	</footer>
 	<div id="fb-root"></div>
+
+	<% for url in @assets('js'): %>
+	<script src="<%= url %>"></script>
+	<% end %>
+
 	<script>
+	// carbonads
+	(function() {
+		var z = document.createElement("script"); 
+		z.async = true;
+		z.src = "http://engine.carbonads.com/z/50357/azcarbon_2_1_0_VERTDARK";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(z, s);
+	})();
+
 	// facebook
 	(function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];

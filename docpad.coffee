@@ -1,6 +1,6 @@
-exec = require('child_process').exec
+path = require 'path'
+safeps = require 'safeps'
 hljs = require './plugins/highlight.js'
-_ = require 'underscore'
 
 months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
@@ -16,6 +16,7 @@ parseBlogDate = (date) ->
 		return new Date(+m[1], +m[2] - 1, m[3])
 
 docpadConfig = {
+	gulpArgs: ['html']
 	templateData:
 		site:
 			author: "Sergey Chikuyonok"
@@ -32,9 +33,8 @@ docpadConfig = {
 				item.blogUrl = item.url.replace /\.html$/, '/'
 				item
 
-
 		formatBlogDate: (date) ->
-			if _.isString date
+			if typeof date is 'string'
 				date = parseBlogDate(date)
 			d = date.getDate()
 			day = "#{d}<sup>#{daySuffix(d)}</sup>"
@@ -77,38 +77,34 @@ docpadConfig = {
 						return text					
 
 	environments:
-		debug:
-			# Enable debug mode for frontend-assets plugin:
-			# generates files with '-debug' suffix with
-			# assets sources
-			frontendDebug: true
+		production:
+			gulpArgs: ['full', '--production']
 
 	collections:
 		posts: (database) ->
 			database.findAllLive({url: {$startsWith: '/blog/', $ne: '/blog/index.html'}}, [blogDate: -1])
 
 	events:
-		# Regenerate assets each time resources are changed
-		generateBefore: (opts, next) ->
-			# do not re-buid assets in debug mode, save resources
-			if @docpad.getConfig().frontendDebug
-				return next()
-
-			proc = exec 'grunt', {cwd: process.cwd()}, (error, stdout, stderr) ->
-				console.log stdout
-				process.exit() if error
-
-			proc.on 'exit', next
-
 		# Extend server so it can respond to cache-reset assets
+		# and blog posts
 		serverAfter: ({server}) ->
-			server.get /^\/\d+\/(c|j)\//, (req, res, next) ->
-				req.url = req.url.replace /^\/\d+\//, '/'
+			reCache = /^\/-\/.+?\//
+			server.get reCache, (req, res, next) ->
+				req.url = req.url.replace reCache, '/'
 				next()
 
 			server.get /^\/blog\/([\w\-]+)\/?$/, (req, res, next) ->
 				req.url = req.url.replace(/\/$/, '') + '.html'
 				next()
+
+		writeAfter: (opts, next) ->
+			config = @docpad.getConfig()
+			rootPath = config.rootPath
+			gulpPath = path.join(rootPath, 'node_modules', '.bin', 'gulp')
+			command = [gulpPath].concat(config.gulpArgs or [])
+
+			safeps.spawn(command, {cwd: rootPath, output: true}, next)
+			@
 }
 
 module.exports = docpadConfig

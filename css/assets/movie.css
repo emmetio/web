@@ -1,3 +1,11 @@
+.movie-holder {
+	min-height: 315px;
+}
+
+.movie-def {
+	visibility: hidden;
+}
+
 .CodeMirror-movie__splash {
 	position: absolute;
 	width: 100%;

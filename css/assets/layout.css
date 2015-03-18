@@ -192,18 +192,6 @@ strong {
 	height: 65px;
 }
 
-.site-name__logo_svg {
-	display: none;
-}
-
-.svg .site-name__logo_svg {
-	display: block;
-}
-
-.svg .site-name__logo_png {
-	display: none;
-}
-
 .site-nav {
 	list-style: none;
 	text-transform: uppercase;
