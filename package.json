@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "private": true,
   "devDependencies": {
-    "docpad": "~6.78.0",
+    "docpad": "^6.78.0",
+    "docpad-plugin-eco": "^2.1.0",
     "docpad-plugin-frontend": "^2.0.1",
     "docpad-plugin-marked": "^2.3.0",
     "docpad-plugin-menu": "^2.1.0",
