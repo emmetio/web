@@ -10,7 +10,7 @@ editors:
 	- title: Atom
 	  url: https://github.com/emmetio/emmet-atom#readme
 	  icon: atom.png
-	  comment: OSX
+	  comment: cross-platform
 	- title: Eclipse/Aptana
 	  url: https://github.com/emmetio/emmet-eclipse#readme
 	  icon: eclipse.png
