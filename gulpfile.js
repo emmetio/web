@@ -5,6 +5,7 @@ var jsBundler = require('js-bundler');
 var minifyCSS = require('gulp-minify-css');
 var gzip = require('gulp-gzip');
 var htmlTransform = require('html-transform');
+var through = require('through2');
 
 var srcOptions = {base: './'};
 var outPath = './out';
