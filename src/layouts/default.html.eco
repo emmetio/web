@@ -38,7 +38,7 @@ js: "/js/main.js"
 
 			<div id="carbonads-container">
 				<div class="carbonad">
-					<div id="azcarbon"></div>
+					<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=emmetio" id="_carbonads_js"></script>
 				</div>
 			</div>
 
@@ -99,16 +99,6 @@ js: "/js/main.js"
 	<% end %>
 
 	<script>
-	// carbonads
-	(function() {
-		var z = document.createElement("script"); 
-		z.async = true;
-		z.id = '_carbonads_js';
-		z.src = '//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=emmetio';
-		var s = document.getElementsByTagName("script")[0];
-		s.parentNode.insertBefore(z, s);
-	})();
-
 	// facebook
 	(function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];
