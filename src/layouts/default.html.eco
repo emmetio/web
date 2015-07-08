@@ -103,7 +103,8 @@ js: "/js/main.js"
 	(function() {
 		var z = document.createElement("script"); 
 		z.async = true;
-		z.src = "http://engine.carbonads.com/z/50357/azcarbon_2_1_0_VERTDARK";
+		z.id = '_carbonads_js';
+		z.src = '//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=emmetio';
 		var s = document.getElementsByTagName("script")[0];
 		s.parentNode.insertBefore(z, s);
 	})();
