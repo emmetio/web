@@ -467,4 +467,11 @@ strong {
 
 .carbonad {
 	border: 1px solid #7c7c7c !important;
+	text-align: center;
+	padding: 10px;
+}
+
+.carbon-img {
+	display: block;
+	margin-bottom: 10px;
 }
