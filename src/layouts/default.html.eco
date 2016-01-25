@@ -88,7 +88,7 @@ js: "/js/main.js"
 					<% end %>
 				</ul>
 				<a href="https://github.com/emmetio" class="page-footer__github"><img src="/i/github.png" alt="GitHub" width="147" height="66" /></a>
-				<a href="https://www.keycdn.com/" class="page-footer__keycdn">CDN service by <img src="/i/keycdn.svg" alt="" width="120" height="35" /></a>
+				<a href="https://www.keycdn.com/" class="page-footer__keycdn">CDN service by <img src="/i/keycdn.svg" alt="KeyCDN" width="120" height="35" /></a>
 
 			</div>
 		</div>
