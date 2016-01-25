@@ -23,7 +23,7 @@ js: "/js/main.js"
 					<h1 class="site-name__title">
 						<% if @document.url == '/index.html': %>
 							<%- content %>
-						<% else: %>	
+						<% else: %>
 							<a href="/"><%- content %></a>
 						<% end %>
 					</h1>
@@ -58,7 +58,7 @@ js: "/js/main.js"
 					<a href="//pinterest.com/pin/create/button/?url=http%3A%2F%2Femmet.io&amp;media=http%3A%2F%2Femmet.io%2Fi%2Flogo-large.png&amp;description=Emmet%20%E2%80%94%20the%20essential%20toolkit%20for%20web-developers" data-pin-do="buttonPin" data-pin-config="beside"><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" /></a>
 				</li>
 			</ul>
-			
+
 		</header>
 
 		<div class="page-content layout__main">
@@ -88,6 +88,8 @@ js: "/js/main.js"
 					<% end %>
 				</ul>
 				<a href="https://github.com/emmetio" class="page-footer__github"><img src="/i/github.png" alt="GitHub" width="147" height="66" /></a>
+				<a href="https://www.keycdn.com/" class="page-footer__keycdn">CDN service by <img src="/i/keycdn.svg" alt="" width="120" height="35" /></a>
+
 			</div>
 		</div>
 		<div class="clear"></div>
@@ -107,20 +109,20 @@ js: "/js/main.js"
 	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
-	
+
 	// twitter
-	!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs"); 
-	
+	!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+
 	// disqus
 	var disqus_shortname = 'emmet';
-	
+
 	(function () {
 		var s = document.createElement('script'); s.async = true;
 		s.type = 'text/javascript';
 		s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
 		(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
 	}());
-	
+
 	// g+
 	(function() {
 	var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;

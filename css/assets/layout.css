@@ -313,11 +313,23 @@ strong {
 	color: #fff;
 }
 
-.page-footer__github {
+.page-footer__github,
+.page-footer__keycdn {
 	display: block;
 	position: absolute;
 	top: 0;
 	right: 0;
+}
+
+.page-footer .page-footer__keycdn {
+	width: 120px;
+	top: 90px;
+	font-family: georgia, serif;
+	font-style: italic;
+	font-size: 0.9em;
+	line-height: 1.8;
+	right: 27px;
+	color: #656565;
 }
 
 .donate {
