@@ -2,6 +2,7 @@
 layout: page
 title: Commercial support
 menuOrder: 5
+menuHidden: true
 ---
 Emmet is a great, absolutely free toolkit for web developers. It is written in pure JavaScript which is well-known by many developers. Moreover, it’s a solid platform for new tools that will simplify the daily routine tasks.
 
