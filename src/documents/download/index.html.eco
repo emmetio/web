@@ -95,6 +95,10 @@ onlineServices:
 	  comment: Multi-platform cloud editor
 
 thirdParty:
+	- title: Visual Studio Code
+	  url: https://code.visualstudio.com
+	  icon: vs-code.png
+	  comment: cross-platform
 	- title: SynWrite
 	  url: http://www.uvviewsoft.com/synwrite/
 	  icon: synwrite.png
@@ -157,7 +161,7 @@ thirdParty:
 			</a>
 		</li>
 	<% end %>
-</ul>	
+</ul>
 <% end %>
 
 
@@ -169,4 +173,3 @@ thirdParty:
 <h2>Third-party support</h2>
 <p>The plugins for these editors are developed by third-party developers. May not support all Emmet features and actions.</p>
 <%- tiles @document.thirdParty %>
-
