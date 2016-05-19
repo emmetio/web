@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title><%= @document.title %></title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta property="og:image" content="<%= @site.url %>/i/logo-large.png" />
+    <% for url in @assets('css'): %>
+    <link rel="stylesheet" href="<%= url %>" />
+    <% end %>
+</head>
+<body>
+<div class="layout">
+    <%- @document.content %>
+</div>
+<%- @partial('analytics') %>
+</body>
+</html>
