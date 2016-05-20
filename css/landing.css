@@ -59,6 +59,7 @@ a:hover {
 .button-list__item {
     display: inline-block;
     margin: 0 15px;
+    vertical-align: top;
 }
 
 .button-list__comment {
@@ -67,7 +68,12 @@ a:hover {
     font-family: georgia, serif;
     margin-top: 10px;
     color: #aaa;
+    line-height: 1.6;
     font-style: italic;
+}
+
+.button-list__comment a:link {
+    color: inherit;
 }
 
 .button {
