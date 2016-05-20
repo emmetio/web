@@ -11,6 +11,10 @@ editors:
 	  url: https://github.com/emmetio/emmet-atom#readme
 	  icon: atom.png
 	  comment: cross-platform
+	- title: Coda
+	  url: ./coda/
+	  icon: coda.png
+	  comment: "OS X"
 	- title: Eclipse/Aptana
 	  url: https://github.com/emmetio/emmet-eclipse#readme
 	  icon: eclipse.png
@@ -18,10 +22,6 @@ editors:
 	- title: TextMate
 	  url: https://github.com/emmetio/Emmet.tmplugin#readme
 	  icon: textmate.png
-	  comment: "OS X"
-	- title: Coda
-	  url: https://github.com/emmetio/Emmet.codaplugin#readme
-	  icon: coda.png
 	  comment: "OS X"
 	- title: Espresso
 	  url: https://github.com/emmetio/Emmet.sugar#readme
