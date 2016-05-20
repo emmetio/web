@@ -60,7 +60,7 @@ js: "/js/main.js"
 				</div>
 			</div>
 
-			<p class="donate"><a href="/donate/" class="btn btn_flat"><i class="text-icon">&#128077;</i> Donate</a></p>
+			<p class="donate"><a href="https://www.paypal.me/Chikuyonok" class="btn btn_flat"><i class="text-icon">&#128077;</i> Donate</a></p>
 
 			<ul class="social">
 				<li class="social__item">
