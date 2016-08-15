@@ -1,0 +1,80 @@
+---
+layout: landing
+title: Emmet for TextMate 2
+css: "/css/landing.css"
+---
+<header class="page-header">
+    <img src="/i/textmate/logo.png" alt="" class="logo" width="261" height="286" />
+    <h1>Emmet for TextMate 2</h1>
+    <ul class="button-list">
+        <li class="button-list__item">
+            <a href="https://github.com/emmetio/textmate2/releases/download/v1.0.0/EmmetTextMate.tmplugin.zip" class="button button_install">Install plug-in</a>
+            <span class="button-list__comment">Requires OSX 10.9+ and TextMate 2</span>
+        </li>
+        <li class="button-list__item">
+            <a href="https://sites.fastspring.com/emmet/instant/emmet-license" class="button button_license">Purchase License</a>
+            <span class="button-list__comment">for only $6.99 to unlock all Emmet features</span>
+        </li>
+    </ul>
+</header>
+
+<img src="/i/textmate/screenshot.png" alt="" class="screenshot" />
+
+<h2>Version difference</h2>
+<table>
+    <tr>
+        <th>Free version</th>
+        <th>Full version</th>
+    </tr>
+    <tr>
+        <td>Only basic Emmet actions</td>
+        <td>All Emmet actions, including <a href="http://docs.emmet.io/actions/wrap-with-abbreviation/">Wrap With Abbreviation</a>, <a href="http://docs.emmet.io/actions/select-item/">Select Item</a>, etc.</td>
+    </tr>
+    <tr>
+        <td>Expand abbreviation with <kbd>^E</kbd> shortcut</td>
+        <td>Option to expand abbreviations by Tab key (see Preferences). Note there are <a href="https://github.com/emmetio/textmate2#notes-on-tab-expander">few issues</a>.</td>
+    </tr>
+    <tr>
+        <td>Customize via <code>~/emmet</code> extension folder only</td>
+        <td>Preferences pane to easly manage most used Emmet options and action keyboard shortcuts.</td>
+    </tr>
+    <tr>
+        <td>Community support via <a href="https://github.com/emmetio/textmate2/issues">Github Issues</a></td>
+        <td>Priority support via <a href="mailto:info@emmet.io">e-mail</a>.</td>
+    </tr>
+</table>
+
+<script>
+function getLatestRelease(callback) {
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', 'https://api.github.com/repos/emmetio/textmate2/releases/latest');
+	xhr.onreadystatechange = function() {
+		if (this.readyState !== 4 || this.status === 0) {
+			return;
+		}
+
+		if (this.status === 200) {
+			var data = {};
+			try {
+				data = JSON.parse(this.responseText);
+			} catch(err) {
+				console.error(err);
+			}
+			return callback(data);
+		}
+
+		console.error(this.responseText);
+	};
+	xhr.send();
+}
+
+getLatestRelease(function(release) {
+    var asset = release.assets.reduce(function(p, a) {
+        return a.name === 'EmmetTextMate.tmplugin.zip' ? a : p;
+    }, null);
+    console.log(asset);
+    if (asset) {
+        document.querySelector('.button_install').href = asset.browser_download_url;
+    }
+});
+</script>
