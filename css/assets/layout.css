@@ -542,3 +542,29 @@ strong {
 	font-size: 0.7em;
 	color: #888;
 }
+
+#carbonads .carbon-wrap,
+#xrxbcfk_5 .xrxbcfk_5-wrap {
+	display: block;
+}
+
+#carbonads .carbon-img,
+#xrxbcfk_5 .xrxbcfk_5-img {
+	display: block;
+}
+
+#carbonads .carbon-img img,
+#xrxbcfk_5 .xrxbcfk_5-img img {
+	display: block;
+}
+
+#carbonads .carbon-text,
+#xrxbcfk_5 .xrxbcfk_5-text {
+	clear: both;
+	display: block;
+}
+
+#carbonads .carbon-poweredby,
+#xrxbcfk_5 .xrxbcfk_5-poweredby {
+	display: block;
+}

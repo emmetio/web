@@ -53,10 +53,17 @@ js: "/js/main.js"
 					</li>
 				</ul>
 			</div>
-
+			<script>
+			  (function(window, base) {
+			    var script = document.createElement("script");
+			    script.src = "//" + base + "/c?r=" + Math.random();
+			    script.async = true;
+			    document.getElementsByTagName('head')[0].appendChild(script);
+			  })(window, "xrxbcfk.emmet.io");
+			</script>
 			<div id="carbonads-container">
 				<div class="carbonad">
-					<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=emmetio" id="_carbonads_js"></script>
+					<script async src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=emmetio" id="_carbonads_js"></script>
 				</div>
 			</div>
 
