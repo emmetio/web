@@ -93,6 +93,10 @@ onlineServices:
 	  url: https://codeanywhere.com
 	  icon: codeanywhere.png
 	  comment: Multi-platform cloud editor
+	- title: SourceLair
+	  url: https://www.sourcelair.com
+	  icon: sourcelair.png
+	  comment: In-browser IDE for web technologies
 
 thirdParty:
 	- title: Visual Studio Code
