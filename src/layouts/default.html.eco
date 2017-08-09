@@ -73,6 +73,11 @@ js: "/js/main.js"
 			</div>
 
 			<p class="donate"><a href="https://www.paypal.me/Chikuyonok" class="btn btn_flat"><i class="text-icon">&#128077;</i> Donate</a></p>
+			
+			<div class="sponsor">
+				<h4 class="sponsor__title">Sponsor:</h4>
+				<a href="https://icons8.com" target="_blank"><img src="https://png.icons8.com/color/icons8/100" alt="Icon8" width="100" height="100" /></a>
+			</div>
 
 			<ul class="social">
 				<li class="social__item">

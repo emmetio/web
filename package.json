@@ -3,6 +3,9 @@
   "description": "Emmet Main Web-site",
   "version": "1.0.0",
   "private": true,
+  "scripts": {
+    "start": "docpad run"
+  },
   "devDependencies": {
     "docpad": "^6.78.0",
     "docpad-plugin-eco": "^2.1.0",

@@ -579,3 +579,18 @@ strong {
 #xrxbcfk_5 .xrxbcfk_5-poweredby {
 	display: block;
 }
+
+.sponsor {
+	margin: 50px 0;
+}
+
+.sponsor__title {
+	font-family: georgia, serif;
+	font-style: italic;
+	font-weight: normal;
+	color: #b9b6b6;
+	text-shadow: none;
+	font-size: 1em;
+	margin-top: 0;
+}
+
