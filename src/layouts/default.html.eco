@@ -32,27 +32,33 @@ js: "/js/main.js"
 				<p class="site-name__caption">Tools for web-developers</p>
 			</div>
 
-			<nav>
-				<%- @partial('menu.html.eco', {menuItems: @generateMenu(@document.url)}) %>
-			</nav>
-
 			<div class="more-tools">
-				<p class="more-tools__title">More developer tools:</p>
+				<p class="more-tools__title">More tools:</p>
 				<ul class="more-tools__list">
 					<li class="more-tools__list-item more-tools__list-item_livestyle">
 						<a href="http://livestyle.io" class="more-tools__list-item-link">
-							Emmet LiveStyle
-							<div class="more-tools__list-item-info">Real-time bi-directional edit tool for CSS, LESS and SCSS.</div>
+							<img src="/i/livestyle.svg" alt="Emmet LiveStyle" width="16" height="16" class="more-tools__list-item-img" />
 						</a>
+						<div class="more-tools__list-item-info">
+							<h4 class="more-tools__list-item-info-title">Emmet LiveStyle</h4>
+							<div>Real-time bi-directional edit tool for CSS, LESS and SCSS.</div>
+						</div>
 					</li>
 					<li class="more-tools__list-item more-tools__list-item_review">
 						<a href="http://re-view.emmet.io" class="more-tools__list-item-link">
-							Emmet Re:view
-							<div class="more-tools__list-item-info">Fast and easy way to test responsive design side-by-side.</div>
+							<img src="/i/re-view.svg" alt="Emmet LiveStyle" width="16" height="16" class="more-tools__list-item-img" />
 						</a>
+						<div class="more-tools__list-item-info">
+							<h4 class="more-tools__list-item-info-title">Emmet Re:view</h4>
+							<div>Fast and easy way to test responsive design side-by-side.</div>
+						</div>
 					</li>
 				</ul>
 			</div>
+
+			<nav>
+				<%- @partial('menu.html.eco', {menuItems: @generateMenu(@document.url)}) %>
+			</nav>
 
 			<div id="gptong-container">
 				<div class="gptong">
@@ -73,7 +79,7 @@ js: "/js/main.js"
 			</div>
 
 			<p class="donate"><a href="https://www.paypal.me/Chikuyonok" class="btn btn_flat"><i class="text-icon">&#128077;</i> Donate</a></p>
-			
+
 			<div class="sponsor">
 				<h4 class="sponsor__title">Sponsor:</h4>
 				<a href="https://icons8.com" target="_blank"><img src="https://png.icons8.com/color/icons8/100" alt="Icon8" width="100" height="100" /></a>
