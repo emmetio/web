@@ -626,3 +626,33 @@ strong {
 	font-size: 1em;
 	margin-top: 0;
 }
+
+.wb {
+	margin: 20px 0;
+}
+
+.wb-title {
+	font-size: 1.4em;
+	text-shadow: none;
+	margin-bottom: 3px;
+}
+
+.wb-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	font-size: 0.85em;
+	color: #a2a2a2;
+}
+
+.wb-list-item {
+	margin-bottom: 3px;
+}
+
+.wb-list-item a {
+	color: inherit;
+}
+
+.wb-list-item a:hover {
+	color: #eeeeee;
+}

@@ -78,6 +78,25 @@ js: "/js/main.js"
 				</div>
 			</div>
 
+			<% if @document.showWb: %>
+				<div class="wb">
+					<h4 class="wb-title">Emmet Lab</h4>
+					<p>Websites where emmet.io was mentioned:</p>
+					<ul class="wb-list">
+						<li class="wb-list-item"><a href="#">cvilleprop.com</a></li>
+						<li class="wb-list-item"><a href="#">mke.uom.gr</a></li>
+						<li class="wb-list-item"><a href="#">esad.edu.pt</a></li>
+						<li class="wb-list-item"><a href="#">erb.go.tz</a></li>
+						<li class="wb-list-item"><a href="#">ibrary.brstu.ru</a></li>
+						<li class="wb-list-item"><a href="#">educ.edu.cu</a></li>
+						<li class="wb-list-item"><a href="#">rub.edu.bt</a></li>
+						<li class="wb-list-item"><a href="#">every-icn.ch</a></li>
+						<li class="wb-list-item"><a href="#">ittoluca.edu.mx</a></li>
+						<li class="wb-list-item"><a href="#">users.sch.gr</a></li>
+					</ul>
+				</div>
+			<% end %>
+
 			<p class="donate"><a href="https://www.paypal.me/Chikuyonok" class="btn btn_flat"><i class="text-icon">&#128077;</i> Donate</a></p>
 
 			<div class="sponsor">
