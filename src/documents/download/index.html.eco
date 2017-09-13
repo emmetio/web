@@ -97,6 +97,10 @@ onlineServices:
 	  url: https://www.sourcelair.com
 	  icon: sourcelair.png
 	  comment: In-browser IDE for web technologies
+	- title: Litmus
+	  url: https://litmus.com/email-builder
+	  icon: litmus.svg
+	  comment: The code editor built to streamline email development workflow
 
 thirdParty:
 	- title: Visual Studio Code
