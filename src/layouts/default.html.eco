@@ -78,9 +78,6 @@ js: "/js/main.js"
 				</div>
 			</div>
 
-			<!--# block name="fallback" --><!-- lab --><!--# endblock -->
-			<!--# include virtual="/lab/widget.html" stub="fallback" -->
-
 			<p class="donate"><a href="https://www.paypal.me/Chikuyonok" class="btn btn_flat"><i class="text-icon">&#128077;</i> Donate</a></p>
 
 			<div class="sponsor">
