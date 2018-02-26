@@ -1,0 +1,35 @@
+<textarea name="code" autofocus="{{ autofocus }}" ref:editor>Hello world!</textarea>
+
+<style>
+textarea {
+	display: block;
+	width: 100%;
+	height: 5em;
+}
+</style>
+
+<script>
+'use strict';
+
+import createEditor from '../lib/codemirror';
+
+export default {
+	oncreate() {
+		this.editor = createEditor(this.refs.editor, this.get());
+		console.log('created editor', this.editor);
+	},
+
+	ondestroy() {
+		this.editor.toTextArea();
+		this.editor = null;
+	},
+
+	data() {
+		return {
+			autofocus: true,
+			mode: 'text/html',
+			lineNumbers: false
+		};
+	}
+};
+</script>
