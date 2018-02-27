@@ -1,4 +1,4 @@
-<textarea name="code" autofocus="{{ autofocus }}" ref:editor>Hello world!</textarea>
+<textarea name="code" autofocus="{{ autofocus }}" ref:editor></textarea>
 
 <style>
 textarea {
@@ -16,7 +16,6 @@ import createEditor from '../lib/codemirror';
 export default {
 	oncreate() {
 		this.editor = createEditor(this.refs.editor, this.get());
-		console.log('created editor', this.editor);
 	},
 
 	ondestroy() {

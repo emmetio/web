@@ -6,6 +6,7 @@ import * as xml from 'codemirror/mode/xml/xml'; // eslint-disable-line
 import * as css from 'codemirror/mode/css/css'; // eslint-disable-line
 import * as htmlmixed from 'codemirror/mode/htmlmixed/htmlmixed'; // eslint-disable-line
 import * as hint from 'codemirror/addon/hint/show-hint'; // eslint-disable-line
+import markupAbbreviation from './markup-abbreviation-mode';
 
 /**
  * Initially setup Emmet support & create CodeMirror instance from given `<textarea>`
@@ -65,6 +66,10 @@ export default function createEditor(textarea, options) {
 }
 
 setupEmmet(CodeMirror);
+
+// Register Emmet abbreviation syntaxes
+CodeMirror.defineMode('emmet-markup-abbreviation', markupAbbreviation);
+CodeMirror.defineMIME('text/markup-abbreviation', 'emmet-markup-abbreviation');
 
 // Add completions provider for CodeMirror’s `show-hint` addon
 CodeMirror.registerGlobalHelper('hint', 'emmet', (mode, editor) => {
