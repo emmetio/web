@@ -1,6 +1,14 @@
 @import url('codemirror/lib/codemirror.css');
 @import url('codemirror/addon/hint/show-hint.css');
 
+html {
+	height: 100%;
+}
+
+body {
+	min-height: 100%;
+}
+
 .CodeMirror {
 	font-family: 'Fira Code', Consolas, Menlo, monospace;
 	line-height: 1.5;

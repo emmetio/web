@@ -1,9 +1,5 @@
-import Editor from './components/editor.svelte';
+import AbbrEditor from './components/abbreviation-input.svelte';
 
-new Editor({
-	target: document.querySelector('body'),
-	data: {
-		mode: 'text/markup-abbreviation',
-		lineNumbers: false
-	}
+new AbbrEditor({
+	target: document.querySelector('body')
 });

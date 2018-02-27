@@ -6,16 +6,15 @@ import * as xml from 'codemirror/mode/xml/xml'; // eslint-disable-line
 import * as css from 'codemirror/mode/css/css'; // eslint-disable-line
 import * as htmlmixed from 'codemirror/mode/htmlmixed/htmlmixed'; // eslint-disable-line
 import * as hint from 'codemirror/addon/hint/show-hint'; // eslint-disable-line
-import markupAbbreviation from './markup-abbreviation-mode';
 
 /**
  * Initially setup Emmet support & create CodeMirror instance from given `<textarea>`
  * element
- * @param {HTMLTextareaElement} textarea
+ * @param {HTMLElement} target
  * @return {CodeMirror}
  */
-export default function createEditor(textarea, options) {
-	const editor = CodeMirror.fromTextArea(textarea, Object.assign({
+export default function createEditor(target, options) {
+	options = Object.assign({
 		mode: 'text/html',
 		markTagPairs: true,
 		autoRenameTags: true,
@@ -25,7 +24,11 @@ export default function createEditor(textarea, options) {
 			'Enter': 'emmetInsertLineBreak',
 			'Ctrl-W': 'emmetWrapWithAbbreviation'
 		}
-	}, options));
+	}, options);
+
+	const editor = target.nodeName === 'TEXTAREA'
+		? CodeMirror.fromTextArea(target, options)
+		: CodeMirror(target, options);
 
 	// Automatically display Emmet completions when cursor enters abbreviation
 	// marker if `markEmmetAbbreviation` option was enabled (true by default)
@@ -66,10 +69,6 @@ export default function createEditor(textarea, options) {
 }
 
 setupEmmet(CodeMirror);
-
-// Register Emmet abbreviation syntaxes
-CodeMirror.defineMode('emmet-markup-abbreviation', markupAbbreviation);
-CodeMirror.defineMIME('text/markup-abbreviation', 'emmet-markup-abbreviation');
 
 // Add completions provider for CodeMirror’s `show-hint` addon
 CodeMirror.registerGlobalHelper('hint', 'emmet', (mode, editor) => {
