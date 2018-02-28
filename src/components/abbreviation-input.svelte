@@ -1,43 +1,76 @@
-<div class="editor" ref:editor></div>
-<style>
-	ref:editor {
-		border: 1px solid #ccc;
-		box-shadow: 2px 2px 9px rgba(0, 0, 0, 0.2);
-		line-height: 1.5;
-		height: 1.5em;
-		min-height: 30px;
-		font-size: 15px;
-		border-radius: 2px;
-	}
+<div class="abbreviation">
+	<Editor :value :error on:change="expand(event.value)" autofocus mode="emmet-abbreviation" />
+</div>
+<div class="preview">
+	<Editor value="{{ expanded }}" mode="text/html" readOnly="nocursor" />
+</div>
 
-	ref:editor :global(.CodeMirror) {
-		height: 100%;
-		border-radius: inherit;
-		font-size: inherit;
-	}
+<style>
+.abbreviation {
+	position: relative;
+	z-index: 1;
+	border: 1px solid #ccc;
+	box-shadow: 2px 2px 9px rgba(0, 0, 0, 0.2);
+	line-height: 1.5;
+	height: 1.5em;
+	min-height: 30px;
+	font-size: 15px;
+	border-radius: 2px;
+}
+
+.abbreviation :global(.CodeMirror),
+.abbreviation :global(.CodeMirror-scroll) {
+	overflow: visible !important;
+}
+
+.preview {
+	height: 300px;
+	font-size: 12px;
+}
 </style>
 
 <script>
-import CodeMirror from 'codemirror';
-import markupAbbreviation from '../lib/markup-abbreviation-mode';
-
-CodeMirror.defineMode('emmet-markup-abbreviation', markupAbbreviation);
+import Editor from './editor.svelte';
+import { expand } from '@emmetio/expand-abbreviation';
 
 export default {
 	oncreate() {
-		this.editor = CodeMirror(this.refs.editor, this.get());
-	},
-
-	ondestroy() {
-		this.editor = null;
+		this.expand(this.get('value'));
 	},
 
 	data() {
 		return {
-			autofocus: true,
-			mode: 'emmet-markup-abbreviation',
-			value: ''
+			value: '',
+			expanded: '',
+			error: null
 		};
+	},
+
+	methods: {
+		expand(abbr) {
+			try {
+				this.set({
+					expanded: abbr ? expand(abbr) : '',
+					error: null
+				});
+			} catch (error) {
+				const message = (error.originalMessage || error.message)
+					.replace(/\b(unexpected\s+)(\d+)/, (str, prefix, code) => prefix + String.fromCharCode(+code));
+
+				this.set({
+					expanded: '',
+					error: {
+						message,
+						line: 0,
+						ch: error.pos,
+					}
+				});
+			}
+		}
+	},
+
+	components: {
+		Editor
 	}
 };
 </script>

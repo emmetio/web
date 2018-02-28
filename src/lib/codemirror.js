@@ -6,6 +6,10 @@ import * as xml from 'codemirror/mode/xml/xml'; // eslint-disable-line
 import * as css from 'codemirror/mode/css/css'; // eslint-disable-line
 import * as htmlmixed from 'codemirror/mode/htmlmixed/htmlmixed'; // eslint-disable-line
 import * as hint from 'codemirror/addon/hint/show-hint'; // eslint-disable-line
+import markupAbbreviation from './markup-abbreviation-mode';
+
+setupEmmet(CodeMirror);
+CodeMirror.defineMode('emmet-abbreviation', markupAbbreviation);
 
 /**
  * Initially setup Emmet support & create CodeMirror instance from given `<textarea>`
@@ -16,20 +20,38 @@ import * as hint from 'codemirror/addon/hint/show-hint'; // eslint-disable-line
 export default function createEditor(target, options) {
 	options = Object.assign({
 		mode: 'text/html',
-		markTagPairs: true,
-		autoRenameTags: true,
-		extraKeys: {
-			'Ctrl-Space': 'autocomplete',
-			'Tab': 'emmetExpandAbbreviation',
-			'Enter': 'emmetInsertLineBreak',
-			'Ctrl-W': 'emmetWrapWithAbbreviation'
-		}
+		markTagPairs: false,
+		autoRenameTags: false,
 	}, options);
+
+	const extraKeys = {};
+
+	if (options.autocomplete) {
+		extraKeys['Ctrl-Space'] = 'autocomplete';
+	}
+
+	options.extraKeys = {
+		...extraKeys,
+		...options.extraKeys
+	};
 
 	const editor = target.nodeName === 'TEXTAREA'
 		? CodeMirror.fromTextArea(target, options)
 		: CodeMirror(target, options);
 
+	if (options.autocomplete) {
+		setupAutocomplete(editor);
+	}
+
+	return editor;
+}
+
+/**
+ * Adds autocomplete provider that opens completion popup when user types
+ * Emmet abbreviation
+ * @param {CodeMirror} editor
+ */
+function setupAutocomplete(editor) {
 	// Automatically display Emmet completions when cursor enters abbreviation
 	// marker if `markEmmetAbbreviation` option was enabled (true by default)
 	editor.on('cursorActivity', () => {
@@ -67,8 +89,6 @@ export default function createEditor(target, options) {
 
 	return editor;
 }
-
-setupEmmet(CodeMirror);
 
 // Add completions provider for CodeMirror’s `show-hint` addon
 CodeMirror.registerGlobalHelper('hint', 'emmet', (mode, editor) => {
