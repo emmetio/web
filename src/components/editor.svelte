@@ -17,8 +17,8 @@ ref:editor :global(.CodeMirror) {
 	color: #ffffff;
 	padding: 10px;
 	padding: 5px;
-    border-radius: 5px;
-    font-size: 12px;
+	border-radius: 5px;
+	font-size: 12px;
 	max-width: 400px;
 	margin-left: -7px;
 	margin-top: 3px;
@@ -33,7 +33,7 @@ ref:editor :global(.CodeMirror) {
 	background: inherit;
 	transform: rotate(45deg);
 	left: 8px;
-    top: -2px;
+	top: -2px;
 }
 
 .error:empty {
@@ -49,11 +49,20 @@ import createEditor from '../lib/codemirror';
 export default {
 	oncreate() {
 		this.editor = createEditor(this.refs.editor, this.get());
-		this._onChange = () => this.fire('change', { value: this.editor.getValue() });
+		this._onChange = () => {
+			const value = this.editor.getValue();
+			this.fire('change', { value });
+			this.set({ value });
+		};
 		this.editor.on('change', this._onChange);
 
+		this.observe('mode', mode => this.editor.setOption('mode', mode));
+
 		this.observe('value', value => {
-			this.editor.setValue(value == null ? '' : String(value));
+			value = value == null ? '' : String(value);
+			if (this.editor.getValue() !== value) {
+				this.editor.setValue(value);
+			}
 		});
 		this.observe('error', value => {
 			if (value) {
@@ -77,11 +86,18 @@ export default {
 			autocomplete: false,
 			autofocus: false,
 			lineNumbers: false,
+			autoCloseBrackets: true,
 			mode: 'text/html',
 			value: '',
 			readOnly: false,
 			error: null
 		};
 	},
+
+	methods: {
+		focus() {
+			this.editor.focus();
+		}
+	}
 };
 </script>

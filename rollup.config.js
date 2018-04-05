@@ -20,7 +20,7 @@ export default {
 	input: 'src/main.js',
 	output: {
 		sourcemap: true,
-		file: 'out/main.js',
+		file: 'out/app.js',
 		format: 'iife'
 	},
 	plugins: [
@@ -43,7 +43,7 @@ export default {
 				}
 			},
 			css(css) {
-				css.write('out/main.css');
+				css.write('out/app.css');
 			}
 		}),
 		bubleRollup(Object.assign({

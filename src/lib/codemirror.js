@@ -2,11 +2,21 @@
 
 import CodeMirror from 'codemirror';
 import setupEmmet from '@emmetio/codemirror-plugin';
-import * as xml from 'codemirror/mode/xml/xml'; // eslint-disable-line
-import * as css from 'codemirror/mode/css/css'; // eslint-disable-line
-import * as htmlmixed from 'codemirror/mode/htmlmixed/htmlmixed'; // eslint-disable-line
-import * as hint from 'codemirror/addon/hint/show-hint'; // eslint-disable-line
+
+/* eslint-disable */
+import * as closeBrackets from 'codemirror/addon/edit/closebrackets';
+import * as xml from 'codemirror/mode/xml/xml';
+import * as css from 'codemirror/mode/css/css';
+import * as htmlmixed from 'codemirror/mode/htmlmixed/htmlmixed';
+import * as javascript from 'codemirror/mode/javascript/javascript';
+import * as jsx from 'codemirror/mode/jsx/jsx';
+import * as sass from 'codemirror/mode/sass/sass';
+import * as haml from 'codemirror/mode/haml/haml';
+import * as slim from 'codemirror/mode/slim/slim';
+import * as pug from 'codemirror/mode/pug/pug';
+import * as hint from 'codemirror/addon/hint/show-hint';
 import markupAbbreviation from './markup-abbreviation-mode';
+/* eslint-enable */
 
 setupEmmet(CodeMirror);
 CodeMirror.defineMode('emmet-abbreviation', markupAbbreviation);
@@ -143,7 +153,7 @@ CodeMirror.registerGlobalHelper('hint', 'emmet', (mode, editor) => {
 
 					elt.appendChild(content);
 				},
-				hint: function () {
+				hint() {
 					// Use completions’ `insert()` method to properly
 					// insert Emmet completion
 					completion.insert();
