@@ -1,11 +1,5 @@
-import AbbrEditor from './components/abbreviation-input.svelte';
+import App from './components/app.svelte';
 
-new AbbrEditor({
-	target: document.querySelector('body'),
-	data: {
-		syntax: 'html',
-		value: 'ul>li.item*4',
-		syntaxPicker: true,
-		preview: true
-	}
+new App({
+	target: document.querySelector('body')
 });

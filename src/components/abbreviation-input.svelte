@@ -13,6 +13,9 @@
 	<Editor value="{{ expanded.value }}" mode="{{ mime }}" readOnly="nocursor" />
 </div>
 {{/if}}
+<div class="comment">
+	<slot name="comment"></slot>
+</div>
 <style>
 .abbreviation {
 	position: relative;
@@ -53,6 +56,11 @@
 	z-index: 1;
 	height: 300px;
 	font-size: 12px;
+}
+
+.comment {
+	font-size: 10px;
+	color: #cccccc;
 }
 </style>
 
