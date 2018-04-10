@@ -5,6 +5,7 @@ new AbbrEditor({
 	data: {
 		syntax: 'html',
 		value: 'ul>li.item*4',
-		syntaxPicker: true
+		syntaxPicker: true,
+		preview: true
 	}
 });

@@ -95,6 +95,9 @@ export default {
 	},
 
 	methods: {
+		/**
+		 * Set focus on current editor field
+		 */
 		focus() {
 			this.editor.focus();
 		}

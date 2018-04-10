@@ -8,10 +8,11 @@
 		</div>
 	{{/if}}
 </div>
+{{#if preview }}
 <div class="preview">
 	<Editor value="{{ expanded.value }}" mode="{{ mime }}" readOnly="nocursor" />
 </div>
-
+{{/if}}
 <style>
 .abbreviation {
 	position: relative;
@@ -73,6 +74,16 @@ const syntaxes = [
 ];
 
 export default {
+	oncreate() {
+		this.observe('expanded', payload => {
+			this._valid = !payload.error;
+			this.fire('change', {
+				value: this.get('value'),
+				valid: this._valid
+			});
+		});
+	},
+
 	data() {
 		return {
 			syntaxes,
@@ -88,6 +99,7 @@ export default {
 				}
 			},
 			syntaxPicker: false,
+			preview: false,
 			error: null
 		};
 	},
@@ -122,6 +134,14 @@ export default {
 		setSyntax(syntax) {
 			this.set({ syntax });
 			this.refs.input.focus();
+		},
+
+		/**
+		 * Check if currently entered abbreviation is valid
+		 * @return {Boolean}
+		 */
+		isValid() {
+			return this._valid;
 		}
 	},
 
