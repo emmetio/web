@@ -66,7 +66,7 @@ export default function() {
 				return 'number';
 			}
 
-			if (ch === '+' || ch === '>' || ch === '^') {
+			if (ch === '+' || ch === '>' || ch === '^' || ch === '/') {
 				return 'operator';
 			}
 

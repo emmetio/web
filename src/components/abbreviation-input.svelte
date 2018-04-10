@@ -90,6 +90,13 @@ export default {
 			value: '',
 			syntax: 'html',
 			config: {
+				globals: {
+					markup: {
+						profile: {
+							selfClosingStyle: 'xhtml'
+						}
+					}
+				},
 				syntax: {
 					jsx: {
 						options: {
