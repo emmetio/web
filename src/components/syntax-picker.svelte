@@ -1,10 +1,10 @@
-<span class="label" title="Choose output syntax">{{ current.name }}</span>
+<span class="label" title="Choose output syntax">{ current.name }</span>
 <ul class="items">
-	{{#each syntaxes as syntax}}
-	<li class="{{ syntax.id === selected ? 'selected' : '' }}" on:click="fire('select', syntax)">
-		{{ syntax.name }}
+	{#each syntaxes as syntax}
+	<li class="{ syntax.id === selected ? 'selected' : '' }" on:click="fire('select', syntax)">
+		{ syntax.name }
 	</li>
-	{{/each}}
+	{/each}
 </ul>
 
 <style>
@@ -82,7 +82,7 @@ export default {
 		 * @param {String[]} syntaxes
 		 * @param {String} selected
 		 */
-		current(syntaxes, selected) {
+		current({ syntaxes, selected }) {
 			return selected
 				? syntaxes.find(item => item.id === selected)
 				: syntaxes[0];

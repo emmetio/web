@@ -1,18 +1,18 @@
 <div class="abbreviation">
 	<div class="input">
-		<Editor ref:input bind:value error="{{ expanded.error }}" autofocus mode="emmet-abbreviation" />
+		<Editor ref:input bind:value error="{ expanded.error }" autofocus mode="emmet-abbreviation" />
 	</div>
-	{{#if syntaxPicker }}
+	{#if syntaxPicker }
 		<div class="syntax-picker">
-			<SyntaxPicker :syntaxes on:select="setSyntax(event.id)" selected="{{ syntax }}" />
+			<SyntaxPicker {syntaxes} on:select="setSyntax(event.id)" selected="{ syntax }" />
 		</div>
-	{{/if}}
+	{/if}
 </div>
-{{#if preview }}
+{#if preview }
 <div class="preview">
-	<Editor value="{{ expanded.value }}" mode="{{ mime }}" readOnly="nocursor" />
+	<Editor value="{ expanded.value }" mode="{ mime }" readOnly="nocursor" />
 </div>
-{{/if}}
+{/if}
 <div class="comment">
 	<slot name="comment"></slot>
 </div>
@@ -82,14 +82,14 @@ const syntaxes = [
 ];
 
 export default {
-	oncreate() {
-		this.observe('expanded', payload => {
-			this._valid = !payload.error;
+	onstate({ changed, current }) {
+		if (changed.expanded) {
+			this._valid = !current.expanded.error;
 			this.fire('change', {
-				value: this.get('value'),
+				value: this.get().value,
 				valid: this._valid
 			});
-		});
+		}
 	},
 
 	data() {
@@ -120,12 +120,12 @@ export default {
 	},
 
 	computed: {
-		mime(syntaxes, syntax) {
+		mime({ syntaxes, syntax }) {
 			const item = syntaxes.find(item => item.id === syntax) || syntaxes[0];
 			return item.mime;
 		},
 
-		expanded: (value, syntax, config) => {
+		expanded: ({ value, syntax, config }) => {
 			try {
 				return {
 					value: value ? expand(value, resolveConfig(config, { syntax })) : ''

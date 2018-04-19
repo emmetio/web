@@ -1,5 +1,5 @@
 <div class="editor" ref:editor></div>
-<div class="error" ref:error>{{ error && error.message || '' }}</div>
+<div class="error" ref:error>{ error && error.message || '' }</div>
 
 <style>
 ref:editor,
@@ -55,25 +55,30 @@ export default {
 			this.set({ value });
 		};
 		this.editor.on('change', this._onChange);
+	},
 
-		this.observe('mode', mode => this.editor.setOption('mode', mode));
+	onstate({ changed, current }) {
+		if (changed.mode) {
+			this.editor.setOption('mode', current.mode);
+		}
 
-		this.observe('value', value => {
-			value = value == null ? '' : String(value);
+		if (changed.value) {
+			const value = current.value == null ? '' : String(current.value);
 			if (this.editor.getValue() !== value) {
 				this.editor.setValue(value);
 			}
-		});
-		this.observe('error', value => {
-			if (value) {
+		}
+
+		if (changed.error) {
+			if (current.error) {
 				this.editor.addWidget({
-					line: value.line,
-					ch: value.ch
+					line: current.error.line,
+					ch: current.error.ch
 				}, this.refs.error);
 			} else if (this.refs.error.parentNode) {
 				this.refs.error.parentNode.removeChild(this.refs.error);
 			}
-		});
+		}
 	},
 
 	ondestroy() {
