@@ -20,7 +20,9 @@ export default function() {
 		startState() {
 			return {
 				braces: [],
-				attr: 0
+				attr: 0,
+				quote: null,
+				parseError: null
 			};
 		},
 		token(stream, state) {
@@ -70,14 +72,13 @@ export default function() {
 				return 'operator';
 			}
 
-			stream.next();
-			return 'error';
+			return unexpectedCharacter(stream, state);
 		}
 	};
 }
 
 function ident(ch) {
-	return /[a-z0-9-_$@!%]/.test(ch);
+	return /[a-z0-9-_$@!%:]/.test(ch);
 }
 
 function num(ch) {
@@ -100,23 +101,49 @@ function inText(state) {
 	return last(state.braces) === '{';
 }
 
-function consumeQuoted(stream) {
+/**
+ * Consumes quoted string and returns parsed token name, if possible
+ * @param {CodeMirror.StringStream} stream
+ * @param {Object} state
+ * @return {String}
+ */
+function consumeQuoted(stream, state) {
 	if (quote(stream.peek())) {
+		const start = stream.pos;
 		const ch = stream.next();
 
 		while (!stream.eol()) {
 			if (stream.eat(ch)) {
-				break;
+				stream.start = start;
+				return 'string';
 			}
 
 			stream.eat('\\'); // Skip escaped character, e.g. \"
 			stream.next();
 		}
 
-		return true;
-	}
+		// If reached here then string has no closing quote
+		state.parseError = {
+			message: 'No matching closing quote',
+			ch: start
+		};
 
-	return false;
+		return 'string error';
+	}
+}
+
+/**
+ * Consumes unquoted string and returns parsed token name, if possible
+ * @param {CodeMirror.StringStream} stream
+ * @param {Object} state
+ * @return {String}
+ */
+function consumeUnquoted(stream) {
+	const start = stream.pos;
+	if (stream.eatWhile(unquoted)) {
+		stream.start = start;
+		return 'string-2';
+	}
 }
 
 /**
@@ -125,25 +152,30 @@ function consumeQuoted(stream) {
  * @param {Object} state
  */
 function parseAttribute(stream, state) {
-	const quotedAttr = 'string attribute-value';
-	const unquotedAttr = 'string-2 attribute-value';
+	const attrValue = 'attribute-value';
+	let token;
 
 	if (!state.attr) {
 		// No attribute state, expect name or implicit value
-		if (consumeQuoted(stream)) {
+		if (stream.eatSpace()) {
+			return null;
+		}
+
+		if (token = consumeQuoted(stream, state)) {
 			// Consumed quoted value: anonymous attribute
-			return quotedAttr;
-		} else if (consumeUnquoted(stream)) {
+			return `${token} ${attrValue}`;
+		}
+
+		if (token = consumeUnquoted(stream, state)) {
 			// Consumed next word: could be either attribute name or unquoted default value
-			if (!reAttributeName.test(stream.current())) {
-				// Unquoted anonymous attribute
-				return unquotedAttr;
-			} else {
+			if (reAttributeName.test(stream.current())) {
+				// Attribute name
 				state.attr++; // expect =
 				return 'attribute attribute-name';
 			}
-		} else if (stream.eatSpace()) {
-			return null;
+
+			// Unquoted anonymous attribute
+			return `${token} ${attrValue}`;
 		}
 	} else if (state.attr === 1) {
 		if (stream.eat('=')) {
@@ -157,17 +189,18 @@ function parseAttribute(stream, state) {
 	} else if (state.attr === 2) {
 		// Expect attribute value after '='
 		state.attr = 0;
-		if (consumeQuoted(stream)) {
-			return quotedAttr;
-		} else if (consumeUnquoted(stream)) {
-			return unquotedAttr;
+		token = consumeQuoted(stream, state) || consumeUnquoted(stream, state);
+		if (token) {
+			return `${token} ${attrValue}`;
 		}
 	}
 
 	// Unexpected state
 	state.attr = 0;
-	stream.next();
-	return 'error';
+	state.parseError = {
+		message: 'Expected attribute value',
+		ch: state.pos
+	};
 }
 
 /**
@@ -196,8 +229,19 @@ function parseText(stream) {
 	return 'text';
 }
 
-function consumeUnquoted(stream) {
-	return stream.eatWhile(unquoted);
+function unexpectedCharacter(stream, state) {
+	if (!state.parseError) {
+		state.parseError = {
+			message: 'Unexpected character',
+			ch: stream.pos
+		};
+	}
+
+	while (!stream.eol()) {
+		stream.next();
+	}
+
+	return 'error';
 }
 
 function last(arr) {

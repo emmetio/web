@@ -1,5 +1,7 @@
-<div class="editor" ref:editor></div>
-<div class="error" ref:error>{ error && error.message || '' }</div>
+<div class="container">
+	<div class="editor" ref:editor></div>
+	<div class="error" ref:error>{ error && error.message || '' }</div>
+</div>
 
 <style>
 ref:editor,
@@ -48,13 +50,26 @@ import createEditor from '../lib/codemirror';
 
 export default {
 	oncreate() {
+		let lastError = null;
 		this.editor = createEditor(this.refs.editor, this.get());
 		this._onChange = () => {
 			const value = this.editor.getValue();
 			this.fire('change', { value });
 			this.set({ value });
 		};
+		this._onCursorActivity = () => {
+			const line = this.editor.getCursor().line;
+			const state = this.editor.getStateAfter(line);
+			const error = state && state.parseError || null;
+
+			if (error !== lastError) {
+				this.set({ error: error ? { ...error, line } : null });
+				lastError = error;
+			}
+
+		};
 		this.editor.on('change', this._onChange);
+		this.editor.on('cursorActivity', this._onCursorActivity);
 	},
 
 	onstate({ changed, current }) {
@@ -83,7 +98,8 @@ export default {
 
 	ondestroy() {
 		this.editor.off('change', this._onChange);
-		this.editor = null;
+		this.editor.off('cursorActivity', this._onCursorActivity);
+		this.editor = this._onChange = this._onCursorActivity = null;
 	},
 
 	data() {

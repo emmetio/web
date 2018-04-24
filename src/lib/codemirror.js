@@ -16,10 +16,12 @@ import * as slim from 'codemirror/mode/slim/slim';
 import * as pug from 'codemirror/mode/pug/pug';
 import * as hint from 'codemirror/addon/hint/show-hint';
 import markupAbbreviation from './markup-abbreviation-mode';
+import snippetName from './snippet-name-mode';
 /* eslint-enable */
 
 setupEmmet(CodeMirror);
 CodeMirror.defineMode('emmet-abbreviation', markupAbbreviation);
+CodeMirror.defineMode('emmet-snippet-name', snippetName);
 
 /**
  * Initially setup Emmet support & create CodeMirror instance from given `<textarea>`
