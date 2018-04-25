@@ -70,6 +70,10 @@ export default {
 		};
 		this.editor.on('change', this._onChange);
 		this.editor.on('cursorActivity', this._onCursorActivity);
+
+		if (this.get().autofocus) {
+			this.editor.execCommand('selectAll');
+		}
 	},
 
 	onstate({ changed, current }) {
