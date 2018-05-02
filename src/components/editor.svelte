@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="editor" ref:editor></div>
-	<div class="error" ref:error>{ error && error.message || '' }</div>
+	<div ref:error>{ error && error.message || '' }</div>
 </div>
 
 <style>
@@ -13,7 +13,7 @@ ref:editor :global(.CodeMirror) {
 	min-height: inherit;
 }
 
-.error {
+ref:error {
 	position: absolute;
 	background: #f00;
 	color: #ffffff;
@@ -26,7 +26,7 @@ ref:editor :global(.CodeMirror) {
 	margin-top: 3px;
 }
 
-.error::before {
+ref:error::before {
 	display: block;
 	content: '';
 	position: absolute;
@@ -38,7 +38,7 @@ ref:editor :global(.CodeMirror) {
 	top: -2px;
 }
 
-.error:empty {
+ref:error:empty {
 	display: none;
 }
 </style>
@@ -50,26 +50,26 @@ import createEditor from '../lib/codemirror';
 
 export default {
 	oncreate() {
-		let lastError = null;
 		this.editor = createEditor(this.refs.editor, this.get());
 		this._onChange = () => {
+			let error;
 			const value = this.editor.getValue();
-			this.fire('change', { value });
-			this.set({ value });
-		};
-		this._onCursorActivity = () => {
 			const line = this.editor.getCursor().line;
 			const state = this.editor.getStateAfter(line);
-			const error = state && state.parseError || null;
 
-			if (error !== lastError) {
-				this.set({ error: error ? { ...error, line } : null });
-				lastError = error;
+			if (state.parseError) {
+				error = {
+					message: state.parseError.message,
+					ch: state.parseError.ch,
+					line
+				};
 			}
 
+			this.set({ value, error });
+			this.fire('change', { value, error });
 		};
+
 		this.editor.on('change', this._onChange);
-		this.editor.on('cursorActivity', this._onCursorActivity);
 
 		if (this.get().autofocus) {
 			this.editor.execCommand('selectAll');
@@ -102,8 +102,7 @@ export default {
 
 	ondestroy() {
 		this.editor.off('change', this._onChange);
-		this.editor.off('cursorActivity', this._onCursorActivity);
-		this.editor = this._onChange = this._onCursorActivity = null;
+		this.editor = this._onChange = null;
 	},
 
 	data() {
