@@ -38,53 +38,75 @@ function startState() {
  * @returns {String}
  */
 function token(stream, state) {
+	const t = getToken(stream, state);
+	if (t === undefined) {
+		return unexpectedCharacter(stream, state);
+	}
+
+	// Report if closing braces are missing at the end of abbreviation
+	if (stream.eol() && state.braces.length && !state.parseError) {
+		const pos = last(state.braces).pos;
+		state.parseError = error(`No closing brace at ${pos}`, stream);
+		state.parseError.ch = pos;
+		return 'error';
+	}
+
+	return t;
+}
+
+/**
+ * Consumes token from given stream
+ * @param {CodeMirror.StringStream} stream
+ * @param {Object} state
+ * @returns {String}
+ */
+function getToken(stream, state) {
+	// Handle braces first to exit text or attribute context as soon as possible
+	const next = stream.peek();
+	if (next in braces && !inAttribute(state)) {
+		state.braces.push({
+			pos: stream.pos,
+			brace: stream.next()
+		});
+		return 'bracket open';
+	}
+
+	if (next in reverseBraces && lastBrace(state) === reverseBraces[next]) {
+		state.braces.pop();
+		stream.next();
+		return 'bracket close';
+	}
+
 	if (inAttribute(state)) {
-		return exitBraceState(stream, state, ']') || parseAttribute(stream, state);
+		return parseAttribute(stream, state);
 	}
 
 	if (inText(state)) {
-		return exitBraceState(stream, state, '}') || parseText(stream);
-	}
-
-	// Handle braces first to exit text or attribute context as soon as possible
-	if (stream.peek() in braces) {
-		state.braces.push(stream.next());
-		return 'bracket';
-	} else if (stream.peek() in reverseBraces) {
-		if (last(state.braces) === reverseBraces[stream.next()]) {
-			state.braces.pop();
-			return 'bracket';
-		}
-
-		return 'bracket error';
+		return parseText(stream);
 	}
 
 	if (stream.eatWhile(ident)) {
 		return 'tag';
 	}
 
-	const ch = stream.next();
-
-	if (ch === '.') {
+	if (stream.eat('.')) {
 		stream.eatWhile(ident);
 		return 'attribute class';
 	}
 
-	if (ch === '#') {
+	if (stream.eat('#')) {
 		stream.eatWhile(ident);
 		return 'attribute id';
 	}
 
-	if (ch === '*') {
+	if (stream.eat('*')) {
 		stream.eatWhile(num);
 		return 'number';
 	}
 
-	if (ch === '+' || ch === '>' || ch === '^' || ch === '/') {
+	if (stream.eat(/[+>^/]/)) {
 		return 'operator';
 	}
-
-	return unexpectedCharacter(stream, state);
 }
 
 function ident(ch) {
@@ -100,15 +122,20 @@ function quote(ch) {
 }
 
 function unquoted(ch) {
-	return !quote(ch) && !/[\s=[\]]/.test(ch);
+	return !quote(ch) && !/[\s=[[\](){}]/.test(ch);
 }
 
 function inAttribute(state) {
-	return last(state.braces) === '[';
+	return lastBrace(state) === '[';
 }
 
 function inText(state) {
-	return last(state.braces) === '{';
+	return lastBrace(state) === '{';
+}
+
+function lastBrace(state) {
+	const obj = last(state.braces);
+	return obj && obj.brace;
 }
 
 /**
@@ -133,10 +160,8 @@ function consumeQuoted(stream, state) {
 		}
 
 		// If reached here then string has no closing quote
-		state.parseError = {
-			message: 'No matching closing quote',
-			ch: start
-		};
+		state.parseError = error('No matching closing quote', stream);
+		state.parseError.ch = start;
 
 		return 'string error';
 	}
@@ -206,7 +231,7 @@ function parseAttribute(stream, state) {
 				state.attr++;
 			}
 
-			return null;
+			return 'operator';
 		}
 
 		if (stream.eat('.')) {
@@ -285,20 +310,13 @@ function reactExpression(stream, state) {
 }
 
 function unexpectedCharacter(stream, state) {
-	state.parseError = error('Unexpected character', stream);
+	state.parseError = error('Unexpected character at ' + stream.pos, stream);
 
 	while (!stream.eol()) {
 		stream.next();
 	}
 
 	return 'error';
-}
-
-function exitBraceState(stream, state, brace) {
-	if (stream.eat(brace)) {
-		state.braces.pop();
-		return 'bracket';
-	}
 }
 
 function error(message, stream) {

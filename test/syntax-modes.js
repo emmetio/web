@@ -57,198 +57,198 @@ describe('Abbreviation mode', () => {
 	it('with attributes', () => {
 		assert.deepEqual(parse('div[foo=bar]'), [
 			['div', 'tag'],
-			['[', 'bracket'],
+			['[', 'bracket open'],
 			['foo', 'attribute attribute-name'],
-			['=', null],
+			['=', 'operator'],
 			['bar', 'string-2 attribute-value'],
-			[']', 'bracket']
+			[']', 'bracket close']
 		]);
 
 		assert.deepEqual(parse('div.a[b=c]'), [
 			['div', 'tag'],
 			['.a', 'attribute class'],
-			['[', 'bracket'],
+			['[', 'bracket open'],
 			['b', 'attribute attribute-name'],
-			['=', null],
+			['=', 'operator'],
 			['c', 'string-2 attribute-value'],
-			[']', 'bracket']
+			[']', 'bracket close']
 		]);
 
 		assert.deepEqual(parse('div[b=c].a'), [
 			['div', 'tag'],
-			['[', 'bracket'],
+			['[', 'bracket open'],
 			['b', 'attribute attribute-name'],
-			['=', null],
+			['=', 'operator'],
 			['c', 'string-2 attribute-value'],
-			[']', 'bracket'],
+			[']', 'bracket close'],
 			['.a', 'attribute class']
 		]);
 
 		assert.deepEqual(parse('div[a=b][c="d"]'), [
 			['div', 'tag'],
-			['[', 'bracket'],
+			['[', 'bracket open'],
 			['a', 'attribute attribute-name'],
-			['=', null],
+			['=', 'operator'],
 			['b', 'string-2 attribute-value'],
-			[']', 'bracket'],
-			['[', 'bracket'],
+			[']', 'bracket close'],
+			['[', 'bracket open'],
 			['c', 'attribute attribute-name'],
-			['=', null],
+			['=', 'operator'],
 			['"d"', 'string attribute-value'],
-			[']', 'bracket']
+			[']', 'bracket close']
 		]);
 
 		assert.deepEqual(parse('[a=b]'), [
-			['[', 'bracket'],
+			['[', 'bracket open'],
 			['a', 'attribute attribute-name'],
-			['=', null],
+			['=', 'operator'],
 			['b', 'string-2 attribute-value'],
-			[']', 'bracket']
+			[']', 'bracket close']
 		]);
 
 		assert.deepEqual(parse('.a[b=c]'), [
 			['.a', 'attribute class'],
-			['[', 'bracket'],
+			['[', 'bracket open'],
 			['b', 'attribute attribute-name'],
-			['=', null],
+			['=', 'operator'],
 			['c', 'string-2 attribute-value'],
-			[']', 'bracket']
+			[']', 'bracket close']
 		]);
 
 		assert.deepEqual(parse('[b=c].a#d'), [
-			['[', 'bracket'],
+			['[', 'bracket open'],
 			['b', 'attribute attribute-name'],
-			['=', null],
+			['=', 'operator'],
 			['c', 'string-2 attribute-value'],
-			[']', 'bracket'],
+			[']', 'bracket close'],
 			['.a', 'attribute class'],
 			['#d', 'attribute id']
 		]);
 
 		assert.deepEqual(parse('[b=c]a'), [
-			['[', 'bracket'],
+			['[', 'bracket open'],
 			['b', 'attribute attribute-name'],
-			['=', null],
+			['=', 'operator'],
 			['c', 'string-2 attribute-value'],
-			[']', 'bracket'],
+			[']', 'bracket close'],
 			['a', 'tag']
 		]);
 
-		assert.deepEqual(parse('[a]'), [['[', 'bracket'], ['a', 'attribute attribute-name'], [']', 'bracket']]);
+		assert.deepEqual(parse('[a]'), [['[', 'bracket open'], ['a', 'attribute attribute-name'], [']', 'bracket close']]);
 		assert.deepEqual(parse('[a b c]'), [
-			['[', 'bracket'],
+			['[', 'bracket open'],
 			['a', 'attribute attribute-name'],
 			[' ', null],
 			['b', 'attribute attribute-name'],
 			[' ', null],
 			['c', 'attribute attribute-name'],
-			[']', 'bracket']
+			[']', 'bracket close']
 		]);
 
 		assert.deepEqual(parse('[a=b c= d=e]'), [
-			['[', 'bracket'],
+			['[', 'bracket open'],
 			['a', 'attribute attribute-name'],
-			['=', null],
+			['=', 'operator'],
 			['b', 'string-2 attribute-value'],
 			[' ', null],
 			['c', 'attribute attribute-name'],
-			['=', null],
+			['=', 'operator'],
 			[' ', null],
 			['d', 'attribute attribute-name'],
-			['=', null],
+			['=', 'operator'],
 			['e', 'string-2 attribute-value'],
-			[']', 'bracket']
+			[']', 'bracket close']
 		]);
 
 		assert.deepEqual(parse('[a=b.c d=тест]'), [
-			['[', 'bracket'],
+			['[', 'bracket open'],
 			['a', 'attribute attribute-name'],
-			['=', null],
+			['=', 'operator'],
 			['b.c', 'string-2 attribute-value'],
 			[' ', null],
 			['d', 'attribute attribute-name'],
-			['=', null],
+			['=', 'operator'],
 			['тест', 'string-2 attribute-value'],
-			[']', 'bracket']
+			[']', 'bracket close']
 		]);
 
 		assert.deepEqual(parse('[a="b" c=\'d\' e=""]'), [
-			['[', 'bracket'],
+			['[', 'bracket open'],
 			['a', 'attribute attribute-name'],
-			['=', null],
+			['=', 'operator'],
 			['"b"', 'string attribute-value'],
 			[' ', null],
 			['c', 'attribute attribute-name'],
-			['=', null],
+			['=', 'operator'],
 			['\'d\'', 'string attribute-value'],
 			[' ', null],
 			['e', 'attribute attribute-name'],
-			['=', null],
+			['=', 'operator'],
 			['""', 'string attribute-value'],
-			[']', 'bracket']
+			[']', 'bracket close']
 		]);
 
 		assert.deepEqual(parse('[a="foo\'bar" b=\'foo"bar\' c="foo\\"bar"]'), [
-			['[', 'bracket'],
+			['[', 'bracket open'],
 			['a', 'attribute attribute-name'],
-			['=', null],
+			['=', 'operator'],
 			['"foo\'bar"', 'string attribute-value'],
 			[' ', null],
 			['b', 'attribute attribute-name'],
-			['=', null],
+			['=', 'operator'],
 			['\'foo"bar\'', 'string attribute-value'],
 			[' ', null],
 			['c', 'attribute attribute-name'],
-			['=', null],
+			['=', 'operator'],
 			['"foo\\"bar"', 'string attribute-value'],
-			[']', 'bracket']
+			[']', 'bracket close']
 		]);
 
 		assert.deepEqual(parse('[a. b.]'), [
-			['[', 'bracket'],
+			['[', 'bracket open'],
 			['a', 'attribute attribute-name'],
 			['.', 'operator'],
 			[' ', null],
 			['b', 'attribute attribute-name'],
 			['.', 'operator'],
-			[']', 'bracket']
+			[']', 'bracket close']
 		]);
 
 		assert.deepEqual(parse('[foo={1 + 2} bar={fn(1, "foo")}]'), [
-			['[', 'bracket'],
+			['[', 'bracket open'],
 			['foo', 'attribute attribute-name'],
-			['=', null],
+			['=', 'operator'],
 			['{1 + 2}', 'variable-3 attribute-value'],
 			[' ', null],
 			['bar', 'attribute attribute-name'],
-			['=', null],
+			['=', 'operator'],
 			['{fn(1, "foo")}', 'variable-3 attribute-value'],
-			[']', 'bracket']
+			[']', 'bracket close']
 		]);
 
 		assert.deepEqual(parse('[name=${1} value=${2:test}]'), [
-			['[', 'bracket'],
+			['[', 'bracket open'],
 			['name', 'attribute attribute-name'],
-			['=', null],
+			['=', 'operator'],
 			['${1}', 'string-2 attribute-value'],
 			[' ', null],
 			['value', 'attribute attribute-name'],
-			['=', null],
+			['=', 'operator'],
 			['${2:test}', 'string-2 attribute-value'],
-			[']', 'bracket']
+			[']', 'bracket close']
 		]);
 	});
 
 	it('with text node', () => {
-		assert.deepEqual(parse('div{foo}'), [['div', 'tag'], ['{', 'bracket'], ['foo', 'text'], ['}', 'bracket']]);
-		assert.deepEqual(parse('{foo}'), [['{', 'bracket'], ['foo', 'text'], ['}', 'bracket']]);
-		assert.deepEqual(parse('{a b c}'), [['{', 'bracket'], ['a b c', 'text'], ['}', 'bracket']]);
-		assert.deepEqual(parse('{a "b c"}'), [['{', 'bracket'], ['a "b c"', 'text'], ['}', 'bracket']]);
-		assert.deepEqual(parse('{isn\'t bad}'), [['{', 'bracket'], ['isn\'t bad', 'text'], ['}', 'bracket']]);
-		assert.deepEqual(parse('{foo(a => {return "b"});}'), [['{', 'bracket'], ['foo(a => {return "b"});', 'text'], ['}', 'bracket']]);
-		assert.deepEqual(parse('{foo(a => {return "b\\}"});}'), [['{', 'bracket'], ['foo(a => {return "b\\}"});', 'text'], ['}', 'bracket']]);
-		assert.deepEqual(parse('{foo\\}bar}'), [['{', 'bracket'], ['foo\\}bar', 'text'], ['}', 'bracket']]);
-		assert.deepEqual(parse('{foo\\{bar\\}baz}'), [['{', 'bracket'], ['foo\\{bar\\}baz', 'text'], ['}', 'bracket']]);
+		assert.deepEqual(parse('div{foo}'), [['div', 'tag'], ['{', 'bracket open'], ['foo', 'text'], ['}', 'bracket close']]);
+		assert.deepEqual(parse('{foo}'), [['{', 'bracket open'], ['foo', 'text'], ['}', 'bracket close']]);
+		assert.deepEqual(parse('{a b c}'), [['{', 'bracket open'], ['a b c', 'text'], ['}', 'bracket close']]);
+		assert.deepEqual(parse('{a "b c"}'), [['{', 'bracket open'], ['a "b c"', 'text'], ['}', 'bracket close']]);
+		assert.deepEqual(parse('{isn\'t bad}'), [['{', 'bracket open'], ['isn\'t bad', 'text'], ['}', 'bracket close']]);
+		assert.deepEqual(parse('{foo(a => {return "b"});}'), [['{', 'bracket open'], ['foo(a => {return "b"});', 'text'], ['}', 'bracket close']]);
+		assert.deepEqual(parse('{foo(a => {return "b\\}"});}'), [['{', 'bracket open'], ['foo(a => {return "b\\}"});', 'text'], ['}', 'bracket close']]);
+		assert.deepEqual(parse('{foo\\}bar}'), [['{', 'bracket open'], ['foo\\}bar', 'text'], ['}', 'bracket close']]);
+		assert.deepEqual(parse('{foo\\{bar\\}baz}'), [['{', 'bracket open'], ['foo\\{bar\\}baz', 'text'], ['}', 'bracket close']]);
 		// assert.deepEqual(parse('{foo\\"}bar}'), [['{', 'bracket'], ['foo\\"}bar', 'text'], ['}', 'bracket']]);
 	});
 
@@ -256,29 +256,29 @@ describe('Abbreviation mode', () => {
 		assert.deepEqual(parse('div.foo{bar}'), [
 			['div', 'tag'],
 			['.foo', 'attribute class'],
-			['{', 'bracket'],
+			['{', 'bracket open'],
 			['bar', 'text'],
-			['}', 'bracket']
+			['}', 'bracket close']
 		]);
 
 		assert.deepEqual(parse('.foo{bar}#baz'), [
 			['.foo', 'attribute class'],
-			['{', 'bracket'],
+			['{', 'bracket open'],
 			['bar', 'text'],
-			['}', 'bracket'],
+			['}', 'bracket close'],
 			['#baz', 'attribute id']
 		]);
 
 		assert.deepEqual(parse('.foo[b=c]{bar}'), [
 			['.foo', 'attribute class'],
-			['[', 'bracket'],
+			['[', 'bracket open'],
 			['b', 'attribute attribute-name'],
-			['=', null],
+			['=', 'operator'],
 			['c', 'string-2 attribute-value'],
-			[']', 'bracket'],
-			['{', 'bracket'],
+			[']', 'bracket close'],
+			['{', 'bracket open'],
 			['bar', 'text'],
-			['}', 'bracket'],
+			['}', 'bracket close'],
 		]);
 	});
 
@@ -291,30 +291,30 @@ describe('Abbreviation mode', () => {
 
 		assert.deepEqual(parse('.a[b=c]*10'), [
 			['.a', 'attribute class'],
-			['[', 'bracket'],
+			['[', 'bracket open'],
 			['b', 'attribute attribute-name'],
-			['=', null],
+			['=', 'operator'],
 			['c', 'string-2 attribute-value'],
-			[']', 'bracket'],
+			[']', 'bracket close'],
 			['*10', 'number']
 		]);
 
 		assert.deepEqual(parse('.a*10[b=c]'), [
 			['.a', 'attribute class'],
 			['*10', 'number'],
-			['[', 'bracket'],
+			['[', 'bracket open'],
 			['b', 'attribute attribute-name'],
-			['=', null],
+			['=', 'operator'],
 			['c', 'string-2 attribute-value'],
-			[']', 'bracket']
+			[']', 'bracket close']
 		]);
 
 		assert.deepEqual(parse('.a*10{text}'), [
 			['.a', 'attribute class'],
 			['*10', 'number'],
-			['{', 'bracket'],
+			['{', 'bracket open'],
 			['text', 'text'],
-			['}', 'bracket']
+			['}', 'bracket close']
 		]);
 
 		assert.deepEqual(parse('*123foo'), [['*123', 'number'], ['foo', 'tag']]);
@@ -327,9 +327,9 @@ describe('Abbreviation mode', () => {
 
 		assert.deepEqual(parse('.foo[bar]/'), [
 			['.foo', 'attribute class'],
-			['[', 'bracket'],
+			['[', 'bracket open'],
 			['bar', 'attribute attribute-name'],
-			[']', 'bracket'],
+			[']', 'bracket close'],
 			['/', 'operator']
 		]);
 
@@ -344,5 +344,13 @@ describe('Abbreviation mode', () => {
 			['*3', 'number'],
 			['/', 'operator']
 		]);
+	});
+
+	it.only('errors', () => {
+		assert.throws(() => parse('a<'), err => err.ch === 1);
+		assert.throws(() => parse('foo[bar'), err => err.ch === 3);
+		assert.throws(() => parse('foo(bar'), err => err.ch === 3);
+		assert.throws(() => parse('foo[bar)'), err => err.ch === 7);
+		assert.throws(() => parse('foo[bar="baz]'), err => err.ch === 8);
 	});
 });

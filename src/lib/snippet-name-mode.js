@@ -35,7 +35,7 @@ export default function () {
 }
 
 function ident(ch) {
-	return /[a-z0-9-_$@!%:]/.test(ch);
+	return /[a-zA-Z0-9-_$@!%:]/.test(ch);
 }
 
 function separator(ch) {
