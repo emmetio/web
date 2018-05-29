@@ -37,8 +37,10 @@ export default function createEditor(target, options) {
 	}, options);
 
 	const extraKeys = {
+		Tab: skipMultiline,
 		Enter: skipMultiline,
-		Tab: skipMultiline
+		'Shift-Enter': skipMultiline,
+		'Cmd-Enter': skipMultiline
 	};
 
 	if (options.autocomplete) {

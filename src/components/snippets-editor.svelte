@@ -5,7 +5,7 @@
 			<th class="abbreviation">Abbreviation</th>
 		</tr>
 		{#each items as snippet, i}
-			<tr class="{i === active ? 'active' : ''}">
+			<tr class="{i === active ? 'active' : ''}" data-ix={i}>
 				<td class="name" on:click="toggleEdit(i, 'key')">
 					<div class="field {i === active ? 'active' : ''} {snippet.keyError ? 'error' : ''}">
 						{#if i === active}
@@ -80,6 +80,7 @@
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		line-height: 1.5;
+		min-height: 1.5em;
 		transition-duration: 0.3s;
 		transition-property: border-color, box-shadow;
 	}
@@ -132,12 +133,16 @@ function isEmptySnippet(snippet) {
 	return !snippet.key && !snippet.value;
 }
 
-function createEditSnippets(snippets) {
-	return snippets.map(snippet => ({
+function createEditableSnippets(snippets) {
+	return snippets.map(editableSnippet);
+}
+
+function editableSnippet(snippet) {
+	return {
 		...snippet,
 		originalKey: snippet.key,
 		originalValue: snippet.value
-	}));
+	};
 }
 
 function isUpdated(snippet) {
@@ -167,7 +172,7 @@ export default {
 	onstate({ changed, current }) {
 		// Create backing structure for handling changes
 		if (changed.snippets) {
-			this.set({ _items: createEditSnippets(current.snippets) });
+			this.set({ _items: createEditableSnippets(current.snippets) });
 		}
 	},
 
@@ -206,15 +211,35 @@ export default {
 			event.preventDefault();
 
 			this.set({
-				_items: createEditSnippets(this.get().snippets),
+				_items: createEditableSnippets(this.get().snippets),
 				active: -1
 			})
+		},
+
+		insertAfter(i) {
+			const _items = this.get()._items.slice();
+			_items.splice(i + 1, 0, editableSnippet({ key: '', value: '' }));
+
+			this._set({ _items });
+			this.toggleEdit(i + 1, 'key');
+		},
+
+		remove(i) {
+
 		},
 
 		handleKeyDown(event) {
 			switch (event.keyCode) {
 				case ENTER_KEY:
-					this.submit(event);
+					if (event.shiftKey) {
+						const row = event.target.closest('tr');
+						const ix = row && row.getAttribute('data-ix');
+						if (ix) {
+							this.insertAfter(Number(ix));
+						}
+					} else {
+						this.submit(event);
+					}
 					break;
 
 				case ESC_KEY:
