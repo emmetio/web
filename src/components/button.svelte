@@ -1,4 +1,4 @@
-<button class={secondary ? 'secondary' : ''} on:click="fire('click')">
+<button :type class={secondary ? 'secondary' : ''} on:click="fire('click')" :disabled>
 	<slot>Label</slot>
 </button>
 
@@ -15,16 +15,28 @@ button {
 	border: 0;
 }
 
+button:disabled {
+	background: #ccc;
+	cursor: default;
+}
+
 button.secondary {
 	color: #417505;
 	background: transparent;
 }
+
+button.secondary:disabled {
+	color: #ccc;
+}
+
 </style>
 
 <script>
 export default {
 	data() {
 		return {
+			type: 'button',
+			disabled: false,
 			secondary: false
 		};
 	}

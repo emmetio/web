@@ -76,7 +76,7 @@ export default {
 		}
 	},
 
-	onstate({ changed, current }) {
+	onupdate({ changed, current }) {
 		if (changed.mode) {
 			this.editor.setOption('mode', current.mode);
 		}
