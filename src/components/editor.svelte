@@ -69,7 +69,14 @@ export default {
 			this.fire('change', { value, error });
 		};
 
+		this._onBlur = () => {
+			if (this.editor && this.editor.somethingSelected()) {
+				this.editor.setSelection({ line: 0, ch: 0});
+			}
+		}
+
 		this.editor.on('change', this._onChange);
+		this.editor.on('blur', this._onBlur);
 
 		if (this.get().autofocus) {
 			this.editor.execCommand('selectAll');
@@ -98,11 +105,17 @@ export default {
 				this.refs.error.parentNode.removeChild(this.refs.error);
 			}
 		}
+
+		if (current.autofocus) {
+			this.editor.focus();
+			this.editor.execCommand('selectAll');
+		}
 	},
 
 	ondestroy() {
 		this.editor.off('change', this._onChange);
-		this.editor = this._onChange = null;
+		this.editor.off('change', this._onBlur);
+		this.editor = this._onChange = this._onBlur = null;
 	},
 
 	data() {

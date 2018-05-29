@@ -37,11 +37,8 @@ export default function createEditor(target, options) {
 	}, options);
 
 	const extraKeys = {
-		Enter(cm) {
-			if (cm.getOption('multiline')) {
-				return CodeMirror.Pass;
-			}
-		}
+		Enter: skipMultiline,
+		Tab: skipMultiline
 	};
 
 	if (options.autocomplete) {
@@ -62,6 +59,17 @@ export default function createEditor(target, options) {
 	}
 
 	return editor;
+}
+
+/**
+ * A key handler which will skip default action handler if editor is not in
+ * multiline editing mode
+ * @param {CodeMirror} cm
+ */
+function skipMultiline(cm) {
+	if (cm.getOption('multiline')) {
+		return CodeMirror.Pass;
+	}
 }
 
 /**

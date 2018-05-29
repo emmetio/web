@@ -124,6 +124,7 @@
 import Button from './button.svelte';
 import Editor from './editor.svelte';
 
+const TAB_KEY = 9;
 const ENTER_KEY = 13;
 const ESC_KEY = 27;
 
@@ -211,11 +212,55 @@ export default {
 		},
 
 		handleKeyDown(event) {
-			if (event.keyCode === ENTER_KEY) {
-				this.submit(event);
-			} else if (event.keyCode === ESC_KEY) {
-				this.set({ active: -1 });
+			switch (event.keyCode) {
+				case ENTER_KEY:
+					this.submit(event);
+					break;
+
+				case ESC_KEY:
+					this.set({ active: -1 });
+					break;
+
+				case TAB_KEY:
+					event.shiftKey ? this._prevField() : this._nextField();
+					break;
 			}
+		},
+
+		/**
+		 * Moves focus to next field in editor
+		 */
+		_nextField() {
+			let { active, field, _items } = this.get();
+
+			if (field === 'value') {
+				active++;
+				field = 'key';
+			} else {
+				field = 'value';
+			}
+
+			if (active >= _items.length) {
+				active = -1;
+			}
+
+			this.toggleEdit(active, field);
+		},
+
+		/**
+		 * Moves focus to previour field in editor
+		 */
+		_prevField() {
+			let { active, field } = this.get();
+
+			if (field === 'key') {
+				active--;
+				field = 'value';
+			} else {
+				field = 'key';
+			}
+
+			this.toggleEdit(active, field);
 		},
 
 		_setKey(i, event) {
