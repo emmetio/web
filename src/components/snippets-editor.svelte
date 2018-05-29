@@ -1,4 +1,4 @@
-<form ref:form on:submit="submit(event)" on:reset="reset(event)">
+<form ref:form on:submit="submit(event)" on:reset="reset(event)" on:keydown="handleKeyDown(event)">
 	<table>
 		<tr>
 			<th class="name">Name</th>
@@ -124,6 +124,9 @@
 import Button from './button.svelte';
 import Editor from './editor.svelte';
 
+const ENTER_KEY = 13;
+const ESC_KEY = 27;
+
 function isEmptySnippet(snippet) {
 	return !snippet.key && !snippet.value;
 }
@@ -205,6 +208,14 @@ export default {
 				_items: createEditSnippets(this.get().snippets),
 				active: -1
 			})
+		},
+
+		handleKeyDown(event) {
+			if (event.keyCode === ENTER_KEY) {
+				this.submit(event);
+			} else if (event.keyCode === ESC_KEY) {
+				this.set({ active: -1 });
+			}
 		},
 
 		_setKey(i, event) {

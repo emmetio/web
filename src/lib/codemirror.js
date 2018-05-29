@@ -36,7 +36,13 @@ export default function createEditor(target, options) {
 		autoRenameTags: false,
 	}, options);
 
-	const extraKeys = {};
+	const extraKeys = {
+		Enter(cm) {
+			if (cm.getOption('multiline')) {
+				return CodeMirror.Pass;
+			}
+		}
+	};
 
 	if (options.autocomplete) {
 		extraKeys['Ctrl-Space'] = 'autocomplete';

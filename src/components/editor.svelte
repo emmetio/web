@@ -107,6 +107,7 @@ export default {
 
 	data() {
 		return {
+			multiline: false,
 			autocomplete: false,
 			autofocus: false,
 			lineNumbers: false,
