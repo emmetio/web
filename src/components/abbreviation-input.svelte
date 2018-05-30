@@ -4,7 +4,7 @@
 	</div>
 	{#if syntaxPicker }
 		<div class="syntax-picker">
-			<SyntaxPicker {syntaxes} on:select="setSyntax(event.id)" selected="{ syntax }" />
+			<SyntaxPicker syntaxes={$syntaxes} on:select="setSyntax(event.id)" selected="{ syntax }" />
 		</div>
 	{/if}
 </div>
@@ -65,23 +65,14 @@
 </style>
 
 <script>
-import Editor from './editor.svelte';
-import SyntaxPicker from './syntax-picker.svelte';
 import { expand } from '@emmetio/expand-abbreviation';
 import resolveConfig from '@emmetio/config';
-
-const syntaxes = [
-	{ id: 'html', name: 'HTML', mime: 'text/html' },
-	{ id: 'xml', name: 'XML', mime: 'text/xml' },
-	{ id: 'css', name: 'CSS', mime: 'text/css' },
-	{ id: 'sass', name: 'SASS', mime: 'text/x-sass' },
-	{ id: 'jsx', name: 'JSX', mime: 'text/jsx' },
-	{ id: 'slim', name: 'Slim', mime: 'text/x-slim' },
-	{ id: 'haml', name: 'HAML', mime: 'text/x-haml' },
-	{ id: 'pug', name: 'Pug', mime: 'text/x-pug' }
-];
+import Editor from './editor.svelte';
+import SyntaxPicker from './syntax-picker.svelte';
+import store from '../lib/store';
 
 export default {
+	store: () => store,
 	onstate({ changed, current }) {
 		if (changed.expanded) {
 			this._valid = !current.expanded.error;
@@ -94,7 +85,6 @@ export default {
 
 	data() {
 		return {
-			syntaxes,
 			value: '',
 			syntax: 'html',
 			config: {
@@ -120,8 +110,8 @@ export default {
 	},
 
 	computed: {
-		mime({ syntaxes, syntax }) {
-			const item = syntaxes.find(item => item.id === syntax) || syntaxes[0];
+		mime({ $syntaxes, syntax }) {
+			const item = $syntaxes.find(item => item.id === syntax) || $syntaxes[0];
 			return item.mime;
 		},
 
