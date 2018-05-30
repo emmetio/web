@@ -106,7 +106,7 @@ export default {
 			}
 		}
 
-		if (current.autofocus) {
+		if (changed.autofocus && current.autofocus) {
 			this.editor.focus();
 			this.editor.execCommand('selectAll');
 		}
@@ -114,7 +114,7 @@ export default {
 
 	ondestroy() {
 		this.editor.off('change', this._onChange);
-		this.editor.off('change', this._onBlur);
+		this.editor.off('blur', this._onBlur);
 		this.editor = this._onChange = this._onBlur = null;
 	},
 

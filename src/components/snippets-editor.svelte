@@ -1,12 +1,13 @@
 <form ref:form on:submit="submit(event)" on:reset="reset(event)" on:keydown="handleKeyDown(event)">
 	<table>
 		<tr>
-			<th class="name">Name</th>
-			<th class="abbreviation">Abbreviation</th>
+			<th class="key">Name</th>
+			<th class="value">Abbreviation</th>
+			<th class="controls"></th>
 		</tr>
 		{#each items as snippet, i}
-			<tr class="{i === active ? 'active' : ''}" data-ix={i}>
-				<td class="name" on:click="toggleEdit(i, 'key')">
+			<tr class="{i === active ? 'active' : ''}" data-ix={i} on:click="handleClick(i, event)">
+				<td data-name="key">
 					<div class="field {i === active ? 'active' : ''} {snippet.keyError ? 'error' : ''}">
 						{#if i === active}
 							<Editor
@@ -20,7 +21,7 @@
 						{/if}
 					</div>
 				</td>
-				<td class="abbreviation" on:click="toggleEdit(i, 'value')">
+				<td data-name="value">
 					<div class="field {i === active ? 'active' : ''} {snippet.valueError ? 'error' : ''}">
 						{#if i === active}
 							<Editor
@@ -34,6 +35,14 @@
 						{/if}
 					</div>
 				</td>
+				<td class="controls">
+					<span class="button" data-action="add" title="Add snippet below">
+						<Icon icon="add" />
+					</span>
+					<span class="button" data-action="remove" title="Remove snippet">
+						<Icon icon="remove" />
+					</span>
+				</td>
 			</tr>
 		{/each}
 	</table>
@@ -43,7 +52,7 @@
 	</div>
 </form>
 
-<style>
+<style type="text/scss">
 	table {
 		border: 0;
 		width: 100%;
@@ -60,14 +69,28 @@
 		font-weight: bold;
 		font-size: 1.4em;
 		padding: 3px 10px;
+
+		&.key {
+			width: 200px;
+		}
+
+		&.controls {
+			border-bottom: 0;
+			width: 70px;
+		}
 	}
 
-	th.name {
-		width: 200px;
-	}
+	td {
+		&[data-name="key"] {
+			padding-right: 10px;
+		}
 
-	td.name {
-		padding-right: 10px;
+		&.controls {
+			border-bottom: 0;
+			padding-left: 10px;
+			white-space: nowrap;
+			vertical-align: middle;
+		}
 	}
 
 	.field {
@@ -83,24 +106,54 @@
 		min-height: 1.5em;
 		transition-duration: 0.3s;
 		transition-property: border-color, box-shadow;
+
+		&:not(.active) {
+			cursor: pointer;
+		}
+
+		&.active {
+			border-color: #D6D6D6;
+			box-shadow: 1px 1px 6px 0 rgba(0,0,0,0.14);
+		}
+
+		&.error {
+			color: #ff0000;
+
+			&.active {
+				border-color: red;
+				box-shadow: 1px 1px 6px 0 rgba(255,0,0,0.14);
+			}
+		}
 	}
 
-	.field:not(.active) {
+	.button {
+		$size: 26px;
+
+		display: inline-block;
+		width: $size;
+		height: $size;
+		border: 1px solid currentColor;
+		color: #999;
+		border-radius: 100%;
 		cursor: pointer;
-	}
+		opacity: 0;
+		transition-property: opacity, color, background-color;
+		transition-duration: 0.2s;
 
-	.field.active {
-		border-color: #D6D6D6;
-		box-shadow: 1px 1px 6px 0 rgba(0,0,0,0.14);
-	}
+		tr:hover & {
+			opacity: 1;
+		}
 
-	.field.active.error {
-		border-color: red;
-		box-shadow: 1px 1px 6px 0 rgba(255,0,0,0.14);
-	}
+		&:hover {
+			background: #999;
+			color: #fff;
+		}
 
-	.field.error:not(.active) {
-		color: #ff0000;
+		:global(.icon) {
+			position: relative;
+			left: 5px;
+			top: 5px;
+		}
 	}
 
 	table :global(.CodeMirror),
@@ -124,6 +177,7 @@
 <script>
 import Button from './button.svelte';
 import Editor from './editor.svelte';
+import Icon from './icon.svelte';
 
 const TAB_KEY = 9;
 const ENTER_KEY = 13;
@@ -205,6 +259,7 @@ export default {
 				}));
 
 			this.fire('submit', { snippets });
+			this.toggleEdit(-1);
 		},
 
 		reset(event) {
@@ -225,13 +280,25 @@ export default {
 		},
 
 		remove(i) {
+			let { active, _items } = this.get();
 
+			_items = _items.slice();
+			_items.splice(i, 1);
+
+			this._set({
+				_items,
+				active: active === i ? -1 : active
+			});
 		},
 
+		/**
+		 * Handle keydown event
+		 * @param {KeyboardEvent} event
+		 */
 		handleKeyDown(event) {
 			switch (event.keyCode) {
 				case ENTER_KEY:
-					if (event.shiftKey) {
+					if (event.shiftKey || event.metaKey || event.ctrlKey) {
 						const row = event.target.closest('tr');
 						const ix = row && row.getAttribute('data-ix');
 						if (ix) {
@@ -249,6 +316,29 @@ export default {
 				case TAB_KEY:
 					event.shiftKey ? this._prevField() : this._nextField();
 					break;
+			}
+		},
+
+		/**
+		 * Handle click on table row
+		 * @param {MouseEvent} event
+		 */
+		handleClick(ix, event) {
+			const button = event.target.closest('.button');
+
+			if (button) {
+				const action = button.getAttribute('data-action');
+				if (action === 'add') {
+					this.insertAfter(ix);
+				} else if (action === 'remove') {
+					this.remove(ix);
+				}
+			} else {
+				const cell = event.target.closest('td');
+				const name = cell && cell.getAttribute('data-name');
+				if (name) {
+					this.toggleEdit(ix, name);
+				}
 			}
 		},
 
@@ -324,7 +414,7 @@ export default {
 	},
 
 	components: {
-		Editor, Button
+		Editor, Button, Icon
 	}
 };
 </script>

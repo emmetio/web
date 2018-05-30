@@ -2,7 +2,7 @@
 	<slot>Label</slot>
 </button>
 
-<style>
+<style type="text/scss">
 button {
 	background: #417505;
 	border-radius: 5px;
@@ -13,22 +13,21 @@ button {
 	padding: 10px;
 	font-size: 1.3em;
 	border: 0;
-}
 
-button:disabled {
-	background: #ccc;
-	cursor: default;
-}
+	&:disabled {
+		background: #ccc;
+		cursor: default;
+	}
 
-button.secondary {
-	color: #417505;
-	background: transparent;
-}
+	&.secondary {
+		color: #417505;
+		background: transparent;
 
-button.secondary:disabled {
-	color: #ccc;
+		&:disabled {
+			color: #ccc;
+		}
+	}
 }
-
 </style>
 
 <script>
