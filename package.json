@@ -19,6 +19,7 @@
     "cpx": "^1.5.0",
     "eslint-plugin-html": "^4.0.3",
     "mocha": "^5.2.0",
+    "node-sass": "^4.9.0",
     "postcss": "^6.0.22",
     "postcss-cli": "^5.0.0",
     "postcss-import": "^11.1.0",

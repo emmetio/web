@@ -5,9 +5,8 @@ import nodeResolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import bubleRollup from 'rollup-plugin-buble';
 import buble from 'buble';
-import postcss from 'postcss';
+import sass from 'node-sass';
 
-const cssProc = postcss();
 const bubleOptions = {
 	target: { chrome: 50 },
 	transforms: {
@@ -35,11 +34,21 @@ export default {
 						source: filename
 					}, bubleOptions));
 				},
-				style({ content, filename }) {
-					return cssProc.process(content, { from: filename }).then(result => ({
-						code: result.css,
-						map: result.map
-					}));
+				style({ content, attributes, filename }) {
+					if (attributes.type === 'text/scss') {
+						const result = sass.renderSync({
+							data: content,
+							file: filename,
+							sourceMap: true,
+						});
+
+						return {
+							code: result.css.toString(),
+							map: result.map
+						};
+					}
+
+					return { code: content };
 				}
 			},
 			css(css) {
