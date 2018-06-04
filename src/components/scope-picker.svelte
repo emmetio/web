@@ -1,12 +1,12 @@
 <div class="scope-picker">
 	Scope:
-	<div class="scope">
-		<span class="label">{ currentScope.name }</span>
-		<ul class="popup">
-			{#each scopes as item}
-				<li class="{scope === item.id ? 'selected' : ''}" on:click="select(item.id)">{ item.name }</li>
-			{/each}
-		</ul>
+	<div class="scope" on:mouseover="set({hovered: true})" on:mouseout="set({hovered: false})">
+		<span class="label">{ currentScope.label }</span>
+		{#if hovered}
+			<div class="popup" transition:fly="{y: -30, duration: 200}">
+				<PopupMenu items={scopes} selected={scope} on:select="select(event.id)" />
+			</div>
+		{/if}
 	</div>
 </div>
 
@@ -27,50 +27,20 @@
 
 .popup {
 	position: absolute;
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	left: 0;
 	top: 100%;
+	left: 0;
 	background: #ffffff;
-	box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.3);
-	border-radius: 3px;
-	opacity: 0;
-	transform: translateY(-30px);
-	transition-property: opacity, transform;
-	transition-duration: 0.2s;
-	pointer-events: none;
-
-	li {
-		padding: 8px;
-		cursor: pointer;
-
-		&:hover {
-			background: #efefef;
-		}
-
-		&:first-child {
-			border-top-left-radius: inherit;
-			border-top-right-radius: inherit;
-		}
-
-		&:last-child {
-			border-bottom-left-radius: inherit;
-			border-bottom-right-radius: inherit;
-		}
-	}
-}
-
-.label:hover + .popup,
-.popup:hover {
-	opacity: 1;
-	transform: translateY(0);
-	pointer-events: all;
+	color: #000000;
+	border-radius: 5px;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+	margin: 5px 0 0;
 }
 </style>
 
 <script>
+import { fly } from 'svelte-transitions';
 import store from '../lib/store';
+import PopupMenu from './popup-menu.svelte';
 
 export default {
 	store: () => store,
@@ -82,10 +52,15 @@ export default {
 
 	computed: {
 		scopes({ $syntaxes }) {
+			const syntaxes = $syntaxes.map(syntax => ({
+				id: syntax.id,
+				label: syntax.name
+			}))
+
 			return [
-				{ id: 'markup', name: 'All markup syntaxes' },
-				{ id: 'stylesheet', name: 'All stylesheet syntaxes' }
-			].concat($syntaxes);
+				{ id: 'markup', label: 'All markup syntaxes' },
+				{ id: 'stylesheet', label: 'All stylesheet syntaxes' }
+			].concat(syntaxes);
 		},
 		currentScope({ scope, scopes }) {
 			return scopes.find(item => item.id === scope);
@@ -97,6 +72,9 @@ export default {
 			this.set({ scope });
 			this.fire('select', { scope });
 		}
-	}
+	},
+
+	transitions: { fly },
+	components: { PopupMenu }
 }
 </script>

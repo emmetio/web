@@ -33,6 +33,8 @@
 .abbreviation :global(.CodeMirror),
 .abbreviation :global(.CodeMirror-scroll) {
 	overflow: visible !important;
+	margin-bottom: 0;
+	padding-bottom: 0;
 }
 
 .input {
