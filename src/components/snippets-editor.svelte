@@ -232,7 +232,7 @@ export default {
 
 	computed: {
 		items: ({ _items }) => _items,
-		isUpdated: ({ _items }) => _items.some(isUpdated)
+		isUpdated: ({ _items, snippets }) => _items.length !== snippets.length || _items.some(isUpdated)
 	},
 
 	methods: {
