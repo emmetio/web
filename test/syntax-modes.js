@@ -230,11 +230,11 @@ describe('Abbreviation mode', () => {
 			['[', 'bracket open'],
 			['name', 'attribute attribute-name'],
 			['=', 'operator'],
-			['${1}', 'string-2 attribute-value'],
+			['${1}', 'variable-3 attribute-value'],
 			[' ', null],
 			['value', 'attribute attribute-name'],
 			['=', 'operator'],
-			['${2:test}', 'string-2 attribute-value'],
+			['${2:test}', 'variable-3 attribute-value'],
 			[']', 'bracket close']
 		]);
 	});
@@ -346,7 +346,7 @@ describe('Abbreviation mode', () => {
 		]);
 	});
 
-	it.only('errors', () => {
+	it('errors', () => {
 		assert.throws(() => parse('a<'), err => err.ch === 1);
 		assert.throws(() => parse('foo[bar'), err => err.ch === 3);
 		assert.throws(() => parse('foo(bar'), err => err.ch === 3);

@@ -246,7 +246,10 @@ function parseAttribute(stream, state) {
 	} else if (state.attr === 2) {
 		// Expect attribute value after '='
 		state.attr = 0;
-		if (token = reactExpression(stream, state) || consumeQuoted(stream, state) || consumeUnquoted(stream, state)) {
+		if (token = reactExpression(stream, state)
+			|| fieldExpression(stream, state)
+			|| consumeQuoted(stream, state)
+			|| consumeUnquoted(stream, state)) {
 			return `${token} ${attrValue}`;
 		}
 	}
@@ -306,6 +309,16 @@ function reactExpression(stream, state) {
 		state.parseError = error('Expecting closing }', stream);
 
 		return 'error';
+	}
+}
+
+/**
+ * Consumes field expression: an attribute value as `${...}`
+ * @param {CodeMirror.StringStream} stream
+ */
+function fieldExpression(stream, state) {
+	if (stream.eat('$') && reactExpression(stream, state)) {
+		return 'variable-3';
 	}
 }
 
