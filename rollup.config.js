@@ -3,6 +3,7 @@
 import svelte from 'rollup-plugin-svelte';
 import nodeResolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
+import json from 'rollup-plugin-json';
 import bubleRollup from 'rollup-plugin-buble';
 import buble from 'buble';
 import sass from 'node-sass';
@@ -24,6 +25,7 @@ export default {
 	},
 	plugins: [
 		nodeResolve(),
+		json(),
 		svelte({
 			generate: 'dom',
 			dev: process.env.NODE_ENV !== 'production',

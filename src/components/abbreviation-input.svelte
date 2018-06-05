@@ -71,10 +71,8 @@ import { expand } from '@emmetio/expand-abbreviation';
 import resolveConfig from '@emmetio/config';
 import Editor from './editor.svelte';
 import SyntaxPicker from './syntax-picker.svelte';
-import store from '../lib/store';
 
 export default {
-	store: () => store,
 	onstate({ changed, current }) {
 		if (changed.expanded) {
 			this._valid = !current.expanded.error;

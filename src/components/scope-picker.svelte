@@ -39,11 +39,9 @@
 
 <script>
 import { fly } from 'svelte-transitions';
-import store from '../lib/store';
 import PopupMenu from './popup-menu.svelte';
 
 export default {
-	store: () => store,
 	data() {
 		return {
 			scope: 'markup'
