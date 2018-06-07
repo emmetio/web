@@ -96,6 +96,13 @@ class EmmetStore extends Store {
 
 		return false;
 	}
+
+	/**
+	 * Resets all user data from store
+	 */
+	reset() {
+		this.set({ config: createConfig() });
+	}
 }
 
 const store = new EmmetStore({

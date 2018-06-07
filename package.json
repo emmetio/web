@@ -23,7 +23,7 @@
     "postcss": "^6.0.22",
     "postcss-cli": "^5.0.0",
     "postcss-import": "^11.1.0",
-    "reify": "^0.16.2",
+    "reify": "^0.15.1",
     "rollup": "^0.59.4",
     "rollup-plugin-buble": "^0.19.2",
     "rollup-plugin-commonjs": "^9.1.3",
