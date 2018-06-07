@@ -2,12 +2,14 @@
 
 import markupSnippets from '@emmetio/snippets/html.json';
 import stylesheetSnippets from '@emmetio/snippets/css.json';
+import xslSnippets from '@emmetio/snippets/xsl.json';
 import { Store } from 'svelte/store';
 import { get, set, objectsEqual } from './utils';
 
 const defaultSnippets = {
 	markup: markupSnippets,
-	stylesheet: stylesheetSnippets
+	stylesheet: stylesheetSnippets,
+	xsl: xslSnippets
 };
 
 class EmmetStore extends Store {
@@ -75,7 +77,8 @@ class EmmetStore extends Store {
 			if (syntax) {
 				defaults.push(
 					defaultSnippets[syntax.type],
-					get(config, `globals.${syntax.type}.snippets`)
+					get(config, `globals.${syntax.type}.snippets`),
+					defaultSnippets[syntax.id],
 				);
 				targetKey = `syntax.${syntax.id}.snippets`;
 			}
@@ -179,8 +182,9 @@ function createConfig() {
  * @returns {Boolean}
  */
 function hasItem(item, dicts) {
-	for (let i = dicts.length - 1; i >= 0; i--) {
-		if (dicts[i][item.key] === item.value) {
+	for (let i = dicts.length - 1, dict; i >= 0; i--) {
+		dict = dicts[i];
+		if (dict && dict[item.key] === item.value) {
 			return true;
 		}
 	}
