@@ -1,4 +1,4 @@
-import { strict as assert } from 'assert';
+import assert from 'assert';
 import { get, set, objectsEqual } from '../src/lib/utils';
 
 describe('Utils', () => {
@@ -11,11 +11,11 @@ describe('Utils', () => {
 			}
 		};
 
-		assert.equal(get(obj, 'a.b.c'), obj.a.b.c);
-		assert.equal(get(obj, ['a', 'b', 'c']), obj.a.b.c);
-		assert.equal(get(obj, 'a.b'), obj.a.b);
-		assert.equal(get(obj, 'a.c'), undefined);
-		assert.equal(get(null, 'a.c'), undefined);
+		assert.strictEqual(get(obj, 'a.b.c'), obj.a.b.c);
+		assert.strictEqual(get(obj, ['a', 'b', 'c']), obj.a.b.c);
+		assert.strictEqual(get(obj, 'a.b'), obj.a.b);
+		assert.strictEqual(get(obj, 'a.c'), undefined);
+		assert.strictEqual(get(null, 'a.c'), undefined);
 	});
 
 	it('set', () => {
