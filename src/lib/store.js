@@ -42,8 +42,9 @@ class EmmetStore extends Store {
 			// Return syntax-specific snippets, inherited from user globals and
 			// default snippets
 			return dictToArray({
-				...defaultSnippets[scope],
+				...defaultSnippets[syntax.type],
 				...get(config, `globals.${syntax.type}.snippets`),
+				...defaultSnippets[syntax.id],
 				...get(config, `syntax.${syntax.id}.snippets`)
 			});
 		}
@@ -70,7 +71,7 @@ class EmmetStore extends Store {
 			defaults.push(defaultSnippets[scope]);
 			targetKey = `globals.${scope}.snippets`;
 		} else {
-			const syntax = this.getSyntaxById(syntax);
+			const syntax = this.getSyntaxById(scope);
 			if (syntax) {
 				defaults.push(
 					defaultSnippets[syntax.type],
@@ -80,7 +81,7 @@ class EmmetStore extends Store {
 			}
 		}
 
-		if (!targetKey) {
+		if (targetKey) {
 			const patch = arrayToDict(data.filter(item => !hasItem(item, defaults)));
 			const prev = get(config, targetKey);
 			if (!objectsEqual(patch, prev)) {
