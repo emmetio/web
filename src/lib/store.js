@@ -25,17 +25,17 @@ class EmmetStore extends Store {
 	/**
 	 * Returns snippets defined in given scope
 	 * @param {String} scope
-	 * @return {Object[]}
+	 * @return {Object}
 	 */
 	getSnippets(scope) {
 		const { config } = this.get();
 
-		if (scope in defaultSnippets) {
+		if (isGlobalScope(scope)) {
 			// Global snippets
-			return dictToArray({
+			return {
 				...defaultSnippets[scope],
 				...get(config, `globals.${scope}.snippets`)
-			});
+			};
 		}
 
 		// Check if given scope is a valid syntax
@@ -43,12 +43,12 @@ class EmmetStore extends Store {
 		if (syntax) {
 			// Return syntax-specific snippets, inherited from user globals and
 			// default snippets
-			return dictToArray({
+			return {
 				...defaultSnippets[syntax.type],
 				...get(config, `globals.${syntax.type}.snippets`),
 				...defaultSnippets[syntax.id],
 				...get(config, `syntax.${syntax.id}.snippets`)
-			});
+			};
 		}
 
 		return null;
@@ -57,7 +57,7 @@ class EmmetStore extends Store {
 	/**
 	 * Saves given snippets into config
 	 * @param {String} scope
-	 * @param {Object[]} data
+	 * @param {Object} data
 	 * @returns {Boolean} Returns `true` if data differs from one in config and
 	 * was successfully saved
 	 */
@@ -69,7 +69,7 @@ class EmmetStore extends Store {
 		const defaults = [];
 		let targetKey;
 
-		if (scope in defaultSnippets) {
+		if (isGlobalScope(scope)) {
 			defaults.push(defaultSnippets[scope]);
 			targetKey = `globals.${scope}.snippets`;
 		} else {
@@ -85,7 +85,13 @@ class EmmetStore extends Store {
 		}
 
 		if (targetKey) {
-			const patch = arrayToDict(data.filter(item => !hasItem(item, defaults)));
+			const patch = {};
+			Object.keys(data).forEach(key => {
+				if (!hasItem(defaults, key, data[key])) {
+					patch[key] = data[key];
+				}
+			});
+
 			const prev = get(config, targetKey);
 			if (!objectsEqual(patch, prev)) {
 				this.set({
@@ -139,27 +145,6 @@ const store = new EmmetStore({
 export default store;
 
 /**
- * Converts given dictionary to array of objects
- * @param {Object} dict
- * @return {Object[]}
- */
-function dictToArray(dict) {
-	return Object.keys(dict).map(key => ({ key, value: dict[key] }));
-}
-
-/**
- * Converts given array, created by `dictToArray()`, back to dictionary
- * @param {Object[]} arr
- * @return {Object}
- */
-function arrayToDict(arr) {
-	return arr.reduce((out, obj) => {
-		out[obj.key] = obj.value;
-		return out;
-	}, {});
-}
-
-/**
  * Creates Emmet config stub
  * @returns {EmmetConfig}
  */
@@ -177,17 +162,22 @@ function createConfig() {
 /**
  * Check if given `items` exists in given array dictionaries and has the same
  * value
- * @param {Object} item A `{ key, value }` items
  * @param {Object[]} dicts
+ * @param {String} key
+ * @param {String} value
  * @returns {Boolean}
  */
-function hasItem(item, dicts) {
+function hasItem(dicts, key, value) {
 	for (let i = dicts.length - 1, dict; i >= 0; i--) {
 		dict = dicts[i];
-		if (dict && dict[item.key] === item.value) {
+		if (dict && dict[key] === value) {
 			return true;
 		}
 	}
 
 	return false;
+}
+
+function isGlobalScope(scope) {
+	return scope === 'markup' || scope === 'stylesheet';
 }

@@ -8,51 +8,45 @@ describe('Store', () => {
 	it('get snippets', () => {
 		// Get global snippets
 		const markupSnippets = store.getSnippets('markup');
-		assert(markupSnippets.length > 0);
-		assert(byKey(markupSnippets, 'a'));
+		assert.equal(markupSnippets['a'], 'a[href]');
 
 		// Get syntax-specific snippets
 		const htmlSnippets = store.getSnippets('html');
-		assert(markupSnippets.length > 0);
-		assert(byKey(markupSnippets, 'a'));
+		assert.equal(htmlSnippets['a'], 'a[href]');
 	});
 
 	it('update snippets', () => {
 		// Set global markup snippets
 		let markupSnippets = store.getSnippets('markup');
-		store.setSnippets('markup', markupSnippets.concat([{
-			key: 'a',
-			value: 'a[title="markup"]'
-		}, {
-			key: 'snip1',
-			value: 'snip[title="markup"]'
-		}]));
+		store.setSnippets('markup', {
+			...markupSnippets,
+			a: 'a[title="markup"]',
+			snip1: 'snip[title="markup"]'
+		});
 
 		markupSnippets = store.getSnippets('markup');
-		assert.equal(byKey(markupSnippets, 'br').value, 'br/');
-		assert.equal(byKey(markupSnippets, 'a').value, 'a[title="markup"]');
-		assert.equal(byKey(markupSnippets, 'snip1').value, 'snip[title="markup"]');
+		assert.equal(markupSnippets['br'], 'br/');
+		assert.equal(markupSnippets['a'], 'a[title="markup"]');
+		assert.equal(markupSnippets['snip1'], 'snip[title="markup"]');
 
 		// Set syntax-specific snippets
-		store.setSnippets('html', markupSnippets.concat([{
-			key: 'a',
-			value: 'a.html'
-		}, {
-			key: 'snip2',
-			value: 'snip[title="html"]'
-		}]));
+		store.setSnippets('html', {
+			...markupSnippets,
+			a: 'a.html',
+			snip2: 'snip[title="html"]'
+		});
 
 		markupSnippets = store.getSnippets('markup');
 		const htmlSnippets = store.getSnippets('html');
 
-		assert.equal(byKey(markupSnippets, 'br').value, 'br/');
-		assert.equal(byKey(htmlSnippets, 'br').value, 'br/');
-		assert.equal(byKey(markupSnippets, 'a').value, 'a[title="markup"]');
-		assert.equal(byKey(htmlSnippets, 'a').value, 'a.html');
-		assert(byKey(markupSnippets, 'snip1'));
-		assert(byKey(htmlSnippets, 'snip1'));
-		assert(!byKey(markupSnippets, 'snip2'));
-		assert(byKey(htmlSnippets, 'snip2'));
+		assert.equal(markupSnippets['br'], 'br/');
+		assert.equal(htmlSnippets['br'], 'br/');
+		assert.equal(markupSnippets['a'], 'a[title="markup"]');
+		assert.equal(htmlSnippets['a'], 'a.html');
+		assert(markupSnippets['snip1']);
+		assert(htmlSnippets['snip1']);
+		assert(!markupSnippets['snip2']);
+		assert(htmlSnippets['snip2']);
 
 		const config = store.get().config;
 		assert.deepEqual(config.globals.markup.snippets, {
