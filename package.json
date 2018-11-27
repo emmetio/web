@@ -21,6 +21,9 @@
     "js-bundler": "git+https://github.com/sergeche/js-bundler.git#v2.0.1",
     "through2": "^3.0.0"
   },
+  "engines": {
+    "node": "~10.13.0"
+  },
   "dependencies": {
     "codemirror": "^5.0.0",
     "codemirror-movie": "^1.2.1",
