@@ -1,16 +1,16 @@
 /* globals document,window */
-const CodeMirror = require('codemirror');
-const CodeMirrorMovie = require('codemirror-movie').default;
-const EmmetCodemirror = require('emmet-codemirror');
+var CodeMirror = require('codemirror');
+var CodeMirrorMovie = require('codemirror-movie').default;
+var EmmetCodemirror = require('emmet-codemirror');
 
 require('codemirror/mode/xml/xml.js');
 
-function $(sel, context=document) {
-	return toArray(context.querySelectorAll(sel));
+function $(sel, context) {
+	return toArray((context || document).querySelectorAll(sel));
 }
 
-function toArray(obj, ix=0) {
-	return Array.prototype.slice.call(obj, ix);
+function toArray(obj, ix) {
+	return Array.prototype.slice.call(obj, ix || 0);
 }
 
 function toDom(html) {
@@ -43,13 +43,13 @@ CodeMirror.commands.revert = function(editor) {
 	}
 };
 
-$('a').forEach(link => {
+$('a').forEach(function(link) {
 	if (link.href.indexOf('#disqus_thread')) {
 		link.addEventListener('DOMSubtreeModified', handleDiqusLabelUpdate);
 	}
 });
 
-$('.movie-def').forEach(elem => {
+$('.movie-def').forEach(function(elem) {
 	var movie = CodeMirrorMovie(elem, {}, {
 		theme: 'espresso',
 		indentWithTabs: true,
@@ -63,12 +63,9 @@ $('.movie-def').forEach(elem => {
 	// create UI controls for movie
 
 	// add splash screen
-	var splash = toDom(`<div class="CodeMirror-movie__splash">
-		<div class="CodeMirror-movie__splash-text">
-			<span class="CodeMirror-movie__splash-play-btn">▶</span> Watch demo</div>
-		</div>`);
+	var splash = toDom('<div class="CodeMirror-movie__splash"><div class="CodeMirror-movie__splash-text"><span class="CodeMirror-movie__splash-play-btn">▶</span> Watch demo</div></div>');
 
-	splash.addEventListener('click', () => {
+	splash.addEventListener('click', function() {
 		if (splash.classList.contains(cl)) {
 			movie.pause();
 		} else {

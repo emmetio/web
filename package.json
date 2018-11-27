@@ -18,7 +18,7 @@
     "gulp-gzip": "^1.4.2",
     "gulp-minify-css": "^1.2.4",
     "html-transform": "git+https://github.com/sergeche/html-transform.git#v3.0.0",
-    "js-bundler": "git+https://github.com/sergeche/js-bundler.git#v2.0.1",
+    "js-bundler": "git+https://github.com/sergeche/js-bundler.git#v2.1.0",
     "through2": "^3.0.0"
   },
   "engines": {
