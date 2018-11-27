@@ -406,6 +406,7 @@ strong {
 }
 
 .author-info {
+	clear: right;
 	float: right;
 	padding: 15px;
 	background: #fff;
