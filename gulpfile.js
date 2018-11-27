@@ -1,4 +1,3 @@
-var fs = require('fs');
 var path = require('path');
 var gulp = require('gulp');
 var jsBundler = require('js-bundler');
@@ -21,7 +20,7 @@ gulp.task('js', function() {
 			uglify: production,
 			sourceMap: !production,
 			noParse: [
-				np('codemirror-movie/dist/movie.js'), 
+				np('codemirror-movie/dist/movie.js'),
 				np('emmet-codemirror/dist/emmet.js'),
 				np('codemirror/lib/codemirror.js')
 			]
@@ -32,7 +31,7 @@ gulp.task('js', function() {
 gulp.task('css', function() {
 	return gulp.src('./css/*.css', srcOptions)
 		.pipe(minifyCSS({processImport: true}))
-		.pipe(gulp.dest(outPath))
+		.pipe(gulp.dest(outPath));
 });
 
 gulp.task('files', function() {
@@ -40,9 +39,9 @@ gulp.task('files', function() {
 		.pipe(gulp.dest(outPath));
 });
 
-gulp.task('html', ['static'], function(next) {
+gulp.task('html', ['static'], function() {
 	return gulp.src('./out/**/*.html')
-		.pipe(htmlTransform({
+		.pipe(htmlTransform.stream({
 			transformUrl: function(url, file, ctx) {
 				if (ctx.stats) {
 					url = '/-/' + ctx.stats.hash + url;
@@ -73,7 +72,6 @@ gulp.task('full', ['html'], function() {
 });
 
 gulp.task('watch', function() {
-	jsBundler.watch({sourceMap: true, uglify: false});
 	gulp.watch('./css/**/*.css', ['css']);
 	gulp.watch('./js/**/*.js', ['js']);
 });
@@ -85,7 +83,7 @@ function findScripNodes(nodes, out) {
 	out = out || [];
 	nodes.forEach(function(node) {
 		if (/^script$/i.test(node.name || '') && node.attribs.src) {
-			out.push(node)
+			out.push(node);
 		}
 
 		if (node.children) {

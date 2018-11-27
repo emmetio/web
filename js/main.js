@@ -1,8 +1,9 @@
-import CodeMirror from 'codemirror';
-import CodeMirrorMovie from 'codemirror-movie';
-import EmmetCodemirror from 'emmet-codemirror';
+/* globals document,window */
+const CodeMirror = require('codemirror');
+const CodeMirrorMovie = require('codemirror-movie').default;
+const EmmetCodemirror = require('emmet-codemirror');
 
-import 'codemirror/mode/xml/xml.js';
+require('codemirror/mode/xml/xml.js');
 
 function $(sel, context=document) {
 	return toArray(context.querySelectorAll(sel));
@@ -60,14 +61,14 @@ $('.movie-def').forEach(elem => {
 
 	var cl = 'CodeMirror-movie__splash_playing';
 	// create UI controls for movie
-	
+
 	// add splash screen
 	var splash = toDom(`<div class="CodeMirror-movie__splash">
 		<div class="CodeMirror-movie__splash-text">
 			<span class="CodeMirror-movie__splash-play-btn">▶</span> Watch demo</div>
 		</div>`);
 
-	splash.addEventListener('click', evt => {
+	splash.addEventListener('click', () => {
 		if (splash.classList.contains(cl)) {
 			movie.pause();
 		} else {
@@ -77,10 +78,10 @@ $('.movie-def').forEach(elem => {
 
 	movie._editor.getWrapperElement().appendChild(splash);
 	movie
-	.on('stop pause', function() {
-		splash.classList.remove(cl);
-	})
-	.on('play resume', function() {
-		splash.classList.add(cl);
-	});
+		.on('stop pause', function() {
+			splash.classList.remove(cl);
+		})
+		.on('play resume', function() {
+			splash.classList.add(cl);
+		});
 });
