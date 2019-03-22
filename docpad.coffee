@@ -5,10 +5,10 @@ hljs = require './plugins/highlight.js'
 months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
 daySuffix = (d) ->
-    d += '';
-    s = ["th", "st", "nd", "rd", "th"]
-    last = d.substr(-Math.min(d.length, 2))
-    if last > 3 and last < 21 then "th" else s[Math.min(Number(d) % 10, 4)]
+	d += '';
+	s = ["th", "st", "nd", "rd", "th"]
+	last = d.substr(-Math.min(d.length, 2))
+	if last > 3 and last < 21 then "th" else s[Math.min(Number(d) % 10, 4)]
 
 parseBlogDate = (date) ->
 	m = (date or '').match /^(\d{4})\-(\d{2})-(\d{2})/
@@ -74,7 +74,7 @@ docpadConfig = {
 						result = if lang then hljs.highlight(lang, text) else hljs.highlightAuto(text)
 						"<span class=\"#{result.language}\">#{result.value}</span>"
 					catch e
-						return text					
+						return text
 
 	environments:
 		production:
