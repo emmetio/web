@@ -82,7 +82,7 @@ js: "/js/main.js"
 
 			<div class="sponsor">
 				<h4 class="sponsor__title">Sponsor:</h4>
-				<a href="https://www.vpsserver.com" target="_blank"><img src="/i/vpsserver.png" alt="VPSServer" width="125" height="30" /></a>
+				<a href="https://www.vpsserver.com" target="_blank"><img src="/i/vpsserver.png" alt="VPSServer" width="125" height="30" style="margin-top:10px" /></a>
 			</div>
 
 			<ul class="social">
