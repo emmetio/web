@@ -1,4 +1,16 @@
-'use strict';
+import { Mode, StringStream } from 'codemirror';
+
+interface BraceStackItem {
+	pos: number;
+	brace: string;
+}
+
+interface EmmetModeState {
+	braces: BraceStackItem[],
+	attr: number,
+	quote?: string,
+	parseError?: ParseModeError
+}
 
 const reAttributeName = /^!?[\w\-:$@]+\.?$/;
 const braces = {
@@ -15,52 +27,39 @@ const reverseBraces = {
 /**
  * Emmet abbreviation parsing mode
  */
-export default function() {
-	return { startState, token };
-}
-
-/**
- * Returns initial parsing state
- */
-function startState() {
+export default function emmetAbbreviationMode(): Mode<EmmetModeState> {
 	return {
-		braces: [],
-		attr: 0,
-		quote: null,
-		parseError: null
+		startState() {
+			return {
+				braces: [],
+				attr: 0,
+				quote: null,
+				parseError: null
+			};
+		},
+		token(stream, state) {
+			const t = getToken(stream, state);
+			if (t === undefined) {
+				return unexpectedCharacter(stream, state);
+			}
+
+			// Report if closing braces are missing at the end of abbreviation
+			if (stream.eol() && state.braces.length && !state.parseError) {
+				const pos = last(state.braces).pos;
+				state.parseError = error(`No closing brace at ${pos}`, stream);
+				state.parseError.ch = pos;
+				return 'error';
+			}
+
+			return t;
+		}
 	};
 }
 
 /**
  * Consumes token from given stream
- * @param {CodeMirror.StringStream} stream
- * @param {Object} state
- * @returns {String}
  */
-function token(stream, state) {
-	const t = getToken(stream, state);
-	if (t === undefined) {
-		return unexpectedCharacter(stream, state);
-	}
-
-	// Report if closing braces are missing at the end of abbreviation
-	if (stream.eol() && state.braces.length && !state.parseError) {
-		const pos = last(state.braces).pos;
-		state.parseError = error(`No closing brace at ${pos}`, stream);
-		state.parseError.ch = pos;
-		return 'error';
-	}
-
-	return t;
-}
-
-/**
- * Consumes token from given stream
- * @param {CodeMirror.StringStream} stream
- * @param {Object} state
- * @returns {String}
- */
-function getToken(stream, state) {
+function getToken(stream: StringStream, state: EmmetModeState): string {
 	// Handle braces first to exit text or attribute context as soon as possible
 	const next = stream.peek();
 	if (next in braces && !inAttribute(state)) {
@@ -71,7 +70,7 @@ function getToken(stream, state) {
 		return 'bracket open';
 	}
 
-	if (next in reverseBraces && lastBrace(state) === reverseBraces[next]) {
+	if (isReverseBrace(next) && lastBrace(state) === reverseBraces[next]) {
 		state.braces.pop();
 		stream.next();
 		return 'bracket close';
@@ -109,42 +108,39 @@ function getToken(stream, state) {
 	}
 }
 
-function ident(ch) {
+function ident(ch: string) {
 	return /[a-z0-9-_$@!%:]/.test(ch);
 }
 
-function num(ch) {
+function num(ch: string) {
 	return /[0-9]/.test(ch);
 }
 
-function quote(ch) {
+function quote(ch: string) {
 	return ch === '"' || ch === '\'';
 }
 
-function unquoted(ch) {
+function unquoted(ch: string) {
 	return !quote(ch) && !/[\s=[[\](){}]/.test(ch);
 }
 
-function inAttribute(state) {
+function inAttribute(state: EmmetModeState) {
 	return lastBrace(state) === '[';
 }
 
-function inText(state) {
+function inText(state: EmmetModeState) {
 	return lastBrace(state) === '{';
 }
 
-function lastBrace(state) {
+function lastBrace(state: EmmetModeState): string | void {
 	const obj = last(state.braces);
 	return obj && obj.brace;
 }
 
 /**
  * Consumes quoted string and returns parsed token name, if possible
- * @param {CodeMirror.StringStream} stream
- * @param {Object} state
- * @return {String}
  */
-function consumeQuoted(stream, state) {
+function consumeQuoted(stream: StringStream, state: EmmetModeState): string {
 	if (quote(stream.peek())) {
 		const start = stream.pos;
 		const ch = stream.next();
@@ -169,11 +165,8 @@ function consumeQuoted(stream, state) {
 
 /**
  * Consumes unquoted string and returns parsed token name, if possible
- * @param {CodeMirror.StringStream} stream
- * @param {Object} state
- * @return {String}
  */
-function consumeUnquoted(stream) {
+function consumeUnquoted(stream: StringStream): string {
 	const start = stream.pos;
 	if (stream.eatWhile(unquoted)) {
 		stream.start = start;
@@ -183,10 +176,8 @@ function consumeUnquoted(stream) {
 
 /**
  * Parse abbreviation attributes from given state: a value inside `[]`
- * @param {CodeMirror.StringStream} stream
- * @param {Object} state
  */
-function parseAttribute(stream, state) {
+function parseAttribute(stream: StringStream, state: EmmetModeState): string {
 	const attrValue = 'attribute-value';
 	let token;
 
@@ -206,7 +197,7 @@ function parseAttribute(stream, state) {
 			return `${token} ${attrValue}`;
 		}
 
-		if (token = consumeUnquoted(stream, state)) {
+		if (token = consumeUnquoted(stream)) {
 			// Consumed next word: could be either attribute name or unquoted default value
 			const value = stream.current();
 			if (reAttributeName.test(value)) {
@@ -249,7 +240,7 @@ function parseAttribute(stream, state) {
 		if (token = reactExpression(stream, state)
 			|| fieldExpression(stream, state)
 			|| consumeQuoted(stream, state)
-			|| consumeUnquoted(stream, state)) {
+			|| consumeUnquoted(stream)) {
 			return `${token} ${attrValue}`;
 		}
 	}
@@ -261,9 +252,8 @@ function parseAttribute(stream, state) {
 
 /**
  * Parse abbreviation text from given state: a value inside `{}`
- * @param {CodeMirror.StringStream} stream
  */
-function parseText(stream) {
+function parseText(stream: StringStream): string {
 	let stack = 0, ch;
 
 	while (!stream.eol()) {
@@ -287,9 +277,8 @@ function parseText(stream) {
 
 /**
  * Consumes React-like expression: an attribute value in curly braces
- * @param {CodeMirror.StringStream} stream
  */
-function reactExpression(stream, state) {
+function reactExpression(stream: StringStream, state: EmmetModeState): string {
 	if (stream.eat('{')) {
 		let stack = 1, ch;
 
@@ -314,15 +303,14 @@ function reactExpression(stream, state) {
 
 /**
  * Consumes field expression: an attribute value as `${...}`
- * @param {CodeMirror.StringStream} stream
  */
-function fieldExpression(stream, state) {
+function fieldExpression(stream: StringStream, state: EmmetModeState): string {
 	if (stream.eat('$') && reactExpression(stream, state)) {
 		return 'variable-3';
 	}
 }
 
-function unexpectedCharacter(stream, state) {
+function unexpectedCharacter(stream: StringStream, state: EmmetModeState): string {
 	state.parseError = error('Unexpected character at ' + stream.pos, stream);
 
 	while (!stream.eol()) {
@@ -332,12 +320,16 @@ function unexpectedCharacter(stream, state) {
 	return 'error';
 }
 
-function error(message, stream) {
-	const err = new SyntaxError(message);
+function error(message: string, stream: StringStream): ParseModeError {
+	const err = new Error(message) as ParseModeError;
 	err.ch = stream.pos;
 	return err;
 }
 
-function last(arr) {
+function last<T>(arr: T[]): T {
 	return arr[arr.length - 1];
+}
+
+function isReverseBrace(ch: string): ch is keyof typeof reverseBraces {
+	return ch in reverseBraces;
 }

@@ -1,14 +1,8 @@
-'use strict';
-
 /**
  * Safe dot-property getter for `obj`: returns value of `obj` by given `key`,
  * separated by `.`, but doesn’t throw error if any of the property key exists
- * @param {Object} obj
- * @param {String|String[]} key
- * @param {*} [defaultValue]
- * @return {*}
  */
-export function get(obj, key, defaultValue) {
+export function get(obj: any, key: string | string[], defaultValue?: any): any {
 	let result = obj;
 	if (typeof key === 'string') {
 		key = key.split('.');
@@ -28,12 +22,8 @@ export function get(obj, key, defaultValue) {
 /**
  * Stores given `value` in `obj` by nested `key` in immutable fashion: all
  * intermediate objects will be re-created
- * @param {Object} obj
- * @param {String | String[]} key
- * @param {*} value
- * @returns {Object} Updated `obj`
  */
-export function set(obj, key, value) {
+export function set(obj: any, key: string | string[], value: any): any {
 	if (typeof key === 'string') {
 		key = key.split('.');
 	}
@@ -54,15 +44,14 @@ export function set(obj, key, value) {
 
 /**
  * Creates a copy of given object
- * @param {Array|Object} obj
  */
-function copy(obj) {
+function copy<T>(obj: T): T {
 	if (obj == null) {
-		return {};
+		return {} as T;
 	}
 
 	if (Array.isArray(obj)) {
-		return obj.slice();
+		return obj.slice() as any as T;
 	}
 
 	return { ...obj };
@@ -74,7 +63,7 @@ function copy(obj) {
  * @param {Object} b
  * @returns {Boolean}
  */
-export function objectsEqual(a, b) {
+export function objectsEqual(a: any, b: any): boolean {
 	if (!a || !b) {
 		return false;
 	}

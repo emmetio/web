@@ -1,9 +1,13 @@
-'use strict';
+import { Mode } from 'codemirror';
+
+interface SnippetModeState {
+	parseError?: ParseModeError;
+}
 
 /**
  * Emmet snippet name parsing mode
  */
-export default function () {
+export default function snippetNameMode(): Mode<SnippetModeState> {
 	return {
 		startState() {
 			return {
@@ -34,10 +38,10 @@ export default function () {
 	};
 }
 
-function ident(ch) {
+function ident(ch: string): boolean {
 	return /[a-zA-Z0-9-_$@!%:]/.test(ch);
 }
 
-function separator(ch) {
+function separator(ch: string): boolean {
 	return ch === '|';
 }

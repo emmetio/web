@@ -1,39 +1,41 @@
-'use strict';
-
-import markupSnippets from '@emmetio/snippets/html.json';
-import stylesheetSnippets from '@emmetio/snippets/css.json';
-import xslSnippets from '@emmetio/snippets/xsl.json';
-import { Store } from 'svelte/store';
+import snippets, { Snippets } from '@emmetio/snippets';
+import { EmmetConfig } from '@emmetio/config';
+import { Store } from 'endorphin';
 import { get, set, objectsEqual } from './utils';
 
-const defaultSnippets = {
-	markup: markupSnippets,
-	stylesheet: stylesheetSnippets,
-	xsl: xslSnippets
-};
+interface SyntaxDefinition {
+	id: string;
+	name: string;
+	mime: string;
+	type: SyntaxType;
+}
 
-class EmmetStore extends Store {
+interface StoreData {
+	/** All syntaxes, supported by Emmet */
+	syntaxes: SyntaxDefinition[];
+
+	/** Current config, as defined in `@emmetio/config` */
+	config: EmmetConfig;
+}
+
+class EmmetStore extends Store<StoreData> {
 	/**
-	 * Finds syntax object by its ID
-	 * @param {String} id
-	 * @return {Object}
+	 * Finds syntax definition by its ID
 	 */
-	getSyntaxById(id) {
+	getSyntaxById(id: string): SyntaxDefinition {
 		return this.get().syntaxes.find(item => item.id === id);
 	}
 
 	/**
 	 * Returns snippets defined in given scope
-	 * @param {String} scope
-	 * @return {Object}
 	 */
-	getSnippets(scope) {
+	getSnippets(scope: string): Snippets {
 		const { config } = this.get();
 
 		if (isGlobalScope(scope)) {
 			// Global snippets
 			return {
-				...defaultSnippets[scope],
+				...snippets[scope],
 				...get(config, `globals.${scope}.snippets`)
 			};
 		}
@@ -44,9 +46,9 @@ class EmmetStore extends Store {
 			// Return syntax-specific snippets, inherited from user globals and
 			// default snippets
 			return {
-				...defaultSnippets[syntax.type],
+				...snippets[syntax.type],
 				...get(config, `globals.${syntax.type}.snippets`),
-				...defaultSnippets[syntax.id],
+				...snippets[syntax.id],
 				...get(config, `syntax.${syntax.id}.snippets`)
 			};
 		}
@@ -61,31 +63,31 @@ class EmmetStore extends Store {
 	 * @returns {Boolean} Returns `true` if data differs from one in config and
 	 * was successfully saved
 	 */
-	setSnippets(scope, data) {
+	setSnippets(scope: string, data: Snippets): boolean {
 		// We should take into account that given data is merged from global and
 		// default data and we should save updated snippets only, relative to its
 		// scope
 		const { config } = this.get();
-		const defaults = [];
+		const defaults: Snippets[] = [];
 		let targetKey;
 
 		if (isGlobalScope(scope)) {
-			defaults.push(defaultSnippets[scope]);
+			defaults.push(snippets[scope]);
 			targetKey = `globals.${scope}.snippets`;
 		} else {
 			const syntax = this.getSyntaxById(scope);
 			if (syntax) {
 				defaults.push(
-					defaultSnippets[syntax.type],
+					snippets[syntax.type],
 					get(config, `globals.${syntax.type}.snippets`),
-					defaultSnippets[syntax.id],
+					snippets[syntax.id],
 				);
 				targetKey = `syntax.${syntax.id}.snippets`;
 			}
 		}
 
 		if (targetKey) {
-			const patch = {};
+			const patch: Snippets = {};
 			Object.keys(data).forEach(key => {
 				if (!hasItem(defaults, key, data[key])) {
 					patch[key] = data[key];
@@ -116,39 +118,46 @@ class EmmetStore extends Store {
 }
 
 const store = new EmmetStore({
-	/**
-	 * All syntaxes, supported by Emmet
-	 */
 	syntaxes: [
-		{ id: 'html', name: 'HTML', mime: 'text/html', type: 'markup' },
-		{ id: 'xml', name: 'XML', mime: 'text/xml', type: 'markup' },
-		{ id: 'xsl', name: 'XSL', mime: 'text/xsl', type: 'markup' },
-		{ id: 'jsx', name: 'JSX', mime: 'text/jsx', type: 'markup' },
-		{ id: 'pug', name: 'Pug', mime: 'text/x-pug', type: 'markup' },
-		{ id: 'slim', name: 'Slim', mime: 'text/x-slim', type: 'markup' },
-		{ id: 'haml', name: 'HAML', mime: 'text/x-haml', type: 'markup' },
+		markup('html', 'HTML', 'text/html'),
+		markup('xml', 'XML', 'text/xml'),
+		markup('xsl', 'XSL', 'text/xsl'),
+		markup('jsx', 'JSX', 'text/jsx'),
+		markup('pug', 'Pug', 'text/x-pug'),
+		markup('slim', 'Slim', 'text/x-slim'),
+		markup('haml', 'HAML', 'text/x-haml'),
 
-		{ id: 'css', name: 'CSS', mime: 'text/css', type: 'stylesheet' },
-		{ id: 'sass', name: 'SASS', mime: 'text/x-sass', type: 'stylesheet' },
-		{ id: 'scss', name: 'SCSS', mime: 'text/x-scss', type: 'stylesheet' },
-		{ id: 'less', name: 'LESS', mime: 'text/x-less', type: 'stylesheet' },
-		{ id: 'sss', name: 'SugarSS', mime: 'text/x-sugarss', type: 'stylesheet' },
-		{ id: 'stylus', name: 'Stylus', mime: 'text/x-styl', type: 'stylesheet' }
+		stylesheet('css', 'CSS', 'text/css'),
+		stylesheet('sass', 'SASS', 'text/x-sass'),
+		stylesheet('scss', 'SCSS', 'text/x-scss'),
+		stylesheet('less', 'LESS', 'text/x-less'),
+		stylesheet('sss', 'SugarSS', 'text/x-sugarss'),
+		stylesheet('stylus', 'Stylus', 'text/x-styl')
 	],
 
-	/**
-	 * @type {EmmetConfig} Current config, as defined in `@emmetio/config`
-	 */
 	config: createConfig()
-}, { immutable: true });
+});
 
 export default store;
 
 /**
- * Creates Emmet config stub
- * @returns {EmmetConfig}
+ * Returns markup syntax definition
  */
-function createConfig() {
+function markup(id: string, name: string, mime: string): SyntaxDefinition {
+	return { id, name, mime, type: 'markup' };
+}
+
+/**
+ * Returns stylesheet syntax definition
+ */
+function stylesheet(id: string, name: string, mime: string): SyntaxDefinition {
+	return { id, name, mime, type: 'stylesheet' };
+}
+
+/**
+ * Creates Emmet config stub
+ */
+function createConfig(): EmmetConfig {
 	return {
 		version: 1,
 		globals: {
@@ -162,12 +171,8 @@ function createConfig() {
 /**
  * Check if given `items` exists in given array dictionaries and has the same
  * value
- * @param {Object[]} dicts
- * @param {String} key
- * @param {String} value
- * @returns {Boolean}
  */
-function hasItem(dicts, key, value) {
+function hasItem(dicts: any[], key: string, value: any): boolean {
 	for (let i = dicts.length - 1, dict; i >= 0; i--) {
 		dict = dicts[i];
 		if (dict && dict[key] === value) {
@@ -178,6 +183,6 @@ function hasItem(dicts, key, value) {
 	return false;
 }
 
-function isGlobalScope(scope) {
+function isGlobalScope(scope: string): scope is SyntaxType {
 	return scope === 'markup' || scope === 'stylesheet';
 }
