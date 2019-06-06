@@ -87,8 +87,14 @@ js: "/js/main.js"
 				<div class="sponsor__item" style="margin-top:10px;margin-left:-9px">
 					<a href="https://www.vpsserver.com" target="_blank"><img src="/i/vpsserver.png" alt="VPSServer" width="125" height="30" /></a>
 				</div>
-				<div class="sponsor__item" style="margin-top:5px">
-					<a href="https://craftresumes.com/resume-help/" target="_blank"><img src="/i/craft-resumes.png" alt="Professional resume writing help" width="76" height="55" style="margin-top:10px" /></a>
+				<div class="sponsor__item" style="margin-top:10px">
+					<a href="https://craftresumes.com/resume-help/" target="_blank"><img src="/i/craft-resumes.png" alt="Professional resume writing help" width="76" height="55" /></a>
+				</div>
+				<div class="sponsor__item" style="margin-top:10px">
+					<a href="https://paperleaf.ca/" target="_blank"><img src="/i/paper-leaf.png" alt="Essay Writer Canada" width="135" height="35" /></a>
+				</div>
+				<div class="sponsor__item" style="margin-top:10px">
+					<a href="https://edureviewer.com/best-resume-writing-services/" target="_blank"><img src="/i/edu-reviewer.svg" alt="Best resume writing services" width="135" height="39" /></a>
 				</div>
 			</div>
 
