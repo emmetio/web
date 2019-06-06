@@ -35,6 +35,7 @@ js: "/js/main.js"
 			<div class="more-tools">
 				<p class="more-tools__title">More tools:</p>
 				<ul class="more-tools__list">
+					<!--
 					<li class="more-tools__list-item more-tools__list-item_livestyle">
 						<a href="http://livestyle.io" class="more-tools__list-item-link">
 							<img src="/i/livestyle.svg" alt="Emmet LiveStyle" width="16" height="16" class="more-tools__list-item-img" />
@@ -44,6 +45,7 @@ js: "/js/main.js"
 							<div>Real-time bi-directional edit tool for CSS, LESS and SCSS.</div>
 						</div>
 					</li>
+					-->
 					<li class="more-tools__list-item more-tools__list-item_review">
 						<a href="http://re-view.emmet.io" class="more-tools__list-item-link">
 							<img src="/i/re-view.svg" alt="Emmet LiveStyle" width="16" height="16" class="more-tools__list-item-img" />
@@ -81,8 +83,13 @@ js: "/js/main.js"
 			<p class="donate"><a href="https://www.paypal.me/Chikuyonok" class="btn btn_flat"><i class="text-icon">&#128077;</i> Donate</a></p>
 
 			<div class="sponsor">
-				<h4 class="sponsor__title">Sponsor:</h4>
-				<a href="https://www.vpsserver.com" target="_blank"><img src="/i/vpsserver.png" alt="VPSServer" width="125" height="30" style="margin-top:10px" /></a>
+				<h4 class="sponsor__title">Sponsors:</h4>
+				<div class="sponsor__item" style="margin-top:10px;margin-left:-9px">
+					<a href="https://www.vpsserver.com" target="_blank"><img src="/i/vpsserver.png" alt="VPSServer" width="125" height="30" /></a>
+				</div>
+				<div class="sponsor__item" style="margin-top:5px">
+					<a href="https://craftresumes.com/resume-help/" target="_blank"><img src="/i/craft-resumes.png" alt="Professional resume writing help" width="76" height="55" style="margin-top:10px" /></a>
+				</div>
 			</div>
 
 			<ul class="social">
