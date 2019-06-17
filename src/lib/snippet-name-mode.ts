@@ -1,13 +1,13 @@
 import { Mode } from 'codemirror';
 
-interface SnippetModeState {
+interface ISnippetModeState {
 	parseError?: ParseModeError;
 }
 
 /**
  * Emmet snippet name parsing mode
  */
-export default function snippetNameMode(): Mode<SnippetModeState> {
+export default function snippetNameMode(): Mode<ISnippetModeState> {
 	return {
 		startState() {
 			return {

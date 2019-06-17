@@ -3,33 +3,33 @@ import { EmmetConfig } from '@emmetio/config';
 import { Store } from 'endorphin';
 import { get, set, objectsEqual } from './utils';
 
-interface SyntaxDefinition {
+interface ISyntaxDefinition {
 	id: string;
 	name: string;
 	mime: string;
 	type: SyntaxType;
 }
 
-interface StoreData {
+interface IStoreData {
 	/** All syntaxes, supported by Emmet */
-	syntaxes: SyntaxDefinition[];
+	syntaxes: ISyntaxDefinition[];
 
 	/** Current config, as defined in `@emmetio/config` */
 	config: EmmetConfig;
 }
 
-class EmmetStore extends Store<StoreData> {
+class EmmetStore extends Store<IStoreData> {
 	/**
 	 * Finds syntax definition by its ID
 	 */
-	getSyntaxById(id: string): SyntaxDefinition {
+	public getSyntaxById(id: string): ISyntaxDefinition {
 		return this.get().syntaxes.find(item => item.id === id);
 	}
 
 	/**
 	 * Returns snippets defined in given scope
 	 */
-	getSnippets(scope: string): Snippets {
+	public getSnippets(scope: string): Snippets {
 		const { config } = this.get();
 
 		if (isGlobalScope(scope)) {
@@ -58,12 +58,10 @@ class EmmetStore extends Store<StoreData> {
 
 	/**
 	 * Saves given snippets into config
-	 * @param {String} scope
-	 * @param {Object} data
-	 * @returns {Boolean} Returns `true` if data differs from one in config and
+	 * Returns `true` if data differs from one in config and
 	 * was successfully saved
 	 */
-	setSnippets(scope: string, data: Snippets): boolean {
+	public setSnippets(scope: string, data: Snippets): boolean {
 		// We should take into account that given data is merged from global and
 		// default data and we should save updated snippets only, relative to its
 		// scope
@@ -112,7 +110,7 @@ class EmmetStore extends Store<StoreData> {
 	/**
 	 * Resets all user data from store
 	 */
-	reset() {
+	public reset() {
 		this.set({ config: createConfig() });
 	}
 }
@@ -143,14 +141,14 @@ export default store;
 /**
  * Returns markup syntax definition
  */
-function markup(id: string, name: string, mime: string): SyntaxDefinition {
+function markup(id: string, name: string, mime: string): ISyntaxDefinition {
 	return { id, name, mime, type: 'markup' };
 }
 
 /**
  * Returns stylesheet syntax definition
  */
-function stylesheet(id: string, name: string, mime: string): SyntaxDefinition {
+function stylesheet(id: string, name: string, mime: string): ISyntaxDefinition {
 	return { id, name, mime, type: 'stylesheet' };
 }
 

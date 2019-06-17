@@ -4,9 +4,9 @@ import setupEmmet from '@emmetio/codemirror-plugin';
 type CodeMirrorHintCheck = (mode: string, editor: CodeMirrorEditor) => void;
 type CodeMirrorNS = typeof CodeMirror & {
 	registerGlobalHelper(module: string, id: string, check: CodeMirrorHintCheck, callback: (editor: CodeMirrorEditor) => void): void;
-}
+};
 
-interface CodeMirrorOptions extends CodeMirror.EditorConfiguration {
+interface ICodeMirrorOptions extends CodeMirror.EditorConfiguration {
 	markTagPairs?: boolean;
 	autoRenameTags?: boolean;
 	autocomplete?: boolean;
@@ -17,7 +17,7 @@ type CodeMirrorEditor = CodeMirror.Editor & {
 	getEmmetCompletions(pos?: CodeMirror.Position, force?: boolean): EmmetCompletionResult;
 	getEmmetAbbreviation(pos?: CodeMirror.Position, contextAware?: boolean): Abbreviation | void;
 	showHint(options?: EditorHintOptions): void;
-}
+};
 
 import 'codemirror/addon/edit/closebrackets';
 import 'codemirror/mode/xml/xml';
@@ -41,7 +41,7 @@ CodeMirror.defineMode('emmet-snippet-name', snippetName);
  * Initially setup Emmet support & create CodeMirror instance from given `<textarea>`
  * element
  */
-export default function createEditor(target: HTMLElement, options: CodeMirrorOptions): CodeMirror.Editor {
+export default function createEditor(target: HTMLElement, options: ICodeMirrorOptions): CodeMirror.Editor {
 	options = {
 		mode: 'text/html',
 		markTagPairs: false,
@@ -113,7 +113,7 @@ function setupAutocomplete(editor: CodeMirrorEditor) {
 	// popup was hidden because of user interaction (Esc key) or because it
 	// must recalculate completions on user typing, we will use a timer hack
 	editor.on('startCompletion', () => {
-		var marker = editor.findEmmetMarker();
+		const marker = editor.findEmmetMarker();
 		if (marker) {
 			clearTimeout(marker.popupDisableTimer);
 			marker.popupDisableTimer = null;
@@ -121,7 +121,7 @@ function setupAutocomplete(editor: CodeMirrorEditor) {
 	});
 
 	editor.on('endCompletion', () => {
-		var marker = editor.findEmmetMarker();
+		const marker = editor.findEmmetMarker();
 		if (marker) {
 			clearTimeout(marker.popupDisableTimer);
 			marker.popupDisableTimer = setTimeout(() => marker.autoPopupDisabled = true, 30);
@@ -155,11 +155,11 @@ function setupAutocomplete(editor: CodeMirrorEditor) {
 					from: completion.range.from,
 					to: completion.range.to,
 					render(elt: HTMLElement) {
-						var content = document.createDocumentFragment();
-						var label = document.createElement('span');
+						const content = document.createDocumentFragment();
+						const label = document.createElement('span');
 						label.className = 'emmet-label';
 
-						var preview = document.createElement('span');
+						const preview = document.createElement('span');
 						preview.className = 'emmet-preview';
 
 						content.appendChild(label);

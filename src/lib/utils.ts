@@ -2,18 +2,18 @@
  * Safe dot-property getter for `obj`: returns value of `obj` by given `key`,
  * separated by `.`, but doesn’t throw error if any of the property key exists
  */
-export function get(obj: any, key: string | string[], defaultValue?: any): any {
+export function get<T = any>(obj: any, key: string | string[], defaultValue?: T): T {
 	let result = obj;
 	if (typeof key === 'string') {
 		key = key.split('.');
 	}
 
-	for (let i = 0; i < key.length; i++) {
+	for (const k of key) {
 		if (result == null) {
 			break;
 		}
 
-		result = result[key[i]];
+		result = result[k];
 	}
 
 	return result != null ? result : defaultValue;
