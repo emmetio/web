@@ -1,0 +1,26 @@
+:host {
+	display: block;
+	list-style: none;
+	color: inherit;
+	padding: 0;
+	margin: 0;
+	border-radius: inherit;
+}
+
+div {
+	padding: 5px 10px 5px 20px;
+	cursor: pointer;
+
+	&:hover {
+		background: #eeeeee;
+	}
+
+	&.selected::before {
+		content: '✓';
+		display: inline-block;
+		width: 1em;
+		margin-right: -1em;
+		position: relative;
+		left: -13px;
+	}
+}

@@ -2,6 +2,7 @@ import snippets, { Snippets } from '@emmetio/snippets';
 import { EmmetConfig } from '@emmetio/config';
 import { Store } from 'endorphin';
 import { get, set, objectsEqual } from './utils';
+import { SyntaxType } from '../types';
 
 interface ISyntaxDefinition {
 	id: string;
@@ -18,7 +19,7 @@ interface IStoreData {
 	config: EmmetConfig;
 }
 
-class EmmetStore extends Store<IStoreData> {
+export class EmmetStore extends Store<IStoreData> {
 	/**
 	 * Finds syntax definition by its ID
 	 */

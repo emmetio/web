@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="./em-popup-menu.scss" />
+<template>
+	<e:for-each select={items}>
+		<div class:selected={@value === selected || @value.id === selected} on:click={emit('select', @value)}>
+			{ @value.label }
+		</div>
+	</e:for-each>
+</template>
+<script>
+export function props() {
+	return {
+		items: [],
+		selected: ''
+	};
+};
+</script>

@@ -1,0 +1,31 @@
+.scope {
+	display: inline-block;
+	white-space: nowrap;
+	position: relative;
+}
+
+label {
+	color: #417505;
+	border-bottom: 1px dotted currentColor;
+	cursor: default;
+	position: relative;
+	z-index: 2;
+}
+
+em-popup-menu {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	background: #ffffff;
+	color: #000000;
+	border-radius: 5px;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+	margin: 5px 0 0;
+}
+
+@keyframes show {
+	from {
+		transform: translateY(30px);
+		opacity: 0;
+	}
+}

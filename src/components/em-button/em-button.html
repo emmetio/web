@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="./em-button.scss" />
+<button {type} {disabled}>
+	<slot>Label</slot>
+</button>
+<script>
+export function props() {
+	return {
+		type: 'button',
+		disabled: false,
+		secondary: false
+	};
+};
+</script>

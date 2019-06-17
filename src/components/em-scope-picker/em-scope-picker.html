@@ -1,0 +1,19 @@
+<link rel="import" href="../em-popup-menu/em-popup-menu.html" />
+
+<link rel="stylesheet" href="./em-scope-picker.scss" />
+<template>
+	<e:variable
+		items={#globalScopes.concat($syntaxes)}
+		selected={@items[item => selected || item.id === selected]}/>
+	Scope:
+	<div class="scope" on:mouseover={#hovered = true} on:mouseout={#hovered = false}">
+		<label>{ @selected.label }</label>
+		<em-popup-menu
+			{@items}
+			{@selected}
+			animate:in="show 0.2s"
+			animate:out="show 0.2s reverse"
+			e:if={#hovered}/>
+	</div>
+</template>
+<script src="./em-scope-picker.ts"></script>

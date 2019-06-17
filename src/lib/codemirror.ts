@@ -1,24 +1,5 @@
 import * as CodeMirror from 'codemirror';
 import setupEmmet from '@emmetio/codemirror-plugin';
-
-type CodeMirrorHintCheck = (mode: string, editor: CodeMirrorEditor) => void;
-type CodeMirrorNS = typeof CodeMirror & {
-	registerGlobalHelper(module: string, id: string, check: CodeMirrorHintCheck, callback: (editor: CodeMirrorEditor) => void): void;
-};
-
-interface ICodeMirrorOptions extends CodeMirror.EditorConfiguration {
-	markTagPairs?: boolean;
-	autoRenameTags?: boolean;
-	autocomplete?: boolean;
-}
-
-type CodeMirrorEditor = CodeMirror.Editor & {
-	findEmmetMarker(pos?: number): CodeMirror.TextMarker & { popupDisableTimer?: any, autoPopupDisabled?: boolean };
-	getEmmetCompletions(pos?: CodeMirror.Position, force?: boolean): EmmetCompletionResult;
-	getEmmetAbbreviation(pos?: CodeMirror.Position, contextAware?: boolean): Abbreviation | void;
-	showHint(options?: EditorHintOptions): void;
-};
-
 import 'codemirror/addon/edit/closebrackets';
 import 'codemirror/mode/xml/xml';
 import 'codemirror/mode/css/css';
@@ -32,6 +13,19 @@ import 'codemirror/mode/pug/pug';
 import 'codemirror/addon/hint/show-hint';
 import markupAbbreviation from './markup-abbreviation-mode';
 import snippetName from './snippet-name-mode';
+import { IEditorHintOptions, IEmmetCompletionResult, IAbbreviation, ICodeMirrorOptions } from '../types';
+
+type CodeMirrorHintCheck = (mode: string, editor: CodeMirrorEditor) => void;
+type CodeMirrorNS = typeof CodeMirror & {
+	registerGlobalHelper(module: string, id: string, check: CodeMirrorHintCheck, callback: (editor: CodeMirrorEditor) => void): void;
+};
+
+type CodeMirrorEditor = CodeMirror.Editor & {
+	findEmmetMarker(pos?: number): CodeMirror.TextMarker & { popupDisableTimer?: any, autoPopupDisabled?: boolean };
+	getEmmetCompletions(pos?: CodeMirror.Position, force?: boolean): IEmmetCompletionResult;
+	getEmmetAbbreviation(pos?: CodeMirror.Position, contextAware?: boolean): IAbbreviation | void;
+	showHint(options?: IEditorHintOptions): void;
+};
 
 setupEmmet(CodeMirror);
 CodeMirror.defineMode('emmet-abbreviation', markupAbbreviation);

@@ -1,0 +1,38 @@
+<link rel="import" href="../em-popup-menu/em-popup-menu.html" />
+
+<style>
+label {
+	display: inline-block;
+	cursor: pointer;
+	line-height: inherit;
+}
+
+em-popup-menu {
+	position: absolute;
+	top: 100%;
+	right: 0;
+	background: #ffffff;
+	color: #000000;
+	border-radius: 5px;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+	margin: 5px 0 0;
+}
+
+@keyframes show {
+	from {
+		transform: translateY(30px);
+		opacity: 0;
+	}
+}
+</style>
+<template>
+	<e:variable selected={items[item => selected || item.id === selected] || items[0]} />
+
+	<label title="Choose output syntax">{ @selected.name }</label>
+	<em-popup-menu
+		{items}
+		{@selected}
+		animate:in="show 0.2s"
+		animate:out="show 0.2s reverse"
+		e:if={#hovered}/>
+</template>

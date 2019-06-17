@@ -1,7 +1,17 @@
+import { Component } from 'endorphin';
+import { EmmetStore } from './lib/store';
+
 type ParseModeError = Error & { ch?: number };
 type SyntaxType = 'markup' | 'stylesheet';
+type EmComponent<P = any, S = any> = Component<P, S, EmmetStore>;
 
-interface EditorHintOptions {
+interface ICodeMirrorOptions extends CodeMirror.EditorConfiguration {
+	markTagPairs?: boolean;
+	autoRenameTags?: boolean;
+	autocomplete?: boolean;
+}
+
+interface IEditorHintOptions {
 	completeSingle?: boolean;
 	alignWithWord?: boolean;
 	closeCharacters?: RegExp;
@@ -9,7 +19,7 @@ interface EditorHintOptions {
 	completeOnSingleClick?: boolean;
 }
 
-interface EmmetCompletion {
+interface IEmmetCompletion {
 	range: CodeMirror.Range;
 	type: string;
 	label?: string;
@@ -17,32 +27,10 @@ interface EmmetCompletion {
 	insert(): void;
 }
 
-interface EmmetCompletionResult {
+interface IEmmetCompletionResult {
 	from: CodeMirror.Position;
 	to: CodeMirror.Position;
-	list: EmmetCompletion[]
+	list: IEmmetCompletion[]
 }
 
-interface Abbreviation { }
-
-declare module '@emmetio/snippets' {
-	export interface Snippets {
-		[key: string]: string;
-	}
-
-	export interface SnippetsRegistry {
-		css: Snippets;
-		html: Snippets;
-		xsl: Snippets;
-		[syntax: string]: Snippets;
-	}
-
-	const registry: SnippetsRegistry;
-
-	export default registry;
-}
-
-declare module '@emmetio/codemirror-plugin' {
-	export default function setupEmmet(cm: typeof CodeMirror): void;
-
-}
+interface IAbbreviation { }
