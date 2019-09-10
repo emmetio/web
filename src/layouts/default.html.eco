@@ -80,21 +80,26 @@ js: "/js/main.js"
 				</div>
 			</div>
 
+			<!--
 			<p class="donate"><a href="https://www.paypal.me/Chikuyonok" class="btn btn_flat"><i class="text-icon">&#128077;</i> Donate</a></p>
+			-->
 
 			<div class="sponsor">
 				<h4 class="sponsor__title">Sponsors:</h4>
-				<div class="sponsor__item" style="margin-top:10px;margin-left:-9px">
+				<div class="sponsor__item" style="margin-left:-9px">
 					<a href="https://www.vpsserver.com" target="_blank"><img src="/i/vpsserver.png" alt="VPSServer" width="125" height="30" /></a>
 				</div>
-				<div class="sponsor__item" style="margin-top:10px">
+				<div class="sponsor__item">
 					<a href="https://craftresumes.com/resume-help/" target="_blank"><img src="/i/craft-resumes.png" alt="Professional resume writing help" width="76" height="55" /></a>
 				</div>
-				<div class="sponsor__item" style="margin-top:10px">
+				<div class="sponsor__item">
 					<a href="https://paperleaf.ca/" target="_blank"><img src="/i/paper-leaf.png" alt="Essay Writer Canada" width="135" height="35" /></a>
 				</div>
-				<div class="sponsor__item" style="margin-top:10px">
+				<div class="sponsor__item">
 					<a href="https://edureviewer.com/best-resume-writing-services/" target="_blank"><img src="/i/edu-reviewer.svg" alt="Best resume writing services" width="135" height="39" /></a>
+				</div>
+				<div class="sponsor__item">
+					<a href="https://wpsetup.org target="_blank"><img src="/i/wpsetup.png" alt="WPSetup" width="135" height="46" /></a>
 				</div>
 			</div>
 

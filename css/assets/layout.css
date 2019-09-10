@@ -475,8 +475,8 @@ strong {
 
 #gptong-container,
 #xrxbcfk_5 {
-	margin-bottom: 25px;
-	min-height: 215px;
+	margin-bottom: 15px;
+	min-height: 200px;
 }
 
 .gptong,
@@ -615,7 +615,7 @@ strong {
 }
 
 .sponsor {
-	margin: 50px 0;
+	margin: 20px 0;
 }
 
 .sponsor__title {
@@ -626,6 +626,10 @@ strong {
 	text-shadow: none;
 	font-size: 1em;
 	margin-top: 0;
+}
+
+.sponsor__item {
+	margin-top: 10px;
 }
 
 .wb {
