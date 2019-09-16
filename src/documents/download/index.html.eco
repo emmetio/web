@@ -19,10 +19,6 @@ editors:
 	  url: https://github.com/emmetio/emmet-eclipse#readme
 	  icon: eclipse.png
 	  comment: cross-platform
-	- title: TextMate 2
-	  url: ./textmate2/
-	  icon: textmate.png
-	  comment: "OS X"
 	- title: Espresso
 	  url: https://github.com/emmetio/Emmet.sugar#readme
 	  icon: espresso.png
