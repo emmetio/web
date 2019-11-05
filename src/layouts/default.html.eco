@@ -101,6 +101,9 @@ js: "/js/main.js"
 				<div class="sponsor__item">
 					<a href="https://wpsetup.org/" target="_blank"><img src="/i/wpsetup.png" alt="WPSetup" width="135" height="50" /></a>
 				</div>
+				<div class="sponsor__item">
+					<a href="https://rapidessay.com/" target="_blank"><img src="/i/rapidessay.png" alt="College Essay Writing Service" width="135" height="44" /></a>
+				</div>
 			</div>
 
 			<ul class="social">
