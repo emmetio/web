@@ -1,0 +1,18 @@
+<link rel="import" href="../em-editor/em-editor.html" />
+<link rel="import" href="../em-syntax-picker/em-syntax-picker.html" />
+
+<em-editor ref:input {value} error="{ expanded.error }" autofocus mode="emmet-abbreviation" />
+<em-syntax-picker
+	syntaxes={$syntaxes}
+	on:select={e => setSyntax(e.detail.id)}
+	selected={ syntax }
+	e:if={syntaxPicker} />
+
+<em-editor
+	ref:preview
+	value={expanded.value}
+	mode="{ mime }"
+	readOnly="nocursor"
+	e:if={preview} />
+
+<slot name="comment"></slot>

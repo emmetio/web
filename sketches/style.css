@@ -1,0 +1,43 @@
+body {
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 40px;
+	font-family: Metropolis, Arial, sans-serif;
+	font-size: 14px;
+}
+
+h1 {
+	font-size: 2em;
+	font-weight: 100;
+	margin: 0 0 10px;
+}
+
+h2 {
+	font-weight: 100;
+	font-size: 1.5em;
+	margin: 50px 0 10px;
+}
+
+p:first-of-type {
+	padding-top: 0;
+}
+
+fieldset.option {
+	position: relative;
+}
+
+fieldset.option input[type=checkbox] {
+	position: absolute;
+	left: -20px;
+}
+
+fieldset.option label {
+	font-weight: bold;
+	font-size: 1.3em;
+	display: inline-block;
+}
+
+fieldset.option .comment {
+	margin-top: 5px;
+	font-size: 0.8em;
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>HTML settings</title>
+</head>
+<body>
+	<main>
+		<h1>Markup abbreviations</h1>
+		<p>Emmet’s markup abbreviations looks like a regular code snippets available in most modern text editors. In editors, code snippets are static: you must predefine a short name which will be expanded into <span>larger</span> code. For example, <code>div</code> → <code>&lt;div class=""&gt;&lt;/div&gt;</code></p>
+		<p>Emmet uses dynamic expressions: type anything and it will be transformed into full code. CSS selectors.</p>
+
+		<h2>Abbreviation capturing</h2>
+		<p>Due to dynamic nature of Emmet abbreviations, almost any word can be a snippet. Use of <kbd>Tab</kbd> to expand abbreviation key may lead to unexpected behavior if you want to use editor’s native snippets or put tab character after a word. To overcome this problem, Emmet uses <em>abbreviation capturing</em>: when you start typing something that looks likes abbreviation, Emmet adds underline indicating that expression can be expanded. When abbreviation becomes <em>complex</em> (e.g. it contains attributes or multiple elements), a popup with preview of expanded result is displayed.</p>
+		<p>After abbreviation was captured, hit <kbd>Tab</kbd> key inside abbreviation to expand it, <kbd>Esc</kbd> key to remove capturing.</p>
+
+		<div class="field">
+			<input type="checkbox" name="emmet_auto_mark" id="emmet_auto_mark" />
+			<label for="emmet_auto_mark">Enable abbreviation capturing</label>
+			<p class="comment">To expand abbreviations with <kbd>Tab</kbd> key. Press <kbd>Esc</kbd> key to reset capturing.</p>
+		</div>
+
+		<div class="field">
+			<input type="checkbox" name="emmet_abbreviation_preview" id="emmet_abbreviation_preview" />
+			<label for="emmet_abbreviation_preview">Enable abbreviation preview</label>
+			<p class="comment">Displays popup with preview of captured complex abbreviation: with attributes or multiple elements.</p>
+		</div>
+
+		<div class="field">
+			<input type="checkbox" name="keybinding.emmet_expand_abbreviation" id="keybinding.emmet_expand_abbreviation" />
+			<label for="keybinding.emmet_expand_abbreviation">Key binding <span class="shortcut-recorder">Ctr+E</span></label>
+			<p class="comment">Put caret after abbreviation and hit this shortcut to expand abbreviation in any document of any syntax.</p>
+		</div>
+
+		<h2>Configure output</h2>
+		<section class="with-abbr-preview">
+			<main>
+				<div class="output-option">
+					<h4>Tag case</h4>
+					<ul class="segmented">
+						<li><input type="radio" name="output.tagCase" id="output.tagCase.0" value="" /><label for="output.tagCase.0">As is</label></li>
+						<li><input type="radio" name="output.tagCase" id="output.tagCase.1" value="lower" /><label for="output.tagCase.1">Lowercase</label></li>
+						<li><input type="radio" name="output.tagCase" id="output.tagCase.2" value="upper" /><label for="output.tagCase.2">Uppercase</label></li>
+					</ul>
+				</div>
+
+				<div class="output-option">
+					<h4>Attribute case</h4>
+					<ul class="segmented">
+						<li><input type="radio" name="output.attributeCase" id="output.attributeCase.0" value="" /><label for="output.attributeCase.0">As is</label></li>
+						<li><input type="radio" name="output.attributeCase" id="output.attributeCase.1" value="lower" /><label for="output.attributeCase.1">Lowercase</label></li>
+						<li><input type="radio" name="output.attributeCase" id="output.attributeCase.2" value="upper" /><label for="output.attributeCase.2">Uppercase</label></li>
+					</ul>
+				</div>
+
+				<div class="output-option">
+					<h4>Closing slash</h4>
+					<ul class="segmented">
+						<li><input type="radio" name="output.selfClosingStyle" id="output.selfClosingStyle.0" value="html" /><label for="output.selfClosingStyle.0">HTML</label></li>
+						<li><input type="radio" name="output.selfClosingStyle" id="output.selfClosingStyle.1" value="xml" /><label for="output.attributeCase.1">XML</label></li>
+						<li><input type="radio" name="output.selfClosingStyle" id="output.selfClosingStyle.2" value="xhtml" /><label for="output.selfClosingStyle.2">XHTML</label></li>
+					</ul>
+				</div>
+
+				<div class="output-option">
+					<div class="field">
+						<input type="checkbox" name="output.compactBoolean" id="output.compactBoolean" />
+						<label for="output.compactBoolean">Compact boolean attributes</label>
+					</div>
+				</div>
+			</main>
+			<aside>
+				<input type="text" class="abbreviation" name="abbr" value="ul>li.item$*4>img" />
+				<pre class="abbreviation-ouput"><code>
+&lt;ul&gt;
+	&lt;li class="item1"&gt;&lt;img src="" alt=""&gt;&lt;/li&gt;
+	&lt;li class="item2"&gt;&lt;img src="" alt=""&gt;&lt;/li&gt;
+	&lt;li class="item3"&gt;&lt;img src="" alt=""&gt;&lt;/li&gt;
+	&lt;li class="item4"&gt;&lt;img src="" alt=""&gt;&lt;/li&gt;
+&lt;/ul&gt;
+				</code></pre>
+			</aside>
+		</section>
+
+		<h2>Tag commenting</h2>
+		<div class="with-abbr-preview">
+			<main>
+				<p>If enabled, adds comment with tag details before opening and/or after closing tag of expanded element which contains <em>attribute triggers</em>. A trigger is simply an attribute that should be present in element in order to add comments.</p>
+				<p>Tag details are described with <em>templates</em>: a string with fields between <code>[</code> and <code>]</code>. A field may contain arbitrary characters and <em>upper-cased attribute name</em>: entire field will be displayed only if specified attribute is present in element and attribute name will be replaced with actual attribute value.</p>
+				<p>Use <code>\n</code> to add a newline.</p>
+				<div class="output-option">
+					<div class="field">
+						<input type="checkbox" name="comment.enabled" id="comment.enabled" />
+						<label for="comment.enabled">Enable tag commenting</label>
+					</div>
+				</div>
+				<div class="output-option">
+					<div class="field">
+						<label>Comment template before open tag</label>
+						<input type="text" name="comment.before" value="" />
+					</div>
+				</div>
+				<div class="output-option">
+					<div class="field">
+						<label>Comment template after closing tag</label>
+						<input type="text" name="comment.after" value="\n&lt;!-- /[#ID][.CLASS] --&gt;" />
+					</div>
+				</div>
+			</main>
+			<aside>
+				<input type="text" class="abbreviation" name="abbr" value="ul>li.item$*4>img" />
+				<pre class="abbreviation-ouput"><code>
+&lt;ul&gt;
+	&lt;li class="item1"&gt;&lt;img src="" alt=""&gt;&lt;/li&gt;
+	&lt;li class="item2"&gt;&lt;img src="" alt=""&gt;&lt;/li&gt;
+	&lt;li class="item3"&gt;&lt;img src="" alt=""&gt;&lt;/li&gt;
+	&lt;li class="item4"&gt;&lt;img src="" alt=""&gt;&lt;/li&gt;
+&lt;/ul&gt;
+				</code></pre>
+			</aside>
+		</div>
+
+	</main>
+</body>
+</html>

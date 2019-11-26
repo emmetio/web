@@ -1,4 +1,4 @@
-.abbreviation {
+ref:input {
 	position: relative;
 	z-index: 2;
 	border: 1px solid #ccc;
@@ -23,7 +23,7 @@
 	height: 100%;
 }
 
-.syntax-picker {
+em-syntax-picker {
 	flex: 0 0;
 	margin: 2px;
 	padding: 2px 4px;
@@ -34,14 +34,14 @@
 	border-radius: 2px;
 }
 
-.preview {
+ref:preview {
 	position: relative;
 	z-index: 1;
 	height: 300px;
 	font-size: 12px;
 }
 
-.comment {
+slot[name=comment] {
 	font-size: 10px;
 	color: #cccccc;
 }
