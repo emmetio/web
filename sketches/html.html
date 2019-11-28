@@ -5,11 +5,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 	<title>HTML settings</title>
+	<link rel="stylesheet" href="./style.css" />
 </head>
 <body>
 	<main>
 		<h1>Markup abbreviations</h1>
-		<p>Emmet’s markup abbreviations looks like a regular code snippets available in most modern text editors. In editors, code snippets are static: you must predefine a short name which will be expanded into <span>larger</span> code. For example, <code>div</code> → <code>&lt;div class=""&gt;&lt;/div&gt;</code></p>
+		<p>Emmet’s markup abbreviations looks like a regular code snippets available in most modern text editors. In editors, code snippets are static: you must predefine a short name which will be expanded into <span>larger</span> code. For example, <code>divc</code> → <code>&lt;div class=""&gt;&lt;/div&gt;</code></p>
 		<p>Emmet uses dynamic expressions: type anything and it will be transformed into full code. CSS selectors.</p>
 
 		<h2>Abbreviation capturing</h2>
@@ -122,6 +123,55 @@
 			</aside>
 		</div>
 
+		<div class="with-abbr-preview">
+			<main>
+				<div class="output-option">
+					<div class="field">
+						<input type="checkbox" name="bem.enabled" id="bem.enabled" />
+						<label for="bem.enabled">BEM support</label>
+					</div>
+				</div>
+				<p>When enabled, Emmet will treat class names starting with <code>-</code> as <em>element</em> and with <code>_</code> as <em>modifier</em> in <a href="https://en.bem.info">BEM</a> notation. These class names will inherit <em>block</em> name from current or ancestor element. For example, the abbreviation `ul.nav.nav_secondary>li.nav__item` can be shortened to `ul.nav._secondary>li.-item` with this option enabled.</p>
+			</main>
+			<aside>
+				<input type="text" class="abbreviation" name="abbr" value="ul.nav._secondary>li.-item" />
+				<pre class="abbreviation-ouput"><code>
+&lt;ul&gt;
+	&lt;li class="item1"&gt;&lt;img src="" alt=""&gt;&lt;/li&gt;
+	&lt;li class="item2"&gt;&lt;img src="" alt=""&gt;&lt;/li&gt;
+	&lt;li class="item3"&gt;&lt;img src="" alt=""&gt;&lt;/li&gt;
+	&lt;li class="item4"&gt;&lt;img src="" alt=""&gt;&lt;/li&gt;
+&lt;/ul&gt;
+				</code></pre>
+			</aside>
+		</div>
+
+		<h2>JSX support</h2>
+		<div class="with-abbr-preview">
+			<main>
+				<p>In JSX (or JavaScript, TypeScript etc.), all Emmet abbreviations should be <em>prefixed</em>. A prefix is simply a character (or multiple characters) that must precede abbreviation in order to expand it. Without explicit prefix, Emmet would match abbreviations for every variable name or property access, which is just annoying.</p>
+
+				<p>All camel-cased class names are treated as tag names: <code>UI.MyComponent.foo</code> will expand to <code>&lt;UI.MyComponent className="foo"&gt;&lt;/UI.MyComponent&gt;</code> instead of <code>&lt;UI class="MyComponent foo"&gt;&lt;/UI&gt;</code> in HTML. Emmet follows JSX rules and outputs <code>className</code> and <code>htmlFor</code> instead of <code>class</code> and <code>for</code> attributes.</p>
+
+				<div class="output-option">
+					<div class="field">
+						<label>Abbreviation prefix</label>
+						<input type="text" name="jsx.prefix" value="&lt;" size="3" />
+						<p class="comment">Empty value disables prefix and abbreviations will be captured and expanded the same as in HTML</p>
+					</div>
+				</div>
+			</main>
+			<aside></aside>
+		</div>
+
+		<h2>Snippets</h2>
+		<ul>
+			<li>Markup snippets are just shortcuts for another Emmet abbreviations.</li>
+			<li>Shape-up default element attributes and their order: <code>a</code> → <code>a[href]</code>. If you expand <code>a</code> abbreviation, it will output <code>&lt;a&gt;</code> element with empty <code>href</code> attribute.</li>
+			<li>Snippet can out output multiple elements: <code>nav</code> → <code>ul.nav>li.nav-item*4>a</code>.</li>
+			<li>To output arbitrary content as snippet value, use <em>text expressions</em>: <code>c</code> → <code>{&lt-- ${0} --&gt}</code>.</li>
+			<li>Use <code>${N}</code> to specify tabstops, where <code>N</code> is an integer. By default, Emmet automatically generates tabstops for empty attributes and elements, you can put a tabstop inside attribute value or text expression to explicitly traverse between them with Tab key: <code>ah</code> → <code>a[href="http://${1}"]</code>. You can add a placeholder to a tabstop: <code>${1:some text}</code>. Placeholder content will be outputted and selected on focus.</li>
+		</ul>
 	</main>
 </body>
 </html>
