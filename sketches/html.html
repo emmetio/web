@@ -13,27 +13,29 @@
 		<p>Emmet’s markup abbreviations looks like a regular code snippets available in most modern text editors. In editors, code snippets are static: you must predefine a short name which will be expanded into <span>larger</span> code. For example, <code>divc</code> → <code>&lt;div class=""&gt;&lt;/div&gt;</code></p>
 		<p>Emmet uses dynamic expressions: type anything and it will be transformed into full code. CSS selectors.</p>
 
-		<h2>Abbreviation capturing</h2>
-		<p>Due to dynamic nature of Emmet abbreviations, almost any word can be a snippet. Use of <kbd>Tab</kbd> to expand abbreviation key may lead to unexpected behavior if you want to use editor’s native snippets or put tab character after a word. To overcome this problem, Emmet uses <em>abbreviation capturing</em>: when you start typing something that looks likes abbreviation, Emmet adds underline indicating that expression can be expanded. When abbreviation becomes <em>complex</em> (e.g. it contains attributes or multiple elements), a popup with preview of expanded result is displayed.</p>
-		<p>After abbreviation was captured, hit <kbd>Tab</kbd> key inside abbreviation to expand it, <kbd>Esc</kbd> key to remove capturing.</p>
-
-		<div class="field">
-			<input type="checkbox" name="emmet_auto_mark" id="emmet_auto_mark" />
-			<label for="emmet_auto_mark">Enable abbreviation capturing</label>
-			<p class="comment">To expand abbreviations with <kbd>Tab</kbd> key. Press <kbd>Esc</kbd> key to reset capturing.</p>
-		</div>
-
-		<div class="field">
-			<input type="checkbox" name="emmet_abbreviation_preview" id="emmet_abbreviation_preview" />
-			<label for="emmet_abbreviation_preview">Enable abbreviation preview</label>
-			<p class="comment">Displays popup with preview of captured complex abbreviation: with attributes or multiple elements.</p>
-		</div>
-
-		<div class="field">
-			<input type="checkbox" name="keybinding.emmet_expand_abbreviation" id="keybinding.emmet_expand_abbreviation" />
-			<label for="keybinding.emmet_expand_abbreviation">Key binding <span class="shortcut-recorder">Ctr+E</span></label>
-			<p class="comment">Put caret after abbreviation and hit this shortcut to expand abbreviation in any document of any syntax.</p>
-		</div>
+		<section class="slide">
+			<h2>Abbreviation capturing</h2>
+			<p>Due to dynamic nature of Emmet abbreviations, almost any word can be a snippet. Use of <kbd>Tab</kbd> to expand abbreviation key may lead to unexpected behavior if you want to use editor’s native snippets or put tab character after a word. To overcome this problem, Emmet uses <em>abbreviation capturing</em>: when you start typing something that looks likes abbreviation, Emmet adds underline indicating that expression can be expanded. When abbreviation becomes <em>complex</em> (e.g. it contains attributes or multiple elements), a popup with preview of expanded result is displayed.</p>
+			<p>After abbreviation was captured, hit <kbd>Tab</kbd> key inside abbreviation to expand it, <kbd>Esc</kbd> key to remove capturing.</p>
+			
+			<div class="field">
+				<input type="checkbox" name="emmet_auto_mark" id="emmet_auto_mark" />
+				<label for="emmet_auto_mark">Enable abbreviation capturing</label>
+				<p class="comment">To expand abbreviations with <kbd>Tab</kbd> key. Press <kbd>Esc</kbd> key to reset capturing.</p>
+			</div>
+			
+			<div class="field">
+				<input type="checkbox" name="emmet_abbreviation_preview" id="emmet_abbreviation_preview" />
+				<label for="emmet_abbreviation_preview">Enable abbreviation preview</label>
+				<p class="comment">Displays popup with preview of captured complex abbreviation: with attributes or multiple elements.</p>
+			</div>
+			
+			<div class="field">
+				<input type="checkbox" name="keybinding.emmet_expand_abbreviation" id="keybinding.emmet_expand_abbreviation" />
+				<label for="keybinding.emmet_expand_abbreviation">Key binding <span class="shortcut-recorder">Ctr+E</span></label>
+				<p class="comment">Put caret after abbreviation and hit this shortcut to expand abbreviation in any document of any syntax.</p>
+			</div>
+		</section>
 
 		<h2>Configure output</h2>
 		<section class="with-abbr-preview">
@@ -80,8 +82,7 @@
 	&lt;li class="item2"&gt;&lt;img src="" alt=""&gt;&lt;/li&gt;
 	&lt;li class="item3"&gt;&lt;img src="" alt=""&gt;&lt;/li&gt;
 	&lt;li class="item4"&gt;&lt;img src="" alt=""&gt;&lt;/li&gt;
-&lt;/ul&gt;
-				</code></pre>
+&lt;/ul&gt;</code></pre>
 			</aside>
 		</section>
 

@@ -14,31 +14,65 @@ h1 {
 }
 
 h2 {
-	font-weight: 100;
+	font-weight: 400;
 	font-size: 1.5em;
-	margin: 50px 0 10px;
+	margin: 50px 0 5px;
 }
 
-p:first-of-type {
-	padding-top: 0;
+p {
+	margin-top: 0;
 }
 
-fieldset.option {
+kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font: 11px SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+    line-height: 10px;
+    color: #444d56;
+    vertical-align: middle;
+    background-color: #fafbfc;
+    border: 1px solid #d1d5da;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #d1d5da;
+}
+
+code {
+	padding: .2em .4em;
+    margin: 0;
+    font-size: 85%;
+    background-color: rgba(27,31,35,.05);
+    border-radius: 3px;
+}
+
+.field {
 	position: relative;
+	margin: 15px 0;
 }
 
-fieldset.option input[type=checkbox] {
+.field input[type=checkbox] {
 	position: absolute;
 	left: -20px;
+	top: 3px;
 }
 
-fieldset.option label {
+.field label {
 	font-weight: bold;
 	font-size: 1.3em;
 	display: inline-block;
 }
 
-fieldset.option .comment {
-	margin-top: 5px;
+.field .comment {
 	font-size: 0.8em;
+	color: #666;
+	margin-top: 0;
+}
+
+.slide {
+	padding: 40px;
+	margin: 0 -40px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.slide h2:first-of-type {
+	margin-top: 0;
 }
