@@ -151,6 +151,10 @@ thirdParty:
 	  url: http://www.webuilderapp.com/editions.php
 	  icon: webuilder.png
 	  comment: Windows
+    - title: Oxygen XML Editor
+      url: https://www.oxygenxml.com/doc/ug-editor/topics/emmet-addon.html
+      icon: oxygen.png
+      comment: cross-platform
 ---
 <% tiles = (items) => %>
 <ul class="tiles download">
