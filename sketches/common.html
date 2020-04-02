@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Common Emmet settings</title>
+	<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+	<main>
+		<h1>Common Emmet settings</h1>
+
+		<div class="output-option">
+			<h4>Output code style</h4>
+			<ul class="segmented">
+				<li><input type="radio" name="codeStyle" id="codeStyle.0" value="HTML" /><label for="codeStyle.0">HTML</label></li>
+				<li><input type="radio" name="codeStyle" id="codeStyle.1" value="XHTML" /><label for="codeStyle.1">XHTML</label></li>
+				<li><input type="radio" name="codeStyle" id="codeStyle.2" value="XML" /><label for="codeStyle.2">XML</label></li>
+			</ul>
+			<p class="comment">Defines how self-closing tags (like <code>&lt;img&gt;</code> or <code>&lt;br&gt;</code>) and boolean attributes (like <code>disabled</code>) will look in generated code.</p>
+		</div>
+
+		<div class="output-option">
+			<h4>Attribute value quotes</h4>
+			<ul class="segmented">
+				<li><input type="radio" name="attrQuotes" id="attrQuotes.0" value="double" /><label for="attrQuotes.0">Double</label></li>
+				<li><input type="radio" name="attrQuotes" id="attrQuotes.1" value="single" /><label for="attrQuotes.1">Single</label></li>
+			</ul>
+		</div>
+
+		<div class="output-option">
+			<div class="field">
+				<input type="checkbox" name="comments" id="comments" />
+				<label for="comments">Enable tag commenting</label>
+			</div>
+			<p class="comment">If enabled, adds comment with tag details after closing tag of expanded abbreviation element, which contains either <code>id</code> and/or <code>class</code> attribute.</p>
+
+			<div class="sub-option">
+				<div class="field">
+					<label>Comment template</label>
+					<input type="text" name="comment.after" value="\n&lt;!-- /[#ID][.CLASS] --&gt;" />
+				</div>
+
+				<p class="comment">Outputs everything between <code>[</code> and <code>]</code> only if specified attribute name (written in UPPERCASE) exists in element. Attribute name is replaced with actual value. Use <code>\n</code> to add a newline.</p>
+			</div>
+		</div>
+
+		<div class="output-option">
+			<div class="field">
+				<input type="checkbox" name="bem.enabled" id="bem.enabled" />
+				<label for="bem.enabled">BEM support</label>
+			</div>
+			<p class="comment">When enabled, Emmet will treat class names starting with <code>-</code> as <em>element</em> and with <code>_</code> as <em>modifier</em> in <a href="https://en.bem.info">BEM</a> notation. These class names will inherit <em>block</em> name from current or ancestor element. For example, the abbreviation <code>ul.nav.nav_secondary>li.nav__item</code> can be shortened to <code>ul.nav._secondary>li.-item</code> with this option enabled.</p>
+		</div>
+
+		<div class="output-option">
+			<div class="field">
+				<input type="checkbox" name="shortHex" id="shortHex" />
+				<label for="shortHex">Use short HEX colors in CSS</label>
+			</div>
+			<p class="comment">When enabled, tries to shorten generated HEX color values for CSS abbreviations. For example, <code>c#0</code> abbreviation can be expanded either to <code>color: #000;</code> or <code>color: #000000;</code></p>
+		</div>
+
+		<h2>Variables</h2>
+		<p>Variables can be used in abbreviations as reusable text values, which can be redefined without updating snippets. For example, you can create <code>lang</code> variable with <em>en_US</em> value and use it in abbreviations as <code>${lang}</code>. See “Snippets” section below for more examples.</p>
+
+		<table>
+			<tr>
+				<td>lang</td>
+				<td>en</td>
+			</tr>
+			<tr>
+				<td>charset</td>
+				<td>UTF-8</td>
+			</tr>
+		</table>
+
+		<h2>Snippets</h2>
+		<p>Markup snippets are predefined Emmet abbreviations: create a short name for a larger abbreviation or define shape (default attributes, self-closing, etc.)</p>
+		<p>Stylesheet snippets could be arbitrary text or shortcuts for CSS properties (should be a word or start with <code>name:</code>). In latter case, you can write abbreviations with embedded values like <code>p10-20</code>. CSS properties can contain values, separated by <code>|</code>, which will be used in abbreviation resolving or as default value if abbreviation has no embedded value.</p>
+
+		<dl>
+			<dt>Markup (add tips)</dt>
+			<dd>
+				<table>
+					<tr>
+						<td>a</td>
+						<td>a[href]</td>
+					</tr>
+					<tr>
+						<td>a:blank</td>
+						<td>a[href='http://${0}' target='_blank' rel='noopener noreferrer']</td>
+					</tr>
+				</table>
+			</dd>
+		
+			<dt>Stylesheet  (add tips)</dt>
+			<dd>
+				<table>
+					<tr>
+						<td>ap</td>
+						<td>appearance:none</td>
+					</tr>
+					<tr>
+						<td>bd</td>
+						<td>border:${1:1px} ${2:solid} ${3:#000}</td>
+					</tr>
+				</table>
+			</dd>
+		</dl>
+	</main>
+</body>
+</html>
