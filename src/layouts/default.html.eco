@@ -107,6 +107,9 @@ js: "/js/main.js"
 				<div class="sponsor__item">
 					<a href="https://essaysmatch.com/pay-for-essay/" target="_blank"><img src="/i/essaysmatch.png" alt="Pay for essay" width="135" height="37" /></a>
 				</div>
+				<div class="sponsor__item">
+					<a href="https://www.bonusfinder.com/it/casino" target="_blank"><img src="/i/bonus-finder.png" alt="BonusFinder" width="135" height="35" /></a>
+				</div>
 			</div>
 
 			<ul class="social">
