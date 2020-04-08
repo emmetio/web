@@ -32,32 +32,6 @@ js: "/js/main.js"
 				<p class="site-name__caption">Tools for web-developers</p>
 			</div>
 
-			<div class="more-tools">
-				<p class="more-tools__title">More tools:</p>
-				<ul class="more-tools__list">
-					<!--
-					<li class="more-tools__list-item more-tools__list-item_livestyle">
-						<a href="http://livestyle.io" class="more-tools__list-item-link">
-							<img src="/i/livestyle.svg" alt="Emmet LiveStyle" width="16" height="16" class="more-tools__list-item-img" />
-						</a>
-						<div class="more-tools__list-item-info">
-							<h4 class="more-tools__list-item-info-title">Emmet LiveStyle</h4>
-							<div>Real-time bi-directional edit tool for CSS, LESS and SCSS.</div>
-						</div>
-					</li>
-					-->
-					<li class="more-tools__list-item more-tools__list-item_review">
-						<a href="http://re-view.emmet.io" class="more-tools__list-item-link">
-							<img src="/i/re-view.svg" alt="Emmet LiveStyle" width="16" height="16" class="more-tools__list-item-img" />
-						</a>
-						<div class="more-tools__list-item-info">
-							<h4 class="more-tools__list-item-info-title">Emmet Re:view</h4>
-							<div>Fast and easy way to test responsive design side-by-side.</div>
-						</div>
-					</li>
-				</ul>
-			</div>
-
 			<nav>
 				<%- @partial('menu.html.eco', {menuItems: @generateMenu(@document.url)}) %>
 			</nav>
@@ -135,23 +109,10 @@ js: "/js/main.js"
 					<p class="site-name__caption">Tools for web-developers</p>
 				</div>
 				<div class="copyrights">
+					<p><a href="https://github.com/emmetio">GitHub</a></p>
 					<p>Support: <a href="mailto:info@emmet.io">info@emmet.io</a></p>
 					<p>Web-site design is based on <a href="https://dribbble.com/sergiu-radu">BriefCase</a> and <a href="http://designmodo.com/futurico/">Futurico UI</a></p>
 				</div>
-			</div>
-			<div class="layout__main">
-				<h2>From blog</h2>
-				<ul class="blog-entries">
-					<% for item in @blogPosts()[0..2]: %>
-						<li class="blog-entries__item">
-							<h3 class="blog-entries__title"><a href="<%= item.blogUrl %>"><%= item.title %></a></h3>
-							<p class="blog-entries__info"><%- item.blogDateText %>, <a href="<%= item.blogUrl %>#disqus_thread">no comments</a></p>
-						</li>
-					<% end %>
-				</ul>
-				<a href="https://github.com/emmetio" class="page-footer__github"><img src="/i/github.png" alt="GitHub" width="147" height="66" /></a>
-				<a href="https://www.keycdn.com/" class="page-footer__keycdn">CDN service by <img src="/i/keycdn.svg" alt="KeyCDN" width="120" height="35" /></a>
-
 			</div>
 		</div>
 		<div class="clear"></div>

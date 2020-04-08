@@ -3,6 +3,7 @@ layout: page
 title: Blog
 documentTitle: "Blog <a href=\"http://feeds.feedburner.com/emmet/EEpM\" class=\"rss\">RSS</a>"
 menuOrder: 4
+menuHidden: true
 ---
 <% for item in @blogPosts()[0..20]: %>
 	<section class="blog__item">

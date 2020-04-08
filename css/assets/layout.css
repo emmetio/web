@@ -313,6 +313,16 @@ strong {
 	color: #fff;
 }
 
+.page-footer .layout__sidebar {
+	display: flex;
+	width: 600px;
+}
+
+.page-footer .copyrights {	
+    margin-top: 10px;
+    margin-left: 50px;
+}
+
 .page-footer__github,
 .page-footer__keycdn {
 	display: block;
