@@ -1,42 +1,208 @@
 :host {
-	display: inline-block;
+    display: block;
+    height: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: Jetbrains Mono, Fira Code, Consolas, Menlo, monospace;
+    font-size: 12px;
 }
 
 @media local {
-	.CodeMirror {
-		width: inherit;
-		height: inherit;
-		border-radius: inherit;
-		font-size: inherit;
-		min-height: inherit;
-	}
+    @import '../../../node_modules/codemirror/lib/codemirror';
+
+    .CodeMirror {
+        width: inherit;
+        height: inherit;
+        border-radius: inherit;
+        font-size: inherit;
+        min-height: inherit;
+    }
+
+    .emmet-abbreviation {
+        border-bottom: 1px solid rgba(0, 180, 0, 0.3);
+        border-radius: 2px;
+
+        &-marker {
+            color: #ffffff;
+            background: rgb(0, 180, 0);
+            border-radius: 2px;
+            padding: 0 3px;
+            z-index: 2;
+            height: 15px;
+            margin-top: -15px;
+            margin-left: -20px;
+
+            &::before {
+                content: '⋮>';
+            }
+        }
+    }
+
+    .emmet-abbreviation-preview {
+        position: absolute;
+        background: #fff;
+        box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+        z-index: 2;
+        border-radius: 3px;
+
+        .CodeMirror {
+            font-size: 11px;
+            height: auto;
+            max-width: 400px;
+            max-height: 300px;
+            border: none;
+        }
+
+        &:not(.has-error) &-error {
+            display: none;
+        }
+
+        &.has-error .CodeMirror {
+            display: none;
+        }
+
+        & .CodeMirror-cursors {
+            visibility: hidden !important;
+        }
+
+        & .emmet-error-snippet-message {
+            padding: 5px;
+        }
+    }
+
+    /** Input panel fow Wrap With Abbreviation */
+    .emmet-panel {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        width: 100%;
+
+        &-wrapper {
+            width: 60%;
+            min-width: 100px;
+            max-width: 500px;
+            padding: 10px;
+            background: #ffffff;
+            border-bottom-left-radius: 3px;
+            border-bottom-right-radius: 3px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+            box-sizing: border-box;
+
+            input {
+                width: 100%;
+                box-sizing: border-box;
+                font-family: Jetbrains Mono, Fira Code, Consolas, monospace;
+                font-size: 12px;
+            }
+        }
+    }
+
+    /* Snippet with abbreviation error */
+    .emmet-error-snippet {
+        color: red;
+
+        &-ptr {
+            position: absolute;
+        }
+
+        &-spacer {
+            white-space: pre;
+        }
+
+        &-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: -5px;
+            border-top: 2px solid currentColor;
+        }
+
+        &-tip {
+            width: 10px;
+            height: 7px;
+            overflow: hidden;
+            position: absolute;
+            right: -10px;
+            top: -5px;
+
+            &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 4px;
+                width: 10px;
+                height: 10px;
+                transform: rotate(45deg);
+                background: currentColor;
+            }
+        }
+
+        &-message {
+            padding-top: 10px;
+            font-size: 11px;
+        }
+    }
+
+
+    .emmet-open-tag, .emmet-close-tag {
+        text-decoration: underline;
+    }
+
+    .emmet-tag-preview {
+        background: #117700;
+        color: #ffffff;
+        border-radius: 2px;
+        padding: 2px 4px;
+        font-size: 0.8em;
+        opacity: 0.6;
+        margin-top: -16px;
+        margin-left: 2px;
+    }
 }
 
+
+/** Sample Emmet abbreviation editor */
+
+// .emmet-abbreviation-editor .CodeMirror {
+//     height: 2em;
+//     line-height: 2;
+//     border: 1px solid #ccc;
+//     border-radius: 4px;
+//     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+// }
+
+// .emmet-abbreviation-editor .CodeMirror-lines {
+//     padding: 0;
+// }
+
 .error {
-	position: absolute;
-	background: #f00;
-	color: #ffffff;
-	padding: 10px;
-	padding: 5px;
-	border-radius: 5px;
-	font-size: 12px;
-	max-width: 400px;
-	margin-left: -7px;
-	margin-top: 3px;
+    position: absolute;
+    background: #f00;
+    color: #ffffff;
+    padding: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    max-width: 400px;
+    margin-left: -7px;
+    margin-top: 3px;
 
-	&::before {
-		display: block;
-		content: '';
-		position: absolute;
-		width: 7px;
-		height: 7px;
-		background: inherit;
-		transform: rotate(45deg);
-		left: 8px;
-		top: -2px;
-	}
+    &::before {
+        display: block;
+        content: '';
+        position: absolute;
+        width: 7px;
+        height: 7px;
+        background: inherit;
+        transform: rotate(45deg);
+        left: 8px;
+        top: -2px;
+    }
 
-	&:empty {
-		display: none;
-	}
+    &:empty {
+        display: none;
+    }
 }

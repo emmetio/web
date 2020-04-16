@@ -1,98 +1,104 @@
-import { notify } from 'endorphin/helpers';
-import createEditor from '../../lib/codemirror';
-import { EmComponent, ICodeMirrorOptions } from '../../types';
 import { Changes } from 'endorphin';
+import { notify, getSlot } from 'endorphin/helpers';
+import createEditor from '../../lib/codemirror';
+import { EmComponent } from '../../lib/types';
 
-interface IEmEditorProps extends ICodeMirrorOptions {
-	multiline?: boolean;
-	autocomplete?: boolean;
-	autofocus?: boolean;
-	lineNumbers?: boolean;
-	mode: string;
-	value: string;
-	readOnly?: boolean;
-	error?: Error;
+interface EmEditorProps {
+    autofocus?: boolean;
+    lineNumbers?: boolean;
+    singleLine?: boolean;
+    mode: string;
+    readOnly?: boolean;
 }
 
-export type EmEditor = EmComponent<IEmEditorProps> & {
-	editor: CodeMirror.Editor;
-	/** Set focus on current editor field */
-	focus(): void;
-	_onChange(): void;
-	_onBlur(): void;
+interface EmEditorState {
+    _onChange(): void;
+    _onBlur(): void;
+}
+
+export type EmEditor = EmComponent<EmEditorProps, EmEditorState> & {
+    /** Editor instance */
+    editor: CodeMirror.Editor;
+    /** Set focus on current editor field */
+    focus(): void;
 };
 
 export const extend = {
-	/** Set focus on current editor field */
-	focus(this: EmEditor) {
-		this.editor.focus();
-	}
+    /** Set focus on current editor field */
+    focus(this: EmEditor) {
+        this.editor.focus();
+    }
 };
 
-export function props(): IEmEditorProps {
-	return {
-		mode: 'text/html',
-		value: '',
-	};
+export function props(): EmEditorProps {
+    return {
+        mode: 'text/html',
+    };
 }
 
 export function didMount(component: EmEditor) {
-	const editor = component.editor = createEditor(component, component.props);
-	component._onChange = () => {
-		const doc = editor.getDoc();
-		const value = doc.getValue();
-		const line = doc.getCursor().line;
-		const { parseError: error } = editor.getStateAfter(line);
+    const editor = component.editor = createEditor(component, component.props);
+    const valueSlot = getSlot(component, '') as HTMLElement;
 
-		if (error) {
-			editor.addWidget({
-				line,
-				ch: error.ch
-			}, component.refs.error as HTMLElement, false);
-		}
+    if (valueSlot) {
+        editor.setValue(valueSlot.innerText);
+    }
 
-		component.setState({ value, error });
-		notify(component, 'change', { value, error });
-	};
+    component.state._onChange = () => {
+        const doc = editor.getDoc();
+        const value = doc.getValue();
+        const line = doc.getCursor().line;
+        const { parseError: error } = editor.getStateAfter(line);
 
-	component._onBlur = () => {
-		const doc = editor.getDoc();
-		if (doc.somethingSelected()) {
-			const pos = { line: 0, ch: 0 };
-			doc.setSelection(pos, pos);
-		}
-	};
+        if (error) {
+            console.log('got error', error);
+            // editor.addWidget({
+            //     line,
+            //     ch: error.ch
+            // }, component.refs.error as HTMLElement, false);
+        }
 
-	editor.on('change', component._onChange);
-	editor.on('blur', component._onBlur);
+        // component.setState({ error });
+        notify(component, 'change', { value, error });
+    };
 
-	if (component.props.autofocus) {
-		editor.execCommand('selectAll');
-	}
+
+    editor.on('change', component.state._onChange);
+
+    if (component.props.autofocus) {
+        editor.execCommand('selectAll');
+    }
 }
 
-export function didUpdate(component: EmEditor, { mode, value, autofocus }: Changes<IEmEditorProps>) {
-	const { editor } = component;
+export function didChange(component: EmEditor, changes: Changes<EmEditorProps>) {
+    const { editor } = component;
 
-	if (mode) {
-		editor.setOption('mode', mode.current);
-	}
+    if (!editor) {
+        return;
+    }
 
-	if (value) {
-		const val = value.current == null ? '' : String(value.current);
-		if (editor.getValue() !== val) {
-			editor.setValue(val);
-		}
-	}
+    Object.keys(changes).forEach(k => {
+        const value = changes[k]!.current;
+        if (k === 'autofocus' && value) {
+            editor.focus();
+            editor.execCommand('selectAll');
+        } else {
+            editor.setOption(k as keyof CodeMirror.EditorConfiguration, value);
+        }
+    });
+}
 
-	if (autofocus && autofocus.current) {
-		editor.focus();
-		editor.execCommand('selectAll');
-	}
+export function didSlotUpdate(component: EmEditor, slotName: string, elem: HTMLElement) {
+    const { editor } = component;
+    if (editor && slotName === '') {
+        console.log('Update content', elem.innerText);
+        editor.setValue(elem.innerText);
+    }
 }
 
 export function willUnmount(component: EmEditor) {
-	component.editor.off('change', component._onChange);
-	component.editor.off('blur', component._onBlur);
-	component.editor = component._onChange = component._onBlur = null;
+    component.editor.off('change', component.state._onChange);
+    // component.editor.off('blur', component.state._onBlur);
+    // @ts-ignore Dispose editor reference
+    component.editor = component.state._onChange = component.state._onBlur = null;
 }

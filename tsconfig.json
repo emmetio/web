@@ -1,12 +1,19 @@
 {
   "compilerOptions": {
+    "target": "ES6",
     "allowJs": true,
-    "incremental": true,
-    "module": "commonjs",
+    "sourceMap": true,
     "noUnusedLocals": true,
+    "alwaysStrict": true,
     "noImplicitThis": true,
-    "noImplicitAny": true,
-    "resolveJsonModule": true
+    "strictNullChecks": true,
+    "declaration": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "module": "ESNext",
+    "newLine": "LF",
+    "outDir": "./dist"
   },
   "include": [
     "src/**/*.ts"

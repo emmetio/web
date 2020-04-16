@@ -5,7 +5,7 @@
     ],
     "jsRules": {},
     "rules": {
-      "indent": [true, "tabs"],
+      "indent": [true, "spaces", 4],
       "ordered-imports": false,
       "quotemark": [true, "single"],
       "max-line-length": [true, 150],

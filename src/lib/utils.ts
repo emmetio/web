@@ -3,20 +3,20 @@
  * separated by `.`, but doesn’t throw error if any of the property key exists
  */
 export function get<T = any>(obj: any, key: string | string[], defaultValue?: T): T {
-	let result = obj;
-	if (typeof key === 'string') {
-		key = key.split('.');
-	}
+    let result = obj;
+    if (typeof key === 'string') {
+        key = key.split('.');
+    }
 
-	for (const k of key) {
-		if (result == null) {
-			break;
-		}
+    for (const k of key) {
+        if (result == null) {
+            break;
+        }
 
-		result = result[k];
-	}
+        result = result[k];
+    }
 
-	return result != null ? result : defaultValue;
+    return result != null ? result : defaultValue;
 }
 
 /**
@@ -24,37 +24,37 @@ export function get<T = any>(obj: any, key: string | string[], defaultValue?: T)
  * intermediate objects will be re-created
  */
 export function set(obj: any, key: string | string[], value: any): any {
-	if (typeof key === 'string') {
-		key = key.split('.');
-	}
+    if (typeof key === 'string') {
+        key = key.split('.');
+    }
 
-	if (!key.length || get(obj, key) === value) {
-		return obj;
-	}
+    if (!key.length || get(obj, key) === value) {
+        return obj;
+    }
 
-	let ctx = obj = copy(obj);
-	for (let i = 0, k; i < key.length - 1; i++) {
-		k = key[i];
-		ctx = ctx[k] = copy(ctx[k]);
-	}
+    let ctx = obj = copy(obj);
+    for (let i = 0, k; i < key.length - 1; i++) {
+        k = key[i];
+        ctx = ctx[k] = copy(ctx[k]);
+    }
 
-	ctx[key[key.length - 1]] = value;
-	return obj;
+    ctx[key[key.length - 1]] = value;
+    return obj;
 }
 
 /**
  * Creates a copy of given object
  */
 function copy<T>(obj: T): T {
-	if (obj == null) {
-		return {} as T;
-	}
+    if (obj == null) {
+        return {} as T;
+    }
 
-	if (Array.isArray(obj)) {
-		return obj.slice() as any as T;
-	}
+    if (Array.isArray(obj)) {
+        return obj.slice() as any as T;
+    }
 
-	return { ...obj };
+    return { ...obj };
 }
 
 /**
@@ -64,21 +64,21 @@ function copy<T>(obj: T): T {
  * @returns {Boolean}
  */
 export function objectsEqual(a: any, b: any): boolean {
-	if (!a || !b) {
-		return false;
-	}
+    if (!a || !b) {
+        return false;
+    }
 
-	const keysA = Object.keys(a);
-	if (keysA.length !== Object.keys(b).length) {
-		return false;
-	}
+    const keysA = Object.keys(a);
+    if (keysA.length !== Object.keys(b).length) {
+        return false;
+    }
 
-	for (let i = 0, key; i < keysA.length; i++) {
-		key = keysA[i];
-		if (a[key] !== b[key]) {
-			return false;
-		}
-	}
+    for (let i = 0, key; i < keysA.length; i++) {
+        key = keysA[i];
+        if (a[key] !== b[key]) {
+            return false;
+        }
+    }
 
-	return true;
+    return true;
 }
