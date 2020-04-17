@@ -7,6 +7,11 @@
     font-size: 12px;
 }
 
+:host([single-line]) {
+    height: auto;
+    line-height: 1.4;
+}
+
 @media local {
     @import '../../../node_modules/codemirror/lib/codemirror';
 
@@ -146,7 +151,6 @@
         }
     }
 
-
     .emmet-open-tag, .emmet-close-tag {
         text-decoration: underline;
     }
@@ -163,22 +167,7 @@
     }
 }
 
-
-/** Sample Emmet abbreviation editor */
-
-// .emmet-abbreviation-editor .CodeMirror {
-//     height: 2em;
-//     line-height: 2;
-//     border: 1px solid #ccc;
-//     border-radius: 4px;
-//     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
-// }
-
-// .emmet-abbreviation-editor .CodeMirror-lines {
-//     padding: 0;
-// }
-
-.error {
+ref:error {
     position: absolute;
     background: #f00;
     color: #ffffff;
@@ -187,8 +176,9 @@
     border-radius: 5px;
     font-size: 12px;
     max-width: 400px;
-    margin-left: -7px;
+    margin-left: -12px;
     margin-top: 3px;
+    transform-origin: 12px -3px;
 
     &::before {
         display: block;
@@ -204,5 +194,12 @@
 
     &:empty {
         display: none;
+    }
+}
+
+@keyframes show-error {
+    from {
+        transform: scale(0);
+        opacity: 0;
     }
 }

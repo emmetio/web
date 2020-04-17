@@ -1,5 +1,8 @@
 <link rel="stylesheet" href="./em-editor.scss" />
 <script src="./em-editor.ts"></script>
 <template>
-    <!-- <div ref:error>{ #error.message }</div> -->
+    <div ref:error style="left: {#errPos}px;"
+        animate:in="show-error 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)"
+        animate:out="show-error 0.1s ease-out reverse"
+        e:if={#error}>{ #error.message }</div>
 </template>

@@ -4,7 +4,8 @@
   "description": "A web-site for Emmet 2.0",
   "main": "index.js",
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "watch": "rollup -wc"
   },
   "keywords": [],
   "author": "Sergey Chikuyonok <serge.che@gmail.com>",

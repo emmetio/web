@@ -11,7 +11,11 @@ interface EmEditorProps {
     readOnly?: boolean;
 }
 
+type ParseError = Error & { ch: number };
+
 interface EmEditorState {
+    error?: ParseError | null;
+    errPos?: number;
     _onChange(): void;
     _onBlur(): void;
 }
@@ -27,6 +31,11 @@ export const extend = {
     /** Set focus on current editor field */
     focus(this: EmEditor) {
         this.editor.focus();
+    },
+
+    /** Returns current editor value */
+    get value(this: EmEditor): string {
+        return this.editor ? this.editor.getValue() : '';
     }
 };
 
@@ -52,16 +61,17 @@ export function didMount(component: EmEditor) {
 
         if (error) {
             console.log('got error', error);
-            // editor.addWidget({
-            //     line,
-            //     ch: error.ch
-            // }, component.refs.error as HTMLElement, false);
+            const coords = editor.charCoords({ line: 0, ch: error.ch });
+            component.setState({
+                error,
+                errPos: coords.left + (coords.right - coords.left) / 2
+            });
+        } else {
+            component.setState({ error: null });
         }
 
-        // component.setState({ error });
         notify(component, 'change', { value, error });
     };
-
 
     editor.on('change', component.state._onChange);
 
