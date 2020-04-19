@@ -1,0 +1,24 @@
+<link rel="import" href="../em-editor/em-editor.html" />
+
+<style>
+ref:abbr {
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .15);
+}
+
+ref:preview {
+    height: auto !important;
+    font-size: 11px !important;
+}
+</style>
+<script src="./em-abbreviation-preview.ts"></script>
+<template>
+    <em-editor { mode } singleLine ref:abbr on:change={handleAbbrChange}>{ abbr }</em-editor>
+    <em-editor
+        mode={mode === 'emmet-css-abbreviation' ? 'text/css' : 'text/html'}
+        { options }
+        readOnly="nocursor"
+        ref:preview />
+</template>

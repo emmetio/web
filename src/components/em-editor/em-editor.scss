@@ -1,10 +1,9 @@
 :host {
     display: block;
     height: 300px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
     font-family: Jetbrains Mono, Fira Code, Consolas, Menlo, monospace;
     font-size: 12px;
+    position: relative;
 }
 
 :host([single-line]) {
@@ -21,6 +20,7 @@
         border-radius: inherit;
         font-size: inherit;
         min-height: inherit;
+        background: none;
     }
 
     .emmet-abbreviation {

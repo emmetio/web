@@ -1,0 +1,37 @@
+<style>
+:host {
+    display: inline-flex;
+    border: 1px solid #4bde5c;
+    border-radius: 4px;
+}
+
+label {
+    padding: 4px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+label.selected {
+    background: #4bde5c;
+    color: #ffffff;
+}
+
+label:not(:first-child) {
+    border-left: 1px solid #4bde5c;
+}
+
+input {
+    position: absolute;
+    left: -100px;
+}
+</style>
+<script src="./em-segmented-control.ts"></script>
+<template>
+    <e:for-each select={items}>
+        <label class:selected={@index === #selected} on:click={#selected = @index}>
+            <input type="radio" {name} value={@value.value || @value} checked={#selected === @index} />
+            { @value.label || @value }
+        </label>
+    </e:for-each>
+</template>

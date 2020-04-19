@@ -1,5 +1,6 @@
 import { Changes } from 'endorphin';
 import { notify, getSlot } from 'endorphin/helpers';
+import { EmmetEditor, EmmetConfig } from '@emmetio/codemirror-plugin';
 import createEditor from '../../lib/codemirror';
 import { EmComponent } from '../../lib/types';
 
@@ -9,6 +10,7 @@ interface EmEditorProps {
     singleLine?: boolean;
     mode: string;
     readOnly?: boolean;
+    options?: EmmetConfig;
 }
 
 type ParseError = Error & { ch: number };
@@ -22,7 +24,7 @@ interface EmEditorState {
 
 export type EmEditor = EmComponent<EmEditorProps, EmEditorState> & {
     /** Editor instance */
-    editor: CodeMirror.Editor;
+    editor: EmmetEditor;
     /** Set focus on current editor field */
     focus(): void;
 };
@@ -60,8 +62,7 @@ export function didMount(component: EmEditor) {
         const { parseError: error } = editor.getStateAfter(line);
 
         if (error) {
-            console.log('got error', error);
-            const coords = editor.charCoords({ line: 0, ch: error.ch });
+            const coords = editor.charCoords({ line: 0, ch: error.ch }, 'local');
             component.setState({
                 error,
                 errPos: coords.left + (coords.right - coords.left) / 2
@@ -92,6 +93,17 @@ export function didChange(component: EmEditor, changes: Changes<EmEditorProps>) 
         if (k === 'autofocus' && value) {
             editor.focus();
             editor.execCommand('selectAll');
+        } else if (k === 'options') {
+            // @ts-ignore
+            const emmet = editor.getOption('emmet');
+            // @ts-ignore
+            editor.setOption('emmet', {
+                ...emmet,
+                ...value
+            });
+
+            console.log('set options', value, emmet);
+
         } else {
             editor.setOption(k as keyof CodeMirror.EditorConfiguration, value);
         }
@@ -101,7 +113,6 @@ export function didChange(component: EmEditor, changes: Changes<EmEditorProps>) 
 export function didSlotUpdate(component: EmEditor, slotName: string, elem: HTMLElement) {
     const { editor } = component;
     if (editor && slotName === '') {
-        console.log('Update content', elem.innerText);
         editor.setValue(elem.innerText);
     }
 }

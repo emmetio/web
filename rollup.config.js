@@ -1,3 +1,5 @@
+import fs from 'fs';
+import path from 'path';
 import endorphin from '@endorphinjs/rollup-plugin-endorphin';
 import sass from 'node-sass';
 import commonjs from 'rollup-plugin-commonjs';
@@ -15,6 +17,7 @@ export default {
     plugins: [
         nodeResolve(),
         commonjs(),
+        json(),
         typescript(),
         endorphin({
             css: {
@@ -34,8 +37,20 @@ export default {
                             sourceMapContents: true
                         });
                     }
+
+                    return data;
                 }
             }
         })
     ]
 };
+
+function json() {
+    return {
+        load(id) {
+            if (path.extname(id) === '.json') {
+                return 'export default ' + fs.readFileSync(id);
+            }
+        }
+    };
+}

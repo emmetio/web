@@ -1,0 +1,48 @@
+:host {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px;
+    font-family: Metropolis, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    display: block;
+}
+
+@media local {
+    h1 {
+        font-size: 2em;
+        font-weight: 100;
+        margin: 0 0 10px;
+    }
+
+    h2 {
+        font-weight: 400;
+        font-size: 1.5em;
+        margin: 50px 0 5px;
+    }
+
+    p {
+        margin-top: 0;
+    }
+
+    kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: 1px solid #d1d5da;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #d1d5da;
+    }
+
+    code {
+        padding: .2em .4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,.05);
+        border-radius: 3px;
+    }
+}

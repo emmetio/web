@@ -1,0 +1,85 @@
+:host {
+    display: flex;
+    flex-direction: row;
+}
+
+main {
+    flex: 1 1;
+    margin-right: 15px;
+}
+
+aside {
+    width: 320px;
+    border-left: 1px solid #ccc;
+    position: relative;
+    padding: 0 15px;
+
+    h3 {
+        margin-top: 0;
+    }
+
+    em-abbreviation-preview {
+        position: sticky;
+        top: 15px;
+        display: block;
+    }
+}
+
+.field {
+    position: relative;
+
+    & + & {
+        margin-top: 30px;
+    }
+
+    label {
+        font-weight: bold;
+        font-size: 1.3em;
+        display: inline-block;
+
+        input[type="checkbox"] {
+            position: absolute;
+            left: -20px;
+            top: 3px;
+            vertical-align: middle;
+        }
+    }
+
+    fieldset {
+        border: 0;
+        padding: 0;
+        margin: 0 0 0 30px;
+
+        &[disabled], &[disabled] .comment {
+            color: #aaa;
+        }
+
+        label {
+            font-size: 1.1em;
+        }
+    }
+
+    .comment {
+        font-size: 0.9em;
+        color: #666;
+        margin-top: 0;
+    }
+
+    label + .comment {
+        margin-top: 5px;
+    }
+}
+
+em-segmented-control {
+    font-size: 13px;
+    font-weight: normal;
+    vertical-align: 2px;
+
+    &[name="codeStyle"] {
+        text-transform: uppercase;
+    }
+
+    &[name="attrQuotes"] {
+        text-transform: capitalize;
+    }
+}

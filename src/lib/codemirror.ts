@@ -1,5 +1,5 @@
 import CodeMirror from 'codemirror';
-import setupEmmet, { EmmetConfig } from '@emmetio/codemirror-plugin';
+import setupEmmet, { EmmetConfig, EmmetEditor } from '@emmetio/codemirror-plugin';
 
 import 'codemirror/addon/edit/closebrackets';
 import 'codemirror/mode/xml/xml';
@@ -22,7 +22,7 @@ export type EditorOptions = CodeMirror.EditorConfiguration & {
 /**
  * Creates CodeMirror instance with Emmet support from given element
  */
-export default function createEditor(target: HTMLElement, options: Partial<EditorOptions> = {}): CodeMirror.Editor {
+export default function createEditor(target: HTMLElement, options: Partial<EditorOptions> = {}): EmmetEditor {
     const extraKeys: CodeMirror.KeyMap = {
         'Tab': 'emmetExpandAbbreviation',
         'Esc': 'emmetResetAbbreviation',
@@ -74,7 +74,7 @@ export default function createEditor(target: HTMLElement, options: Partial<Edito
         ? CodeMirror.fromTextArea(target as HTMLTextAreaElement, options)
         : CodeMirror(target, options);
 
-    return editor;
+    return editor as EmmetEditor;
 }
 
 /**
