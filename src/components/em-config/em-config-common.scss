@@ -75,11 +75,11 @@ em-segmented-control {
     font-weight: normal;
     vertical-align: 2px;
 
-    &[name="codeStyle"] {
+    &[name="markupStyle"] {
         text-transform: uppercase;
     }
 
-    &[name="attrQuotes"] {
+    &[name="attributeQuotes"] {
         text-transform: capitalize;
     }
 }
