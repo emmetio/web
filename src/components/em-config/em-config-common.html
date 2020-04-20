@@ -1,5 +1,6 @@
 <link rel="import" href="../em-segmented-control/em-segmented-control.html" />
 <link rel="import" href="../em-abbreviation-preview/em-abbreviation-preview.html" />
+<link rel="import" href="./em-config-key-value.html" />
 
 <link rel="stylesheet" href="./em-config-common.scss" />
 <script src="./em-config-common.ts"></script>
@@ -8,6 +9,25 @@
         <section class="options" on:change={onChangeOption} on:input={onChangeOption}>
             <e:for-each select={#form.options}>
                 <partial:field field={@value} />
+            </e:for-each>
+        </section>
+        <section class="variables">
+            <h3>Variables</h3>
+            <p class="comment">
+                Variables can be used in abbreviations as reusable text values, which can be redefined without updating snippets.
+                For example, you can create <code>lang</code> variable with <em>en_US</em> value and use it
+                in abbreviations as <code>$&#123;lang}</code>.
+                See “Snippets” section below for more examples.
+            </p>
+
+            <button on:click:prevent={onVariableAdd}>Add variable</button>
+            <e:for-each select={#form.variables} key={@value.id}>
+                <em-config-key-value
+                    key={@value.key} keyMode="text/plain"
+                    value={@value.value} valueMode="text/plain"
+                    editField={!@value.key ? 'key' : null}
+                    on:remove={onVariableRemove(@value.id)}
+                    on:submit={onVariableSubmit} />
             </e:for-each>
         </section>
     </main>

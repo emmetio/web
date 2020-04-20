@@ -8,6 +8,7 @@ interface EmEditorProps {
     autofocus?: boolean;
     lineNumbers?: boolean;
     singleLine?: boolean;
+    extraKeys?: { [name: string]: (editor: EmmetEditor) => void };
     mode: string;
     readOnly?: boolean;
     options?: EmmetConfig;
@@ -22,22 +23,34 @@ interface EmEditorState {
     _onBlur(): void;
 }
 
-export type EmEditor = EmComponent<EmEditorProps, EmEditorState> & {
-    /** Editor instance */
-    editor: EmmetEditor;
+interface EmEditorExtend {
+    /** Current editor value */
+    readonly value: string;
+
+    /** Editor error, if any */
+    readonly error: ParseError | null;
+
     /** Set focus on current editor field */
     focus(): void;
+}
+
+export type EmEditor = EmComponent<EmEditorProps, EmEditorState> & EmEditorExtend & {
+    /** Editor instance */
+    editor: EmmetEditor;
 };
 
-export const extend = {
+export const extend: EmEditorExtend = {
+    get value(this: EmEditor): string {
+        return this.editor ? this.editor.getValue() : '';
+    },
+
+    get error(this: EmEditor): ParseError | null {
+        return this.state.error || null;
+    },
+
     /** Set focus on current editor field */
     focus(this: EmEditor) {
         this.editor.focus();
-    },
-
-    /** Returns current editor value */
-    get value(this: EmEditor): string {
-        return this.editor ? this.editor.getValue() : '';
     }
 };
 
@@ -101,9 +114,6 @@ export function didChange(component: EmEditor, changes: Changes<EmEditorProps>) 
                 ...emmet,
                 ...value
             });
-
-            console.log('set options', value, emmet);
-
         } else {
             editor.setOption(k as keyof CodeMirror.EditorConfiguration, value);
         }

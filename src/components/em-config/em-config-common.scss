@@ -59,12 +59,6 @@ aside {
         }
     }
 
-    .comment {
-        font-size: 0.9em;
-        color: #666;
-        margin-top: 0;
-    }
-
     label + .comment {
         margin-top: 5px;
     }
@@ -82,4 +76,10 @@ em-segmented-control {
     &[name="attributeQuotes"] {
         text-transform: capitalize;
     }
+}
+
+.comment {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 0;
 }

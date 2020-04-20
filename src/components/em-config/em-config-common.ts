@@ -1,31 +1,32 @@
-import { Changes } from 'endorphin';
 import { EmmetConfig } from '@emmetio/codemirror-plugin';
 import defaultVariables from 'emmet/snippets/variables.json';
 import markupSnippets from 'emmet/snippets/html.json';
 import stylesheetSnippets from 'emmet/snippets/css.json';
 
 import { ConfigField, EmmetMap, EmComponent, ConfigFieldType } from '../../lib/types';
+import { escapeString, unescapeString } from '../../lib/utils';
+import { SubmitEvent } from './em-config-key-value';
 
-interface DiffMap {
-    [name: string]: string | null;
+type KeyValueList = KeyValueItem[];
+
+interface KeyValueItem {
+    id: number;
+    key: string;
+    value: string;
 }
 
 export interface EmConfigCommonProps {
-    options: EmmetConfig;
-    variables: EmmetMap;
-    snippets: {
-        markup?: EmmetMap;
-        stylesheet?: EmmetMap;
-    }
+    faux: boolean;
+    // options: EmmetConfig;
+    // variables: EmmetMap;
+    // snippets: {
+    //     markup?: EmmetMap;
+    //     stylesheet?: EmmetMap;
+    // }
 }
 
 interface EmConfigCommonState {
     options?: Partial<EmmetConfig> | null;
-    variables?: DiffMap | null;
-    snippets?: {
-        markup?: DiffMap | null;
-        stylesheet?: DiffMap | null;
-    },
     form: CommonConfigForm;
     editorConfig: Partial<EmmetConfig> | null;
 }
@@ -34,12 +35,14 @@ export type EmConfigCommon = EmComponent<EmConfigCommonProps, EmConfigCommonStat
 
 interface CommonConfigForm {
     options: ConfigField[];
-    variables: Map<string, string>;
+    variables: KeyValueList;
     snippets: {
-        markup: Map<string, string>;
-        stylesheet: Map<string, string>;
+        markup: KeyValueList;
+        stylesheet: KeyValueList;
     }
 }
+
+let idCounter = 0;
 
 // TODO Move to store?
 /**
@@ -58,48 +61,6 @@ const defaultConfig: EmmetConfig = {
     bem: false,
     shortHex: true
 };
-
-export function didChange(component: EmConfigCommon, { options, variables, snippets }: Changes<EmConfigCommonProps>) {
-    // In case if any of the incoming props change (which means data was saved),
-    // reset local state
-    let { form } = component.state;
-    if (options) {
-        component.setState({
-            options: null,
-            editorConfig: options.current
-        });
-        form = {
-            ...form,
-            options: createOptions(component)
-        };
-    }
-
-    if (variables) {
-        component.setState({ variables: null });
-        form = {
-            ...form,
-            variables: createMap(defaultVariables, variables.current)
-        };
-    }
-
-    if (snippets) {
-        component.setState({
-            snippets: {
-                markup: null,
-                stylesheet: null
-            }
-        });
-        form = {
-            ...form,
-            snippets: {
-                markup: createMap(markupSnippets, snippets.current?.markup),
-                stylesheet: createMap(markupSnippets, snippets.current?.stylesheet)
-            }
-        };
-    }
-
-    component.setState({ form });
-}
 
 export function willMount(component: EmConfigCommon) {
     component.setState({
@@ -125,7 +86,6 @@ export function onChangeOption(component: EmConfigCommon, evt: Event) {
         options: opt,
         editorConfig: {
             ...defaultConfig,
-            ...component.props.options,
             ...opt
         }
     });
@@ -138,38 +98,87 @@ export function onChangeOption(component: EmConfigCommon, evt: Event) {
     });
 }
 
+export function onVariableAdd(component: EmConfigCommon) {
+    let { variables } = component.state.form;
+    variables = [...variables];
+    variables.unshift(createKeyValueItem('', ''));
+
+    component.setState({
+        form: {
+            ...component.state.form,
+            variables
+        }
+    });
+}
+
+export function onVariableSubmit(component: EmConfigCommon, evt: SubmitEvent) {
+    let { variables } = component.state.form;
+
+    const ix = variables.findIndex(item => item.key === evt.detail.originalKey);
+    if (ix !== -1) {
+        variables = [...variables];
+
+        if (!evt.detail.key.trim()) {
+            // Empty key: remove variable
+            variables.splice(ix, 1);
+        } else {
+            variables[ix] = {
+                ...variables[ix],
+                key: evt.detail.key,
+                value: evt.detail.value,
+            };
+        }
+
+        component.setState({
+            form: {
+                ...component.state.form,
+                variables
+            }
+        });
+    }
+}
+
+export function onVariableRemove(id: number, component: EmConfigCommon) {
+    let { variables } = component.state.form;
+    const ix = variables.findIndex(item => item.id === id);
+    if (ix !== -1) {
+        variables = [...variables];
+        variables.splice(ix, 1);
+        component.setState({
+            form: {
+                ...component.state.form,
+                variables
+            }
+        });
+    }
+}
+
 function createModel(component: EmConfigCommon): CommonConfigForm {
     return {
         options: createOptions(component),
-        variables: createMap(defaultVariables, component.props.variables),
+        variables: createKeyValueList(defaultVariables),
         snippets: {
-            markup: createMap(markupSnippets, component.props.snippets?.markup),
-            stylesheet: createMap(stylesheetSnippets, component.props.snippets?.stylesheet)
+            markup: createKeyValueList(markupSnippets),
+            stylesheet: createKeyValueList(stylesheetSnippets)
         }
     };
 }
 
 /**
- * Create map from given `base` and `user` objects. A `null` value in `user` will
- * remove value from actual map
+ * Creates key-value list for editing from given object hash.
+ * Each value is supplied with `id` key to identify given item in UI list
  */
-function createMap(base: EmmetMap, user?: EmmetMap | null): Map<string, string> {
-    const result = new Map<string, string>();
-    Object.keys(base).forEach(key => {
-        result.set(key, base[key]);
+function createKeyValueList(map: EmmetMap): KeyValueList {
+    const result: KeyValueList = [];
+    Object.keys(map).forEach(key => {
+        result.push(createKeyValueItem(key, map[key]));
     });
 
-    if (user) {
-        Object.keys(user).forEach(key => {
-            if (user[key] == null) {
-                result.delete(key);
-            } else {
-                result.set(key, user[key]);
-            }
-        });
-    }
-
     return result;
+}
+
+function createKeyValueItem(key: string, value: string): KeyValueItem {
+    return { id: idCounter++, key, value };
 }
 
 function createOptions(component: EmConfigCommon): ConfigField[] {
@@ -219,49 +228,10 @@ function createOptions(component: EmConfigCommon): ConfigField[] {
 }
 
 function getOptionValue<K extends keyof EmmetConfig>(component: EmConfigCommon, name: K): EmmetConfig[K] {
-    const { state, props } = component;
+    const { state } = component;
     if (state.options && name in state.options) {
         return (state.options as EmmetConfig)[name];
     }
 
-    if (props.options && name in props.options) {
-        return props.options[name];
-    }
-
     return defaultConfig[name];
-}
-
-const escapeMap = {
-    '\n': '\\n',
-    '\r': '\\r',
-    '\t': '\\t',
-};
-const reverseEscapeMap: { [key: string]: string } = {};
-
-for (const [key, value] of Object.entries(escapeMap)) {
-    reverseEscapeMap[value] = key;
-}
-
-function escapeString(str: string): string {
-    let result = '';
-    for (const ch of str) {
-        result += ch in escapeMap ? escapeMap[ch] : ch;
-    }
-
-    return result;
-}
-
-function unescapeString(str: string): string {
-    let result = '';
-    let pos = 0;
-    while (pos < str.length) {
-        let ch = str[pos++];
-        if (ch === '\\') {
-            ch += str[pos++];
-        }
-
-        result += ch in reverseEscapeMap ? reverseEscapeMap[ch] : ch;
-    }
-
-    return result;
 }

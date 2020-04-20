@@ -62,7 +62,6 @@ export default function createEditor(target: HTMLElement, options: Partial<Edito
         Object.assign(extraKeys, options.extraKeys);
     }
 
-
     options = {
         mode: 'text/html',
         ...options,

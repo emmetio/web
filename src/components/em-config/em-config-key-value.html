@@ -1,0 +1,52 @@
+<link rel="import" href="../em-editor/em-editor.html" />
+
+<link rel="stylesheet" href="./em-config-key-value.scss" />
+<script src="./em-config-key-value.ts"></script>
+<template>
+    <div class="key monospace" class:edit={#editing}>
+        <e:switch>
+            <e:case test={#editing}>
+                <em-editor class="monospace"
+                    ref:key
+                    mode={keyMode}
+                    autofocus={#autofocus === 'key'}
+                    {#extraKeys}
+                    singleLine>{ #key }</em-editor>
+            </e:case>
+            <e:default>
+                { #key }
+            </e:default>
+        </e:switch>
+    </div>
+    <div class="value monospace" class:edit={#editing}>
+        <e:switch>
+            <e:case test={#editing}>
+                <em-editor class="monospace"
+                    ref:value
+                    mode={valueMode}
+                    autofocus={#autofocus === 'value'}
+                    {#extraKeys}
+                    singleLine>{ #value }</em-editor>
+            </e:case>
+            <e:default>
+                { #value }
+            </e:default>
+        </e:switch>
+    </div>
+    <div class="controls">
+        <e:switch>
+            <e:case test={#editing}>
+                <span>
+                    <button on:click={submit}>OK</button>
+                    <button on:click={reset}>Cancel</button>
+                </span>
+            </e:case>
+            <e:case test={#hover}>
+                <span>
+                    <button on:click={onEditClick}>Edit</button>
+                    <button on:click={notify('remove')}>Remove</button>
+                </span>
+            </e:case>
+        </e:switch>
+    </div>
+</template>

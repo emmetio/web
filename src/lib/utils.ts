@@ -1,3 +1,44 @@
+const escapeMap = {
+    '\n': '\\n',
+    '\r': '\\r',
+    '\t': '\\t',
+};
+const reverseEscapeMap: { [key: string]: string } = {};
+
+for (const [key, value] of Object.entries(escapeMap)) {
+    reverseEscapeMap[value] = key;
+}
+
+/**
+ * Escapes given string: represents some invisible characters as escaped sequences
+ */
+export function escapeString(str: string): string {
+    let result = '';
+    for (const ch of str) {
+        result += ch in escapeMap ? escapeMap[ch] : ch;
+    }
+
+    return result;
+}
+
+/**
+ * A revers of `escapeString`
+ */
+export function unescapeString(str: string): string {
+    let result = '';
+    let pos = 0;
+    while (pos < str.length) {
+        let ch = str[pos++];
+        if (ch === '\\') {
+            ch += str[pos++];
+        }
+
+        result += ch in reverseEscapeMap ? reverseEscapeMap[ch] : ch;
+    }
+
+    return result;
+}
+
 /**
  * Safe dot-property getter for `obj`: returns value of `obj` by given `key`,
  * separated by `.`, but doesn’t throw error if any of the property key exists
@@ -59,9 +100,6 @@ function copy<T>(obj: T): T {
 
 /**
  * Check if two given objects are identical
- * @param {Object} a
- * @param {Object} b
- * @returns {Boolean}
  */
 export function objectsEqual(a: any, b: any): boolean {
     if (!a || !b) {
