@@ -7,7 +7,7 @@
 <template>
     <main>
         <section class="options" on:change={onChangeOption} on:input={onChangeOption}>
-            <e:for-each select={#form.options}>
+            <e:for-each select={#options}>
                 <partial:field field={@value} />
             </e:for-each>
         </section>
@@ -21,7 +21,7 @@
             </p>
 
             <button on:click:prevent={onVariableAdd}>Add variable</button>
-            <e:for-each select={#form.variables} key={@value.id}>
+            <e:for-each select={#variables} key={@value.id}>
                 <em-config-key-value
                     item={@value}
                     keyMode="text/plain"
@@ -44,7 +44,7 @@
             <p class="comment" e:if={@section.comment}>{{@section.comment}}</p>
             <button on:click:prevent={onSnippetAdd}>Add snippet</button>
 
-            <e:for-each select={#form.snippets[@section.id]} key={@value.id}>
+            <e:for-each select={#snippets[@section.id]} key={@value.id}>
                 <em-config-key-value
                     item={@value}
                     keyMode="emmet-snippet"

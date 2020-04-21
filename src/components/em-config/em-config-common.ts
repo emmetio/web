@@ -34,22 +34,17 @@ export interface EmConfigCommonProps {
 }
 
 interface EmConfigCommonState {
-    options?: Partial<EmmetConfig> | null;
-    form: CommonConfigForm;
-    editorConfig: Partial<EmmetConfig> | null;
-    snippetsSections: SnippetsSection[];
-}
-
-export type EmConfigCommon = EmComponent<EmConfigCommonProps, EmConfigCommonState>;
-
-interface CommonConfigForm {
     options: ConfigField[];
     variables: KeyValueList;
     snippets: {
         markup: KeyValueList;
         stylesheet: KeyValueList;
-    }
+    };
+    editorConfig: Partial<EmmetConfig> | null;
+    snippetsSections: SnippetsSection[];
 }
+
+export type EmConfigCommon = EmComponent<EmConfigCommonProps, EmConfigCommonState>;
 
 let idCounter = 0;
 
@@ -83,14 +78,17 @@ const snippetsSections: SnippetsSection[] = [{
     selected: false
 }];
 
-export function state(): Partial<EmConfigCommonState> {
-    return { snippetsSections };
-}
-
 export function willMount(component: EmConfigCommon) {
     component.setState({
-        form: createModel(component)
+        options: createOptions(component),
+        variables: createKeyValueList(defaultVariables),
+        snippets: {
+            markup: createKeyValueList(markupSnippets),
+            stylesheet: createKeyValueList(stylesheetSnippets)
+        },
+        snippetsSections
     });
+    updateEditorConfig(component);
 }
 
 /**
@@ -100,36 +98,23 @@ export function onChangeOption(component: EmConfigCommon, evt: Event) {
     const elem = evt.target as HTMLInputElement;
     const name = elem.name;
     const value = elem.type === 'checkbox' ? elem.checked : elem.value;
-    const { options, form } = component.state;
+    const { options: curOptions } = component.state;
 
-    const opt: Partial<EmmetConfig> = {
-        ...options,
-        [name]: name === 'commentsTemplate' ? unescapeString(value as string) : value
-    };
+    const options = updateField(curOptions, name, value);
 
-    component.setState({
-        options: opt,
-        editorConfig: {
-            ...defaultConfig,
-            ...opt
-        }
-    });
-
-    component.setState({
-        form: {
-            ...form,
-            options: createOptions(component)
-        }
-    });
+    if (options !== curOptions) {
+        component.setState({ options });
+        updateEditorConfig(component);
+    }
 }
 
 export function onVariableAdd(component: EmConfigCommon) {
-    const { variables } = component.state.form;
+    const { variables } = component.state;
     updateVariables(component, [createKeyValueItem('', ''), ...variables]);
 }
 
 export function onVariableSubmit(component: EmConfigCommon, evt: SubmitEvent<KeyValueItem>) {
-    const { variables } = component.state.form;
+    const { variables } = component.state;
     const nextVariables = updateKeyValueListOnSubmit(variables, evt);
     if (variables !== nextVariables) {
         updateVariables(component, nextVariables);
@@ -137,7 +122,7 @@ export function onVariableSubmit(component: EmConfigCommon, evt: SubmitEvent<Key
 }
 
 export function onVariableRemove(id: number, component: EmConfigCommon) {
-    let { variables } = component.state.form;
+    let { variables } = component.state;
     const ix = variables.findIndex(item => item.id === id);
     if (ix !== -1) {
         variables = [...variables];
@@ -159,7 +144,7 @@ export function onSelectSnippetsSection(sectionId: SyntaxType, component: EmConf
 export function onSnippetAdd(component: EmConfigCommon) {
     const curSection = currentSection(component);
     if (curSection) {
-        const snippets = component.state.form.snippets[curSection.id];
+        const snippets = component.state.snippets[curSection.id];
         updateSnippets(component, curSection.id, [createKeyValueItem('', ''), ...snippets]);
     }
 }
@@ -167,7 +152,7 @@ export function onSnippetAdd(component: EmConfigCommon) {
 export function onSnippetRemove(id: number, component: EmConfigCommon) {
     const curSection = currentSection(component);
     if (curSection) {
-        const snippets = component.state.form.snippets[curSection.id].slice();
+        const snippets = component.state.snippets[curSection.id].slice();
         const ix = snippets.findIndex(s => s.id === id);
         if (ix !== -1) {
             snippets.splice(ix, 1);
@@ -179,23 +164,12 @@ export function onSnippetRemove(id: number, component: EmConfigCommon) {
 export function onSnippetSubmit(component: EmConfigCommon, evt: SubmitEvent<KeyValueItem>) {
     const curSection = currentSection(component);
     if (curSection) {
-        const prevSnippets = component.state.form.snippets[curSection!.id];
+        const prevSnippets = component.state.snippets[curSection!.id];
         const nextSnippets = updateKeyValueListOnSubmit(prevSnippets, evt);
         if (prevSnippets !== nextSnippets) {
             updateSnippets(component, curSection.id, nextSnippets);
         }
     }
-}
-
-function createModel(component: EmConfigCommon): CommonConfigForm {
-    return {
-        options: createOptions(component),
-        variables: createKeyValueList(defaultVariables),
-        snippets: {
-            markup: createKeyValueList(markupSnippets),
-            stylesheet: createKeyValueList(stylesheetSnippets)
-        }
-    };
 }
 
 /**
@@ -262,11 +236,6 @@ function createOptions(component: EmConfigCommon): ConfigField[] {
 }
 
 function getOptionValue<K extends keyof EmmetConfig>(component: EmConfigCommon, name: K): EmmetConfig[K] {
-    const { state: s } = component;
-    if (s.options && name in s.options) {
-        return (s.options as EmmetConfig)[name];
-    }
-
     return defaultConfig[name];
 }
 
@@ -278,25 +247,19 @@ function currentSection(component: EmConfigCommon): SnippetsSection | undefined 
 }
 
 function updateSnippets(component: EmConfigCommon, key: string, value: KeyValueList) {
-    const { form } = component.state;
+    const { snippets } = component.state;
     component.setState({
-        form: {
-            ...form,
-            snippets: {
-                ...form.snippets,
-                [key]: value
-            }
+        snippets: {
+            ...snippets,
+            [key]: value
         }
     });
+    updateEditorConfig(component);
 }
 
 function updateVariables(component: EmConfigCommon, variables: KeyValueList) {
-    component.setState({
-        form: {
-            ...component.state.form,
-            variables
-        }
-    });
+    component.setState({ variables });
+    updateEditorConfig(component);
 }
 
 function updateKeyValueListOnSubmit(items: KeyValueList, event: SubmitEvent<KeyValueItem>): KeyValueList {
@@ -318,4 +281,71 @@ function updateKeyValueListOnSubmit(items: KeyValueList, event: SubmitEvent<KeyV
     }
 
     return items;
+}
+
+function updateEditorConfig(component: EmConfigCommon) {
+    component.setState({
+        editorConfig: getEditorConfig(component)
+    });
+}
+
+function getEditorConfig(component: EmConfigCommon): Partial<EmmetConfig> {
+    const config: Partial<EmmetConfig> = {};
+    const { options, snippets } = component.state;
+    const variables = keyValueListToMap(component.state.variables);
+
+    const walkFields = (fields: ConfigField[]) => {
+        fields.forEach(field => {
+            config[field.name] = field.name === 'commentsTemplate'
+                ? unescapeString(field.value as string)
+                : field.value;
+
+            if (field.children) {
+                walkFields(field.children);
+            }
+        })
+    }
+
+    walkFields(options);
+
+    config.config = {
+        markup: {
+            variables,
+            snippets: keyValueListToMap(snippets.markup)
+        },
+        stylesheet: {
+            variables,
+            snippets: keyValueListToMap(snippets.stylesheet)
+        }
+    };
+
+    return config;
+}
+
+function keyValueListToMap(list: KeyValueList): EmmetMap {
+    const result: EmmetMap = {};
+    list.forEach(item => result[item.key] = item.value);
+    return result;
+}
+
+function updateField(fields: ConfigField[], name: string, value: string | boolean): ConfigField[] {
+    for (let i = 0; i < fields.length; i++) {
+        const field = fields[i];
+        if (field.name === name) {
+            fields = [...fields];
+            fields[i] = { ...field, value } as ConfigField;
+            break;
+        }
+
+        if (field.children) {
+            const children = updateField(field.children, name, value);
+            if (children !== field.children) {
+                fields = [...fields];
+                fields[i] = { ...field, children } as ConfigField;
+                break;
+            }
+        }
+    }
+
+    return fields;
 }
