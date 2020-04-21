@@ -7,10 +7,10 @@ import 'codemirror/mode/css/css';
 import 'codemirror/mode/htmlmixed/htmlmixed';
 import 'codemirror/mode/javascript/javascript';
 import 'codemirror/mode/jsx/jsx';
-import 'codemirror/mode/sass/sass';
-import 'codemirror/mode/haml/haml';
-import 'codemirror/mode/slim/slim';
-import 'codemirror/mode/pug/pug';
+// import 'codemirror/mode/sass/sass';
+// import 'codemirror/mode/haml/haml';
+// import 'codemirror/mode/slim/slim';
+// import 'codemirror/mode/pug/pug';
 
 setupEmmet(CodeMirror);
 

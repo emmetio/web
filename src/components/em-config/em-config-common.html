@@ -23,11 +23,35 @@
             <button on:click:prevent={onVariableAdd}>Add variable</button>
             <e:for-each select={#form.variables} key={@value.id}>
                 <em-config-key-value
-                    key={@value.key} keyMode="text/plain"
-                    value={@value.value} valueMode="text/plain"
+                    item={@value}
+                    keyMode="text/plain"
+                    valueMode="text/plain"
                     editField={!@value.key ? 'key' : null}
                     on:remove={onVariableRemove(@value.id)}
                     on:submit={onVariableSubmit} />
+            </e:for-each>
+        </section>
+
+        <section class="snippets">
+            <h2>Snippets</h2>
+            <ul class="tabs">
+                <e:for-each select={#snippetsSections} key={@value.id}>
+                    <li class:selected={@value.selected} on:click={onSelectSnippetsSection(@value.id)}>{@value.label}</li>
+                </e:for-each>
+            </ul>
+            <e:var section={#snippetsSections[section => section.selected]}/>
+
+            <p class="comment" e:if={@section.comment}>{{@section.comment}}</p>
+            <button on:click:prevent={onSnippetAdd}>Add snippet</button>
+
+            <e:for-each select={#form.snippets[@section.id]} key={@value.id}>
+                <em-config-key-value
+                    item={@value}
+                    keyMode="emmet-snippet"
+                    valueMode={@section.id === 'markup' ? 'emmet-abbreviation' : 'text/plain'}
+                    editField={!@value.key ? 'key' : null}
+                    on:remove={onSnippetRemove(@value.id)}
+                    on:submit={onSnippetSubmit} />
             </e:for-each>
         </section>
     </main>

@@ -1,7 +1,6 @@
 import { Component } from 'endorphin';
 
 export type ParseModeError = Error & { ch?: number };
-export type SyntaxType = 'markup' | 'stylesheet';
 export type EmComponent<P = any, S = any> = Component<P, S>;
 
 export interface EmmetOptions {

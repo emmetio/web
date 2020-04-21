@@ -1,7 +1,8 @@
-import { EmmetConfig } from '@emmetio/codemirror-plugin';
+import { SyntaxType } from 'emmet';
 import defaultVariables from 'emmet/snippets/variables.json';
 import markupSnippets from 'emmet/snippets/html.json';
 import stylesheetSnippets from 'emmet/snippets/css.json';
+import { EmmetConfig } from '@emmetio/codemirror-plugin';
 
 import { ConfigField, EmmetMap, EmComponent, ConfigFieldType } from '../../lib/types';
 import { escapeString, unescapeString } from '../../lib/utils';
@@ -13,6 +14,13 @@ interface KeyValueItem {
     id: number;
     key: string;
     value: string;
+}
+
+interface SnippetsSection {
+    id: SyntaxType;
+    label: string;
+    comment: string;
+    selected?: boolean;
 }
 
 export interface EmConfigCommonProps {
@@ -29,6 +37,7 @@ interface EmConfigCommonState {
     options?: Partial<EmmetConfig> | null;
     form: CommonConfigForm;
     editorConfig: Partial<EmmetConfig> | null;
+    snippetsSections: SnippetsSection[];
 }
 
 export type EmConfigCommon = EmComponent<EmConfigCommonProps, EmConfigCommonState>;
@@ -61,6 +70,22 @@ const defaultConfig: EmmetConfig = {
     bem: false,
     shortHex: true
 };
+
+const snippetsSections: SnippetsSection[] = [{
+    id: 'markup',
+    label: 'Markup',
+    comment: 'Markup snippets are predefined Emmet abbreviations: create a short name for a larger abbreviation or define shape of element (default attributes, self-closing, etc.)',
+    selected: true
+}, {
+    id: 'stylesheet',
+    label: 'Stylesheet',
+    comment: 'Stylesheet snippets could be arbitrary text or shortcuts for CSS properties (should be a word or start with <code>name:</code>). In latter case, you can write abbreviations with embedded values like <code>p10-20</code>. CSS properties can contain values, separated by <code>|</code>, which will be used in abbreviation resolving or as default value if abbreviation has no embedded value.',
+    selected: false
+}];
+
+export function state(): Partial<EmConfigCommonState> {
+    return { snippetsSections };
+}
 
 export function willMount(component: EmConfigCommon) {
     component.setState({
@@ -99,42 +124,15 @@ export function onChangeOption(component: EmConfigCommon, evt: Event) {
 }
 
 export function onVariableAdd(component: EmConfigCommon) {
-    let { variables } = component.state.form;
-    variables = [...variables];
-    variables.unshift(createKeyValueItem('', ''));
-
-    component.setState({
-        form: {
-            ...component.state.form,
-            variables
-        }
-    });
+    const { variables } = component.state.form;
+    updateVariables(component, [createKeyValueItem('', ''), ...variables]);
 }
 
-export function onVariableSubmit(component: EmConfigCommon, evt: SubmitEvent) {
-    let { variables } = component.state.form;
-
-    const ix = variables.findIndex(item => item.key === evt.detail.originalKey);
-    if (ix !== -1) {
-        variables = [...variables];
-
-        if (!evt.detail.key.trim()) {
-            // Empty key: remove variable
-            variables.splice(ix, 1);
-        } else {
-            variables[ix] = {
-                ...variables[ix],
-                key: evt.detail.key,
-                value: evt.detail.value,
-            };
-        }
-
-        component.setState({
-            form: {
-                ...component.state.form,
-                variables
-            }
-        });
+export function onVariableSubmit(component: EmConfigCommon, evt: SubmitEvent<KeyValueItem>) {
+    const { variables } = component.state.form;
+    const nextVariables = updateKeyValueListOnSubmit(variables, evt);
+    if (variables !== nextVariables) {
+        updateVariables(component, nextVariables);
     }
 }
 
@@ -144,12 +142,48 @@ export function onVariableRemove(id: number, component: EmConfigCommon) {
     if (ix !== -1) {
         variables = [...variables];
         variables.splice(ix, 1);
+        updateVariables(component, variables);
+    }
+}
+
+export function onSelectSnippetsSection(sectionId: SyntaxType, component: EmConfigCommon) {
+    const sectionList = component.state.snippetsSections;
+    const curSection = currentSection(component);
+    if (curSection && curSection.id !== sectionId) {
         component.setState({
-            form: {
-                ...component.state.form,
-                variables
-            }
+            snippetsSections: sectionList.map(s => ({ ...s, selected: s.id === sectionId }))
         });
+    }
+}
+
+export function onSnippetAdd(component: EmConfigCommon) {
+    const curSection = currentSection(component);
+    if (curSection) {
+        const snippets = component.state.form.snippets[curSection.id];
+        updateSnippets(component, curSection.id, [createKeyValueItem('', ''), ...snippets]);
+    }
+}
+
+export function onSnippetRemove(id: number, component: EmConfigCommon) {
+    const curSection = currentSection(component);
+    if (curSection) {
+        const snippets = component.state.form.snippets[curSection.id].slice();
+        const ix = snippets.findIndex(s => s.id === id);
+        if (ix !== -1) {
+            snippets.splice(ix, 1);
+            updateSnippets(component, curSection.id, snippets);
+        }
+    }
+}
+
+export function onSnippetSubmit(component: EmConfigCommon, evt: SubmitEvent<KeyValueItem>) {
+    const curSection = currentSection(component);
+    if (curSection) {
+        const prevSnippets = component.state.form.snippets[curSection!.id];
+        const nextSnippets = updateKeyValueListOnSubmit(prevSnippets, evt);
+        if (prevSnippets !== nextSnippets) {
+            updateSnippets(component, curSection.id, nextSnippets);
+        }
     }
 }
 
@@ -228,10 +262,60 @@ function createOptions(component: EmConfigCommon): ConfigField[] {
 }
 
 function getOptionValue<K extends keyof EmmetConfig>(component: EmConfigCommon, name: K): EmmetConfig[K] {
-    const { state } = component;
-    if (state.options && name in state.options) {
-        return (state.options as EmmetConfig)[name];
+    const { state: s } = component;
+    if (s.options && name in s.options) {
+        return (s.options as EmmetConfig)[name];
     }
 
     return defaultConfig[name];
+}
+
+/**
+ * Returns currently selected snippets section
+ */
+function currentSection(component: EmConfigCommon): SnippetsSection | undefined {
+    return component.state.snippetsSections.find(s => s.selected);
+}
+
+function updateSnippets(component: EmConfigCommon, key: string, value: KeyValueList) {
+    const { form } = component.state;
+    component.setState({
+        form: {
+            ...form,
+            snippets: {
+                ...form.snippets,
+                [key]: value
+            }
+        }
+    });
+}
+
+function updateVariables(component: EmConfigCommon, variables: KeyValueList) {
+    component.setState({
+        form: {
+            ...component.state.form,
+            variables
+        }
+    });
+}
+
+function updateKeyValueListOnSubmit(items: KeyValueList, event: SubmitEvent<KeyValueItem>): KeyValueList {
+    const ix = items.findIndex(item => item.id === event.detail.item.id);
+    if (ix !== -1) {
+        const { key, value } = event.detail;
+        items = [...items];
+
+        if (!key.trim()) {
+            // Empty key: remove value
+            items.splice(ix, 1);
+        } else {
+            items[ix] = {
+                ...items[ix],
+                key: key.trim(),
+                value: value.trim(),
+            };
+        }
+    }
+
+    return items;
 }

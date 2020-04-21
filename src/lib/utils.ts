@@ -74,7 +74,7 @@ export function set(obj: any, key: string | string[], value: any): any {
     }
 
     let ctx = obj = copy(obj);
-    for (let i = 0, k; i < key.length - 1; i++) {
+    for (let i = 0, k: string; i < key.length - 1; i++) {
         k = key[i];
         ctx = ctx[k] = copy(ctx[k]);
     }

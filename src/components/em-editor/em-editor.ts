@@ -114,6 +114,8 @@ export function didChange(component: EmEditor, changes: Changes<EmEditorProps>) 
                 ...emmet,
                 ...value
             });
+        } else if (k === 'singleLine') {
+            editor.setOption('scrollbarStyle', value ? 'null' : 'native');
         } else {
             editor.setOption(k as keyof CodeMirror.EditorConfiguration, value);
         }

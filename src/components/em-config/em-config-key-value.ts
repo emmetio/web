@@ -12,18 +12,16 @@ export type EmConfigKeyValue = EmComponent<EmConfigKeyValueProps, EmConfigKeyVal
     }
 }
 
-export type SubmitEvent = CustomEvent<SubmitEventDetails>;
+export type SubmitEvent<I extends Item> = CustomEvent<SubmitEventDetails<I>>;
 
-interface SubmitEventDetails {
+interface SubmitEventDetails<I extends Item> {
     key: string;
     value: string;
-    originalKey: string;
-    originalValue: string;
+    item: I;
 }
 
 interface EmConfigKeyValueProps {
-    key: string;
-    value: string;
+    item: Item;
     keyMode?: string;
     valueMode?: string;
     editField?: 'key' | 'value';
@@ -38,12 +36,17 @@ interface EmConfigKeyValueState {
     extraKeys: KeyMap;
 }
 
+interface Item {
+    key: string;
+    value: string;
+}
+
 interface KeyMap {
     [shortcut: string]: (editor: EmmetEditor) => void
 }
 
 /**
- * Current;y active component
+ * Currently active component
  */
 let active: EmConfigKeyValue | null = null;
 
@@ -90,17 +93,15 @@ export function state(component: EmConfigKeyValue): EmConfigKeyValueState {
     };
 }
 
-export function didChange(component: EmConfigKeyValue, { editField, key, value }: Changes<EmConfigKeyValueProps>) {
+export function didChange(component: EmConfigKeyValue, { editField, item }: Changes<EmConfigKeyValueProps>) {
     if (editField && editField.current) {
         edit(component, editField.current);
     }
 
-    if (key) {
-        component.setState({ key: escapeString(key.current || '') });
-    }
-
-    if (value) {
-        component.setState({ value: escapeString(value.current || '') });
+    if (item) {
+        const key = item.current ? escapeString(item.current.key || '') : '';
+        const value = item.current ? escapeString(item.current.value || '') : '';
+        component.setState({ key, value });
     }
 }
 
@@ -133,9 +134,8 @@ export function submit(component: EmConfigKeyValue) {
         notify(component, 'submit', {
             key: unescapeString(key.value),
             value: unescapeString(value.value),
-            originalKey: component.props.key,
-            originalValue: component.props.value,
-        } as SubmitEventDetails);
+            item: component.props.item
+        } as SubmitEventDetails<Item>);
         reset(component);
     }
 }
