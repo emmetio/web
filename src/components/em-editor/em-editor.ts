@@ -1,7 +1,7 @@
 import { Changes } from 'endorphin';
 import { notify, getSlot } from 'endorphin/helpers';
 import { EmmetEditor, EmmetConfig } from '@emmetio/codemirror-plugin';
-import createEditor from '../../lib/codemirror';
+import createEditor, { EditorOptions } from '../../lib/codemirror';
 import { EmComponent } from '../../lib/types';
 
 interface EmEditorProps {
@@ -61,7 +61,11 @@ export function props(): EmEditorProps {
 }
 
 export function didMount(component: EmEditor) {
-    const editor = component.editor = createEditor(component, component.props);
+    const editorOpt = { ...component.props } as EditorOptions;
+    if (component.props.singleLine) {
+        editorOpt.scrollbarStyle = 'null';
+    }
+    const editor = component.editor = createEditor(component, editorOpt);
     const valueSlot = getSlot(component, '') as HTMLElement;
 
     if (valueSlot) {
