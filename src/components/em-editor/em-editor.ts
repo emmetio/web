@@ -14,7 +14,7 @@ interface EmEditorProps {
     options?: EmmetConfig;
 }
 
-type ParseError = Error & { ch: number };
+type ParseError = Error & { pos: number };
 
 interface EmEditorState {
     error?: ParseError | null;
@@ -38,6 +38,8 @@ export type EmEditor = EmComponent<EmEditorProps, EmEditorState> & EmEditorExten
     /** Editor instance */
     editor: EmmetEditor;
 };
+
+const snippetMask = /[a-zA-Z0-9-_$@!:|]/;
 
 export const extend: EmEditorExtend = {
     get value(this: EmEditor): string {
@@ -73,13 +75,10 @@ export function didMount(component: EmEditor) {
     }
 
     component.state._onChange = () => {
-        const doc = editor.getDoc();
-        const value = doc.getValue();
-        const line = doc.getCursor().line;
-        const { parseError: error } = editor.getStateAfter(line);
+        const error = validate(editor);
 
         if (error) {
-            const coords = editor.charCoords({ line: 0, ch: error.ch }, 'local');
+            const coords = editor.charCoords({ line: 0, ch: error.pos }, 'div');
             component.setState({
                 error,
                 errPos: coords.left + (coords.right - coords.left) / 2
@@ -88,7 +87,7 @@ export function didMount(component: EmEditor) {
             component.setState({ error: null });
         }
 
-        notify(component, 'change', { value, error });
+        notify(component, 'change', { error });
     };
 
     editor.on('change', component.state._onChange);
@@ -138,4 +137,34 @@ export function willUnmount(component: EmEditor) {
     // component.editor.off('blur', component.state._onBlur);
     // @ts-ignore Dispose editor reference
     component.editor = component.state._onChange = component.state._onBlur = null;
+}
+
+/**
+ * Tries to validate given editor content, if possible, and returns error object
+ * if content is invalid
+ */
+function validate(editor: EmmetEditor): ParseError | undefined {
+    const mode = editor.getOption('mode');
+    if (mode === 'emmet-abbreviation') {
+        try {
+            editor.parseAbbreviation(editor.getValue(), 'markup');
+        } catch(err) {
+            return err;
+        }
+    } else if (mode === 'emmet-css-abbreviation') {
+        try {
+            editor.parseAbbreviation(editor.getValue(), 'stylesheet');
+        } catch (err) {
+            return err;
+        }
+    } else if (mode === 'emmet-snippet') {
+        const value = editor.getValue();
+        for (let i = 0; i < value.length; i++) {
+            if (!snippetMask.test(value[i])) {
+                const err = new Error('Invalid character') as ParseError;
+                err.pos = i;
+                return err;
+            }
+        }
+    }
 }
