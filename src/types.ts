@@ -1,19 +1,21 @@
 import { Component } from 'endorphin';
+import { SyntaxType } from 'emmet';
 
-export type ParseModeError = Error & { ch?: number };
+export { SyntaxType } from 'emmet';
+export { EmmetConfig, EmmetEditor, EmmetEditorOptions } from '@emmetio/codemirror-plugin';
+
 export type EmComponent<P = any, S = any> = Component<P, S>;
-
-export interface EmmetOptions {
-    markupStyle: 'html' | 'xhtml' | 'xml';
-    attributeQuotes: 'single' | 'double';
-    comments: boolean;
-    commentsTemplate: string;
-    bem: boolean;
-    shortHex: boolean;
-}
 
 export interface EmmetMap {
     [name: string]: string;
+}
+
+export interface EmmetMapDiff {
+    [name: string]: string | null;
+}
+
+export type SnippetsDB<T = EmmetMap> = {
+    [name in SyntaxType]: T;
 }
 
 // Types for configs

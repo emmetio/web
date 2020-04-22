@@ -54,6 +54,10 @@
                     on:submit={onSnippetSubmit} />
             </e:for-each>
         </section>
+        <footer>
+            <button type="submit" on:click:prevent={onSubmit}>Submit</button>
+            <button type="reset" on:click:prevent={onReset}>Reset</button>
+        </footer>
     </main>
     <aside>
         <h3>Interactive preview</h3>

@@ -1,7 +1,6 @@
 import { Changes } from 'endorphin';
 import { notify } from 'endorphin/helpers';
-import { EmmetEditor } from '@emmetio/codemirror-plugin';
-import { EmComponent } from '../../lib/types';
+import { EmComponent, EmmetEditor } from '../../types';
 import { EmEditor } from '../em-editor/em-editor';
 import { escapeString, unescapeString } from '../../lib/utils';
 

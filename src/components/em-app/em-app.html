@@ -1,6 +1,16 @@
 <link rel="stylesheet" href="./em-app.scss" />
 <link rel="import" href="../em-config/em-config-common.html" />
 
+<script>
+export function onSubmit(component, evt) {
+    console.log('will submit', evt.detail);
+    component.store.updateCommonConfig(evt.detail);
+}
+</script>
 <template>
-    <em-config-common/>
+    <em-config-common
+        options={$commonConfig.options}
+        variables={$commonConfig.variables}
+        snippets={$commonConfig.snippets}
+        on:submit={onSubmit}/>
 </template>

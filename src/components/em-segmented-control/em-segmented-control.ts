@@ -1,5 +1,5 @@
 import { Changes } from 'endorphin';
-import { EmComponent } from '../../lib/types';
+import { EmComponent } from '../../types';
 
 interface SegmentedValue {
     label: string;

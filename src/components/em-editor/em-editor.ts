@@ -1,8 +1,6 @@
-import { Changes } from 'endorphin';
 import { notify, getSlot } from 'endorphin/helpers';
-import { EmmetEditor, EmmetConfig } from '@emmetio/codemirror-plugin';
-import createEditor, { EditorOptions } from '../../lib/codemirror';
-import { EmComponent } from '../../lib/types';
+import createEditor from '../../lib/codemirror';
+import { EmComponent, EmmetEditor, EmmetConfig } from '../../types';
 
 interface EmEditorProps {
     autofocus?: boolean;
@@ -63,12 +61,10 @@ export function props(): EmEditorProps {
 }
 
 export function didMount(component: EmEditor) {
-    const editorOpt = { ...component.props } as EditorOptions;
-    if (component.props.singleLine) {
-        editorOpt.scrollbarStyle = 'null';
-    }
-    const editor = component.editor = createEditor(component, editorOpt);
+    const editor = component.editor = createEditor(component);
     const valueSlot = getSlot(component, '') as HTMLElement;
+
+    updateEditorOptions(editor, component.props);
 
     if (valueSlot) {
         editor.setValue(valueSlot.innerText);
@@ -97,32 +93,12 @@ export function didMount(component: EmEditor) {
     }
 }
 
-export function didChange(component: EmEditor, changes: Changes<EmEditorProps>) {
+export function didChange(component: EmEditor) {
     const { editor } = component;
 
-    if (!editor) {
-        return;
+    if (editor) {
+        updateEditorOptions(editor, component.props);
     }
-
-    Object.keys(changes).forEach(k => {
-        const value = changes[k]!.current;
-        if (k === 'autofocus' && value) {
-            editor.focus();
-            editor.execCommand('selectAll');
-        } else if (k === 'options') {
-            // @ts-ignore
-            const emmet = editor.getOption('emmet');
-            // @ts-ignore
-            editor.setOption('emmet', {
-                ...emmet,
-                ...value
-            });
-        } else if (k === 'singleLine') {
-            editor.setOption('scrollbarStyle', value ? 'null' : 'native');
-        } else {
-            editor.setOption(k as keyof CodeMirror.EditorConfiguration, value);
-        }
-    });
 }
 
 export function didSlotUpdate(component: EmEditor, slotName: string, elem: HTMLElement) {
@@ -167,4 +143,26 @@ function validate(editor: EmmetEditor): ParseError | undefined {
             }
         }
     }
+}
+
+function updateEditorOptions(editor: EmmetEditor, options: EmEditorProps) {
+    Object.keys(options).forEach(k => {
+        const value = options[k];
+        if (k === 'autofocus' && value) {
+            editor.focus();
+            editor.execCommand('selectAll');
+        } else if (k === 'options') {
+            // @ts-ignore
+            const emmet = editor.getOption('emmet');
+            // @ts-ignore
+            editor.setOption('emmet', {
+                ...emmet,
+                ...value
+            });
+        } else if (k === 'singleLine') {
+            editor.setOption('scrollbarStyle', value ? 'null' : 'native');
+        } else {
+            editor.setOption(k as keyof CodeMirror.EditorConfiguration, value);
+        }
+    });
 }
