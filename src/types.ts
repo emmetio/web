@@ -2,7 +2,7 @@ import { Component } from 'endorphin';
 import { SyntaxType } from 'emmet';
 
 export { SyntaxType } from 'emmet';
-export { EmmetConfig, EmmetEditor, EmmetEditorOptions } from '@emmetio/codemirror-plugin';
+export { EmmetEditor, EmmetEditorOptions } from '@emmetio/codemirror-plugin';
 
 export type EmComponent<P = any, S = any> = Component<P, S>;
 
@@ -17,6 +17,96 @@ export interface EmmetMapDiff {
 export type SnippetsDB<T = EmmetMap> = {
     [name in SyntaxType]: T;
 }
+
+/**
+ * Officially supported and configurable editors
+ */
+export const enum SupportedEditor {
+    SublimeText = 'st',
+    Nova = 'nova',
+}
+
+/**
+ * Available Emmet actions
+ */
+export const enum EmmetAction {
+    Expand = 'expand',
+    ExpandAll = 'expandAll',
+    EnterMode = 'enter',
+    Reset = 'reset',
+    Wrap = 'wrap',
+    Balance = 'balance',
+    BalanceInward = 'balanceInward',
+    ToggleComment = 'toggleComment',
+    EvaluateMath = 'evaluateMath',
+    NextEditPoint = 'nextEditPoint',
+    PrevEditPoint = 'previousEditPoint',
+    TagPair = 'tagPair',
+    Increment1 = 'increment1',
+    Increment10 = 'increment10',
+    Increment01 = 'increment01',
+    Decrement1 = 'decrement1',
+    Decrement10 = 'decrement10',
+    Decrement01 = 'decrement01',
+    RemoveTag = 'removeTag',
+    SelectNext = 'selectNext',
+    SelectPrev = 'selectPrevious',
+    SplitJoinTag = 'splitJoinTag',
+    UpdateImageSize = 'updateImageSize',
+    DataURL = 'dataURL',
+}
+
+// Emmet & editor config types
+
+export interface EmmetConfig {
+    /** Quotes to use in generated HTML attribute values */
+    attributeQuotes: 'single' | 'double';
+    /** Style for self-closing elements (like `<br>`) and boolean attributes */
+    markupStyle: 'html' | 'xhtml' | 'xml';
+    /**
+     * Enable automatic tag commenting. When enabled, elements generated from Emmet
+     * abbreviation with `id` and/or `class` attributes will receive a comment
+     * with these attribute values
+     */
+    comments: boolean;
+    /**
+     * Commenting template. Default value is `\n<!-- /[#ID][.CLASS] -->`
+     * Outputs everything between `[` and `]` only if specified attribute name
+     * (written in UPPERCASE) exists in element. Attribute name is replaced with
+     * actual value. Use `\n` to add a newline.
+     */
+    commentsTemplate?: string;
+    /**
+     * Enable BEM support. When enabled, Emmet will treat class names starting
+     * with `-` as _element_ and with `_` as _modifier_ in BEM notation.
+     * These class names will inherit `block` name from current or ancestor element.
+     * For example, the abbreviation `ul.nav.nav_secondary>li.nav__item` can be
+     * shortened to `ul.nav._secondary>li.-item` with this option enabled.
+     */
+    bem: boolean;
+    /**
+     * For stylesheet abbreviations, generate short HEX color values, if possible.
+     * For example, `c#0` will be expanded to `color: #000;` instead of `color: #000000`.
+     */
+    shortHex?: boolean;
+}
+
+export interface SublimeTextConfig {
+    /** Enable abbreviation marking on typing text */
+    auto_mark: boolean;
+    /** Preview marked abbreviation */
+    abbreviation_preview: boolean;
+    /** Expand marked abbreviation with Tab */
+    tab_expand: boolean;
+    /** Preview open tag when caret is in closing part */
+    tag_preview: boolean;
+    /** Override Toggle Comments action */
+    comment: boolean;
+    /** Action shortcuts */
+    shortcuts: EditorShortcuts;
+}
+
+export type EditorShortcuts = { [action in EmmetAction]: string };
 
 // Types for configs
 

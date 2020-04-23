@@ -1,21 +1,18 @@
+import { Changes } from 'endorphin';
 import { notify } from 'endorphin/helpers';
+import { EmmetConfig as CMEmmetConfig } from '@emmetio/codemirror-plugin';
 import defaultVariables from 'emmet/snippets/variables.json';
 import markupSnippets from 'emmet/snippets/html.json';
 import stylesheetSnippets from 'emmet/snippets/css.json';
+import defaultConfig from '../../config/common.json';
 
 import { EmmetConfig, ConfigField, EmmetMap, EmmetMapDiff, EmComponent, ConfigFieldType, SyntaxType, SnippetsDB } from '../../types';
 import { escapeString, unescapeString } from '../../lib/utils';
-import { SubmitEvent } from './em-config-key-value';
-import { EmmetCommonConfig } from '../../store';
-import { Changes } from 'endorphin';
-
-type KeyValueList = KeyValueItem[];
-
-interface KeyValueItem {
-    id: number;
-    key: string;
-    value: string;
-}
+import { CommonConfig } from '../../store';
+import {
+    keyValueListToMap, updateKeyValueListOnSubmit, keyValueListDiff,
+    KeyValueList, SubmitEvent, KeyValueItem
+} from './utils';
 
 interface SnippetsSection {
     id: SyntaxType;
@@ -24,7 +21,7 @@ interface SnippetsSection {
     selected?: boolean;
 }
 
-export type EmConfigCommonProps = EmmetCommonConfig;
+export type EmConfigCommonProps = CommonConfig;
 
 interface EmConfigCommonState {
     options: ConfigField[];
@@ -37,24 +34,6 @@ interface EmConfigCommonState {
 export type EmConfigCommon = EmComponent<EmConfigCommonProps, EmConfigCommonState>;
 
 let idCounter = 0;
-
-// TODO Move to store?
-/**
- * Default Emmet config
- */
-const defaultConfig: EmmetConfig = {
-    mark: true,
-    preview: true,
-    autoRenameTags: true,
-    markTagPairs: true,
-    markupStyle: 'html',
-    attributeQuotes: 'double',
-    previewOpenTag: false,
-    comments: false,
-    commentsTemplate: '\n<!-- /[#ID][.CLASS] -->',
-    bem: false,
-    shortHex: true
-};
 
 const snippetsSections: SnippetsSection[] = [{
     id: 'markup',
@@ -243,7 +222,7 @@ function getOptionValue<K extends keyof EmmetConfig>(component: EmConfigCommon, 
     if (options && name in options) {
         return options[name] as EmmetConfig[K];
     }
-    return defaultConfig[name];
+    return (defaultConfig as EmmetConfig)[name];
 }
 
 /**
@@ -269,35 +248,14 @@ function updateVariables(component: EmConfigCommon, variables: KeyValueList) {
     updateEditorConfig(component);
 }
 
-function updateKeyValueListOnSubmit(items: KeyValueList, event: SubmitEvent<KeyValueItem>): KeyValueList {
-    const ix = items.findIndex(item => item.id === event.detail.item.id);
-    if (ix !== -1) {
-        const { key, value } = event.detail;
-        items = [...items];
-
-        if (!key.trim()) {
-            // Empty key: remove value
-            items.splice(ix, 1);
-        } else {
-            items[ix] = {
-                ...items[ix],
-                key: key.trim(),
-                value: value.trim(),
-            };
-        }
-    }
-
-    return items;
-}
-
 function updateEditorConfig(component: EmConfigCommon) {
     component.setState({
         editorConfig: getEditorConfig(component)
     });
 }
 
-function getEditorConfig(component: EmConfigCommon): Partial<EmmetConfig> {
-    const config: Partial<EmmetConfig> = {};
+function getEditorConfig(component: EmConfigCommon): Partial<CMEmmetConfig> {
+    const config: Partial<CMEmmetConfig> = {};
     const { options, snippets } = component.state;
     const variables = keyValueListToMap(component.state.variables);
 
@@ -329,11 +287,7 @@ function getEditorConfig(component: EmConfigCommon): Partial<EmmetConfig> {
     return config;
 }
 
-function keyValueListToMap(list: KeyValueList): EmmetMap {
-    const result: EmmetMap = {};
-    list.forEach(item => result[item.key] = item.value);
-    return result;
-}
+
 
 function updateField(fields: ConfigField[], name: string, value: string | boolean): ConfigField[] {
     for (let i = 0; i < fields.length; i++) {
@@ -360,7 +314,7 @@ function updateField(fields: ConfigField[], name: string, value: string | boolea
 /**
  * Calculates diff from given component’s state against default values
  */
-function calculateDiff(component: EmConfigCommon): EmmetCommonConfig {
+function calculateDiff(component: EmConfigCommon): CommonConfig {
     const options: Partial<EmmetConfig> = {};
     const { state } = component;
     state.options.forEach(opt => {
@@ -377,28 +331,6 @@ function calculateDiff(component: EmConfigCommon): EmmetCommonConfig {
             stylesheet: keyValueListDiff(state.snippets.stylesheet, stylesheetSnippets)
         }
     };
-}
-
-function keyValueListDiff(list: KeyValueList, source: EmmetMap): EmmetMapDiff {
-    const result: EmmetMapDiff = {};
-    const lookup = new Set<string>();
-
-    // Find updated values
-    list.forEach(item => {
-        if (item.value !== source[item.key]) {
-            result[item.key] = item.value;
-        }
-        lookup.add(item.key);
-    });
-
-    // Check for missing key for original source: mark such keys as removed
-    Object.keys(source).forEach(key => {
-        if (!lookup.has(key)) {
-            result[key] = null;
-        }
-    });
-
-    return result;
 }
 
 function setupForm(component: EmConfigCommon) {

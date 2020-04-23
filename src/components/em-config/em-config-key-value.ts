@@ -3,6 +3,7 @@ import { notify } from 'endorphin/helpers';
 import { EmComponent, EmmetEditor } from '../../types';
 import { EmEditor } from '../em-editor/em-editor';
 import { escapeString, unescapeString } from '../../lib/utils';
+import { KeyValueItem, SubmitEventDetails } from './utils';
 
 export type EmConfigKeyValue = EmComponent<EmConfigKeyValueProps, EmConfigKeyValueState> & {
     refs: {
@@ -11,16 +12,8 @@ export type EmConfigKeyValue = EmComponent<EmConfigKeyValueProps, EmConfigKeyVal
     }
 }
 
-export type SubmitEvent<I extends Item> = CustomEvent<SubmitEventDetails<I>>;
-
-interface SubmitEventDetails<I extends Item> {
-    key: string;
-    value: string;
-    item: I;
-}
-
 interface EmConfigKeyValueProps {
-    item: Item;
+    item: KeyValueItem;
     keyMode?: string;
     valueMode?: string;
     editField?: 'key' | 'value';
@@ -33,11 +26,6 @@ interface EmConfigKeyValueState {
     hover: boolean;
     autofocus?: 'key' | 'value' | null;
     extraKeys: KeyMap;
-}
-
-interface Item {
-    key: string;
-    value: string;
 }
 
 interface KeyMap {
@@ -134,7 +122,7 @@ export function submit(component: EmConfigKeyValue) {
             key: unescapeString(key.value),
             value: unescapeString(value.value),
             item: component.props.item
-        } as SubmitEventDetails<Item>);
+        } as SubmitEventDetails<KeyValueItem>);
         reset(component);
     }
 }

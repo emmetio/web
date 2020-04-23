@@ -1,0 +1,8 @@
+{
+  "markupStyle": "html",
+  "attributeQuotes": "double",
+  "comments": false,
+  "commentsTemplate": "\n<!-- /[#ID][.CLASS] -->",
+  "bem": false,
+  "shortHex": true
+}
