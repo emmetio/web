@@ -33,7 +33,6 @@ export const enum EmmetAction {
     Expand = 'expand',
     ExpandAll = 'expandAll',
     EnterMode = 'enter',
-    Reset = 'reset',
     Wrap = 'wrap',
     Balance = 'balance',
     BalanceInward = 'balanceInward',
@@ -92,6 +91,13 @@ export interface EmmetConfig {
 }
 
 export interface SublimeTextConfig {
+    /** Editor-specific plugin options */
+    options: Partial<SublimeTextConfigOptions>;
+    /** Action shortcuts */
+    shortcuts: EditorShortcuts;
+}
+
+export interface SublimeTextConfigOptions {
     /** Enable abbreviation marking on typing text */
     auto_mark: boolean;
     /** Preview marked abbreviation */
@@ -102,15 +108,13 @@ export interface SublimeTextConfig {
     tag_preview: boolean;
     /** Override Toggle Comments action */
     comment: boolean;
-    /** Action shortcuts */
-    shortcuts: EditorShortcuts;
 }
 
 export type EditorShortcuts = { [action in EmmetAction]: string };
 
 // Types for configs
 
-export type ConfigField = ConfigFieldBoolean | ConfigFieldString | ConfigFieldChoose;
+export type ConfigField<T = string> = ConfigFieldBoolean<T> | ConfigFieldString<T> | ConfigFieldChoose<T>;
 
 export const enum ConfigFieldType {
     Boolean = 'boolean',
@@ -123,25 +127,25 @@ export interface ConfigChooseValue {
     value: string;
 }
 
-export interface ConfigFieldBase {
-    name: string;
+export interface ConfigFieldBase<T = string> {
+    name: T;
     label: string;
     type: ConfigFieldType;
     comment?: string;
     children?: ConfigField[];
 }
 
-export interface ConfigFieldBoolean extends ConfigFieldBase {
+export interface ConfigFieldBoolean<T = string> extends ConfigFieldBase<T> {
     type: ConfigFieldType.Boolean;
     value: boolean;
 }
 
-export interface ConfigFieldString extends ConfigFieldBase {
+export interface ConfigFieldString<T = string> extends ConfigFieldBase<T> {
     type: ConfigFieldType.String;
     value: string;
 }
 
-export interface ConfigFieldChoose extends ConfigFieldBase {
+export interface ConfigFieldChoose<T = string> extends ConfigFieldBase<T> {
     type: ConfigFieldType.Choose;
     items: string[] | ConfigChooseValue[];
     value: string;

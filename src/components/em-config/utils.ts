@@ -1,9 +1,9 @@
-import { EmmetMap, EmmetMapDiff } from '../../types';
+import { EmmetMap, EmmetMapDiff, ConfigField } from '../../types';
 
 export type KeyValueList = KeyValueItem[];
 
 export interface KeyValueItem {
-    id: number;
+    id: number | string;
     key: string;
     value: string;
 }
@@ -14,6 +14,11 @@ export interface SubmitEventDetails<I extends KeyValueItem> {
     key: string;
     value: string;
     item: I;
+}
+
+let idCounter = 0;
+export function createKeyValueItem(key: string, value: string): KeyValueItem {
+    return { id: idCounter++, key, value };
 }
 
 /**
@@ -77,4 +82,30 @@ export function updateKeyValueListOnSubmit(items: KeyValueList, event: SubmitEve
     }
 
     return items;
+}
+
+/**
+ * Updates value of `name` field in given field list, including nested items,
+ * in an immutable way
+ */
+export function updateField(fields: ConfigField[], name: string, value: string | boolean): ConfigField[] {
+    for (let i = 0; i < fields.length; i++) {
+        const field = fields[i];
+        if (field.name === name) {
+            fields = [...fields];
+            fields[i] = { ...field, value } as ConfigField;
+            break;
+        }
+
+        if (field.children) {
+            const children = updateField(field.children, name, value);
+            if (children !== field.children) {
+                fields = [...fields];
+                fields[i] = { ...field, children } as ConfigField;
+                break;
+            }
+        }
+    }
+
+    return fields;
 }

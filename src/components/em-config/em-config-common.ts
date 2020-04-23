@@ -10,8 +10,8 @@ import { EmmetConfig, ConfigField, EmmetMap, EmmetMapDiff, EmComponent, ConfigFi
 import { escapeString, unescapeString } from '../../lib/utils';
 import { CommonConfig } from '../../store';
 import {
-    keyValueListToMap, updateKeyValueListOnSubmit, keyValueListDiff,
-    KeyValueList, SubmitEvent, KeyValueItem
+    keyValueListToMap, updateKeyValueListOnSubmit, keyValueListDiff, updateField,
+    KeyValueList, SubmitEvent, KeyValueItem, createKeyValueItem,
 } from './utils';
 
 interface SnippetsSection {
@@ -32,8 +32,6 @@ interface EmConfigCommonState {
 }
 
 export type EmConfigCommon = EmComponent<EmConfigCommonProps, EmConfigCommonState>;
-
-let idCounter = 0;
 
 const snippetsSections: SnippetsSection[] = [{
     id: 'markup',
@@ -167,10 +165,6 @@ function createKeyValueList(map: EmmetMap, diff?: EmmetMapDiff): KeyValueList {
     return result;
 }
 
-function createKeyValueItem(key: string, value: string): KeyValueItem {
-    return { id: idCounter++, key, value };
-}
-
 function createOptions(component: EmConfigCommon): ConfigField[] {
     function value<K extends keyof EmmetConfig>(name: K) {
         return getOptionValue(component, name);
@@ -285,30 +279,6 @@ function getEditorConfig(component: EmConfigCommon): Partial<CMEmmetConfig> {
     };
 
     return config;
-}
-
-
-
-function updateField(fields: ConfigField[], name: string, value: string | boolean): ConfigField[] {
-    for (let i = 0; i < fields.length; i++) {
-        const field = fields[i];
-        if (field.name === name) {
-            fields = [...fields];
-            fields[i] = { ...field, value } as ConfigField;
-            break;
-        }
-
-        if (field.children) {
-            const children = updateField(field.children, name, value);
-            if (children !== field.children) {
-                fields = [...fields];
-                fields[i] = { ...field, children } as ConfigField;
-                break;
-            }
-        }
-    }
-
-    return fields;
 }
 
 /**

@@ -1,0 +1,58 @@
+.field {
+    position: relative;
+
+    & + & {
+        margin-top: 30px;
+    }
+
+    label {
+        font-weight: bold;
+        font-size: 1.3em;
+        display: inline-block;
+
+        input[type="checkbox"] {
+            position: absolute;
+            left: -20px;
+            top: 3px;
+            vertical-align: middle;
+        }
+    }
+
+    fieldset {
+        border: 0;
+        padding: 0;
+        margin: 0 0 0 30px;
+
+        &[disabled], &[disabled] .comment {
+            color: #aaa;
+        }
+
+        label {
+            font-size: 1.1em;
+        }
+    }
+
+    label + .comment {
+        margin-top: 5px;
+    }
+}
+
+em-segmented-control {
+    font-size: 13px;
+    font-weight: normal;
+    vertical-align: 2px;
+
+    &[name="markupStyle"] {
+        text-transform: uppercase;
+    }
+
+    &[name="attributeQuotes"] {
+        text-transform: capitalize;
+    }
+}
+
+.comment {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 0;
+}
