@@ -1,0 +1,35 @@
+<link rel="import" href="../em-segmented-control/em-segmented-control.html" />
+
+<link rel="stylesheet" href="./em-config-options.scss" />
+<script src="./em-config-options.ts"></script>
+<template>
+    <e:for-each select={#form}>
+        <partial:field field={@value} />
+    </e:for-each>
+</template>
+
+<template partial:field field>
+    <div class="field">
+        <label>
+            { @field.label }{' '}
+            <e:switch>
+                <e:case test={@field.type === 'boolean' }>
+                    <input type="checkbox" name={@field.name} value="1" checked={!!@field.value} />
+                </e:case>
+                <e:case test={@field.type === 'string' }>
+                    <input type="text" name={@field.name} value={@field.value} />
+                </e:case>
+                <e:case test={@field.type === 'choose' }>
+                    <em-segmented-control name={@field.name} items={@field.items} value={@field.value} />
+                </e:case>
+            </e:switch>
+        </label>
+        <p class="comment" e:if={@field.comment}>{{ @field.comment }}</p>
+
+        <fieldset disabled={@field.type === 'boolean' && !@field.value} e:if={count(@field.children)}>
+            <e:for-each select={@field.children}>
+                <partial:field field={@value} />
+            </e:for-each>
+        </fieldset>
+    </div>
+</template>
