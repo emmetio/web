@@ -60,24 +60,25 @@ export function keyValueListToMap(list: KeyValueList): EmmetMap {
 /**
  * Helper function which updated given key-value list in immutable way with data,
  * specified in submit event from key-value component.
- * @param items
- * @param event
  */
 export function updateKeyValueListOnSubmit(items: KeyValueList, event: SubmitEvent<KeyValueItem>): KeyValueList {
-    const ix = items.findIndex(item => item.id === event.detail.item.id);
+    const { key, value, item } = event.detail;
+    return updateKeyValueList(items, item.id, value, key);
+}
+
+export function updateKeyValueList(items: KeyValueList, id: number | string, value: string, key?: string): KeyValueList {
+    const ix = items.findIndex(item => item.id === id);
     if (ix !== -1) {
-        const { key, value } = event.detail;
         items = [...items];
 
-        if (!key.trim()) {
+        if (key === '') {
             // Empty key: remove value
             items.splice(ix, 1);
         } else {
-            items[ix] = {
-                ...items[ix],
-                key: key.trim(),
-                value: value.trim(),
-            };
+            items[ix] = { ...items[ix], value };
+            if (key != null) {
+                items[ix].key = key;
+            }
         }
     }
 

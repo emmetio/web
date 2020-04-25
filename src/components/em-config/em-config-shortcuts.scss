@@ -1,0 +1,23 @@
+:host {
+    display: block;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 15px -5px 0;
+}
+
+li {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+
+    &:hover {
+        background: #eee;
+    }
+
+    &.conflict {
+        background: rgb(247, 165, 165);
+    }
+}

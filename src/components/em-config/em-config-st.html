@@ -1,4 +1,5 @@
 <link rel="import" href="../em-segmented-control/em-segmented-control.html" />
+<link rel="import" href="./em-config-shortcuts.html" />
 
 <link rel="stylesheet" href="./em-config-st.scss" />
 <script src="./em-config-st.ts"></script>
@@ -10,14 +11,7 @@
             </e:for-each>
         </section>
 
-        <section class="shortcuts">
-            <h2>Keyboard shortcuts</h2>
-            <ul>
-                <e:for-each select={#shortcuts}>
-                    <li>{ @value.key }</li>
-                </e:for-each>
-            </ul>
-        </section>
+        <em-config-shortcuts {#shortcuts} on:update={e => #shortcuts = e.detail} />
 
         <footer>
             <button type="submit" on:click:prevent={onSubmit}>Submit</button>

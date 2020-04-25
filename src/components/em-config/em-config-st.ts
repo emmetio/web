@@ -15,7 +15,6 @@ export type EmConfigST = EmComponent<EmConfigSTProps, EmConfigSTState>;
 
 const supportedActions: EmmetAction[] = [
     EmmetAction.Expand,
-    EmmetAction.ExpandAll,
     EmmetAction.EnterMode,
     EmmetAction.Wrap,
     EmmetAction.Balance,

@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="./em-shortcut-recorder.scss" />
+<script src="./em-shortcut-recorder.ts"></script>
+<template>
+    <e:switch>
+        <e:case test={#recording}>
+            <e:switch>
+                <e:case test={#value}>
+                    { #representedValue }
+                </e:case>
+                <e:default>
+                    <span class="placeholder">Recording...</span>
+                    <button on:click:stop={stopRecord}>×</button>
+                </e:default>
+            </e:switch>
+        </e:case>
+        <e:default>
+            <e:switch>
+                <e:case test={#representedValue}>
+                    { #representedValue }
+                    <button on:click:stop={notify('clear')}>×</button>
+                </e:case>
+                <e:default>
+                    <span class="placeholder">none</span>
+                </e:default>
+            </e:switch>
+        </e:default>
+    </e:switch>
+</template>

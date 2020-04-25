@@ -1,0 +1,17 @@
+<link rel="import" href="../em-shortcut-recorder/em-shortcut-recorder.html" />
+
+<link rel="stylesheet" href="./em-config-shortcuts.scss" />
+<script src="./em-config-shortcuts.ts"></script>
+<template>
+    <h2>Keyboard shortcuts</h2>
+    <ul>
+        <e:for-each select={shortcuts}>
+            <li class:conflict={contains(#conflicts, @value.id)}>
+                <span class="action">{ @value.key }</span>
+                <em-shortcut-recorder value={@value.value} {#isMac}
+                    on:submit={onSubmit(@value.id)}
+                    on:clear={onClear(@value.id)} />
+            </li>
+        </e:for-each>
+    </ul>
+</template>
