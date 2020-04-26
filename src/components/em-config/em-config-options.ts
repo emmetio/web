@@ -1,8 +1,8 @@
-import { ConfigFieldType, ConfigChooseValue, EmComponent, ConfigField } from '../../types';
-import { escapeString } from '../../lib/utils';
-import { updateField } from './utils';
-import { notify } from 'endorphin/helpers';
 import { Changes } from 'endorphin';
+import { notify } from 'endorphin/helpers';
+import { ConfigFieldType, ConfigChooseValue, EmComponent, ConfigField } from '../../types';
+import { escapeString, unescapeString } from '../../lib/utils';
+import { updateField } from './utils';
 
 export type OptionField = OptionFieldBase | OptionFieldChoose;
 export type Data = { [name: string]: DataValue };
@@ -34,22 +34,8 @@ interface EmConfigOptionsState {
 export type EmConfigOptions = EmComponent<EmConfigOptionsProps, EmConfigOptionsState>;
 
 export const events = {
-    change(component: EmConfigOptions, evt: Event) {
-        const elem = evt.target as HTMLInputElement;
-        const name = elem.name;
-        const value = elem.type === 'checkbox' ? elem.checked : elem.value;
-        const { form } = component.state;
-        const updated = updateField(form, name, value)
-
-        if (form !== updated) {
-            component.setState({
-                form: updated
-            });
-            console.log('update', calculateDiff(component));
-
-            notify(component, 'update', calculateDiff(component));
-        }
-    }
+    // change: onChange,
+    input: onChange
 }
 
 export function didChange(component: EmConfigOptions, { form, data, defaults }: Changes<EmConfigOptionsProps>) {
@@ -84,7 +70,7 @@ function getValue(component: EmConfigOptions, name: string): DataValue {
     if (data && name in data) {
         value = data[name];
     } else if (defaults) {
-        return defaults[name];
+        value = defaults[name];
     }
 
     if (typeof value === 'string') {
@@ -98,14 +84,42 @@ function getValue(component: EmConfigOptions, name: string): DataValue {
  * Calculates diff from given component’s state against default values
  */
 function calculateDiff(component: EmConfigOptions): Data {
-    const data: Data = {};
-    const { state } = component;
+    const { form } = component.state;
     const { defaults } = component.props;
-    state.form.forEach(opt => {
-        if (opt.value !== defaults[opt.name]) {
-            data[opt.name] = opt.value;
+    return accumulateFormData(form, defaults, {});
+}
+
+function accumulateFormData(fields: ConfigField[], defaults: Data, data: Data): Data {
+    fields.forEach(field => {
+        let { value } = field;
+        if (typeof value === 'string') {
+            value = unescapeString(value);
+        }
+        if (value !== defaults[field.name]) {
+            data[field.name] = value;
+        }
+
+        if (field.children) {
+            accumulateFormData(field.children, defaults, data);
         }
     });
-
     return data;
+}
+
+function onChange(component: EmConfigOptions, evt: Event) {
+    evt.preventDefault();
+
+    const elem = evt.target as HTMLInputElement;
+    const name = elem.name;
+    const value = elem.type === 'checkbox' ? elem.checked : elem.value;
+    const { form } = component.state;
+    const updated = updateField(form, name, value);
+
+    if (form !== updated) {
+        component.setState({
+            form: updated
+        });
+
+        notify(component, 'update', calculateDiff(component));
+    }
 }
