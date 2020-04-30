@@ -9,13 +9,10 @@ export function onSubmit(component, evt) {
 }
 </script>
 <template>
+    <em-config-st options={$editor.st.options} shortcuts={$editor.st.shortcuts} />
     <em-config-common
         options={$commonConfig.options}
         variables={$commonConfig.variables}
         snippets={$commonConfig.snippets}
         on:submit={onSubmit}/>
-
-    <em-config-st
-        options={$editor.st.options}
-        shortcuts={$editor.st.shortcuts}/>
 </template>

@@ -27,6 +27,7 @@
   "dependencies": {
     "@emmetio/codemirror-plugin": "^1.0.0",
     "codemirror": "^5.52.2",
+    "codemirror-movie": "^2.0.0",
     "emmet": "^2.0.0"
   },
   "directories": {

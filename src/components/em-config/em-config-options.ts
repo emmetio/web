@@ -1,6 +1,6 @@
 import { Changes } from 'endorphin';
 import { notify } from 'endorphin/helpers';
-import { ConfigFieldType, ConfigChooseValue, EmComponent, ConfigField } from '../../types';
+import { ConfigFieldType, ConfigChooseValue, EmComponent, ConfigField, MovieFactory } from '../../types';
 import { escapeString, unescapeString } from '../../lib/utils';
 import { updateField } from './utils';
 
@@ -14,6 +14,7 @@ export interface OptionFieldBase {
     type: ConfigFieldType;
     comment?: string;
     children?: OptionField[];
+    movie?: MovieFactory;
 }
 
 export interface OptionFieldChoose extends OptionFieldBase {

@@ -1,0 +1,36 @@
+:host {
+    display: flex;
+    flex-direction: row;
+}
+
+main {
+    flex: 1 1;
+    margin-right: 15px;
+    position: relative;
+
+    footer {
+        position: sticky;
+        bottom: 0;
+        margin-left: -20px;
+        padding: 40px 20px 20px;
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff 20px);
+    }
+}
+
+aside {
+    width: 270px;
+    border-left: 1px solid #ccc;
+    position: relative;
+    padding: 0 15px;
+
+    h3 {
+        margin-top: 0;
+    }
+
+    em-movie {
+        position: sticky;
+        top: 15px;
+        display: block;
+        font-size: 11px;
+    }
+}

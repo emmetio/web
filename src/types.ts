@@ -1,9 +1,12 @@
 import { Component } from 'endorphin';
 import { SyntaxType } from 'emmet';
+import { Movie } from 'codemirror-movie';
+import { EmmetEditor } from '@emmetio/codemirror-plugin';
 
 export { SyntaxType } from 'emmet';
 export { EmmetEditor, EmmetEditorOptions } from '@emmetio/codemirror-plugin';
 
+export type MovieFactory = (editor: EmmetEditor) => Movie;
 export type EmComponent<P = any, S = any> = Component<P, S>;
 
 export interface EmmetMap {
@@ -133,6 +136,7 @@ export interface ConfigFieldBase<T = string> {
     type: ConfigFieldType;
     comment?: string;
     children?: ConfigField[];
+    movie?: MovieFactory;
 }
 
 export interface ConfigFieldBoolean<T = string> extends ConfigFieldBase<T> {

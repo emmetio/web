@@ -1,9 +1,10 @@
 import { notify } from 'endorphin/helpers';
-import { SublimeTextConfig, SublimeTextConfigOptions, EmComponent, ConfigFieldType, EmmetAction, EditorShortcuts } from '../../types';
+import { SublimeTextConfig, SublimeTextConfigOptions, EmComponent, ConfigFieldType, EmmetAction, EditorShortcuts, MovieFactory } from '../../types';
 import { KeyValueList, keyValueListDiff } from './utils';
 import optionsDefaults from '../../config/sublime-text.json';
 import actionLabels from '../../config/actions.json';
 import { OptionField } from './em-config-options';
+import markAbbreviationMovie from '../../movie/mark-abbreviation';
 
 type EmConfigSTProps = SublimeTextConfig;
 
@@ -12,6 +13,7 @@ interface EmConfigSTState {
     optionsForm: OptionField[];
     optionsDefaults: SublimeTextConfigOptions;
     shortcuts: KeyValueList;
+    movie?: MovieFactory | null;
 }
 
 export type EmConfigST = EmComponent<EmConfigSTProps, EmConfigSTState>;
@@ -46,6 +48,7 @@ const optionsForm: OptionField[] = [{
     type: ConfigFieldType.Boolean,
     label: 'Mark abbreviation',
     comment: 'Automatically mark Emmet abbreviation when typing text: marked abbreviation is highlighted with green underline. Works in a limited syntaxes only.',
+    movie: markAbbreviationMovie,
     children: [{
         name: 'abbreviation_preview',
         label: 'Abbreviation preview',
@@ -88,6 +91,16 @@ export function onSubmit(component: EmConfigST) {
 
 export function onReset(component: EmConfigST) {
     setupForm(component);
+}
+
+export function onPlayMovie(component: EmConfigST, evt: CustomEvent) {
+    console.log('set movie', evt.detail.movie);
+    component.setState({ movie: evt.detail.movie });
+}
+
+export function onStopMovie(component: EmConfigST, evt: CustomEvent) {
+    // TODO Delayed reset
+    // component.setState({ movie: null });
 }
 
 function createShortcuts(component: EmConfigST): KeyValueList {

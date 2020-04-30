@@ -10,6 +10,10 @@
 
 <template partial:field field>
     <div class="field">
+        <e:attr
+            on:mouseenter={notify('play-movie', { movie: @field.movie })}
+            on:mouseleave={notify('stop-movie', { movie: @field.movie })}
+            e:if={@field.movie}/>
         <label>
             { @field.label }{' '}
             <e:switch>

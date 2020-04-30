@@ -1,0 +1,55 @@
+:host {
+    display: block;
+}
+
+em-editor {
+    font-size: inherit;
+}
+
+@media local {
+    .cmm-tooltip {
+        position: absolute;
+        font-family: arial, sans-serif;
+        max-width: 15em;
+        font-size: 12px;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transform-origin: 50% 100%;
+
+        &-content {
+            padding: 10px;
+            color: #fff;
+            border-radius: 5px;
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        &-tail {
+            position: relative;
+            width: 20px;
+            height: 5px;
+            overflow: hidden;
+
+            &::before {
+                width: 10px;
+                height: 10px;
+                content: '';
+                display: block;
+                position: relative;
+                margin: -7px auto;
+                background: rgba(0, 0, 0, 0.9);
+                transform: rotate(45deg);
+            }
+        }
+    }
+}
+
+@media global {
+    @keyframes show-tooltip {
+        from {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+    }
+}
