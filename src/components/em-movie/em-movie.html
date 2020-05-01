@@ -3,5 +3,6 @@
 <link rel="stylesheet" href="./em-movie.scss" />
 <script src="./em-movie.ts"></script>
 <template>
-    <em-editor {mode} readOnly ref:editor />
+    <button on:click={replay}>Replay</button>
+    <em-editor {mode} {#options} readOnly ref:editor />
 </template>

@@ -1,6 +1,6 @@
 import { Changes } from 'endorphin';
 import { Movie, PlaybackState } from 'codemirror-movie';
-import { EmmetEditor } from '@emmetio/codemirror-plugin';
+import { EmmetEditor, EmmetConfig } from '@emmetio/codemirror-plugin';
 import { EmComponent } from '../../types';
 import { EmEditor } from '../em-editor/em-editor';
 
@@ -13,6 +13,7 @@ interface EmMovieProps {
 interface EmMovieState {
     movie: Movie | null;
     paused: boolean;
+    options: Partial<EmmetConfig>;
 }
 
 interface EmMovieExt {
@@ -27,15 +28,21 @@ export type EmMovie = EmComponent<EmMovieProps, EmMovieState> & EmMovieExt & {
 
 export const events = {
     click(component: EmMovie) {
-        const { movie, paused } = component.state;
-        if (movie) {
-            if (paused) {
-                movie.play();
-            } else {
-                movie.pause();
-            }
+        const { paused } = component.state;
+        if (paused) {
+            component.play();
+        } else {
+            component.pause();
         }
     }
+};
+
+export function state(): EmMovieState {
+    return {
+        movie: null,
+        paused: false,
+        options: { attachPreview }
+    };
 }
 
 export const extend: EmMovieExt = {
@@ -75,4 +82,16 @@ export function didRender(component: EmMovie, { movie }: Changes<EmMovieProps>) 
             component.setState({ movie: null });
         }
     }
+}
+
+export function replay(component: EmMovie) {
+    component.stop();
+    component.play();
+}
+
+function attachPreview(editor: EmmetEditor, preview: HTMLElement, pos: CodeMirror.Position) {
+    const px = editor.cursorCoords(pos, 'local');
+    preview.style.left = `${px.left}px`;
+    preview.style.top = `${px.bottom}px`;
+    editor.getWrapperElement().parentNode!.appendChild(preview);
 }

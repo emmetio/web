@@ -17,12 +17,16 @@ export default function markAbbreviationMovie(editor: EmmetEditor): Movie {
     setupEditor(editor, code);
     return createMovie(editor, scene => [
         scene.type('ul.nav'),
-        scene.tooltip('Underline indicates Emmet captured word as abbreviation', tooltipAnim({ wait: 1000 })),
+        scene.wait(600),
+        scene.tooltip('Underline indicates Emmet captured word as abbreviation', tooltipAnim({ wait: 3000, alignY: 'below' })),
+        scene.wait(600),
         scene.type('>.item'),
-        scene.tooltip('When abbreviation becomes complex (contains more that one element), preview is displayed', tooltipAnim({ wait: 1000 })),
-        scene.type('>span'),
-        scene.tooltip('In marked abbreviation, hit Tab key to expand it', tooltipAnim({ wait: 1000 })),
+        scene.wait(600),
+        scene.tooltip('When abbreviation becomes complex (contains more that one element), preview is displayed', tooltipAnim({ wait: 5000 })),
+        scene.type('*4>span'),
+        scene.wait(600),
+        scene.tooltip('In marked abbreviation, hit <kbd>Tab</kbd> key to expand it, <kbd>Esc</kbd> to clear mark.', tooltipAnim({ wait: 3000 })),
         scene.wait(600),
         scene.run('emmetExpandAbbreviation')
-    ], { beforeDelay: 300 });
+    ], { beforeDelay: 1000 });
 }
