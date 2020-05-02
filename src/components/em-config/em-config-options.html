@@ -10,10 +10,6 @@
 
 <template partial:field field>
     <div class="field">
-        <e:attr
-            on:mouseenter={notify('play-movie', { movie: @field.movie })}
-            on:mouseleave={notify('stop-movie', { movie: @field.movie })}
-            e:if={@field.movie}/>
         <label>
             { @field.label }{' '}
             <e:switch>
@@ -28,6 +24,11 @@
                 </e:case>
             </e:switch>
         </label>
+
+        <span class="play-movie" title="Play demo movie"
+            on:click:stop:prevent={notify('play-movie', { movie: @field.movie })}
+            e:if={@field.movie}>⏯</span>
+
         <p class="comment" e:if={@field.comment}>{{ @field.comment }}</p>
 
         <fieldset disabled={@field.type === 'boolean' && !@field.value} e:if={count(@field.children)}>

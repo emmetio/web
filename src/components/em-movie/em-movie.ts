@@ -21,22 +21,23 @@ interface EmMovieExt {
     play(): void;
     pause(): void;
     stop(): void;
+    replay(): void;
 }
 
 export type EmMovie = EmComponent<EmMovieProps, EmMovieState> & EmMovieExt & {
     refs: { editor: EmEditor }
 };
 
-export const events = {
-    click(component: EmMovie) {
-        const { paused } = component.state;
-        if (paused) {
-            component.play();
-        } else {
-            component.pause();
-        }
-    }
-};
+// export const events = {
+//     click(component: EmMovie) {
+//         const { paused } = component.state;
+//         if (paused) {
+//             component.play();
+//         } else {
+//             component.pause();
+//         }
+//     }
+// };
 
 export function state(): EmMovieState {
     return {
@@ -67,6 +68,10 @@ export const extend: EmMovieExt = {
             movie.stop();
             this.setState({ paused: true });
         }
+    },
+    replay(this: EmMovie) {
+        this.stop();
+        this.play();
     }
 }
 
@@ -92,11 +97,6 @@ export function didRender(component: EmMovie, { movie }: Changes<EmMovieProps>) 
             component.setState({ movie: null });
         }
     }
-}
-
-export function replay(component: EmMovie) {
-    component.stop();
-    component.play();
 }
 
 function attachPreview(editor: EmmetEditor, preview: HTMLElement, pos: CodeMirror.Position) {

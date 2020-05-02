@@ -7,6 +7,7 @@ import { OptionField } from './em-config-options';
 
 import markAbbreviationMovie from '../../movie/mark-abbreviation';
 import showTagPreview from '../../movie/show-tag-preview';
+import { EmMovie } from '../em-movie/em-movie';
 
 type EmConfigSTProps = SublimeTextConfig;
 
@@ -18,7 +19,11 @@ interface EmConfigSTState {
     movie?: MovieFactory | null;
 }
 
-export type EmConfigST = EmComponent<EmConfigSTProps, EmConfigSTState>;
+export type EmConfigST = EmComponent<EmConfigSTProps, EmConfigSTState> & {
+    refs: {
+        movie: EmMovie
+    }
+};
 
 const supportedActions: EmmetAction[] = [
     EmmetAction.Expand,
@@ -97,12 +102,13 @@ export function onReset(component: EmConfigST) {
 }
 
 export function onPlayMovie(component: EmConfigST, evt: CustomEvent) {
-    component.setState({ movie: evt.detail.movie });
-}
-
-export function onStopMovie(component: EmConfigST, evt: CustomEvent) {
-    // TODO Delayed reset
-    // component.setState({ movie: null });
+    const { movie } = evt.detail;
+    if (component.state.movie === movie) {
+        // Setting the same movie: handle as replay request
+        component.refs.movie.replay();
+    } else {
+        component.setState({ movie });
+    }
 }
 
 function createShortcuts(component: EmConfigST): KeyValueList {

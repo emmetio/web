@@ -11,8 +11,7 @@
             form={#optionsForm}
             defaults={#optionsDefaults}
             on:update={e => #options = e.detail}
-            on:play-movie={onPlayMovie}
-            on:stop-movie={onStopMovie} />
+            on:play-movie={onPlayMovie}/>
 
         <em-config-shortcuts
             {#shortcuts}
@@ -24,6 +23,6 @@
         </footer>
     </main>
     <aside>
-        <em-movie mode="text/html" autoplay movie={#movie} e:if={#movie}/>
+        <em-movie mode="text/html" autoplay {#movie} ref:movie e:if={#movie}/>
     </aside>
 </template>
