@@ -1,0 +1,29 @@
+<link rel="import" href="./em-config-options.html" />
+<link rel="import" href="./em-config-shortcuts.html" />
+<link rel="import" href="../em-movie/em-movie.html" />
+
+<link rel="stylesheet" href="./em-config-editor.scss" />
+<script src="./em-config-editor.ts"></script>
+<template>
+    <main>
+        <em-config-options
+            data={#options}
+            form={fields}
+            defaults={defaults.options}
+            on:update={e => #options = e.detail}
+            on:play-movie={onPlayMovie}/>
+
+        <em-config-shortcuts
+            {#shortcuts}
+            on:update={e => #shortcuts = e.detail}
+            e:if={actions}/>
+
+        <footer>
+            <button type="submit" on:click:prevent={onSubmit}>Submit</button>
+            <button type="reset" on:click:prevent={onReset}>Reset</button>
+        </footer>
+    </main>
+    <aside>
+        <em-movie mode="text/html" autoplay {#movie} ref:movie e:if={#movie}/>
+    </aside>
+</template>

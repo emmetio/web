@@ -1,5 +1,5 @@
 import { Store } from 'endorphin';
-import { EmmetMapDiff, EmmetConfig, SnippetsDB, SupportedEditor, SublimeTextConfig } from './types';
+import { EmmetMapDiff, EmmetConfig, SnippetsDB, SupportedEditor, SublimeTextConfig, EditorConfig } from './types';
 
 export interface CommonConfig {
     options?: Partial<EmmetConfig>;
@@ -29,6 +29,27 @@ export default class EmmetStore extends Store<DataModel> {
             commonConfig
         });
 
+        this.flush();
+    }
+
+    updateEditorConfig(editor: SupportedEditor, config: EditorConfig) {
+        const allEditors = this.get().editor;
+        const editorConfig = allEditors && allEditors[editor] || {};
+
+        this.set({
+            ...this.get(),
+            editor: {
+                ...allEditors,
+                [editor]: {
+                    ...editorConfig,
+                    ...config
+                }
+            }
+        });
+        this.flush();
+    }
+
+    private flush() {
         localStorage.setItem('_store', JSON.stringify(this.get()));
     }
 }

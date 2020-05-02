@@ -1,31 +1,23 @@
-import { notify } from 'endorphin/helpers';
-import { SublimeTextConfig, SublimeTextConfigOptions, EmComponent, ConfigFieldType, EmmetAction, EditorShortcuts, MovieFactory } from '../../types';
-import { KeyValueList, keyValueListDiff } from './utils';
-import optionsDefaults from '../../config/sublime-text.json';
-import actionLabels from '../../config/actions.json';
+import { SublimeTextConfig, EmComponent, ConfigFieldType, EmmetAction, SupportedEditor } from '../../types';
 import { OptionField } from './em-config-options';
+import defaults from '../../config/sublime-text.json';
 
 import markAbbreviationMovie from '../../movie/mark-abbreviation';
 import showTagPreview from '../../movie/show-tag-preview';
-import { EmMovie } from '../em-movie/em-movie';
 
-type EmConfigSTProps = SublimeTextConfig;
-
-interface EmConfigSTState {
-    options: Partial<SublimeTextConfigOptions>;
-    optionsForm: OptionField[];
-    optionsDefaults: SublimeTextConfigOptions;
-    shortcuts: KeyValueList;
-    movie?: MovieFactory | null;
+interface EmConfigSTProps {
+    config: SublimeTextConfig;
 }
 
-export type EmConfigST = EmComponent<EmConfigSTProps, EmConfigSTState> & {
-    refs: {
-        movie: EmMovie
-    }
-};
+interface EmConfigSTState {
+    fields: OptionField[];
+    actions: EmmetAction[];
+    defaults: SublimeTextConfig;
+}
 
-const supportedActions: EmmetAction[] = [
+export type EmConfigST = EmComponent<EmConfigSTProps, EmConfigSTState>;
+
+const actions: EmmetAction[] = [
     EmmetAction.Expand,
     EmmetAction.EnterMode,
     EmmetAction.Wrap,
@@ -50,7 +42,7 @@ const supportedActions: EmmetAction[] = [
     EmmetAction.DataURL,
 ];
 
-const optionsForm: OptionField[] = [{
+const fields: OptionField[] = [{
     name: 'auto_mark',
     type: ConfigFieldType.Boolean,
     label: 'Mark abbreviation',
@@ -80,56 +72,11 @@ const optionsForm: OptionField[] = [{
     comment: 'If enabled, calling default “Toggle Comment“ action when nothing is selected will comment entire tag or CSS section instead of current line. If you prefer default Sublime Text behavior, you can add another key binding for Emmet’s Toggle Comment action below.'
 }];
 
-export function willMount(component: EmConfigST) {
-    setupForm(component);
+export function state(): EmConfigSTState {
+    return { fields, actions, defaults };
 }
 
-function setupForm(component: EmConfigST) {
-    component.setState({
-        options: {},
-        optionsDefaults,
-        optionsForm,
-        shortcuts: createShortcuts(component),
-    });
-}
-
-export function onSubmit(component: EmConfigST) {
-    notify(component, 'submit', calculateDiff(component));
-}
-
-export function onReset(component: EmConfigST) {
-    setupForm(component);
-}
-
-export function onPlayMovie(component: EmConfigST, evt: CustomEvent) {
-    const { movie } = evt.detail;
-    if (component.state.movie === movie) {
-        // Setting the same movie: handle as replay request
-        component.refs.movie.replay();
-    } else {
-        component.setState({ movie });
-    }
-}
-
-function createShortcuts(component: EmConfigST): KeyValueList {
-    const { shortcuts } = component.props;
-    return supportedActions.map(action => {
-        return {
-            id: action,
-            key: actionLabels[action],
-            value: shortcuts && shortcuts[action] || ''
-        };
-    });
-}
-
-/**
- * Calculates diff from given component’s state against default values
- */
-function calculateDiff(component: EmConfigST): SublimeTextConfig {
-    const { options, shortcuts } = component.state;
-
-    return {
-        options,
-        shortcuts: keyValueListDiff(shortcuts, {}) as EditorShortcuts
-    };
+export function onSubmit(component: EmConfigST, evt: CustomEvent) {
+    console.log('submit', evt.detail);
+    component.store.updateEditorConfig(SupportedEditor.SublimeText, evt.detail);
 }

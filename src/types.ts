@@ -2,12 +2,13 @@ import { Component } from 'endorphin';
 import { SyntaxType } from 'emmet';
 import { Movie } from 'codemirror-movie';
 import { EmmetEditor } from '@emmetio/codemirror-plugin';
+import Store from './store';
 
 export { SyntaxType } from 'emmet';
 export { EmmetEditor, EmmetEditorOptions } from '@emmetio/codemirror-plugin';
 
 export type MovieFactory = (editor: EmmetEditor) => Movie;
-export type EmComponent<P = any, S = any> = Component<P, S>;
+export type EmComponent<P = any, S = any> = Component<P, S> & { store: Store };
 
 export interface EmmetMap {
     [name: string]: string;
@@ -93,12 +94,7 @@ export interface EmmetConfig {
     shortHex?: boolean;
 }
 
-export interface SublimeTextConfig {
-    /** Editor-specific plugin options */
-    options: Partial<SublimeTextConfigOptions>;
-    /** Action shortcuts */
-    shortcuts: EditorShortcuts;
-}
+export type SublimeTextConfig = EditorConfig<SublimeTextConfigOptions>;
 
 export interface SublimeTextConfigOptions {
     /** Enable abbreviation marking on typing text */
@@ -113,7 +109,14 @@ export interface SublimeTextConfigOptions {
     comment: boolean;
 }
 
-export type EditorShortcuts = { [action in EmmetAction]: string };
+export interface EditorConfig<T = {}> {
+    /** Editor-specific plugin options */
+    options: Partial<T>;
+    /** Action shortcuts */
+    shortcuts: EditorShortcuts;
+}
+
+export type EditorShortcuts = { [action in EmmetAction]?: string };
 
 // Types for configs
 
