@@ -14,6 +14,7 @@ interface EmMovieState {
     movie: Movie | null;
     paused: boolean;
     options: Partial<EmmetConfig>;
+    _editorOptions?: EmmetConfig;
 }
 
 interface EmMovieExt {
@@ -70,9 +71,18 @@ export const extend: EmMovieExt = {
 }
 
 export function didRender(component: EmMovie, { movie }: Changes<EmMovieProps>) {
+    const { editor } = component.refs.editor;
+    if (!component.state._editorOptions) {
+        // @ts-ignore
+        component.state._editorOptions = editor.getOption('emmet');
+    }
+
     if (movie) {
         component.stop();
         if (movie.current) {
+            // Set pristine options before attaching movie
+            // @ts-ignore
+            editor.setOption('emmet', component.state._editorOptions);
             const m = movie.current(component.refs.editor.editor);
             component.setState({ movie: m });
             if (component.props.autoplay) {

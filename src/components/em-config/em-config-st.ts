@@ -4,7 +4,9 @@ import { KeyValueList, keyValueListDiff } from './utils';
 import optionsDefaults from '../../config/sublime-text.json';
 import actionLabels from '../../config/actions.json';
 import { OptionField } from './em-config-options';
+
 import markAbbreviationMovie from '../../movie/mark-abbreviation';
+import showTagPreview from '../../movie/show-tag-preview';
 
 type EmConfigSTProps = SublimeTextConfig;
 
@@ -63,8 +65,9 @@ const optionsForm: OptionField[] = [{
 }, {
     name: 'tag_preview',
     type: ConfigFieldType.Boolean,
-    label: 'Open tag preview',
-    comment: 'When enabled, displays open tag preview when caret is inside closing tag.'
+    label: 'Show tag preview',
+    comment: 'When enabled, displays open tag preview when caret is inside closing tag.',
+    movie: showTagPreview,
 }, {
     name: 'comment',
     type: ConfigFieldType.Boolean,
@@ -94,7 +97,6 @@ export function onReset(component: EmConfigST) {
 }
 
 export function onPlayMovie(component: EmConfigST, evt: CustomEvent) {
-    console.log('set movie', evt.detail.movie);
     component.setState({ movie: evt.detail.movie });
 }
 
