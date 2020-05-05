@@ -664,6 +664,7 @@ strong {
 
 .csn-hex-langs {
 	white-space: nowrap;
+	cursor: pointer;
 }
 
 .csn-hex[data-lang="at"] .csn-hex-wrap { transform: translate(0); }
