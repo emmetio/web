@@ -642,6 +642,45 @@ strong {
 	margin-top: 10px;
 }
 
+.csn-hex {
+	width: 135px;
+	overflow: hidden;
+	font-size: 10px;
+}
+
+.csn-hex-wrap {
+	display: flex;
+	flex-wrap: nowrap;
+	transition: transform 0.5s ease-out;
+	margin-bottom: 5px;
+}
+
+.csn-hex img {
+	width: 131px;
+	height: 46px;
+	background: #fff;
+	padding: 2px;
+}
+
+.csn-hex-langs {
+	white-space: nowrap;
+}
+
+.csn-hex[data-lang="at"] .csn-hex-wrap { transform: translate(0); }
+.csn-hex[data-lang="at"] .csn-hex-lang[data-lang="at"] { font-weight: bold; }
+.csn-hex[data-lang="au"] .csn-hex-wrap { transform: translate(-135px); }
+.csn-hex[data-lang="au"] .csn-hex-lang[data-lang="au"] { font-weight: bold; }
+.csn-hex[data-lang="fi"] .csn-hex-wrap { transform: translate(-270px); }
+.csn-hex[data-lang="fi"] .csn-hex-lang[data-lang="fi"] { font-weight: bold; }
+.csn-hex[data-lang="nl"] .csn-hex-wrap { transform: translate(-405px); }
+.csn-hex[data-lang="nl"] .csn-hex-lang[data-lang="nl"] { font-weight: bold; }
+.csn-hex[data-lang="pl"] .csn-hex-wrap { transform: translate(-540px); }
+.csn-hex[data-lang="pl"] .csn-hex-lang[data-lang="pl"] { font-weight: bold; }
+.csn-hex[data-lang="ro"] .csn-hex-wrap { transform: translate(-675px); }
+.csn-hex[data-lang="ro"] .csn-hex-lang[data-lang="ro"] { font-weight: bold; }
+.csn-hex[data-lang="se"] .csn-hex-wrap { transform: translate(-810px); }
+.csn-hex[data-lang="se"] .csn-hex-lang[data-lang="se"] { font-weight: bold; }
+
 .wb {
 	margin: 20px 0;
 }
