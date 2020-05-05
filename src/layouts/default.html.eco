@@ -85,9 +85,6 @@ js: "/js/main.js"
 					<a href="https://www.bonusfinder.com/it/casino" target="_blank"><img src="/i/bonus-finder.png" alt="BonusFinder" width="135" height="35" /></a>
 				</div>
 				<div class="sponsor__item">
-					<a href="https://www.trustmypaper.com" target="_blank"><img src="/i/trust-my-paper.png" alt="Write my Paper Service" width="135" height="40" /></a>
-				</div>
-				<div class="sponsor__item">
 					<a href="https://writersperhour.com/write-my-paper" target="_blank"><img src="/i/writers-per-hour.png" alt="Writers per hour" width="135" height="40" /></a>
 				</div>
 			</div>
