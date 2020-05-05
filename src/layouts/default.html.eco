@@ -99,13 +99,13 @@ js: "/js/main.js"
 							<a href="https://casinohex.se/online-casinon/"><img src="/i/hex/se.svg" alt="Svenska nätcasinon på CasinoHEX.se"></a>
 						</div>
 						<div class="csn-hex-langs">
-							<a href="https://casinohex.at/online-casinos/" class="csn-hex-lang" data-lang="at">AT</a> |
-							<a href="https://aussiecasinohex.com/online-pokies/real-money/" class="csn-hex-lang" data-lang="au">AU</a> |
-							<a href="https://netticasinohex.com/kasinot/" class="csn-hex-lang" data-lang="fi">FI</a> |
-							<a href="https://onlinecasinohex.nl/blackjack/" class="csn-hex-lang" data-lang="nl">NL</a> |
-							<a href="http://kasynohex.com/kasyna-online/" class="csn-hex-lang" data-lang="pl">PL</a> |
-							<a href="https://casinohex.ro/online-pacanele/cu-septari-777/" class="csn-hex-lang" data-lang="ro">RO</a> |
-							<a href="https://casinohex.se/online-casinon/" class="csn-hex-lang" data-lang="se">SE</a>
+							<span class="csn-hex-lang" data-lang="at">AT</span> |
+							<span class="csn-hex-lang" data-lang="au">AU</span> |
+							<span class="csn-hex-lang" data-lang="fi">FI</span> |
+							<span class="csn-hex-lang" data-lang="nl">NL</span> |
+							<span class="csn-hex-lang" data-lang="pl">PL</span> |
+							<span class="csn-hex-lang" data-lang="ro">RO</span> |
+							<span class="csn-hex-lang" data-lang="se">SE</span>
 						</div>
 					</div>
 					<script>
