@@ -4,6 +4,7 @@ import defaults from '../../config/sublime-text.json';
 
 import markAbbreviationMovie from '../../movie/mark-abbreviation';
 import showTagPreview from '../../movie/show-tag-preview';
+import toggleComment from '../../movie/toggle-comment';
 
 interface EmConfigSTProps {
     config: SublimeTextConfig;
@@ -69,7 +70,8 @@ const fields: OptionField[] = [{
     name: 'comment',
     type: ConfigFieldType.Boolean,
     label: 'Override “Toggle Comment” action',
-    comment: 'If enabled, calling default “Toggle Comment“ action when nothing is selected will comment entire tag or CSS section instead of current line. If you prefer default Sublime Text behavior, you can add another key binding for Emmet’s Toggle Comment action below.'
+    comment: 'If enabled, calling default “Toggle Comment“ action when nothing is selected will comment entire tag or CSS section instead of current line. If you prefer default Sublime Text behavior, you can add another key binding for Emmet’s Toggle Comment action below.',
+    movie: toggleComment
 }];
 
 export function state(): EmConfigSTState {

@@ -29,7 +29,9 @@ aside {
 
     em-movie {
         position: sticky;
-        top: 15px;
+        // More offset required to disable auto-scrolling on animated element
+        // in Chrome (see Wrap With Abbreviation movie)
+        top: 40px;
         display: block;
         font-size: 11px;
     }

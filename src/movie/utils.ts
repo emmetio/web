@@ -1,11 +1,10 @@
 import { SceneTooltipOptions } from 'codemirror-movie/dist/widgets/tooltip';
-import { EmmetEditor } from '../types';
 
 /**
  * Initial editor setup: inserts given text and places caret at the
  * location of `|` character in text
  */
-export function setupEditor(editor: EmmetEditor, code: string) {
+export function setupEditor(editor: CodeMirror.Editor, code: string) {
     let caret = code.length;
     if (code.includes('|')) {
         const parts = code.split('|');

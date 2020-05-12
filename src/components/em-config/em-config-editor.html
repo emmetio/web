@@ -16,6 +16,7 @@
         <em-config-shortcuts
             {#shortcuts}
             on:update={e => #shortcuts = e.detail}
+            on:play-movie={onPlayMovie}
             e:if={actions}/>
 
         <footer>

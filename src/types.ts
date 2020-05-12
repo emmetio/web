@@ -35,7 +35,6 @@ export const enum SupportedEditor {
  */
 export const enum EmmetAction {
     Expand = 'expand',
-    ExpandAll = 'expandAll',
     EnterMode = 'enter',
     Wrap = 'wrap',
     Balance = 'balance',

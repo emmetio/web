@@ -85,10 +85,11 @@
         left: 0;
         z-index: 2;
         width: 100%;
+        animation: emmet-panel-show 0.2s ease-out;
 
         &-wrapper {
             width: 60%;
-            min-width: 100px;
+            min-width: 200px;
             max-width: 500px;
             padding: 10px;
             background: #ffffff;
@@ -201,6 +202,13 @@ ref:error {
 @keyframes show-error {
     from {
         transform: scale(0);
+        opacity: 0;
+    }
+}
+
+@keyframes emmet-panel-show {
+    from {
+        transform: translateY(-100%);
         opacity: 0;
     }
 }
