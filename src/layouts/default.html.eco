@@ -58,6 +58,10 @@ js: "/js/main.js"
 			<p class="donate"><a href="https://www.paypal.me/Chikuyonok" class="btn btn_flat"><i class="text-icon">&#128077;</i> Donate</a></p>
 			-->
 
+			<div class="become-sponsor">
+				<a href="https://opencollective.com/emmet"><em class="btn">Become a sponsor</em> or&nbsp;backer</a>
+			</div>
+
 			<div class="sponsor">
 				<h4 class="sponsor__title">Sponsors:</h4>
 				<div class="sponsor__item">
@@ -108,6 +112,10 @@ js: "/js/main.js"
 							<span class="csn-hex-lang" data-lang="se">SE</span>
 						</div>
 					</div>
+					<div class="sponsor__item">
+						<a href="https://www.norgekasino.com/" target="_blank"><img src="/i/norgekasino.png" alt="Norgekasino" width="110" height="110" /></a>
+					</div>
+					
 					<script>
 						(function() {
 							var delay = 5000;
