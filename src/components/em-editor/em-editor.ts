@@ -40,17 +40,17 @@ export type EmEditor = EmComponent<EmEditorProps, EmEditorState> & EmEditorExten
 const snippetMask = /[a-zA-Z0-9-_$@!:|]/;
 
 export const extend: EmEditorExtend = {
-    get value(this: EmEditor): string {
-        return this.editor ? this.editor.getValue() : '';
+    get value(): string {
+        return (this as EmEditor).editor ? (this as EmEditor).editor.getValue() : '';
     },
 
-    get error(this: EmEditor): ParseError | null {
-        return this.state.error || null;
+    get error(): ParseError | null {
+        return (this as EmEditor).state.error || null;
     },
 
     /** Set focus on current editor field */
-    focus(this: EmEditor) {
-        this.editor.focus();
+    focus() {
+        (this as EmEditor).editor.focus();
     }
 };
 

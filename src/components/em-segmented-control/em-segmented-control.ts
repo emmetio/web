@@ -25,29 +25,29 @@ interface EmSegmentedControlExtend {
 export type EmSegmentedControl = EmComponent<EmSegmentedControlProps, EmSegmentedControlState> & EmSegmentedControlExtend;
 
 export const extend: EmSegmentedControlExtend = {
-    get name(this: EmSegmentedControl) {
-        return this.props.name;
+    get name() {
+        return (this as EmSegmentedControl).props.name;
     },
 
-    get value(this: EmSegmentedControl): string | null {
-        const sel = this.selected;
+    get value(): string | null {
+        const sel = (this as EmSegmentedControl).selected;
         if (sel !== -1) {
-            const value = this.props.items[sel];
+            const value = (this as EmSegmentedControl).props.items[sel];
             return typeof value === 'string' ? value : value.value;
         }
         return null;
     },
 
     set value(val: string | null) {
-        this.selected = val != null ? findIndex(this.props.items, val) : -1;
+        this.selected = val != null ? findIndex((this as EmSegmentedControl).props.items, val) : -1;
     },
 
-    get selected(this: EmSegmentedControl) {
-        return this.state.selected;
+    get selected() {
+        return (this as EmSegmentedControl).state.selected;
     },
 
     set selected(value: number) {
-        this.setState({ selected: value });
+        (this as EmSegmentedControl).setState({ selected: value });
     }
 }
 
