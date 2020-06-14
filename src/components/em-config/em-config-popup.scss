@@ -1,0 +1,42 @@
+:host {
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    max-height: 80vh;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+img {
+    width: 64px;
+    height: 64px;
+    flex: 0;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 20px;
+}
+
+em-tabs {
+    margin: 0 20px;
+}
+
+main {
+    height: 100%;
+    flex: 1 1;
+    padding: 20px 20px 0;
+    overflow: auto;
+}
+
+::slotted(em-config-common),
+::slotted(em-config-editor) {
+    padding: 0 20px;
+}

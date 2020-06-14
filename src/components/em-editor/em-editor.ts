@@ -61,36 +61,8 @@ export function props(): EmEditorProps {
 }
 
 export function didMount(component: EmEditor) {
-    const editor = component.editor = createEditor(component);
-    const valueSlot = getSlot(component, '') as HTMLElement;
-
-    updateEditorOptions(editor, component.props);
-
-    if (valueSlot) {
-        editor.setValue(valueSlot.innerText);
-    }
-
-    component.state._onChange = () => {
-        const error = validate(editor);
-
-        if (error) {
-            const coords = editor.charCoords({ line: 0, ch: error.pos }, 'div');
-            component.setState({
-                error,
-                errPos: coords.left + (coords.right - coords.left) / 2
-            });
-        } else {
-            component.setState({ error: null });
-        }
-
-        notify(component, 'change', { error });
-    };
-
-    editor.on('change', component.state._onChange);
-
-    if (component.props.autofocus) {
-        editor.execCommand('selectAll');
-    }
+    // Init editor before painting since it’s owner component might not be in DOM yet
+    requestAnimationFrame(() => initEditor(component));
 }
 
 export function didChange(component: EmEditor) {
@@ -165,4 +137,37 @@ function updateEditorOptions(editor: EmmetEditor, options: EmEditorProps) {
             editor.setOption(k as keyof CodeMirror.EditorConfiguration, value);
         }
     });
+}
+
+function initEditor(component: EmEditor) {
+    const editor = component.editor = createEditor(component);
+    const valueSlot = getSlot(component, '') as HTMLElement;
+
+    updateEditorOptions(editor, component.props);
+
+    if (valueSlot) {
+        editor.setValue(valueSlot.innerText);
+    }
+
+    component.state._onChange = () => {
+        const error = validate(editor);
+
+        if (error) {
+            const coords = editor.charCoords({ line: 0, ch: error.pos }, 'div');
+            component.setState({
+                error,
+                errPos: coords.left + (coords.right - coords.left) / 2
+            });
+        } else {
+            component.setState({ error: null });
+        }
+
+        notify(component, 'change', { error });
+    };
+
+    editor.on('change', component.state._onChange);
+
+    if (component.props.autofocus) {
+        editor.execCommand('selectAll');
+    }
 }

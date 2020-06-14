@@ -1,0 +1,13 @@
+<link rel="import" href="../em-tabs/em-tabs.html" />
+
+<link rel="stylesheet" href="./em-config-popup.scss" />
+<template>
+    <header>
+        <img src={icon} />
+        <h2><slot name="title"></slot></h2>
+    </header>
+    <em-tabs items={tabs} e:if={tabs}/>
+    <main>
+        <slot></slot>
+    </main>
+</template>

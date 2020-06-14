@@ -114,12 +114,13 @@ export function onVariableRemove(id: number, component: EmConfigCommon) {
     }
 }
 
-export function onSelectSnippetsSection(sectionId: SyntaxType, component: EmConfigCommon) {
+export function onSelectSnippetsSection(component: EmConfigCommon, evt: CustomEvent) {
+    const section = evt.detail as SnippetsSection;
     const sectionList = component.state.snippetsSections;
     const curSection = currentSection(component);
-    if (curSection && curSection.id !== sectionId) {
+    if (curSection && curSection.id !== section.id) {
         component.setState({
-            snippetsSections: sectionList.map(s => ({ ...s, selected: s.id === sectionId }))
+            snippetsSections: sectionList.map(s => ({ ...s, selected: s.id === section.id }))
         });
     }
 }

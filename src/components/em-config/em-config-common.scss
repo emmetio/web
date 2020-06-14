@@ -34,22 +34,6 @@ aside {
     }
 }
 
-ul.tabs {
-    display: flex;
-    list-style-type: none;
-    padding: 0;
+em-tabs {
     margin: 15px 0;
-    justify-content: flex-start;
-    border-bottom: 1px solid #eee;
-
-    li {
-        padding: 4px 8px;
-        font-size: 1.1em;
-        border-bottom: 3px solid transparent;
-        margin-bottom: -3px;
-        cursor: pointer;
-        &.selected {
-            border-color: #000;
-        }
-    }
 }

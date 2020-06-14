@@ -1,6 +1,7 @@
 <link rel="import" href="../em-abbreviation-preview/em-abbreviation-preview.html" />
 <link rel="import" href="./em-config-key-value.html" />
 <link rel="import" href="./em-config-options.html" />
+<link rel="import" href="../em-tabs/em-tabs.html" />
 
 <link rel="stylesheet" href="./em-config-common.scss" />
 <script src="./em-config-common.ts"></script>
@@ -34,11 +35,7 @@
 
         <section class="snippets">
             <h2>Snippets</h2>
-            <ul class="tabs">
-                <e:for-each select={#snippetsSections} key={@value.id}>
-                    <li class:selected={@value.selected} on:click={onSelectSnippetsSection(@value.id)}>{@value.label}</li>
-                </e:for-each>
-            </ul>
+            <em-tabs items={#snippetsSections} on:select-tab={onSelectSnippetsSection}/>
             <e:var section={#snippetsSections[section => section.selected]}/>
 
             <p class="comment" e:if={@section.comment}>{{@section.comment}}</p>

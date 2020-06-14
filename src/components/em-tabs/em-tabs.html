@@ -1,0 +1,11 @@
+<link rel="stylesheet" href="./em-tabs.scss" />
+<template>
+    <ul>
+        <e:for-each select={items} key={@value.id}>
+            <li class:selected={@value.selected} on:click={emit('select-tab', @value)}>
+                {@value.label}
+                <span class="badge" e:if={@value.badge != null}>{@value.badge}</span>
+            </li>
+        </e:for-each>
+    </ul>
+</template>

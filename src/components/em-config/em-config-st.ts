@@ -1,16 +1,21 @@
 import { SublimeTextConfig, EmComponent, ConfigFieldType, EmmetAction, SupportedEditor } from '../../types';
 import { OptionField } from './em-config-options';
+import { Tab } from '../em-tabs/em-tabs';
 import defaults from '../../config/sublime-text.json';
+import { createConfigTabs, onSelectTab } from './lib/config-tabs';
+import { CommonConfig } from '../../store';
 
 import markAbbreviationMovie from '../../movie/mark-abbreviation';
 import showTagPreview from '../../movie/show-tag-preview';
 import toggleComment from '../../movie/toggle-comment';
 
 interface EmConfigSTProps {
-    config: SublimeTextConfig;
+    editor: SublimeTextConfig;
+    common: CommonConfig;
 }
 
 interface EmConfigSTState {
+    tabs: Tab[];
     fields: OptionField[];
     actions: EmmetAction[];
     defaults: SublimeTextConfig;
@@ -74,11 +79,19 @@ const fields: OptionField[] = [{
     movie: toggleComment
 }];
 
-export function state(): EmConfigSTState {
-    return { fields, actions, defaults };
+export function willMount(component: EmConfigST) {
+    const tabs = createConfigTabs(SupportedEditor.SublimeText, component);
+    component.setState({ fields, actions, defaults, tabs });
 }
 
-export function onSubmit(component: EmConfigST, evt: CustomEvent) {
-    console.log('submit', evt.detail);
+export { onSelectTab };
+
+export function onSubmitEditor(component: EmConfigST, evt: CustomEvent) {
+    console.log('submit editor', evt.detail);
     component.store.updateEditorConfig(SupportedEditor.SublimeText, evt.detail);
+}
+
+export function onSubmitCommon(component: EmConfigST, evt: CustomEvent) {
+    console.log('submit common', evt.detail);
+    component.store.updateCommonConfig(evt.detail);
 }

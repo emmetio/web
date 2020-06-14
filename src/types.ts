@@ -8,7 +8,7 @@ export { SyntaxType } from 'emmet';
 export { EmmetEditor, EmmetEditorOptions } from '@emmetio/codemirror-plugin';
 
 export type MovieFactory = (editor: EmmetEditor) => Movie;
-export type EmComponent<P = any, S = any> = Component<P, S> & { store: Store };
+export type EmComponent<P = any, S = any> = Component<P, S, Store>;
 
 export interface EmmetMap {
     [name: string]: string;
@@ -106,6 +106,13 @@ export interface SublimeTextConfigOptions {
     tag_preview: boolean;
     /** Override Toggle Comments action */
     comment: boolean;
+}
+
+export interface ActivationEntry {
+    id: string;
+    created: number;
+    access: number;
+    description: string;
 }
 
 export interface EditorConfig<T = {}> {

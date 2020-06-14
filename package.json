@@ -11,9 +11,9 @@
   "author": "Sergey Chikuyonok <serge.che@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@endorphinjs/rollup-plugin-endorphin": "^0.5.3",
+    "@endorphinjs/rollup-plugin-endorphin": "^0.6.1",
     "@types/codemirror": "0.0.91",
-    "endorphin": "^0.7.4",
+    "endorphin": "^0.8.0",
     "mocha": "^7.2.0",
     "node-sass": "^4.13.1",
     "rollup": "^2.16.0",

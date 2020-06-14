@@ -1,9 +1,45 @@
 <link rel="import" href="./em-config-editor.html" />
+<link rel="import" href="./em-config-popup.html" />
+<link rel="import" href="./em-config-common.html" />
+<link rel="import" href="../em-activate/em-activate.html" />
 
 <style>:host { display: block; }</style>
 <script src="./em-config-st.ts"></script>
 <template>
-    <em-config-editor
-        config={$editor.st} {#fields} {#defaults} {#actions}
-        on:submit={onSubmit}/>
+    <e:var tab={#tabs[tab => tab.selected]}/>
+    <em-config-popup {#tabs} icon="./src/assets/st3.png" on:select-tab={onSelectTab}>
+        <span slot="title">Sublime Text 3</span>
+        <e:switch>
+            <e:case test={@tab.id === 'install'}>
+                <p>To install Emmet plugin for Sublime Text 3 editor:</p>
+                <ol>
+                    <li>In Sublime Text 3 editor, click on <em>Tools > Command Palette...</em> menu item.</li>
+                    <li>In opened dialog, find <em>Package Control: Install Package</em> command and hit <kbd>Enter</kbd> key.</li>
+                    <li>After a list of repositories was loaded, find <em>Emmet</em> package and install it.</li>
+                </ol>
+                <p>Don’t forget to activate installed extension in order to change settings.</p>
+            </e:case>
+            <e:case test={@tab.id === 'activate'}>
+                <em-activate editorId="st">
+                    <ul>
+                        <li>In Sublime Text, click on <em>Tools > Packages > Emmet > Activate extension</em> menu item.</li>
+                        <li>Copy and paste the code below</li>
+                    </ul>
+                </em-activate>
+            </e:case>
+            <e:case test={@tab.id === 'common'}>
+                <em-config-common
+                    options={common.options}
+                    variables={common.variables}
+                    snippets={common.snippets}
+                    on:submit={onSubmitCommon}/>
+            </e:case>
+            <e:case test={@tab.id === 'plugin'}>
+                <em-config-editor
+                    config={editor} {#fields} {#defaults} {#actions}
+                    on:submit={onSubmitEditor}/>
+            </e:case>
+        </e:switch>
+    </em-config-popup>
+
 </template>

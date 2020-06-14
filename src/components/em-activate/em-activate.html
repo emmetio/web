@@ -1,0 +1,11 @@
+<script src="./em-activate.ts"></script>
+<template>
+    <p>In order to update Emmet config in your editor, you must activate it first:</p>
+    <slot></slot>
+    <div class="field">
+        <input name="code" value={#code} readonly />
+        <button class="copy" on:click={copyToClipboard(#code)}>Copy</button>
+    </div>
+
+    <p>Waiting for activation...</p>
+</template>

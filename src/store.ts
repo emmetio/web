@@ -1,5 +1,5 @@
 import { Store } from 'endorphin';
-import { EmmetMapDiff, EmmetConfig, SnippetsDB, SupportedEditor, SublimeTextConfig, EditorConfig } from './types';
+import { EmmetMapDiff, EmmetConfig, SnippetsDB, SupportedEditor, SublimeTextConfig, EditorConfig, ActivationEntry } from './types';
 
 export interface CommonConfig {
     options?: Partial<EmmetConfig>;
@@ -11,6 +11,9 @@ export interface DataModel {
     commonConfig: CommonConfig;
     editor: {
         [SupportedEditor.SublimeText]: SublimeTextConfig;
+    },
+    activation: {
+        [key in SupportedEditor]: ActivationEntry[]
     }
 }
 
@@ -19,7 +22,16 @@ export default class EmmetStore extends Store<DataModel> {
         super();
         const data = localStorage.getItem('_store');
         if (data) {
-            this.set(JSON.parse(data));
+            this.set({
+                ...JSON.parse(data),
+                activation: {
+                    [SupportedEditor.SublimeText]: [{
+                        id: '123456',
+                        access: Date.now(),
+                        created: Date.now() - 24 * 60 * 60 * 1000
+                    }]
+                }
+            });
         }
     }
 

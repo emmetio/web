@@ -14,7 +14,11 @@ export type EmAbbreviationPreview = EmComponent<EmAbbreviationPreviewProps> & {
     }
 }
 
-export function didRender(component: EmAbbreviationPreview) {
+export function didMount(component: EmAbbreviationPreview) {
+    requestAnimationFrame(() => handleAbbrChange(component));
+}
+
+export function didUpdate(component: EmAbbreviationPreview) {
     handleAbbrChange(component);
 }
 
