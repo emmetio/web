@@ -71,15 +71,6 @@ js: "/js/main.js"
 					<a href="https://www.vpsserver.com" target="_blank"><img src="/i/vpsserver.png" alt="VPSServer" width="125" height="30" /></a>
 				</div>
 				<div class="sponsor__item">
-					<a href="https://craftresumes.com/resume-help/" target="_blank"><img src="/i/craft-resumes.png" alt="Professional resume writing help" width="76" height="55" /></a>
-				</div>
-				<!-- <div class="sponsor__item">
-					<a href="https://paperleaf.ca/" target="_blank"><img src="/i/paper-leaf.png" alt="Essay Writer Canada" width="135" height="35" /></a>
-				</div> -->
-				<div class="sponsor__item">
-					<a href="https://edureviewer.com/best-resume-writing-services/" target="_blank"><img src="/i/edu-reviewer.svg" alt="Best resume writing services" width="135" height="39" /></a>
-				</div>
-				<div class="sponsor__item">
 					<a href="https://rapidessay.com/" target="_blank"><img src="/i/rapidessay.png" alt="College Essay Writing Service" width="135" height="44" /></a>
 				</div>
 				<div class="sponsor__item">
