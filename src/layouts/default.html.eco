@@ -107,7 +107,7 @@ js: "/js/main.js"
 						<a href="https://www.norgekasino.com/" target="_blank"><img src="/i/norgekasino.png" alt="Norgekasino" width="110" height="110" /></a>
 					</div>
 					<div class="sponsor__item">
-						<a href="https://raj.bet" target="_blank"><img src="/i/rajbet.png" alt="RajBet" width="270" height="100" /></a>
+						<a href="https://raj.bet" target="_blank"><img src="/i/rajbet.png" alt="RajBet" width="135" height="50" /></a>
 					</div>
 					
 					<script>
