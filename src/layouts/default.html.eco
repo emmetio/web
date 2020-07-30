@@ -111,10 +111,10 @@ js: "/js/main.js"
 					</div>
 
 					<div class="sponsor__item">
-						<a href="https://www.casinotopp.net" target="_blank"><img src="/i/casinotopp.png" alt="Casino Topp" width="100" height="100" /></a>
+						<a href="https://www.casinotopp.net" target="_blank"><img src="/i/casinotopp.png" alt="Casino Topp" width="135" height="35" /></a>
 					</div>
 					<div class="sponsor__item">
-						<a href="https://www.casinotop.com" target="_blank"><img src="/i/casino-top.png" alt="CasinoTop.com" width="100" height="100" /></a>
+						<a href="https://www.casinotop.com" target="_blank"><img src="/i/casino-top.png" alt="CasinoTop.com" width="135" height="35" /></a>
 					</div>
 					
 					<script>
