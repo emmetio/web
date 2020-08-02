@@ -116,6 +116,10 @@ js: "/js/main.js"
 					<div class="sponsor__item">
 						<a href="https://www.casinotop.com" target="_blank"><img src="/i/casino-top.png" alt="CasinoTop.com" width="135" height="35" /></a>
 					</div>
+
+					<div class="sponsor__item">
+						<a href="https://ats.io" target="_blank"><img src="/i/ats.png" alt="Leading Sports Betting website focusing on the US sports market" width="135" height="35" /></a>
+					</div>
 					
 					<script>
 						(function() {
