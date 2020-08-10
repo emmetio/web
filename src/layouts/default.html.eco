@@ -77,13 +77,13 @@ js: "/js/main.js"
 					<a href="https://essaysmatch.com/pay-for-essay/" target="_blank"><img src="/i/essaysmatch.png" alt="Pay for essay" width="135" height="37" /></a>
 				</div>
 				<div class="sponsor__item">
-					<a href="https://www.bonusfinder.com/it/casino" target="_blank"><img src="/i/bonus-finder.png" alt="BonusFinder" width="135" height="35" /></a>
-				</div>
-				<div class="sponsor__item">
 					<a href="https://writersperhour.com/write-my-paper" target="_blank"><img src="/i/writers-per-hour.png" alt="Writers per hour" width="135" height="40" /></a>
 				</div>
 				<div class="sponsor__item">
 					<a href="https://papersowl.com/write-my-essay-please" target="_blank"><img src="/i/papersowl.png" alt="Write my essay" width="135" height="40" /></a>
+				</div>
+				<div class="sponsor__item">
+					<a href="https://www.bonusfinder.com/it/casino" target="_blank"><img src="/i/bonus-finder.png" alt="BonusFinder" width="135" height="35" /></a>
 				</div>
 				<div class="sponsor__item">
 					<div class="csn-hex" data-lang="at">
