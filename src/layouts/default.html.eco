@@ -127,6 +127,10 @@ js: "/js/main.js"
 					<div class="sponsor__item">
 						<a href="https://www.baocasino.com/" target="_blank"><img src="/i/baocasino.png" alt="The best online casino in Australia for real money" width="100" height="100" /></a>
 					</div>
+
+					<div class="sponsor__item">
+						<a href="https://jp.slotsup.com/onrain-kajino" target="_blank"><img src="/i/slotsup.png" alt="SlotsUpのネットカジノ評価" width="135" height="50" /></a>
+					</div>
 					
 					<script>
 						(function() {
