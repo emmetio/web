@@ -131,6 +131,10 @@ js: "/js/main.js"
 					<div class="sponsor__item">
 						<a href="https://jp.slotsup.com/onrain-kajino" target="_blank"><img src="/i/slotsup.png" alt="SlotsUpのネットカジノ評価" width="135" height="50" /></a>
 					</div>
+
+					<div class="sponsor__item">
+						<a href="https://hollandsegokken" target="_blank"><img src="/i/hollandsegokken.png" alt="Probeer onze nieuwe casino’s, voor het beste resultaat!" width="135" height="50" /></a>
+					</div>
 					
 					<script>
 						(function() {
