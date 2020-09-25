@@ -64,9 +64,6 @@ js: "/js/main.js"
 
 			<div class="sponsor">
 				<h4 class="sponsor__title">Sponsors:</h4>
-				<div class="sponsor__item">
-					<a href="https://edubirdie.com/" target="_blank"><img src="/i/edubirdie.png" alt="Essay writing service Edu Birdie" width="135" height="40" /></a>
-				</div>
 				<div class="sponsor__item" style="margin-left:-9px">
 					<a href="https://www.vpsserver.com" target="_blank"><img src="/i/vpsserver.png" alt="VPSServer" width="125" height="30" /></a>
 				</div>
