@@ -24,7 +24,7 @@ jobs:
       env:
         SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
         ARGS: "-azO --stats"
-        SOURCE: "./out/"
+        SOURCE: "out/"
         REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
         REMOTE_USER: ${{ secrets.REMOTE_USER }}
         TARGET: ${{ secrets.REMOTE_TARGET }}
