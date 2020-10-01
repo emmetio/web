@@ -23,7 +23,7 @@ jobs:
       uses: easingthemes/ssh-deploy@v2.1.5
       env:
         SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
-        ARGS: "-azO --stats"
+        ARGS: "-azO --stats --no-perms"
         SOURCE: "out/"
         REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
         REMOTE_USER: ${{ secrets.REMOTE_USER }}
