@@ -131,6 +131,9 @@ js: "/js/main.js"
 					<div class="sponsor__item">
 						<a href="https://www.newcasinosites.me.uk/" target="_blank"><img src="/i/newcasino.png" alt="NewCasinoSites" width="135" height="35" /></a>
 					</div>
+					<div class="sponsor__item">
+						<a href="https://masonslots.com/" target="_blank"><img src="/i/masonslots.png" alt="MasonSlots Online casino" width="135" height="60" /></a>
+					</div>
 					
 					<script>
 						(function() {
