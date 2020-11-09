@@ -93,14 +93,19 @@ js: "/js/main.js"
 				</div>
 				<div class="sponsor__item">
 					<div class="csn-hex" data-lang="at">
-						<div class="csn-hex-wrap">
-							<a href="https://casinohex.at/online-casinos/"><img src="/i/hex/at.svg" alt="Bei CasinoHEX.at auf die vollste Online Casino Liste zugreifen"></a>
-							<a href="https://aussiecasinohex.com/online-pokies/real-money/"><img src="/i/hex/au.svg" alt="AussieCasinoHEX.com"></a>
-							<a href="https://netticasinohex.com/kasinot/"><img src="/i/hex/fi.svg" alt="parhaat casinot NettiCasinoHEX.com"></a>
-							<a href="https://onlinecasinohex.nl/blackjack/"><img src="/i/hex/nl.svg" alt="Beste Online Blackjack Sites op OnlineCasinoHEX.nl"></a>
-							<a href="http://kasynohex.com/kasyna-online/"><img src="/i/hex/pl.svg" alt="Kasyno Polska online - KasynoHEX.com"></a>
-							<a href="https://casinohex.ro/online-pacanele/cu-septari-777/"><img src="/i/hex/ro.svg" alt="Încearcă jocuri ca la aparate 77777 pe CasinoHEX.ro"></a>
-							<a href="https://casinohex.se/online-casinon/"><img src="/i/hex/se.svg" alt="Svenska nätcasinon på CasinoHEX.se"></a>
+						<div class="csn-hex-images">
+							<div class="csn-hex-wrap">
+								<a href="https://casinohex.at/online-casinos/"><img src="/i/hex/at.svg" alt="Bei CasinoHEX.at auf die vollste Online Casino Liste zugreifen"></a>
+								<a href="https://aussiecasinohex.com/online-pokies/real-money/"><img src="/i/hex/au.svg" alt="AussieCasinoHEX.com"></a>
+								<a href="https://netticasinohex.com/"><img src="/i/hex/fi.svg" alt="NettiCasinoHEX.com"></a>
+								<a href="https://onlinecasinohex.nl/"><img src="/i/hex/nl.svg" alt="OnlineCasinoHEX.nl"></a>
+								<a href="http://kasynohex.com/kasyna-online/"><img src="/i/hex/pl.svg" alt="Kasyno Polska online - KasynoHEX.com"></a>
+								<a href="https://casinohex.se/online-casinon/"><img src="/i/hex/se.svg" alt="CasinoHEX.se"></a>
+								<a href="https://casinohex.co.za/online-casinos/real-money/"><img src="/i/hex/za.png" alt="CasinoHEX.co.za"></a>
+								<a href="https://swisscasinohex.com/online-casinos/handy-zahlung/"><img src="/i/hex/za.png" alt="SwissCasinoHEX.com"></a>
+								<a href="https://casinohex.in/online-casinos/real-money/"><img src="/i/hex/za.png" alt="CasinoHEX India"></a>
+								<a href="https://irishcasinohex.com/casino-bonuses/no-deposit/"><img src="/i/hex/za.png" alt="IrishCasinoHEX"></a>
+							</div>
 						</div>
 						<div class="csn-hex-langs">
 							<span class="csn-hex-lang" data-lang="at">AT</span> |
@@ -108,8 +113,11 @@ js: "/js/main.js"
 							<span class="csn-hex-lang" data-lang="fi">FI</span> |
 							<span class="csn-hex-lang" data-lang="nl">NL</span> |
 							<span class="csn-hex-lang" data-lang="pl">PL</span> |
-							<span class="csn-hex-lang" data-lang="ro">RO</span> |
-							<span class="csn-hex-lang" data-lang="se">SE</span>
+							<span class="csn-hex-lang" data-lang="se">SE</span> |
+							<span class="csn-hex-lang" data-lang="za">ZA</span> |
+							<span class="csn-hex-lang" data-lang="cn">CN</span> |
+							<span class="csn-hex-lang" data-lang="in">IN</span> |
+							<span class="csn-hex-lang" data-lang="ie">IE</span>
 						</div>
 					</div>
 					<div class="sponsor__item">

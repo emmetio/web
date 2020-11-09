@@ -659,8 +659,6 @@ strong {
 }
 
 .csn-hex {
-	width: 135px;
-	overflow: hidden;
 	font-size: 10px;
 }
 
@@ -669,6 +667,11 @@ strong {
 	flex-wrap: nowrap;
 	transition: transform 0.5s ease-out;
 	margin-bottom: 5px;
+}
+
+.csn-hex-images {
+	width: 135px;
+	overflow: hidden;
 }
 
 .csn-hex img {
@@ -693,10 +696,16 @@ strong {
 .csn-hex[data-lang="nl"] .csn-hex-lang[data-lang="nl"] { font-weight: bold; }
 .csn-hex[data-lang="pl"] .csn-hex-wrap { transform: translate(-540px); }
 .csn-hex[data-lang="pl"] .csn-hex-lang[data-lang="pl"] { font-weight: bold; }
-.csn-hex[data-lang="ro"] .csn-hex-wrap { transform: translate(-675px); }
-.csn-hex[data-lang="ro"] .csn-hex-lang[data-lang="ro"] { font-weight: bold; }
-.csn-hex[data-lang="se"] .csn-hex-wrap { transform: translate(-810px); }
+.csn-hex[data-lang="se"] .csn-hex-wrap { transform: translate(-675px); }
 .csn-hex[data-lang="se"] .csn-hex-lang[data-lang="se"] { font-weight: bold; }
+.csn-hex[data-lang="za"] .csn-hex-wrap { transform: translate(-810px); }
+.csn-hex[data-lang="za"] .csn-hex-lang[data-lang="za"] { font-weight: bold; }
+.csn-hex[data-lang="cn"] .csn-hex-wrap { transform: translate(-945px); }
+.csn-hex[data-lang="cn"] .csn-hex-lang[data-lang="cn"] { font-weight: bold; }
+.csn-hex[data-lang="in"] .csn-hex-wrap { transform: translate(-1080px); }
+.csn-hex[data-lang="in"] .csn-hex-lang[data-lang="in"] { font-weight: bold; }
+.csn-hex[data-lang="ie"] .csn-hex-wrap { transform: translate(-1215px); }
+.csn-hex[data-lang="ie"] .csn-hex-lang[data-lang="ie"] { font-weight: bold; }
 
 .wb {
 	margin: 20px 0;
