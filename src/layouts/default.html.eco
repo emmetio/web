@@ -151,6 +151,9 @@ js: "/js/main.js"
 					<div class="sponsor__item">
 						<a href="https://www.casinoutanlicens.io/" target="_blank"><img src="/i/casino-utan.png" alt="Casino utan svensk licens" width="135" height="50" /></a>
 					</div>
+					<div class="sponsor__item">
+						<a href="https://www.realtimecommunicationsworld.com/" target="_blank"><img src="/i/rtc.png" alt="Real Time Communications World" width="135" height="42" /></a>
+					</div>
 					
 					<script>
 						(function() {
