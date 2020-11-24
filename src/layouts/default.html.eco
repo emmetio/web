@@ -160,6 +160,16 @@ js: "/js/main.js"
 					<div class="sponsor__item">
 						<a href="https://www.realtimecommunicationsworld.com/" target="_blank"><img src="/i/rtc.png" alt="Real Time Communications World" width="135" height="42" /></a>
 					</div>
+
+					<div class="sponsor__item">
+						<a href="https://casino-truc-tuyen.com/" target="_blank"><img src="/i/truc-tuen.png" alt="casino trực tuyến" width="135" height="40" /></a>
+					</div>
+					<div class="sponsor__item">
+						<a href="https://bettingsitesonline.in/" target="_blank"><img src="/i/betting-sites.png" alt="Betting Sites Online" width="135" height="20" /></a>
+					</div>
+					<div class="sponsor__item">
+						<a href="https://juegos-casino.com.mx/" target="_blank"><img src="/i/juegos-casino.png" alt="Juegos de Casino" width="135" height="32" /></a>
+					</div>
 					
 					<script>
 						(function() {
