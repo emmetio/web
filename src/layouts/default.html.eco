@@ -86,6 +86,9 @@ js: "/js/main.js"
 					<a href="https://thewordpoint.com/services/certified" target="_blank"><img src="/i/word-point.png" alt="TheWordPoint" width="135" height="35" /></a>
 				</div>
 				<div class="sponsor__item">
+					<a href="https://www.coupons4printing.com" target="_blank"><img src="/i/coupons4printing.png" alt="Coupons For Printing" width="135" height="40" /></a>
+				</div>
+				<div class="sponsor__item">
 					<a href="https://goread.io/buy-instagram-followers" target="_blank"><img src="/i/goread.png" alt="Buy Instagram Followers" width="135" height="40" /></a>
 				</div>
 				<div class="sponsor__item">
