@@ -173,6 +173,10 @@ js: "/js/main.js"
 					<div class="sponsor__item">
 						<a href="https://juegos-casino.com.mx/" target="_blank"><img src="/i/juegos-casino.png" alt="Juegos de Casino" width="135" height="32" /></a>
 					</div>
+
+					<div class="sponsor__item">
+						<a href="https://indiagamblers.com" target="_blank"><img src="/i/india-gamblers.png" alt="Your complete guide to online casino and betting in India" width="135" height="44" /></a>
+					</div>
 					
 					<script>
 						(function() {
