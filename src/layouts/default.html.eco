@@ -197,6 +197,10 @@ js: "/js/main.js"
 						<a href="https://premiumjane.com/" target="_blank"><img src="/i/premium-jane.png" alt="Premium Jane" width="83" height="100" /></a>
 					</div>
 
+					<div class="sponsor__item">
+						<a href="http://nettlaane1.com" target="_blank"><img src="/i/nettlaane1.png" alt="Nettlaane1" width="135" height="41" /></a>
+					</div>
+
 					<script>
 						(function() {
 							var delay = 5000;
