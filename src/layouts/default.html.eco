@@ -201,6 +201,10 @@ js: "/js/main.js"
 						<a href="http://nettlaane1.com" target="_blank"><img src="/i/nettlaane1.png" alt="Nettlaane1" width="135" height="41" /></a>
 					</div>
 
+					<div class="sponsor__item">
+						<a href="https://casino-wise.com/" target="_blank"><img src="/i/casino-wise.png" alt="The UK’s number one place for all things GamStop." width="135" height="40" /></a>
+					</div>
+
 					<script>
 						(function() {
 							var delay = 5000;
