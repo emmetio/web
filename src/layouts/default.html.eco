@@ -205,6 +205,10 @@ js: "/js/main.js"
 						<a href="https://casino-wise.com/" target="_blank"><img src="/i/casino-wise.png" alt="The UK’s number one place for all things GamStop." width="135" height="40" /></a>
 					</div>
 
+					<div class="sponsor__item">
+						<a href="https://anbefaltcasino.com/" target="_blank"><img src="/i/sponsors/anbefalt-casino.png" alt="Norges beste anbefalte casinoer og casino bonus" width="135" height="35" /></a>
+					</div>
+
 					<script>
 						(function() {
 							var delay = 5000;
