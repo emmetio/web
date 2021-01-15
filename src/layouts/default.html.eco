@@ -207,6 +207,9 @@ js: "/js/main.js"
 					<div class="sponsor__item">
 						<a href="https://www.favorit.com.ua/ru/bets/" target="_blank"><img src="/i/sponsors/favorit-sport.png" alt="Ставки на спорт" width="135" height="35" /></a>
 					</div>
+					<div class="sponsor__item">
+						<a href="https://casinority.com/au/" target="_blank"><img src="/i/sponsors/casinority.png" alt="Best online casino guide for Australian players" width="135" height="30" /></a>
+					</div>
 
 					<script>
 						(function() {
