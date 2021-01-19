@@ -210,6 +210,9 @@ js: "/js/main.js"
 					<div class="sponsor__item">
 						<a href="https://casinority.com/au/" target="_blank"><img src="/i/sponsors/casinority.png" alt="Best online casino guide for Australian players" width="135" height="30" /></a>
 					</div>
+					<div class="sponsor__item">
+						<a href="https://realcasinoscanada.com/" target="_blank"><img src="/i/sponsors/realcasinoscanada.png" alt="Your guide to the world of Canadian online gambling" width="135" height="35" /></a>
+					</div>
 
 					<script>
 						(function() {
