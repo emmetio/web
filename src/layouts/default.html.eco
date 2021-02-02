@@ -74,7 +74,7 @@ js: "/js/main.js"
 					<a href="https://rapidessay.com/" target="_blank"><img src="/i/rapidessay.png" alt="College Essay Writing Service" width="135" height="44" /></a>
 				</div>
 				<div class="sponsor__item">
-					<a href="https://essaysmatch.com/pay-for-essay/" target="_blank"><img src="/i/essaysmatch.png" alt="Pay for essay" width="135" height="37" /></a>
+					<a href="https://essaysmatch.com" target="_blank"><img src="/i/essaysmatch.png" alt="Pay for essay" width="135" height="37" /></a>
 				</div>
 				<div class="sponsor__item">
 					<a href="https://writersperhour.com/write-my-paper" target="_blank"><img src="/i/writers-per-hour.png" alt="Writers per hour" width="135" height="40" /></a>
