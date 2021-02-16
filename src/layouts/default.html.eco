@@ -95,6 +95,9 @@ js: "/js/main.js"
 					<a href="https://www.simplygram.com/" target="_blank"><img src="/i/simplygram.png" alt="Organic Instagram growth service - SimplyGram" width="135" height="37" /></a>
 				</div>
 				<div class="sponsor__item">
+					<a href="https://www.leoboost.com/" target="_blank"><img src="/i/sponsors/leoboost.png" alt="LeoBoost" width="135" height="35" /></a>
+				</div>
+				<div class="sponsor__item">
 					<a href="https://www.bonusfinder.com/it/casino" target="_blank"><img src="/i/bonus-finder.png" alt="BonusFinder" width="135" height="35" /></a>
 				</div>
 				<div class="sponsor__item">
