@@ -223,6 +223,9 @@ js: "/js/main.js"
 					<div class="sponsor__item">
 						<a href="https://casinoonline.com.ph/" target="_blank"><img src="/i/sponsors/casinoonlineph.png" alt="Casino Online" width="135" height="30" /></a>
 					</div>
+					<div class="sponsor__item">
+						<a href="https://www.auscasinos.com/" target="_blank"><img src="/i/sponsors/auscasinos.png" alt="AusCasinos" width="135" height="30" /></a>
+					</div>
 
 					<script>
 						(function() {
