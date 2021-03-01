@@ -101,6 +101,9 @@ js: "/js/main.js"
 					<a href="https://poprey.com" target="_blank"><img src="/i/sponsors/poprey.png" alt="Buy Instagram Links" width="135" height="40" /></a>
 				</div>
 				<div class="sponsor__item">
+					<a href="https://krootez.com" target="_blank"><img src="/i/sponsors/krootez.png" alt="Krootez" width="135" height="30" /></a>
+				</div>
+				<div class="sponsor__item">
 					<a href="https://www.bonusfinder.com/it/casino" target="_blank"><img src="/i/bonus-finder.png" alt="BonusFinder" width="135" height="35" /></a>
 				</div>
 				<div class="sponsor__item">
