@@ -143,9 +143,6 @@ js: "/js/main.js"
 					</div>
 
 					<div class="sponsor__item">
-						<a href="https://www.casinotopp.net" target="_blank"><img src="/i/casinotopp.png" alt="Casino Topp" width="135" height="35" /></a>
-					</div>
-					<div class="sponsor__item">
 						<a href="https://www.casinotop.com" target="_blank"><img src="/i/casino-top.png" alt="CasinoTop.com" width="135" height="35" /></a>
 					</div>
 
@@ -189,10 +186,6 @@ js: "/js/main.js"
 
 					<div class="sponsor__item">
 						<a href="https://1800garagedoors.com" target="_blank"><img src="/i/garage-door.png" alt="Garage Door Repair in Toronto" width="135" height="30" /></a>
-					</div>
-
-					<div class="sponsor__item">
-						<a href="http://nettlaane1.com" target="_blank"><img src="/i/nettlaane1.png" alt="Nettlaane1" width="135" height="41" /></a>
 					</div>
 
 					<div class="sponsor__item">
