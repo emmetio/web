@@ -68,7 +68,7 @@ js: "/js/main.js"
 					<a href="https://www.vpsserver.com" target="_blank"><img src="/i/vpsserver.png" alt="VPSServer" width="125" height="30" /></a>
 				</div>
 				<div class="sponsor__item">
-					<a href="https://store.ramotion.com/blog/" target="_blank"><img src="/i/ramotion.png" alt="Ramotion Store Blog" width="135" height="35" /></a>
+					<a href="https://store.ramotion.com/blog/" target="_blank"><img src="/i/sponsors/ramotion.png" alt="Ramotion Store Blog" width="135" height="35" /></a>
 				</div>
 				<div class="sponsor__item">
 					<a href="https://rapidessay.com/" target="_blank"><img src="/i/rapidessay.png" alt="College Essay Writing Service" width="135" height="44" /></a>
