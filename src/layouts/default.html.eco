@@ -232,6 +232,9 @@ js: "/js/main.js"
 					<div class="sponsor__item">
 						<a href="https://www.casinoroyale.es/nuevos-casinos/" target="_blank"><img src="/i/sponsors/casinoroyale.png" alt="CasinoRoyale" width="135" height="30" /></a>
 					</div>
+					<div class="sponsor__item">
+						<a href="https://www.bitcoinbuster.com/ethereum-casino/" target="_blank"><img src="/i/sponsors/bitcoinbuster.png" alt="Bitcoinbuster.com Ethereum Gambling" width="135" height="36" /></a>
+					</div>
 
 					<script>
 						(function() {
