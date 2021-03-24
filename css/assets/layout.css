@@ -642,6 +642,17 @@ strong {
 	margin-top: 10px;
 }
 
+.sponsor__item_text {
+	border: 1px solid #bfe394;
+	padding: 5px;
+	text-align: center;
+	width: 123px;
+}
+
+.sponsor__item_text a {
+	text-decoration: none;
+}
+
 .become-sponsor {
 	margin: 10px 0;
 	text-align: center;
