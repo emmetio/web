@@ -241,6 +241,9 @@ js: "/js/main.js"
 					<div class="sponsor__item sponsor__item_text">
 						<a href="https://casinoutanspelpauslicens.se/" target="_blank">Casino Utan Spelpaus</a>
 					</div>
+					<div class="sponsor__item">
+						<a href="https://casino.guide/" target="_blank"><img src="/i/sponsors/casino-guide.png" alt="Casino.Guide" width="135" height="50" /></a>
+					</div>
 
 					<script>
 						(function() {
