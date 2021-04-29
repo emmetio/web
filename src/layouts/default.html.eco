@@ -256,6 +256,9 @@ js: "/js/main.js"
 					<div class="sponsor__item">
 						<a href="https://ufa96bet.com/" target="_blank"><img src="/i/sponsors/ufa96.png" alt="ufabet" width="135" height="35" /></a>
 					</div>
+					<div class="sponsor__item">
+						<a href="https://slot-xo888.com/" target="_blank"><img src="/i/sponsors/slotxo.jpg" alt="SLOTXO" width="135" height="35" /></a>
+					</div>
 
 					<script>
 						(function() {
