@@ -262,6 +262,9 @@ js: "/js/main.js"
 					<div class="sponsor__item">
 						<a href="https://slot-xo888.com/" target="_blank"><img src="/i/sponsors/slotxo.jpg" alt="SLOTXO" width="135" height="35" /></a>
 					</div>
+					<div class="sponsor__item">
+						<a href="https://cryptocasinos.com" target="_blank"><img src="/i/sponsors/cryptocasinos.png" alt="CryptoCasinos" width="135" height="30" /></a>
+					</div>
 
 					<script>
 						(function() {
