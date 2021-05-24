@@ -266,6 +266,10 @@ js: "/js/main.js"
 						<a href="https://cryptocasinos.com" target="_blank"><img src="/i/sponsors/cryptocasinos.png" alt="CryptoCasinos" width="135" height="30" /></a>
 					</div>
 
+					<div class="sponsor__item">
+						<a href="https://veikkausbonukset.com/" target="_blank"><img src="/i/sponsors/veikkausbonukset.png" alt="veikkausbonukset.com" width="135" height="30" /></a>
+					</div>
+
 					<script>
 						(function() {
 							var delay = 5000;
