@@ -86,9 +86,6 @@ js: "/js/main.js"
 					<a href="https://papersowl.com/write-my-essay-please" target="_blank"><img src="/i/papersowl.png" alt="Write my essay" width="135" height="40" /></a>
 				</div>
 				<div class="sponsor__item">
-					<a href="https://paperell.com/buy-research-papers" target="_blank"><img src="/i/sponsors/paperell.png" alt="" width="135" height="35" /></a>
-				</div>
-				<div class="sponsor__item">
 					<a href="https://thewordpoint.com/services/certified" target="_blank"><img src="/i/word-point.png" alt="TheWordPoint" width="135" height="35" /></a>
 				</div>
 				<div class="sponsor__item">
@@ -108,9 +105,6 @@ js: "/js/main.js"
 				</div>
 				<div class="sponsor__item">
 					<a href="https://krootez.com" target="_blank"><img src="/i/sponsors/krootez.png" alt="Krootez" width="135" height="30" /></a>
-				</div>
-				<div class="sponsor__item">
-					<a href="https://speedypaper.com" target="_blank"><img src="/i/sponsors/speedy-paper.png" alt="SpeedyPaper" width="135" height="35" /></a>
 				</div>
 				<div class="sponsor__item">
 					<a href="https://soothingrelaxation.com" target="_blank"><img src="/i/sponsors/soothing-relaxation.png" alt="Relaxing music and beautiful nature" width="135" height="30" /></a>
@@ -207,11 +201,6 @@ js: "/js/main.js"
 					<div class="sponsor__item">
 						<a href="https://non-gamstop-casinos.com/" target="_blank"><img src="/i/non-gamstop-casinos-logo.png" alt="Casinos and slots not on Gamstop at Non-Gamstop-Casinos.com" width="135" height="40" /></a>
 					</div>
-
-					<div class="sponsor__item">
-						<a href="https://1800garagedoors.com" target="_blank"><img src="/i/garage-door.png" alt="Garage Door Repair in Toronto" width="135" height="30" /></a>
-					</div>
-
 					<div class="sponsor__item">
 						<a href="https://premiumjane.com/" target="_blank"><img src="/i/premium-jane.png" alt="Premium Jane" width="83" height="100" /></a>
 					</div>
