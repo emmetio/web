@@ -180,6 +180,10 @@ js: "/js/main.js"
 					</div>
 
 					<div class="sponsor__item">
+						<a href="https://www.casinotopp.net/sv/" target="_blank"><img src="/i/sponsors/casinotopp.png" alt="casino utan svensk licens" width="135" height="35" /></a>
+					</div>
+
+					<div class="sponsor__item">
 						<a href="https://jp.slotsup.com/onrain-kajino" target="_blank"><img src="/i/slotsup.png" alt="SlotsUpのネットカジノ評価" width="135" height="50" /></a>
 					</div>
 
