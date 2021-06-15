@@ -112,6 +112,14 @@ js: "/js/main.js"
 				<div class="sponsor__item">
 					<a href="https://writepaperfor.me" target="_blank"><img src="/i/sponsors/writepaper-for-me.png" alt="Write my paper for me" width="135" height="30" /></a>
 				</div>
+
+				
+				<% if @document.url == '/index.html': %>
+					<div class="sponsor__item">
+						<a href="https://www.bestcasinosites.net/new-zealand/" target="_blank"><img src="/i/sponsors/bestcasinosites.jpg" alt="Logo of www.bestcasinosites.net/new-zealand/" width="135" height="35" /></a>
+					</div>
+				<% end %>
+				
 				<div class="sponsor__item">
 					<a href="https://soothingrelaxation.com" target="_blank"><img src="/i/sponsors/soothing-relaxation.png" alt="Relaxing music and beautiful nature" width="135" height="30" /></a>
 				</div>
@@ -124,12 +132,6 @@ js: "/js/main.js"
 				<div class="sponsor__item">
 					<a href="https://www.youtube.com/watch?v=CATw_gI1QoM" target="_blank"><img src="/i/sponsors/elenkina.png" alt="youtube.com" width="135" height="30" /></a>
 				</div>
-
-				<% if @document.url == '/index.html': %>
-					<div class="sponsor__item">
-						<a href="https://www.bestcasinosites.net/new-zealand/" target="_blank"><img src="/i/sponsors/bestcasinosites.jpg" alt="Logo of www.bestcasinosites.net/new-zealand/" width="135" height="35" /></a>
-					</div>
-				<% end %>
 
 				<div class="sponsor__item">
 					<a href="https://casinoohnelizenzdeutschland.com" target="_blank"><img src="/i/sponsors/casino-ohne-lizenz.png" alt="casinoohnelizenzdeutschland.com" width="135" height="35" /></a>
