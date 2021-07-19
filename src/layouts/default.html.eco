@@ -89,6 +89,9 @@ js: "/js/main.js"
 					<a href="https://www.coupons4printing.com" target="_blank"><img src="/i/coupons4printing.png" alt="Coupons For Printing" width="135" height="40" /></a>
 				</div>
 				<div class="sponsor__item">
+					<a href="https://skweezer.net/buy-instagram-followers" target="_blank"><img src="/i/sponsors/skweezer.png" alt="visit Skweezer to buy Instagram followers" width="135" height="30" /></a>
+				</div>
+				<div class="sponsor__item">
 					<a href="https://goread.io/buy-instagram-followers" target="_blank"><img src="/i/goread.png" alt="Buy Instagram Followers" width="135" height="40" /></a>
 				</div>
 				<div class="sponsor__item">
@@ -119,9 +122,6 @@ js: "/js/main.js"
 				
 				<div class="sponsor__item">
 					<a href="https://soothingrelaxation.com" target="_blank"><img src="/i/sponsors/soothing-relaxation.png" alt="Relaxing music and beautiful nature" width="135" height="30" /></a>
-				</div>
-				<div class="sponsor__item">
-					<a href="https://skweezer.net/buy-instagram-followers" target="_blank"><img src="/i/sponsors/skweezer.png" alt="Buy Instagram Followers" width="135" height="30" /></a>
 				</div>
 				<div class="sponsor__item">
 					<a href="https://www.youtube.com/watch?v=CATw_gI1QoM" target="_blank"><img src="/i/sponsors/elenkina.png" alt="youtube.com" width="135" height="30" /></a>
