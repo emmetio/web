@@ -107,6 +107,9 @@ js: "/js/main.js"
 					<a href="https://www.carhp.com" target="_blank"><img src="/i/sponsors/carhp.png" alt="Car buying, simplified" width="135" height="30" /></a>
 				</div>
 				<div class="sponsor__item">
+					<a href="https://zouton.com" target="_blank"><img src="/i/sponsors/zouton.png" alt="Find the best deals today in USA" width="135" height="30" /></a>
+				</div>
+				<div class="sponsor__item">
 					<a href="https://www.vpntopp.no/" target="_blank"><img src="/i/sponsors/vpntopp.png" alt="VPNtopp.no is Norways biggest VPN information site" width="135" height="30" /></a>
 				</div>
 				<div class="sponsor__item">
