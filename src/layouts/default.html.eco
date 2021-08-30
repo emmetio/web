@@ -92,6 +92,9 @@ js: "/js/main.js"
 					<a href="https://skweezer.net/buy-instagram-followers" target="_blank"><img src="/i/sponsors/skweezer.png" alt="visit Skweezer to buy Instagram followers" width="135" height="30" /></a>
 				</div>
 				<div class="sponsor__item">
+					<a href="https://bitlaunch.io" target="_blank"><img src="/i/sponsors/bitlaunch.png" alt="Simple, fast, secure. Instantly launch servers with BitLaunch, DigitalOcean, Vultr, and Linode" width="135" height="30" /></a>
+				</div>
+				<div class="sponsor__item">
 					<a href="https://goread.io/buy-instagram-followers" target="_blank"><img src="/i/goread.png" alt="Buy Instagram Followers" width="135" height="40" /></a>
 				</div>
 				<div class="sponsor__item">
