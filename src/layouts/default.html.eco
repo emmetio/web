@@ -191,9 +191,6 @@ js: "/js/main.js"
 						</div>
 					</div>
 					<div class="sponsor__item">
-						<a href="https://www.norgekasino.com/" target="_blank"><img src="/i/norgekasino.png" alt="Norgekasino" width="110" height="110" /></a>
-					</div>
-					<div class="sponsor__item">
 						<a href="https://raj.bet" target="_blank"><img src="/i/rajbet.png" alt="RajBet" width="135" height="50" /></a>
 					</div>
 
@@ -291,9 +288,6 @@ js: "/js/main.js"
 					</div>
 					<div class="sponsor__item">
 						<a href="https://nettikasinoopas.com" target="_blank"><img src="/i/sponsors/nettikasinoopas.png" alt="Nettikasinoopas" width="135" height="30" /></a>
-					</div>
-					<div class="sponsor__item">
-						<a href="https://gamblizard.com/free-spins/100-free-spins/" target="_blank"><img src="/i/sponsors/gamblizard.png" alt="100 free spins no deposit" width="135" height="30" /></a>
 					</div>
 					<div class="sponsor__item">
 						<a href="https://www.norges.casino/" target="_blank"><img src="/i/sponsors/norges-casino.png" alt="NorgesCasino er Norges største online casino guide" width="135" height="30" /></a>
