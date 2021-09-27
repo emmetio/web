@@ -241,6 +241,11 @@ js: "/js/main.js"
 					<div class="sponsor__item">
 						<a href="https://www.casinoutansvensklicens.se/" target="_blank"><img src="/i/casinoutansvensklicens-logo.png" alt="casinoutansvensklicens.se" width="135" height="40" /></a>
 					</div>
+
+					<div class="sponsor__item">
+						<a href="https://casinoscanada.reviews/casino-en-ligne-payant/" target="_blank"><img src="/i/sponsors/casinos-canada.png" alt="https://casinoscanada.reviews/casino-en-ligne-payant/" width="135" height="30" /></a>
+					</div>
+					
 					<div class="sponsor__item">
 						<a href="https://non-gamstop-casinos.com/" target="_blank"><img src="/i/non-gamstop-casinos-logo.png" alt="Casinos and slots not on Gamstop at Non-Gamstop-Casinos.com" width="135" height="40" /></a>
 					</div>
