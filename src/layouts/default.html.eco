@@ -225,6 +225,10 @@ js: "/js/main.js"
 						<a href="https://jp.slotsup.com/onrain-kajino" target="_blank"><img src="/i/slotsup.png" alt="SlotsUpのネットカジノ評価" width="135" height="50" /></a>
 					</div>
 
+					<div class="sponsor__item sponsor__item_text">
+						<a href="https://casinonutanlicens.nu/" target="_blank"><img src="/i/sponsors/casinonutanlicens-nu.png" alt="Casinonutanlicens.nu" width="135" height="30" /></a>
+					</div>
+
 					<div class="sponsor__item">
 						<a href="https://www.newcasinosites.me.uk/" target="_blank"><img src="/i/newcasino.png" alt="NewCasinoSites" width="135" height="35" /></a>
 					</div>
