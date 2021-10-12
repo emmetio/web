@@ -67,9 +67,13 @@ js: "/js/main.js"
 				<div class="sponsor__item" style="margin-left:-9px">
 					<a href="https://www.vpsserver.com" target="_blank"><img src="/i/vpsserver.png" alt="VPSServer" width="125" height="30" /></a>
 				</div>
-				<div class="sponsor__item">
-					<a href="https://www.ramotion.com/blog/" target="_blank"><img src="/i/sponsors/ramotion.png" alt="Ramotion blog" width="135" height="35" /></a>
-				</div>
+
+				<% if @document.url == '/index.html': %>
+					<div class="sponsor__item">
+						<a href="https://www.ramotion.com/blog/" target="_blank"><img src="/i/sponsors/ramotion.png" alt="Ramotion blog" width="135" height="35" /></a>
+					</div>
+				<% end %>
+
 				<div class="sponsor__item">
 					<a href="https://www.codefirst.co.uk" target="_blank"><img src="/i/sponsors/codefirst.png" alt="UK based software development company" width="135" height="35" /></a>
 				</div>
@@ -134,9 +138,13 @@ js: "/js/main.js"
 				<div class="sponsor__item">
 					<a href="https://soothingrelaxation.com" target="_blank"><img src="/i/sponsors/soothing-relaxation.png" alt="Relaxing music and beautiful nature" width="135" height="30" /></a>
 				</div>
-				<div class="sponsor__item">
-					<a href="https://backgroundabstract.com" target="_blank"><img src="/i/sponsors/abstract-backgrounds.png" alt="abstract background" width="135" height="36" /></a>
-				</div>
+
+				<% if @document.url == '/index.html': %>
+					<div class="sponsor__item">
+						<a href="https://backgroundabstract.com" target="_blank"><img src="/i/sponsors/abstract-backgrounds.png" alt="abstract background" width="135" height="36" /></a>
+					</div>
+				<% end %>
+
 				<div class="sponsor__item">
 					<a href="https://www.boosbe.com" target="_blank"><img src="/i/sponsors/boosbe.png" alt="Here you can find professional social media services that will help you to build a successful business" width="135" height="30" /></a>
 				</div>
