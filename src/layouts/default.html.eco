@@ -162,6 +162,9 @@ js: "/js/main.js"
 				<div class="sponsor__item">
 					<a href="https://www.neueonline-casinos.com/" target="_blank"><img src="/i/sponsors/neuecasinos.png" alt="https://www.neueonline-casinos.com/" width="135" height="40" /></a>
 				</div>
+				<div class="sponsor__item">
+					<a href="https://www.nya-casinon.online/spelpaus/" target="_blank"><img src="/i/sponsors/nya-spelpaus.png" alt="https://www.nya-casinon.online/spelpaus/" width="135" height="40" /></a>
+				</div>
 
 				<div class="sponsor__item">
 					<a href="https://www.kasinot.fi" target="_blank"><img src="/i/sponsors/kasinot-fi.png" alt="kasinot.fi" width="135" height="35" /></a>
