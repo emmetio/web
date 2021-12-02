@@ -150,7 +150,7 @@ js: "/js/main.js"
 						<a href="https://www.bestcasinosites.net/new-zealand/" target="_blank"><img src="/i/sponsors/bestcasinosites.jpg" alt="Logo of www.bestcasinosites.net/new-zealand/" width="135" height="35" /></a>
 					</div>
 					<div class="sponsor__item">
-						<a href="https://news.cision.com/de/online-casinos-com" target="_blank"><img src="/i/sponsors/beste-online-casinos.png" alt="Beste Online Casinos" width="135" height="35" /></a>
+						<a href="https://news.cision.com/de/online-casinos-com" target="_blank"><img src="/i/sponsors/beste-online-casinos.png" alt="Übersicht zu weiteren Online Casino Themen" width="135" height="35" /></a>
 					</div>
 				<% end %>
 				
