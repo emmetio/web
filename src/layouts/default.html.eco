@@ -206,6 +206,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://spin-paradise.com" target="_blank"><img src="/i/sponsors/spin-paradise.png" alt="Spin-Paradise" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://casinowhizz.com" target="_blank"><img src="/i/sponsors/casino-whizz.png" alt="CasinoWhizz" width="135" height="30" /></a>
 				</div>
 
