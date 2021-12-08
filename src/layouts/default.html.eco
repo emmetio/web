@@ -68,6 +68,10 @@ js: "/js/main.js"
 					<a href="https://www.vpsserver.com" target="_blank"><img src="/i/vpsserver.png" alt="VPSServer" width="125" height="30" /></a>
 				</div>
 
+				<div class="sponsor__item">
+					<a href="https://replit.com" target="_blank"><img src="/i/sponsors/replit.png" alt="Replit" width="135" height="30" /></a>
+				</div>
+
 				<% if @document.url == '/index.html': %>
 					<div class="sponsor__item">
 						<a href="https://www.ramotion.com/blog/" target="_blank"><img src="/i/sponsors/ramotion.png" alt="Ramotion blog" width="135" height="35" /></a>
