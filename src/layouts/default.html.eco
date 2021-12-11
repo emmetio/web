@@ -302,10 +302,6 @@ js: "/js/main.js"
 					</div>
 
 					<div class="sponsor__item">
-						<a href="https://indiagamblers.com" target="_blank"><img src="/i/india-gamblers.png" alt="Your complete guide to online casino and betting in India" width="135" height="44" /></a>
-					</div>
-
-					<div class="sponsor__item">
 						<a href="https://www.casinoutansvensklicens.se/" target="_blank"><img src="/i/casinoutansvensklicens-logo.png" alt="casinoutansvensklicens.se" width="135" height="40" /></a>
 					</div>
 
