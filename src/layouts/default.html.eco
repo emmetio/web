@@ -178,6 +178,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://uusimmatkasinot.com" target="_blank"><img src="/i/sponsors/uusimmatkasinot.png" alt="Uudet Nettikasinot" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://casinoohne.com" target="_blank"><img src="/i/sponsors/casino-ohne.png" alt="casino ohne deutsche lizenz" width="135" height="40" /></a>
 				</div>
 
