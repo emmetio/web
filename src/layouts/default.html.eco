@@ -186,6 +186,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://betting-utan-svensk-licens.com/" target="_blank"><img src="/i/sponsors/betting-utan-svensk-licens.png" alt="betting utan svensk licens" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://www.nye-casino.org/nettcasino/" target="_blank"><img src="/i/sponsors/nye-nettcasino.png" alt="https://www.nye-casino.org/nettcasino/" width="135" height="40" /></a>
 				</div>
 				<div class="sponsor__item">
