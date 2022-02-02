@@ -76,11 +76,11 @@ js: "/js/main.js"
 					<div class="sponsor__item">
 						<a href="https://www.ramotion.com/agency/web-app-development/" target="_blank"><img src="/i/sponsors/ramotion.png" alt="web application developers" width="135" height="35" /></a>
 					</div>
+					<div class="sponsor__item">
+						<a href="https://github.com/app-developers/top" target="_blank"><img src="/i/sponsors/ramotion-github.png" alt="top app developers" width="135" height="35" /></a>
+					</div>
 				<% end %>
 
-				<div class="sponsor__item">
-					<a href="https://github.com/app-developers/top" target="_blank"><img src="/i/sponsors/ramotion-github.png" alt="top app developers" width="135" height="35" /></a>
-				</div>
 
 				<div class="sponsor__item">
 					<a href="https://www.codefirst.co.uk" target="_blank"><img src="/i/sponsors/codefirst.png" alt="UK based software development company" width="135" height="35" /></a>
