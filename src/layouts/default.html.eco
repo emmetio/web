@@ -86,6 +86,9 @@ js: "/js/main.js"
 					<a href="https://www.codefirst.co.uk" target="_blank"><img src="/i/sponsors/codefirst.png" alt="UK based software development company" width="135" height="35" /></a>
 				</div>
 				<div class="sponsor__item">
+					<a href="https://evolution-host.com/ddos-protected-vps.php" target="_blank"><img src="/i/sponsors/evolution-host.png" alt="DDoS Protected VPS" width="135" height="30" /></a>
+				</div>
+				<div class="sponsor__item">
 					<a href="https://rapidessay.com/" target="_blank"><img src="/i/rapidessay.png" alt="College Essay Writing Service" width="135" height="44" /></a>
 				</div>
 				<div class="sponsor__item">
