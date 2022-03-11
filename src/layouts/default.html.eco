@@ -208,10 +208,6 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
-					<a href="https://leafletcasino.com/online-casino/" target="_blank"><img src="/i/sponsors/leaflet-casino.png" alt="Discover the world of online casino in Сanada" width="135" height="30" /></a>
-				</div>
-
-				<div class="sponsor__item">
 					<a href="https://www.casino-utan-svensk-licens.net" target="_blank"><img src="/i/sponsors/cusl.png" alt="CUSL - casino utan svensk licens" width="135" height="35" /></a>
 				</div>
 
