@@ -139,10 +139,7 @@ js: "/js/main.js"
 				
 				<% if @document.url == '/index.html': %>
 					<div class="sponsor__item">
-						<a href="https://www.bestcasinosites.net/new-zealand/" target="_blank"><img src="/i/sponsors/bestcasinosites.jpg" alt="Logo of www.bestcasinosites.net/new-zealand/" width="135" height="35" /></a>
-					</div>
-					<div class="sponsor__item">
-						<a href="https://www.onlinecasinosdeutschland.de" target="_blank"><img src="onlinecasinosdeutschland.jpg" alt="www.onlinecasinosdeutschland.de" width="135" height="30" /></a>
+						<a href="https://www.onlinecasinosdeutschland.de" target="_blank"><img src="/i/sponsors/onlinecasinosdeutschland.jpg" alt="www.onlinecasinosdeutschland.de" width="135" height="30" /></a>
 					</div>
 				<% end %>
 				
