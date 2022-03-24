@@ -162,6 +162,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://bonukset.fi" target="_blank"><img src="/i/sponsors/bonukset.png" alt="Finnish Casino Bonus Guide" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://spelacasino.io" target="_blank"><img src="/i/sponsors/spelacasino.png" alt="Spela Casino" width="135" height="30" /></a>
 				</div>
 
