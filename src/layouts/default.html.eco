@@ -95,9 +95,6 @@ js: "/js/main.js"
 					<a href="https://writersperhour.com/write-my-paper" target="_blank"><img src="/i/writers-per-hour.png" alt="Writers per hour" width="135" height="40" /></a>
 				</div>
 				<div class="sponsor__item">
-					<a href="https://papersowl.com/write-my-essay-please" target="_blank"><img src="/i/papersowl.png" alt="Write my essay" width="135" height="40" /></a>
-				</div>
-				<div class="sponsor__item">
 					<a href="https://thewordpoint.com/services/certified" target="_blank"><img src="/i/word-point.png" alt="TheWordPoint" width="135" height="35" /></a>
 				</div>
 
@@ -105,9 +102,6 @@ js: "/js/main.js"
 					<a href="https://cryptocasinos.com/" target="_blank"><img src="/i/sponsors/cryptocasinos.png" alt="CryptoCasinos" width="135" height="30" /></a>
 				</div>
 
-				<div class="sponsor__item">
-					<a href="https://www.coupons4printing.com" target="_blank"><img src="/i/coupons4printing.png" alt="Coupons For Printing" width="135" height="40" /></a>
-				</div>
 				<div class="sponsor__item">
 					<a href="https://bitlaunch.io" target="_blank"><img src="/i/sponsors/bitlaunch.png" alt="Simple, fast, secure. Instantly launch servers with BitLaunch, DigitalOcean, Vultr, and Linode" width="135" height="30" /></a>
 				</div>
