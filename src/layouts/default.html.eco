@@ -94,9 +94,6 @@ js: "/js/main.js"
 				<div class="sponsor__item">
 					<a href="https://writersperhour.com/write-my-paper" target="_blank"><img src="/i/writers-per-hour.png" alt="Writers per hour" width="135" height="40" /></a>
 				</div>
-				<div class="sponsor__item">
-					<a href="https://thewordpoint.com/services/certified" target="_blank"><img src="/i/word-point.png" alt="TheWordPoint" width="135" height="35" /></a>
-				</div>
 
 				<div class="sponsor__item">
 					<a href="https://cryptocasinos.com/" target="_blank"><img src="/i/sponsors/cryptocasinos.png" alt="CryptoCasinos" width="135" height="30" /></a>
@@ -156,6 +153,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://playcasinoscanada.com" target="_blank"><img src="/i/sponsors/playcasinoscanada.png" alt="Play Casinos Canada" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://casinoutangränser.se" target="_blank"><img src="/i/sponsors/casinoutangranser.png" alt="casino utan gränser" width="135" height="30" /></a>
 				</div>
 
@@ -211,14 +212,7 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
-					<a href="https://www.nongamstopsites.co.uk/" target="_blank"><img src="/i/sponsors/nongamstopcasinos.png" alt="uk casinos not on gamstop" width="135" height="30" /></a>
-				</div>
-				<div class="sponsor__item">
 					<a href="https://onlinecasinonutanlicens.com/" target="_blank"><img src="/i/sponsors/onlinecasinonutanlicens.jpg" alt="online casino utan svensk licens" width="135" height="30" /></a>
-				</div>
-
-				<div class="sponsor__item">
-					<a href="https://www.casino.xyz/uk/casinos-not-on-gamstop/" target="_blank"><img src="/i/sponsors/casinoxyz.png" alt="Casino.xyz - Casinos not on Gamstop" width="135" height="30" /></a>
 				</div>
 
 				<div class="sponsor__item">
@@ -365,9 +359,6 @@ js: "/js/main.js"
 				</div>
 				<div class="sponsor__item">
 					<a href="https://www.bitcoinbuster.com/ethereum-casino/" target="_blank"><img src="/i/sponsors/bitcoinbuster.png" alt="Bitcoinbuster.com Ethereum Gambling" width="135" height="36" /></a>
-				</div>
-				<div class="sponsor__item sponsor__item_text">
-					<a href="https://casinoutanspelpauslicens.se/" target="_blank">Casino Utan Spelpaus</a>
 				</div>
 				<div class="sponsor__item">
 					<a href="https://casino.guide/" target="_blank"><img src="/i/sponsors/casino-guide.png" alt="Casino.Guide" width="135" height="50" /></a>
