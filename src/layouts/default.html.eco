@@ -103,6 +103,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://casinozondercruks.net" target="_blank"><img src="/i/sponsors/casinozondercruks.png" alt="Casino's zonder Nederlandse Licentie" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://cryptocasinos.com/" target="_blank"><img src="/i/sponsors/cryptocasinos.png" alt="CryptoCasinos" width="135" height="30" /></a>
 				</div>
 
