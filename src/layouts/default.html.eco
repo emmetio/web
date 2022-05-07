@@ -126,9 +126,6 @@ js: "/js/main.js"
 					<a href="https://www.privacysharks.com" target="_blank"><img src="/i/sponsors/privacy-sharks.png" alt="Privacy Sharks" width="135" height="30" /></a>
 				</div>
 				<div class="sponsor__item">
-					<a href="https://speedypaper.com" target="_blank"><img src="/i/sponsors/speedy-paper.png" alt="SpeedyPaper" width="135" height="35" /></a>
-				</div>
-				<div class="sponsor__item">
 					<a href="https://writepaperfor.me" target="_blank"><img src="/i/sponsors/writepaper-for-me.png" alt="Write my paper for me" width="135" height="30" /></a>
 				</div>
 				<div class="sponsor__item">
