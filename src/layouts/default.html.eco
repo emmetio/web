@@ -123,9 +123,6 @@ js: "/js/main.js"
 					<a href="https://www.instafollowers.co/buy-instagram-likes" target="_blank"><img src="/i/sponsors/instafollowers.png" alt="Buy Instagram Likes" width="135" height="35" /></a>
 				</div>
 				<div class="sponsor__item">
-					<a href="https://www.privacysharks.com" target="_blank"><img src="/i/sponsors/privacy-sharks.png" alt="Privacy Sharks" width="135" height="30" /></a>
-				</div>
-				<div class="sponsor__item">
 					<a href="https://writepaperfor.me" target="_blank"><img src="/i/sponsors/writepaper-for-me.png" alt="Write my paper for me" width="135" height="30" /></a>
 				</div>
 				<div class="sponsor__item">
@@ -138,10 +135,6 @@ js: "/js/main.js"
 					</div>
 				<% end %>
 				
-				<div class="sponsor__item">
-					<a href="https://soothingrelaxation.com" target="_blank"><img src="/i/sponsors/soothing-relaxation.png" alt="Relaxing music and beautiful nature" width="135" height="30" /></a>
-				</div>
-
 				<% if @document.url == '/index.html': %>
 					<div class="sponsor__item">
 						<a href="https://backgroundabstract.com" target="_blank"><img src="/i/sponsors/abstract-backgrounds.png" alt="abstract background" width="135" height="36" /></a>
@@ -312,10 +305,6 @@ js: "/js/main.js"
 
 				<div class="sponsor__item">
 					<a href="https://casinoutanspelpaus.io/" target="_blank"><img src="/i/sponsors/casino-utan-spelpaus.png" alt="casino utan spelpaus" width="135" height="30" /></a>
-				</div>
-
-				<div class="sponsor__item">
-					<a href="https://raj.bet" target="_blank"><img src="/i/rajbet.png" alt="RajBet" width="135" height="50" /></a>
 				</div>
 
 				<div class="sponsor__item sponsor__item_text">
