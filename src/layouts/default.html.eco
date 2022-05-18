@@ -81,6 +81,9 @@ js: "/js/main.js"
 					</div>
 				<% end %>
 
+				<div class="sponsor__item">
+					<a href="https://www.vpnunlimited.com/" target="_blank"><img src="/i/sponsors/vpn-unlimited.png" alt="VPN Unlimited" width="135" height="30" /></a>
+				</div>
 
 				<div class="sponsor__item">
 					<a href="https://www.codefirst.co.uk" target="_blank"><img src="/i/sponsors/codefirst.png" alt="UK based software development company" width="135" height="35" /></a>
