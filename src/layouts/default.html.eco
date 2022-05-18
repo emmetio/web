@@ -103,7 +103,17 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
-					<a href="https://casinozondercruks.net" target="_blank"><img src="/i/sponsors/casinozondercruks.png" alt="Casino's zonder Nederlandse Licentie" width="135" height="30" /></a>
+					<a href="https://www.uudetkasinot.com/luotettavat" target="_blank"><img src="/i/sponsors/uudetkasinot.png" alt="luotettavat nettikasinot" width="135" height="30" /></a>
+				</div>
+				<div class="sponsor__item">
+					<a href="https://www.vedonlyontibonukset.com" target="_blank"><img src="/i/sponsors/vedonlyontibonukset.png" alt="vedonlyöntibonukset" width="135" height="30" /></a>
+				</div>
+				<div class="sponsor__item">
+					<a href="https://www.vedonlyontibonukset.com" target="_blank"><img src="/i/sponsors/vedonlyontibonukset.png" alt="vedonlyöntibonukset" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
+					<a href="https://casinoburst.com/betting-utan-svensk-licens/" target="_blank"><img src="/i/sponsors/casinoburst.png" alt="casinoburst" width="135" height="30" /></a>
 				</div>
 
 				<div class="sponsor__item">
