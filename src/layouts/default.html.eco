@@ -163,6 +163,14 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://casinònonaams.com" target="_blank"><img src="/i/sponsors/casinononaams2.png" alt="Casinò Non AAMS" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
+					<a href="https://casinononaams.org" target="_blank"><img src="/i/sponsors/casinononaams.png" alt="Casinò Non AAMS" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://playcasinoscanada.com" target="_blank"><img src="/i/sponsors/playcasinoscanada.png" alt="Play Casinos Canada" width="135" height="30" /></a>
 				</div>
 
