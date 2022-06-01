@@ -86,6 +86,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://casinozondercruks.net" target="_blank"><img src="/i/sponsors/casinozondercruks.png" alt="Casino's zonder Nederlandse Licentie" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://www.codefirst.co.uk" target="_blank"><img src="/i/sponsors/codefirst.png" alt="UK based software development company" width="135" height="35" /></a>
 				</div>
 				<div class="sponsor__item">
