@@ -206,6 +206,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://online-aussie-casino.com/" target="_blank"><img src="/i/hex/au.svg" alt="CasinoHEX Australia" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://casinònonaams.com" target="_blank"><img src="/i/sponsors/casinononaams2.png" alt="Casinò Non AAMS" width="135" height="30" /></a>
 				</div>
 
