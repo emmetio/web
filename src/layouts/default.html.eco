@@ -172,6 +172,10 @@ js: "/js/main.js"
 				<% end %>
 
 				<div class="sponsor__item">
+					<a href="https://www.socialboosting.com" target="_blank"><img src="/i/sponsors/social-boosting.png" alt="Buy Instagram and TikTok followers on SocialBoosting!" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://1394ta.org/buy-instagram-followers/" target="_blank"><img src="/i/sponsors/1394ta.png" alt="Buy Instagram followers, likes and views with 1394TA quality" width="135" height="30" /></a>
 				</div>
 
