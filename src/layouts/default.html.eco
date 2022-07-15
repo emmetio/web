@@ -105,9 +105,6 @@ js: "/js/main.js"
 				<div class="sponsor__item">
 					<a href="https://www.xoo.nl" target="_blank"><img src="/i/sponsors/xoo.png" alt="Xoo Sieraden" width="135" height="30" /></a>
 				</div>
-				<div class="sponsor__item">
-					<a href="https://articlereword.com" target="_blank"><img src="/i/sponsors/articlereword.png" alt="Essay Rewriter" width="135" height="30" /></a>
-				</div>
 
 				<div class="sponsor__item">
 					<a href="https://www.kingcasino.com/roulette/" target="_blank"><img src="/i/sponsors/king-casino.png" alt="Play Roulette Online Games" width="80" height="35" /></a>
@@ -359,9 +356,6 @@ js: "/js/main.js"
 				</div>
 				<div class="sponsor__item">
 					<a href="https://casino-wise.com/" target="_blank"><img src="/i/casino-wise.png" alt="The UK’s number one place for all things GamStop." width="135" height="40" /></a>
-				</div>
-				<div class="sponsor__item">
-					<a href="https://casinority.com/au/" target="_blank"><img src="/i/sponsors/casinority.png" alt="Best online casino guide for Australian players" width="135" height="30" /></a>
 				</div>
 				<div class="sponsor__item">
 					<a href="https://icasinoreviews.info/" target="_blank"><img src="/i/sponsors/icasino-reviews.png" alt="Real Money Casinos NZ by iCasinoReviews.info" width="135" height="35" /></a>
