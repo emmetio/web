@@ -107,6 +107,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://www.casinononaams.pro/" target="_blank"><img src="/i/sponsors/casino-non-aams.png" alt="casino non aams" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://777originals.org/" target="_blank"><img src="/i/sponsors/777originals.png" alt="Лучшие игровые автоматы современности в самом популярном онлайн казино Украины - 777 Originals" width="135" height="30" /></a>
 				</div>
 
