@@ -107,6 +107,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://www.caziwoo.com/" target="_blank"><img src="/i/sponsors/caziwoo.png" alt="find the best usa casinos at caziwoo.com" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://www.casinononaams.pro/" target="_blank"><img src="/i/sponsors/casino-non-aams.png" alt="casino non aams" width="135" height="30" /></a>
 				</div>
 
