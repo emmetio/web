@@ -201,6 +201,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://www.igamblingsites.com" target="_blank"><img src="/i/sponsors/igamblingsites.png" alt="We source the best online gambling sites so you don't have to! Regulated & licensed casinos, slot sites and betting sites reviewed for the modern savvy gambler" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://scommetteronline.info/" target="_blank"><img src="/i/sponsors/scommetter.png" alt="migliori siti scommesse" width="135" height="30" /></a>
 				</div>
 
