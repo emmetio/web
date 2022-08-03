@@ -222,6 +222,9 @@ js: "/js/main.js"
 				<div class="sponsor__item">
 					<a href="https://casino-utan-svensk-licens.com/" target="_blank"><img src="/i/sponsors/casino-utan-svensk-licens.png" alt="casino utan svensk licens" width="135" height="30" /></a>
 				</div>
+				<div class="sponsor__item">
+					<a href="https://casino-utan-spelpaus.net/" target="_blank"><img src="/i/sponsors/casino-utan-spelpaus2.png" alt="Casino Utan Spelpaus" width="135" height="30" /></a>
+				</div>
 
 				<div class="sponsor__item">
 					<a href="https://casinority.com/ca/" target="_blank"><img src="/i/sponsors/casinority2.png" alt="Best legit online casinos in Canada" width="135" height="30" /></a>
