@@ -92,6 +92,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://www.gamblingbitcoin.com" target="_blank"><img src="/i/sponsors/gamblingbitcoin.png" alt="Bitcoin Gambling" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://cryptocasinos.net" target="_blank"><img src="/i/sponsors/cryptocasinos2.png" alt="Crypto Casinos - Best Bitcoin Casino 2022" width="135" height="30" /></a>
 				</div>
 
