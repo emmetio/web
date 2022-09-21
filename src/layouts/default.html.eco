@@ -92,6 +92,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://bluechip.io/" target="_blank"><img src="/i/sponsors/bluechip.png" alt="Bluechip online casino" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://www.gamblingbitcoin.com" target="_blank"><img src="/i/sponsors/gamblingbitcoin.png" alt="Bitcoin Gambling" width="135" height="30" /></a>
 				</div>
 
@@ -164,9 +168,6 @@ js: "/js/main.js"
 					<a href="https://cryptocasinos.com/" target="_blank"><img src="/i/sponsors/cryptocasinos.png" alt="CryptoCasinos" width="135" height="30" /></a>
 				</div>
 
-				<div class="sponsor__item">
-					<a href="https://bitlaunch.io" target="_blank"><img src="/i/sponsors/bitlaunch.png" alt="Simple, fast, secure. Instantly launch servers with BitLaunch, DigitalOcean, Vultr, and Linode" width="135" height="30" /></a>
-				</div>
 				<div class="sponsor__item">
 					<a href="https://goread.io/buy-instagram-followers" target="_blank"><img src="/i/goread.png" alt="Buy Instagram Followers" width="135" height="40" /></a>
 				</div>
