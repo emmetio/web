@@ -98,6 +98,16 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://svenskbetting.com/" target="_blank"><img src="/i/sponsors/svenskbetting.png" alt="svenskbetting.com – Sportsbetting & Betting Online" width="135" height="30" /></a>
+				</div>
+				<div class="sponsor__item">
+					<a href="https://betsidor.se/" target="_blank"><img src="/i/sponsors/betsidor.png" alt="Betting sidor – Bra svenska betsidor på nätet" width="135" height="30" /></a>
+				</div>
+				<div class="sponsor__item">
+					<a href="https://polskiekasyno.org" target="_blank"><img src="/i/sponsors/polskiekasyno.png" alt="Zakłady bukmacherskie, czyli jak obstawiać online" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://bluechip.io/" target="_blank"><img src="/i/sponsors/bluechip.png" alt="Bluechip online casino" width="135" height="30" /></a>
 				</div>
 
