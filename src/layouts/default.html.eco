@@ -68,9 +68,6 @@ js: "/js/main.js"
 					<a href="https://www.vpsserver.com" target="_blank"><img src="/i/vpsserver.png" alt="VPSServer" width="125" height="30" /></a>
 				</div>
 
-				<div class="sponsor__item">
-					<a href="https://replit.com" target="_blank"><img src="/i/sponsors/replit.png" alt="Replit" width="135" height="30" /></a>
-				</div>
 
 				<% if @document.url == '/index.html': %>
 					<div class="sponsor__item">
@@ -124,9 +121,6 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
-					<a href="https://www.codefirst.co.uk" target="_blank"><img src="/i/sponsors/codefirst.png" alt="UK based software development company" width="135" height="35" /></a>
-				</div>
-				<div class="sponsor__item">
 					<a href="https://evolution-host.com/ddos-protected-vps.php" target="_blank"><img src="/i/sponsors/evolution-host.png" alt="DDoS Protected VPS" width="135" height="30" /></a>
 				</div>
 				<div class="sponsor__item">
@@ -142,10 +136,6 @@ js: "/js/main.js"
 
 				<div class="sponsor__item sponsor__item_text">
 					<a href="https://onlinecasinosspelen.com/" target="_blank">Online Casino Nederland</a>
-				</div>
-
-				<div class="sponsor__item">
-					<a href="https://www.xoo.nl" target="_blank"><img src="/i/sponsors/xoo.png" alt="Xoo Sieraden" width="135" height="30" /></a>
 				</div>
 
 				<div class="sponsor__item">
@@ -207,9 +197,6 @@ js: "/js/main.js"
 				<div class="sponsor__item">
 					<a href="https://writepaperfor.me" target="_blank"><img src="/i/sponsors/writepaper-for-me.png" alt="Write my paper for me" width="135" height="30" /></a>
 				</div>
-				<div class="sponsor__item">
-					<a href="https://www.seo25.com" target="_blank"><img src="/i/sponsors/seo25.png" alt="SEO25" width="135" height="30" /></a>
-				</div>
 
 				<% if @document.url == '/index.html': %>
 					<div class="sponsor__item">
@@ -228,19 +215,11 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
-					<a href="https://1394ta.org/buy-instagram-followers/" target="_blank"><img src="/i/sponsors/1394ta.png" alt="Buy Instagram followers, likes and views with 1394TA quality" width="135" height="30" /></a>
-				</div>
-
-				<div class="sponsor__item">
 					<a href="https://www.boosbe.com" target="_blank"><img src="/i/sponsors/boosbe.png" alt="Here you can find professional social media services that will help you to build a successful business" width="135" height="30" /></a>
 				</div>
 
 				<div class="sponsor__item">
 					<a href="https://parimatch.in" target="_blank"><img src="/i/sponsors/parimatch.png" alt="Sports betting" width="135" height="30" /></a>
-				</div>
-
-				<div class="sponsor__item">
-					<a href="https://www.igamblingsites.com" target="_blank"><img src="/i/sponsors/igamblingsites.png" alt="We source the best online gambling sites so you don't have to! Regulated & licensed casinos, slot sites and betting sites reviewed for the modern savvy gambler" width="135" height="30" /></a>
 				</div>
 
 				<div class="sponsor__item">
@@ -336,24 +315,7 @@ js: "/js/main.js"
 				<div class="sponsor__item">
 					<a href="https://betting-utan-svensk-licens.com/" target="_blank"><img src="/i/sponsors/betting-utan-svensk-licens.png" alt="betting utan svensk licens" width="135" height="30" /></a>
 				</div>
-
-				<div class="sponsor__item">
-					<a href="https://www.nye-casino.org/nettcasino/" target="_blank"><img src="/i/sponsors/nye-nettcasino.png" alt="https://www.nye-casino.org/nettcasino/" width="135" height="40" /></a>
-				</div>
-				<div class="sponsor__item">
-					<a href="https://www.neueonline-casinos.com/" target="_blank"><img src="/i/sponsors/neuecasinos.png" alt="https://www.neueonline-casinos.com/" width="135" height="40" /></a>
-				</div>
-				<div class="sponsor__item">
-					<a href="https://www.nya-casinon.online/spelpaus/" target="_blank"><img src="/i/sponsors/nya-spelpaus.png" alt="https://www.nya-casinon.online/spelpaus/" width="135" height="40" /></a>
-				</div>
-
-				<div class="sponsor__item">
-					<a href="https://www.kasinot.fi" target="_blank"><img src="/i/sponsors/kasinot-fi.png" alt="kasinot.fi" width="135" height="35" /></a>
-				</div>
-				<div class="sponsor__item">
-					<a href="https://www.parhaatkasinot.com" target="_blank"><img src="/i/sponsors/parhaat-kasinot.png" alt="Parhaat Kasinot" width="135" height="35" /></a>
-				</div>
-
+				
 				<div class="sponsor__item">
 					<a href="https://casinoohnelizenzdeutschland.com" target="_blank"><img src="/i/sponsors/casino-ohne-lizenz.png" alt="casinoohnelizenzdeutschland.com" width="135" height="35" /></a>
 				</div>
