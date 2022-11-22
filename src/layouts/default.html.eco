@@ -95,6 +95,9 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://www.nodepositdaily.com/" target="_blank"><img src="/i/sponsors/nodepositdaily.png" alt="No Deposit Bonuses Added Daily" width="135" height="30" /></a>
+				</div>
+				<div class="sponsor__item">
 					<a href="https://svenskbetting.com/" target="_blank"><img src="/i/sponsors/svenskbetting.png" alt="svenskbetting.com – Sportsbetting & Betting Online" width="135" height="30" /></a>
 				</div>
 				<div class="sponsor__item">
