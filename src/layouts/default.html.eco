@@ -83,6 +83,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://broadband.deals" target="_blank"><img src="/i/sponsors/broadband-deals.png" alt="Compare broadband and fibre packages and deals for the UK, from all the top ISPs" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://www.noneedtostudy.com/take-my-online-class/" target="_blank" title="Pro Tutors Help Me Take My Online Class">
 						<img src="/i/sponsors/noneedtostudy.png" alt="Pro Tutors Help Me Take My Online Class" title="Pro Tutors Help Me Take My Online Class" width="135" height="30" />
 					</a>
@@ -128,9 +132,6 @@ js: "/js/main.js"
 
 				<div class="sponsor__item">
 					<a href="https://evolution-host.com/ddos-protected-vps.php" target="_blank"><img src="/i/sponsors/evolution-host.png" alt="DDoS Protected VPS" width="135" height="30" /></a>
-				</div>
-				<div class="sponsor__item">
-					<a href="https://rapidessay.com/" target="_blank"><img src="/i/rapidessay.png" alt="quick essay writer" width="135" height="44" /></a>
 				</div>
 				<div class="sponsor__item">
 					<a href="https://writersperhour.com/write-my-paper" target="_blank"><img src="/i/writers-per-hour.png" alt="Writers per hour" width="135" height="40" /></a>
