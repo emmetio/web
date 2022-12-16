@@ -79,6 +79,10 @@ js: "/js/main.js"
 				<% end %>
 
 				<div class="sponsor__item">
+					<a href="https://pillarwm.com/financial-advisor/top-financial-advisors-near-me/" target="_blank"><img src="/i/sponsors/pillarwm.png" alt="Pillar Wealth management, LLC" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://www.vpnunlimited.com/" target="_blank"><img src="/i/sponsors/vpn-unlimited.png" alt="VPN Unlimited" width="135" height="30" /></a>
 				</div>
 
