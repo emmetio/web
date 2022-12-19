@@ -79,6 +79,10 @@ js: "/js/main.js"
 				<% end %>
 
 				<div class="sponsor__item">
+					<a href="https://twicsy.com/buy-instagram-likes" target="_blank"><img src="/i/sponsors/twicsy.png" alt="Buy Instagram Likes 
+with Instant Delivery" width="135" height="30" /></a>
+				</div>
+				<div class="sponsor__item">
 					<a href="https://pillarwm.com/financial-advisor/top-financial-advisors-near-me/" target="_blank"><img src="/i/sponsors/pillarwm.png" alt="Pillar Wealth management, LLC" width="135" height="30" /></a>
 				</div>
 
