@@ -79,6 +79,10 @@ js: "/js/main.js"
 				<% end %>
 
 				<div class="sponsor__item">
+					<a href="https://likewave.io" target="_blank"><img src="/i/sponsors/likewave.png" alt="Buy Instagram Likes" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://buyyoutubviews.com" target="_blank"><img src="/i/sponsors/buyyoutubviews.png" alt="Buy YouTube Views" width="135" height="30" /></a>
 				</div>
 
