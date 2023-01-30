@@ -64,10 +64,6 @@ js: "/js/main.js"
 
 			<div class="sponsor">
 				<h4 class="sponsor__title">Sponsors:</h4>
-				<div class="sponsor__item" style="margin-left:-9px">
-					<a href="https://www.vpsserver.com" target="_blank"><img src="/i/vpsserver.png" alt="VPSServer" width="125" height="30" /></a>
-				</div>
-
 
 				<% if @document.url == '/index.html': %>
 					<div class="sponsor__item">
@@ -195,20 +191,6 @@ with Instant Delivery" width="135" height="30" /></a>
 				</div>
 
 				<div class="sponsor__item">
-					<a href="https://www.spinsify.com/uk/new-casinos/" target="_blank"><img src="/i/sponsors/spinsify.png" alt="Spinsify" width="135" height="30" /></a>
-				</div>
-
-				<div class="sponsor__item">
-					<a href="https://www.uudetkasinot.com/luotettavat" target="_blank"><img src="/i/sponsors/uudetkasinot.png" alt="luotettavat nettikasinot" width="135" height="30" /></a>
-				</div>
-				<div class="sponsor__item">
-					<a href="https://www.vedonlyontibonukset.com" target="_blank"><img src="/i/sponsors/vedonlyontibonukset.png" alt="vedonlyöntibonukset" width="135" height="30" /></a>
-				</div>
-				<div class="sponsor__item">
-					<a href="https://casinoburst.com/betting-utan-svensk-licens/" target="_blank"><img src="/i/sponsors/casinoburst.png" alt="casinoburst" width="135" height="30" /></a>
-				</div>
-
-				<div class="sponsor__item">
 					<a href="https://cryptocasinos.com/" target="_blank"><img src="/i/sponsors/cryptocasinos.png" alt="CryptoCasinos" width="135" height="30" /></a>
 				</div>
 
@@ -228,22 +210,12 @@ with Instant Delivery" width="135" height="30" /></a>
 					<a href="https://writepaperfor.me" target="_blank"><img src="/i/sponsors/writepaper-for-me.png" alt="Write my paper for me" width="135" height="30" /></a>
 				</div>
 				
-				<% if @document.url == '/index.html': %>
-					<div class="sponsor__item">
-						<a href="https://backgroundabstract.com" target="_blank"><img src="/i/sponsors/abstract-backgrounds.png" alt="abstract background" width="135" height="36" /></a>
-					</div>
-				<% end %>
-
 				<div class="sponsor__item">
 					<a href="https://www.socialboosting.com" target="_blank"><img src="/i/sponsors/social-boosting.png" alt="Buy Instagram and TikTok followers on SocialBoosting!" width="135" height="30" /></a>
 				</div>
 
 				<div class="sponsor__item">
 					<a href="https://www.boosbe.com" target="_blank"><img src="/i/sponsors/boosbe.png" alt="Here you can find professional social media services that will help you to build a successful business" width="135" height="30" /></a>
-				</div>
-
-				<div class="sponsor__item">
-					<a href="https://parimatch.in" target="_blank"><img src="/i/sponsors/parimatch.png" alt="Sports betting" width="135" height="30" /></a>
 				</div>
 
 				<div class="sponsor__item">
@@ -315,10 +287,6 @@ with Instant Delivery" width="135" height="30" /></a>
 				</div>
 
 				<div class="sponsor__item">
-					<a href="https://spelacasino.io" target="_blank"><img src="/i/sponsors/spelacasino.png" alt="Spela Casino" width="135" height="30" /></a>
-				</div>
-
-				<div class="sponsor__item">
 					<a href="https://uusimmatkasinot.com" target="_blank"><img src="/i/sponsors/uusimmatkasinot.png" alt="Uudet Nettikasinot" width="135" height="30" /></a>
 				</div>
 				<div class="sponsor__item">
@@ -333,13 +301,6 @@ with Instant Delivery" width="135" height="30" /></a>
 					<a href="https://betting-utan-svensk-licens.com/" target="_blank"><img src="/i/sponsors/betting-utan-svensk-licens.png" alt="betting utan svensk licens" width="135" height="30" /></a>
 				</div>
 				
-				<div class="sponsor__item">
-					<a href="https://casinoohnelizenzdeutschland.com" target="_blank"><img src="/i/sponsors/casino-ohne-lizenz.png" alt="casinoohnelizenzdeutschland.com" width="135" height="35" /></a>
-				</div>
-				<div class="sponsor__item">
-					<a href="https://casinofox.se" target="_blank"><img src="/i/sponsors/casinofox.png" alt="casinofox.se" width="135" height="35" /></a>
-				</div>
-
 				<div class="sponsor__item">
 					<a href="https://casinoutanspelpaus.io/" target="_blank"><img src="/i/sponsors/casino-utan-spelpaus.png" alt="casino utan spelpaus" width="135" height="30" /></a>
 				</div>
@@ -359,16 +320,6 @@ with Instant Delivery" width="135" height="30" /></a>
 				</div>
 
 				<div class="sponsor__item">
-					<a href="https://casino-truc-tuyen.com/" target="_blank"><img src="/i/truc-tuyen.png" alt="casino trực tuyến" width="135" height="40" /></a>
-				</div>
-				<div class="sponsor__item">
-					<a href="https://arabic-online-casino.com/" target="_blank"><img src="/i/sponsors/arabic-online-casino.png" alt="Arabic Online Casino" width="135" height="30" /></a>
-				</div>
-				<div class="sponsor__item">
-					<a href="https://casino-en-linea.mx/" target="_blank"><img src="/i/sponsors/casino-en-linea.png" alt="El mejor casino en línea de México" width="135" height="25" /></a>
-				</div>
-
-				<div class="sponsor__item">
 					<a href="https://xn--ntcasinoutanlicens-ltb.com/" target="_blank"><img src="/i/sponsors/xn--ntcasinoutanlicens-ltb.png" alt="nätcasino utan licens" width="135" height="35" /></a>
 				</div>
 
@@ -376,9 +327,6 @@ with Instant Delivery" width="135" height="30" /></a>
 					<a href="https://casinoszondercruks.com" target="_blank"><img src="/i/sponsors/casinoszondercruks.png" alt="Casino Zonder Nederlandse Vergunning en Cruks" width="135" height="30" /></a>
 				</div>
 
-				<div class="sponsor__item">
-					<a href="https://non-gamstop-casinos.com/" target="_blank"><img src="/i/non-gamstop-casinos-logo.png" alt="Casinos and slots not on Gamstop at Non-Gamstop-Casinos.com" width="135" height="40" /></a>
-				</div>
 				<div class="sponsor__item">
 					<a href="https://casino-wise.com/" target="_blank"><img src="/i/casino-wise.png" alt="The UK’s number one place for all things GamStop." width="135" height="40" /></a>
 				</div>
