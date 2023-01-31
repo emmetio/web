@@ -75,6 +75,10 @@ js: "/js/main.js"
 				<% end %>
 
 				<div class="sponsor__item">
+					<a href="https://justanotherpanel.com/" target="_blank"><img src="/i/sponsors/justanotherpanel.png" alt="JustAnotherPanel.com is simply the fastest, cheapest, BIGGEST panel in the SMM World." width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://likewave.io/buy-instagram-likes" target="_blank"><img src="/i/sponsors/likewave.png" alt="Buy Instagram Likes" width="135" height="30" /></a>
 				</div>
 
