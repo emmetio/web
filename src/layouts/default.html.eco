@@ -36,7 +36,7 @@ js: "/js/main.js"
 				<%- @partial('menu.html.eco', {menuItems: @generateMenu(@document.url)}) %>
 			</nav>
 
-			<div id="gptong-container">
+			<!-- <div id="gptong-container">
 				<div class="gptong">
 					<script>
 					function __carbonFallback(script) {
@@ -52,7 +52,7 @@ js: "/js/main.js"
 					</script>
 					<script async src="//cdn.carbonads.com/carbon.js?serve=CKYIKK7J&placement=emmetio" id="_carbonads_js" onerror="__carbonFallback(this)"></script>
 				</div>
-			</div>
+			</div> -->
 
 			<!--
 			<p class="donate"><a href="https://www.paypal.me/Chikuyonok" class="btn btn_flat"><i class="text-icon">&#128077;</i> Donate</a></p>
