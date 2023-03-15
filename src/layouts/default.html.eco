@@ -75,6 +75,10 @@ js: "/js/main.js"
 				<% end %>
 
 				<div class="sponsor__item">
+					<a href="https://howsociable.com/buy-instagram-followers/" target="_blank"><img src="/i/sponsors/howsociable.png" alt="Howsociable.com is a website that provides a social media tracking service that allows users to measure the social media presence of a brand or company across different platforms. It provides a score based on the social media activity and engagement." width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://likes.io/buy-instagram-followers" target="_blank"><img src="/i/sponsors/likes-io.png" alt="Buy Instagram Followers with Instant Delivery" width="135" height="30" /></a>
 				</div>
 
@@ -120,6 +124,10 @@ with Instant Delivery" width="135" height="30" /></a>
 					<a href="https://www.one-beyond.com/" target="_blank">
 						<img src="/i/sponsors/one-beyond.png" alt="One Beyond (prev DCSL) is a software consultancy creating powerful solutions for companies large and small. Our services include all aspects of software development, web development, bespoke applications, CRM systems, application support and hosting." width="135" height="30" />
 					</a>
+				</div>
+
+				<div class="sponsor__item">
+					<a href="https://www.tightpoker.com" target="_blank"><img src="/i/sponsors/tightpoker.png" alt="Tight Poker: your online poker guide" width="135" height="30" /></a>
 				</div>
 
 				<div class="sponsor__item">
