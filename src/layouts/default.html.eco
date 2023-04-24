@@ -75,6 +75,10 @@ js: "/js/main.js"
 				<% end %>
 
 				<div class="sponsor__item">
+					<a href="https://veepn.com" target="_blank"><img src="/i/sponsors/veepn.png" alt="Super simple, fast, and trustful VPN for all family." width="135" height="35" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://howsociable.com/buy-instagram-followers/" target="_blank"><img src="/i/sponsors/howsociable.png" alt="Howsociable.com is a website that provides a social media tracking service that allows users to measure the social media presence of a brand or company across different platforms. It provides a score based on the social media activity and engagement." width="135" height="30" /></a>
 				</div>
 
