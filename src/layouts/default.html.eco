@@ -75,7 +75,7 @@ js: "/js/main.js"
 				<% end %>
 
 				<div class="sponsor__item">
-					<a href="https://veepn.com" target="_blank"><img src="/i/sponsors/veepn.png" alt="Super simple, fast, and trustful VPN for all family." width="135" height="35" /></a>
+					<a href="https://veepn.com/vpn-apps/download-vpn-for-pc/" target="_blank"><img src="/i/sponsors/veepn.png" alt="Super simple, fast, and trustful VPN for all family." width="135" height="35" /></a>
 				</div>
 
 				<div class="sponsor__item">
