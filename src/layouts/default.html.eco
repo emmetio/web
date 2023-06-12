@@ -75,6 +75,10 @@ js: "/js/main.js"
 				<% end %>
 
 				<div class="sponsor__item">
+					<a href="https://essayservice.com/pay-for-essay" target="_blank"><img src="/i/sponsors/essayservice.png" alt="Pay for essay & get desired quality" width="135" height="35" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://buycheapestfollowers.com/buy-instagram-reels-views" target="_blank"><img src="/i/sponsors/buycheapestfollowers.png" alt="Instagram Reels Views" width="135" height="35" /></a>
 				</div>
 
