@@ -65,6 +65,10 @@ js: "/js/main.js"
 			<div class="sponsor">
 				<h4 class="sponsor__title">Sponsors:</h4>
 
+				<div class="sponsor__item">
+					<a href="https://www.bairesdev.com/sponsoring-open-source-projects/" target="_blank"><img src="/i/sponsors/bairesdev.png" alt="We are the leading Nearshore Technology Solutions company. We architect and engineer scalable and high-performing software solutions." width="135" height="35" /></a>
+				</div>
+
 				<% if @document.url == '/index.html': %>
 					<div class="sponsor__item">
 						<a href="https://www.ramotion.com/web-app-development/" target="_blank"><img src="/i/sponsors/ramotion.png" alt="web application developers" width="135" height="35" /></a>
