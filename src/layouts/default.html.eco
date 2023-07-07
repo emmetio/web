@@ -79,6 +79,14 @@ js: "/js/main.js"
 				<% end %>
 
 				<div class="sponsor__item">
+					<a href="https://twicsy.com/buy-instagram-comments" target="_blank"><img src="/i/sponsors/twicsy-comments.png" alt="Buy Instagram comments from real users at Twicsy.com! Premium comments from high-profile influencers delivered in minutes." width="135" height="35" /></a>
+				</div>
+				<div class="sponsor__item">
+					<a href="https://twicsy.com/buy-instagram-followers" target="_blank"><img src="/i/sponsors/twicsy-followers.png" alt="
+Buy real Instagram followers from Twicsy starting at only $2.97. Twicsy has been voted the best site to buy followers from the likes of US Magazine." width="135" height="35" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://speedypaper.com" target="_blank"><img src="/i/sponsors/speedy-paper.png" alt="SpeedyPaper" width="135" height="35" /></a>
 				</div>
 				<div class="sponsor__item">
