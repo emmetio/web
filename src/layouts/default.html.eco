@@ -79,6 +79,10 @@ js: "/js/main.js"
 				<% end %>
 
 				<div class="sponsor__item">
+					<a href="https://www.socialwick.com/instagram/followers" target="_blank"><img src="/i/sponsors/socialwick.png" alt="SocialWick offers the best Instagram Followers in the market. If you are looking to boost your organic growth, buy Instagram followers from SocialWick" width="135" height="35" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://twicsy.com/buy-instagram-comments" target="_blank"><img src="/i/sponsors/twicsy-comments.png" alt="Buy Instagram comments from real users at Twicsy.com! Premium comments from high-profile influencers delivered in minutes." width="135" height="35" /></a>
 				</div>
 				<div class="sponsor__item">
