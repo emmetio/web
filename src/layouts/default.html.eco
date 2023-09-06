@@ -79,6 +79,10 @@ js: "/js/main.js"
 				<% end %>
 
 				<div class="sponsor__item">
+					<a href="https://releaf.co.uk" target="_blank"><img src="/i/sponsors/releaf.png" alt="The only all-in-one medical cannabis clinic. The start of your new online treatment journey with medical cannabis prescribed by UK specialist registered doctors and medical cannabis dispensed from a UK pharmacy." width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://immediate.net" target="_blank"><img src="/i/sponsors/immediate-net.png" alt="Immediate Connect - AI trading professional experts" width="135" height="30" /></a>
 				</div>
 
