@@ -79,6 +79,12 @@ js: "/js/main.js"
 				<% end %>
 
 				<div class="sponsor__item">
+					<a href="https://immediateedgeapp.org/" target="_blank">
+						<img src="/i/sponsors/immediateedgeapp.png" alt="Experience the New Era of AI-Powered Trading" width="135" height="30" />
+					</a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://www.noneedtostudy.com/take-my-online-class/" target="_blank" title="Pro Tutors Help Me Take My Online Class">
 						<img src="/i/sponsors/noneedtostudy.png" alt="Pro Tutors Help Me Take My Online Class" title="Pro Tutors Help Me Take My Online Class" width="135" height="30" />
 					</a>
