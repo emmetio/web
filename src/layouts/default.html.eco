@@ -70,6 +70,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://justanotherpanel.com/" target="_blank"><img src="/i/sponsors/justanotherpanel.png" alt="JustAnotherPanel.com is simply the fastest, cheapest, BIGGEST panel in the SMM World." width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://views4you.com/buy-youtube-subscribers/" target="_blank">
 						<img src="/i/sponsors/views4you.png" alt="Looking to boost your YouTube channel? Buy YouTube subscribers with Views4You and watch your audience grow!" width="135" height="30" />
 					</a>
@@ -163,10 +167,6 @@ Buy real Instagram followers from Twicsy starting at only $2.97. Twicsy has been
 
 				<div class="sponsor__item">
 					<a href="https://likes.io/buy-instagram-followers" target="_blank"><img src="/i/sponsors/likes-io.png" alt="Buy Instagram Followers with Instant Delivery" width="135" height="30" /></a>
-				</div>
-
-				<div class="sponsor__item">
-					<a href="https://justanotherpanel.com/" target="_blank"><img src="/i/sponsors/justanotherpanel.png" alt="JustAnotherPanel.com is simply the fastest, cheapest, BIGGEST panel in the SMM World." width="135" height="30" /></a>
 				</div>
 
 				<div class="sponsor__item">
