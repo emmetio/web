@@ -27,10 +27,6 @@ editors:
 	  url: https://github.com/emmetio/emmet.chocmixin#readme
 	  icon: chocolat.png
 	  comment: "OS X"
-	- title: Komodo Edit
-	  url: http://community.activestate.com/xpi/zen-coding
-	  icon: komodo.png
-	  comment: cross-platform
 	- title: Notepad++
 	  url: https://github.com/emmetio/npp#readme
 	  icon: npp.png
