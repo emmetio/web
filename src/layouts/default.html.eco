@@ -80,6 +80,12 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://uk.nonstopcasino.org/non-gamstop-casinos/" target="_blank">
+						<img src="/i/sponsors/nonstopcasino-org.png" alt="UK Casinos Not on GamStop" width="135" height="30" />
+					</a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://www.entrepreneur.com/en-in/social-media/buy-instagram-likes-from-5-top-reliable-sites/457029" target="_blank">
 						<img src="/i/sponsors/entrepreneur-com.png" alt="Trustworthy websites are the key to obtaining high-quality Instagram likes that meet your expectations" width="135" height="30" />
 					</a>
