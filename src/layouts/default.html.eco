@@ -80,6 +80,11 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://www.stormlikes.net/buy-instagram-followers" target="_blank">
+						<img src="/i/sponsors/stormlikes.png" alt="Buy real Instagram followers from Stormlikes starting at only $2.97. Stormlikes has been voted the best site to buy followers from the likes of US Magazine." width="135" height="30" />
+					</a>
+				</div>
+				<div class="sponsor__item">
 					<a href="https://uk.nonstopcasino.org/non-gamstop-casinos/" target="_blank">
 						<img src="/i/sponsors/nonstopcasino-org.png" alt="UK Casinos Not on GamStop" width="135" height="30" />
 					</a>
