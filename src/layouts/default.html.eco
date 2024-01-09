@@ -70,6 +70,12 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://quantumai.co/" target="_blank">
+						<img src="/i/sponsors/quantumai.png" alt="We are a company that is aiming to bring quantum computing mainstream" width="135" height="30" />
+					</a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://qb.support/" target="_blank">
 						<img src="/i/sponsors/qb-support.png" alt="QB Support is a Third party Independent Accounting Software Premium Support Provider offering paid support for a number of taxation and accounting softwares manufactured by other organisations" width="135" height="30" />
 					</a>
