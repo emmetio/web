@@ -70,6 +70,12 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://www.casinoszondercruks.nu/" target="_blank">
+						<img src="/i/sponsors/casinoszondercruks2.png" alt="Guiding Dutch players to trusted unlicensed casino sites without Cruks" width="135" height="30" />
+					</a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://quantumai.co/" target="_blank">
 						<img src="/i/sponsors/quantumai.png" alt="We are a company that is aiming to bring quantum computing mainstream" width="135" height="30" />
 					</a>
