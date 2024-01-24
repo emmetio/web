@@ -70,6 +70,12 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://casino-uden-rofus.co" target="_blank">
+						<img src="/i/sponsors/casino-uden-rofus.png" alt="Casino uden Rofus" width="135" height="30" />
+					</a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://ssstwitter.online" target="_blank">
 						<img src="/i/sponsors/ssstwitter.png" alt="Twitter Video Downloader HD Tool allows you to store tweets on your device (mobile or PC) for free" width="135" height="30" />
 					</a>
