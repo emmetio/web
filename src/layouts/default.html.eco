@@ -68,6 +68,12 @@ js: "/js/main.js"
 				<div class="sponsor__item">
 					<a href="https://www.bairesdev.com/sponsoring-open-source-projects/" target="_blank"><img src="/i/sponsors/bairesdev.png" alt="We are the leading Nearshore Technology Solutions company. We architect and engineer scalable and high-performing software solutions." width="135" height="35" /></a>
 				</div>
+				
+				<div class="sponsor__item">
+					<a href="https://blastup.com/buy-instagram-likes" target="_blank">
+						<img src="/i/sponsors/blastup.png" alt="Buy Instagram Likes - Real Likes & Instant Delivery!" width="135" height="30" />
+					</a>
+				</div>
 
 				<div class="sponsor__item">
 					<a href="https://casino-uden-rofus.co" target="_blank">
