@@ -70,6 +70,12 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://nongamstopbookies.com/uk/" target="_blank">
+						<img src="/i/sponsors/nongamstopbookies.png" alt="Betting Sites Not Registered With GamStop" width="135" height="30" />
+					</a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://skweezer.net/buy-instagram-followers" target="_blank">
 						<img src="/i/sponsors/skweezer.png" alt="Buy Instagram Followers" width="135" height="30" />
 					</a>
