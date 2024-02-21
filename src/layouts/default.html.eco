@@ -201,9 +201,6 @@ js: "/js/main.js"
 					<div class="sponsor__item">
 						<a href="https://www.ramotion.com/web-app-development/" target="_blank"><img src="/i/sponsors/ramotion.png" alt="web application developers" width="135" height="35" /></a>
 					</div>
-					<div class="sponsor__item">
-						<a href="https://medium.com/theymakedesign/best-web-development-companies-ac79400bdf8c" target="_blank"><img src="/i/sponsors/ramotion-github.png" alt="web development companies" width="135" height="35" /></a>
-					</div>
 				<% end %>
 
 				<div class="sponsor__item">
