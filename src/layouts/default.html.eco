@@ -70,6 +70,12 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://www.fruityking.co.nz/" target="_blank">
+						<img src="/i/sponsors/fruityking.png" alt="Online casino." width="135" height="30" />
+					</a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://www.ownedcore.com/casino/" target="_blank">
 						<img src="/i/sponsors/ownedcore.png" alt="The best online Casinos websites. No deposit bonus codes, Free Spins and Promo Codes. Stake, Roobet, Jackpotcity and more." width="135" height="30" />
 					</a>
