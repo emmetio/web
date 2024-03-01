@@ -70,6 +70,12 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://www.kasinohai.com/nettikasinot" target="_blank">
+						<img src="/i/sponsors/kasinohai2.png" alt="Nettikasinot: Löydä verkon suosituin ja luotettavin nettikasino" width="135" height="30" />
+					</a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://www.fruityking.co.nz/" target="_blank">
 						<img src="/i/sponsors/fruityking.png" alt="Online casino." width="135" height="30" />
 					</a>
