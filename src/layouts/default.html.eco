@@ -221,12 +221,6 @@ js: "/js/main.js"
 					</a>
 				</div>
 
-				<% if @document.url == '/index.html': %>
-					<div class="sponsor__item">
-						<a href="https://www.ramotion.com/web-app-development/" target="_blank"><img src="/i/sponsors/ramotion.png" alt="web application developers" width="135" height="35" /></a>
-					</div>
-				<% end %>
-
 				<div class="sponsor__item">
 					<a href="https://immediateedgeapp.org/" target="_blank">
 						<img src="/i/sponsors/immediateedgeapp.png" alt="Experience the New Era of AI-Powered Trading" width="135" height="30" />
