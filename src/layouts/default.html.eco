@@ -70,6 +70,12 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://casinosinlicenciaespana.com" target="_blank">
+						<img src="/i/sponsors/casinosinlicenciaespana.png" alt="Casinos Sin Licencia En España - 32 Mejores Сasinos" width="135" height="30" />
+					</a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://quantumai.bot" target="_blank">
 						<img src="/i/sponsors/quantumai-bot.png" alt="Trading redefined with Quantum AI" width="135" height="30" />
 					</a>
