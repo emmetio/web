@@ -70,6 +70,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://www.gokken-online.com" target="_blank"><img src="/i/sponsors/gokken-online.png" alt="Gokken-Online.com is de ultieme gids voor Nederlandse spelers die op zoek zijn naar het summum van online gokervaringen. Gekend om zijn uitgebreide re" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://www.c19.cl" target="_blank"><img src="/i/sponsors/c19.png" alt="Sitio web con reseñas de los mejores casinos en línea de Chile" width="135" height="30" /></a>
 				</div>
 
