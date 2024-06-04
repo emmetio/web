@@ -70,6 +70,18 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://views4you.com/buy-youtube-views/" target="_blank">
+						<img src="/i/sponsors/views4you2.png" alt="Enhance your online presence and boost your video's performance with Views4You, the trusted source to buy YouTube views and skyrocket your engagement." width="135" height="30" />
+					</a>
+				</div>
+
+				<div class="sponsor__item">
+					<a href="https://views4you.com/buy-youtube-subscribers/" target="_blank">
+						<img src="/i/sponsors/views4you.png" alt="Looking to boost your YouTube channel? Buy YouTube subscribers with Views4You and watch your audience grow!" width="135" height="30" />
+					</a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://payid-pokies.net/fast-payout/" target="_blank"><img src="/i/sponsors/payid-pokies.png" alt="Research of payment systems and their impact on the speed of transactions in online casinos" width="135" height="30" /></a>
 				</div>
 
