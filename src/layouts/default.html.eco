@@ -70,6 +70,12 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://graming.com/tiktok-views/" target="_blank">
+						<img src="/i/sponsors/graming.png" alt="At Graming, we offer top-notch quality TikTok views at the best prices! Check out our deals below and order now!" width="135" height="30" />
+					</a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://views4you.com/buy-youtube-views/" target="_blank">
 						<img src="/i/sponsors/views4you2.png" alt="Enhance your online presence and boost your video's performance with Views4You, the trusted source to buy YouTube views and skyrocket your engagement." width="135" height="30" />
 					</a>
