@@ -70,6 +70,12 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://casinorevisor.com/" target="_blank">
+						<img src="/i/sponsors/casinorevisor.png" alt="casinorevisor.com" width="135" height="30" />
+					</a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://sidesmedia.com/buy-youtube-subscribers/" target="_blank">
 						<img src="/i/sponsors/sidesmedia.png" alt="Want to boost your channel on YouTube? Buy YouTube subscribers from SidesMedia watch your subs grow" width="135" height="30" />
 					</a>
