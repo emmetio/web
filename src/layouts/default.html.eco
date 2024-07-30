@@ -70,10 +70,6 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
-					<a href="https://opencollective.com/fitclubfinder" target="_blank"><img src="/i/sponsors/fitclubfinder.png" alt="FitClubFinder" width="135" height="30" /></a>
-				</div>
-
-				<div class="sponsor__item">
 					<a href="https://www.uudetkasinot.com" target="_blank"><img src="/i/sponsors/uudetkasinot.png" alt="luotettavat nettikasinot" width="135" height="30" /></a>
 				</div>
 				<div class="sponsor__item">
