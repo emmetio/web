@@ -70,6 +70,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://route4me.com" target="_blank"><img src="/i/sponsors/route4me.png" alt="Trusted last mile route planning and route optimization" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://www.slotozilla.com/uk/no-deposit-bonus" target="_blank"><img src="/i/sponsors/slotozilla.png" alt="Discover the latest no deposit bonus offers for online casinos at Slotozilla. Find free bonuses, codes, and promotions for 2024." width="135" height="30" /></a>
 				</div>
 
