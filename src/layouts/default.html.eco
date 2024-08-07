@@ -70,6 +70,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://www.creditcaptain.com" target="_blank"><img src="/i/sponsors/creditcaptain.png" alt="CreditCaptain is the leading credit repair service that helps consumers quickly improve their credit scores, using AI for 10x better & faster results." width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://route4me.com" target="_blank"><img src="/i/sponsors/route4me.png" alt="Trusted last mile route planning and route optimization" width="135" height="30" /></a>
 				</div>
 
