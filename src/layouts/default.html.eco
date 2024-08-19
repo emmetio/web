@@ -70,7 +70,11 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
-					<a href="https://thunderclap.com" target="_blank"><img src="/i/sponsors/thunderclap2.png" alt="	Thunderclap.com is the best TikTok growth service provider, helping brands and creators build a targeted and engaged TikTok audience." width="135" height="30" /></a>
+					<a href="https://www.inclave.casino/" target="_blank"><img src="/i/sponsors/inclave-casino.png" alt="Listing online sites with Inclave login." width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
+					<a href="https://thunderclap.com" target="_blank"><img src="/i/sponsors/thunderclap2.png" alt="Thunderclap.com is the best TikTok growth service provider, helping brands and creators build a targeted and engaged TikTok audience." width="135" height="30" /></a>
 				</div>
 
 				<div class="sponsor__item">
