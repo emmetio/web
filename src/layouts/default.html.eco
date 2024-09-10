@@ -70,6 +70,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://free-chip-no-deposit.com/" target="_blank"><img src="/i/sponsors/free-chip-no-deposit.png" alt="Free Chip No Deposit Australia" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://novecasino.net/" target="_blank"><img src="/i/sponsors/novecasino.png" alt="Nove Casino" width="135" height="30" /></a>
 				</div>
 
