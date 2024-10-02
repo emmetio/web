@@ -70,6 +70,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://betwinnerpartner.com/" target="_blank"><img src="/i/sponsors/betwinnerpartner.png" alt="The Betwinner program allows individuals and businesses to earn commissions." width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://casino-utan-svensk-licens.com/" target="_blank"><img src="/i/sponsors/casino-utan-svensk-licens.png" alt="casino utan svensk licens" width="135" height="30" /></a>
 				</div>
 				<div class="sponsor__item">
