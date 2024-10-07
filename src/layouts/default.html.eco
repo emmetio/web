@@ -70,6 +70,12 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://casinoportugal.online/" target="_blank">
+						<img src="/i/sponsors/casinoportugal.png" alt="Melhores casinos online em Portugal 2024" width="135" height="30" />
+					</a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://graming.com/buy-instagram-followers/" target="_blank">
 						<img src="/i/sponsors/graming2.png" alt="At Graming, we offer top-notch Instagram followers at the best prices! Check out our deals below and order now!" width="135" height="30" />
 					</a>
