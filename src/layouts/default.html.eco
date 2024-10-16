@@ -70,6 +70,12 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://lpotouraine.fr/blog/" target="_blank">
+						<img src="/i/sponsors/lpotouraine.png" alt="Robot trading lpotouraine" width="135" height="30" />
+					</a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://livecasinosgreek.com/" target="_blank">
 						<img src="/i/sponsors/livecasinosgreek.png" alt="Καλύτερα Live καζίνο στην Ελλάδα 2024" width="135" height="30" />
 					</a>
