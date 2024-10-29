@@ -70,6 +70,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://uk-exchange.com/en/usdt-to-paypal.php" target="_blank"><img src="/i/sponsors/uk-exchange.png" alt="Reliable and convenient cryptocurrency exchange" width="135" height="35" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://www.famety.com/buy-instagram-likes" target="_blank"><img src="/i/sponsors/instafollowers.png" alt="Buy Instagram Likes" width="135" height="35" /></a>
 				</div>
 
