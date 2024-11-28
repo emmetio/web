@@ -70,6 +70,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://onlinekazino.lv/" target="_blank"><img src="/i/sponsors/onlinekazino.png" alt="onlinekazino.lv" width="135" height="35" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://essaypro.com/college-essay-writing-service" target="_blank"><img src="/i/sponsors/essaypro.png" alt="best college essay writers" width="135" height="35" /></a>
 				</div>
 
