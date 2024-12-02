@@ -70,6 +70,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://slotoking.ua/games/all-slots/" target="_blank"><img src="/i/sponsors/slotoking.png" alt="Gives a fun for our users" width="135" height="35" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://onlinekazino.lv/" target="_blank"><img src="/i/sponsors/onlinekazino.png" alt="onlinekazino.lv" width="135" height="35" /></a>
 				</div>
 
