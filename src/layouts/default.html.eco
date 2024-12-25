@@ -77,6 +77,11 @@ js: "/js/main.js"
 				<div class="sponsor__item">
 					<a href="https://www.bairesdev.com/sponsoring-open-source-projects/" target="_blank"><img src="/i/sponsors/bairesdev.png" alt="We are the leading Nearshore Technology Solutions company. We architect and engineer scalable and high-performing software solutions." width="135" height="35" /></a>
 				</div>
+
+				<div class="sponsor__item">
+					<a href="https://www.socialboosting.com" target="_blank"><img src="/i/sponsors/social-boosting.png" alt="Buy Instagram and TikTok followers on SocialBoosting!" width="135" height="30" /></a>
+				</div>
+				
 				<div class="sponsor__item">
 					<a href="https://vegas.ua/" target="_blank"><img src="/i/sponsors/vegas.png" alt="Нове ліцензоване українське онлайн казино" width="135" height="35" /></a>
 				</div>
