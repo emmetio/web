@@ -79,6 +79,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://legal-casino.net/" target="_blank"><img src="/i/sponsors/legal-casino.png" alt="Legal Casino" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://tokmax.com/" target="_blank"><img src="/i/sponsors/tokmax.png" alt="At Tokmax, we are dedicated to being the leading platform for enhancing TikTok engagement. Whether you're an emerging creator or an established influencer" width="135" height="30" /></a>
 				</div>
 
