@@ -79,6 +79,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://writepaperfor.me" target="_blank"><img src="/i/sponsors/writepaper-for-me.png" alt="Write my paper for me" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://legal-casino.net/" target="_blank"><img src="/i/sponsors/legal-casino.png" alt="Legal Casino" width="135" height="30" /></a>
 				</div>
 
@@ -104,10 +108,6 @@ js: "/js/main.js"
 
 				<div class="sponsor__item">
 					<a href="https://slotoking.ua/games/all-slots/" target="_blank"><img src="/i/sponsors/slotoking.png" alt="Gives a fun for our users" width="135" height="35" /></a>
-				</div>
-
-				<div class="sponsor__item">
-					<a href="https://onlinekazino.lv/" target="_blank"><img src="/i/sponsors/onlinekazino.png" alt="onlinekazino.lv" width="135" height="35" /></a>
 				</div>
 
 				<div class="sponsor__item">
@@ -266,13 +266,6 @@ js: "/js/main.js"
 					<a href="https://casinosinlicenciaespana.com/" target="_blank">
 						<img src="/i/sponsors/casinosinlicenciaespana.png" alt="Casinos Online Sin Licencia 2024" width="135" height="30" />
 					</a>
-				</div>
-
-				<div class="sponsor__item">
-					<a href="https://speedypaper.com" target="_blank"><img src="/i/sponsors/speedy-paper.png" alt="SpeedyPaper" width="135" height="35" /></a>
-				</div>
-				<div class="sponsor__item">
-					<a href="https://writepaperfor.me" target="_blank"><img src="/i/sponsors/writepaper-for-me.png" alt="Write my paper for me" width="135" height="30" /></a>
 				</div>
 
 				<div class="sponsor__item">
