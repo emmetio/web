@@ -79,6 +79,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://www.favbet.ua/uk/casino/slots/" target="_blank"><img src="/i/sponsors/favbet.png" alt="Ігрові автомати від Favbet" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://writepaperfor.me" target="_blank"><img src="/i/sponsors/writepaper-for-me.png" alt="Write my paper for me" width="135" height="30" /></a>
 				</div>
 
