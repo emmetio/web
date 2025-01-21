@@ -79,6 +79,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://www.nettikasinot.org" target="_blank"><img src="/i/sponsors/nettikasinot.png" alt="Löydä parhaat nettikasinot tammikuussa 2025" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://leofame.com/buy-instagram-followers" target="_blank"><img src="/i/sponsors/leofame.png" alt="Boost your social media presence effortlessly with top-quality Instagram and TikTok followers and likes." width="135" height="30" /></a>
 				</div>
 				<div class="sponsor__item">
