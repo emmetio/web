@@ -381,12 +381,6 @@ js: "/js/main.js"
 					</a>
 				</div>
 
-				<div class="sponsor__item">
-					<a href="https://casino-uden-rofus.co" target="_blank">
-						<img src="/i/sponsors/casino-uden-rofus.png" alt="Casino uden Rofus" width="135" height="30" />
-					</a>
-				</div>
-
 				<div class="sponsor__item sponsor__item_text">
 					<a href="https://nieuwe-casinos.net/" target="_blank">Nieuw Online Casino</a>
 				</div>
