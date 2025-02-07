@@ -79,6 +79,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://www.vso.org.uk/" target="_blank"><img src="/i/sponsors/vso.png" alt="Best Casinos not on Gamstop in the UK 2025 – Safe & Trusted" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://parik24.bet/" target="_blank"><img src="/i/sponsors/parik24.png" alt="Parik24 – это современная букмекерская контора и онлайн-казино, предлагающая ставки на спорт и большой выбор игровых автоматов. Пользователей ждут высокие коэффициенты, щедрые бонусы и удобный интерфейс." width="135" height="30" /></a>
 				</div>
 
