@@ -65,15 +65,6 @@ js: "/js/main.js"
 			<div class="sponsor">
 				<h4 class="sponsor__title">Sponsors:</h4>
 
-				<% if @document.url == '/index.html': %>
-					<div class="sponsor__item">
-						<a href="https://agency.uxplanet.org/" target="_blank"><img src="/i/sponsors/agency-uxplanet.png" alt="best UX agencies" width="135" height="35" /></a>
-					</div>
-					<div class="sponsor__item">
-						<a href="https://topagency.webflow.io/" target="_blank"><img src="/i/sponsors/topagency-webflow.png" alt=" best web design agencies" width="135" height="35" /></a>
-					</div>
-				<% end %>
-
 				<div class="sponsor__item">
 					<a href="https://www.bairesdev.com/sponsoring-open-source-projects/" target="_blank"><img src="/i/sponsors/bairesdev.png" alt="We are the leading Nearshore Technology Solutions company. We architect and engineer scalable and high-performing software solutions." width="135" height="35" /></a>
 				</div>
