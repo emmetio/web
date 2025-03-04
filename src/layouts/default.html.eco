@@ -59,12 +59,10 @@ js: "/js/main.js"
 			-->
 
 			<div class="become-sponsor">
-				<a href="https://opencollective.com/emmet"><em class="btn">Become a sponsor</em> or&nbsp;backer</a>
+				<a href="https://opencollective.com/emmet"><em class="btn">Become a backer</em></a>
 			</div>
 
 			<div class="sponsor">
-				<h4 class="sponsor__title">Sponsors:</h4>
-
 				<% if @document.url == '/index.html': %>
 					<div class="sponsor__item">
 						<a href="https://agency.uxplanet.org/" target="_blank"><img src="/i/sponsors/agency-uxplanet.png" alt="best UX agencies" width="135" height="35" /></a>
@@ -174,7 +172,7 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
-					<a href="https://www.famety.com/buy-instagram-likes" target="_blank"><img src="/i/sponsors/instafollowers.png" alt="Buy Instagram Likes" width="135" height="35" /></a>
+					<a href="https://www.famety.com/buy-instagram-likes" target="_blank" rel="nofollow"><img src="/i/sponsors/instafollowers.png" alt="Buy Instagram Likes" width="135" height="35" /></a>
 				</div>
 
 				<div class="sponsor__item">
