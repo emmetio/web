@@ -68,6 +68,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://casinosfest.com" target="_blank"><img src="/i/sponsors/casinosfest.png" alt="casinosfest" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://bonustwist.com" target="_blank"><img src="/i/sponsors/bonustwist.png" alt="Find the best online casinos in Australia at bonustwist.com" width="135" height="30" /></a>
 				</div>
 
