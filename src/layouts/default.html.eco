@@ -92,10 +92,6 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
-					<a href="https://1win-sweden.com/" target="_blank"><img src="/i/sponsors/1winsweden.png" alt="1win" width="135" height="30" /></a>
-				</div>
-
-				<div class="sponsor__item">
 					<a href="https://www.nettikasinot.org" target="_blank"><img src="/i/sponsors/nettikasinot.png" alt="Löydä parhaat nettikasinot tammikuussa 2025" width="135" height="30" /></a>
 				</div>
 
