@@ -111,10 +111,6 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
-					<a href="https://writepaperfor.me" target="_blank"><img src="/i/sponsors/writepaper-for-me.png" alt="Write my paper for me" width="135" height="30" /></a>
-				</div>
-
-				<div class="sponsor__item">
 					<a href="https://legal-casino.net/" target="_blank"><img src="/i/sponsors/legal-casino.png" alt="Legal Casino" width="135" height="30" /></a>
 				</div>
 
@@ -357,10 +353,6 @@ with Instant Delivery" width="135" height="30" /></a>
 					<a href="https://casinority.com/ca/" target="_blank"><img src="/i/sponsors/casinority2.png" alt="Best legit online casinos in Canada" width="135" height="30" /></a>
 				</div>
 
-				<div class="sponsor__item">
-					<a href="https://casinoutangränser.se" target="_blank"><img src="/i/sponsors/casinoutangranser.png" alt="casino utan gränser" width="135" height="30" /></a>
-				</div>
-				
 				<div class="sponsor__item">
 					<a href="https://casino-wise.com/" target="_blank"><img src="/i/casino-wise.png" alt="The UK’s number one place for all things GamStop." width="135" height="40" /></a>
 				</div>
