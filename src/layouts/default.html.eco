@@ -68,6 +68,13 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://kaszinomagyar.net/" target="_blank"><img src="/i/sponsors/kaszinomagyar.png" alt="Casino Magyar" width="135" height="30" /></a>
+				</div>
+				<div class="sponsor__item">
+					<a href="https://novecasino.net/" target="_blank"><img src="/i/sponsors/novecasino.png" alt="Nove Casino" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://www.mediamister.com/buy-youtube-subscribers" target="_blank"><img src="/i/sponsors/mediamister.png" alt="Buy YouTube Subscribers Media Mister" width="135" height="30" /></a>
 				</div>
 
