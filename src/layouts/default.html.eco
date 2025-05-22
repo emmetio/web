@@ -68,6 +68,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://buzzoid.com/buy-youtube-views/" target="_blank"><img src="/i/sponsors/buzzoid-youtube.png" alt="At Buzzoid, you can buy YouTube views easily and safely." width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://nogamstopcasinos.uk" target="_blank"><img src="/i/sponsors/nogamstopcasinos.png" alt="New Casinos Not on Gamstop – Best Non GamStop sites in 2025" width="135" height="30" /></a>
 				</div>
 
