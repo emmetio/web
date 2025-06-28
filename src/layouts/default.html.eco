@@ -68,6 +68,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://twesocial.com/" target="_blank"><img src="/i/sponsors/twesocial.png" alt="Buy Twitter Followers Visit TweSocial" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://www.play-it-safe.net/" target="_blank"><img src="/i/sponsors/play-it-safe.png" alt="Online Casinos in Australia 2025" width="135" height="30" /></a>
 				</div>
 
