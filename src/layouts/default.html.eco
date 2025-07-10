@@ -64,6 +64,10 @@ js: "/js/main.js"
 
 			<div class="sponsor">
 				<div class="sponsor__item">
+					<a href="https://www.clickittech.com/" target="_blank"><img src="/i/sponsors/clickit.png" alt="We are a Software Company that delivers App Development, DevOps, and AI/ML integrations. By adding &quot;A&quot; talent to Engineering teams, we help enterprises evolve digitally through top-notch technologies." width="135" height="35" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://www.bairesdev.com/sponsoring-open-source-projects/" target="_blank"><img src="/i/sponsors/bairesdev.png" alt="We are the leading Nearshore Technology Solutions company. We architect and engineer scalable and high-performing software solutions." width="135" height="35" /></a>
 				</div>
 
