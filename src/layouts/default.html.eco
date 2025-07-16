@@ -72,6 +72,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://chilecasinoonline.cl" target="_blank"><img src="/i/sponsors/chilecasinoonline.png" alt="casino online chile" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://rabona.com/hu/" target="_blank"><img src="/i/sponsors/rabona.png" alt="rabona sport magyar" width="135" height="30" /></a>
 				</div>
 
