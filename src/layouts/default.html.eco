@@ -72,6 +72,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://www.jostrust.org.uk/gambling/casinos-not-on-gamstop/" target="_blank"><img src="/i/sponsors/jostrust.png" alt="Top Casinos Not On GamStop for UK Players" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://collegian.com/sponsored/2025/03/buy-youtube-subscribers/" target="_blank"><img src="/i/sponsors/collegian.png" alt="buy YouTube subscribers Collegian" width="135" height="30" /></a>
 				</div>
 
