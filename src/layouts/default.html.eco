@@ -72,6 +72,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://cryptocasino-guide.com/casino-sans-kyc/" target="_blank"><img src="/i/sponsors/cryptocasino-guide.png" alt="Jouez dans un crypto casino sans KYC et profitez d’une inscription rapide, de dépôts anonymes et de retraits instantanés." width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://www.vanguardngr.com/casino/fr/" target="_blank"><img src="/i/sponsors/vanguardngr.png" alt="Vanguard Media évalue les casinos en ligne pour joueurs français, testant les sites en France. Nos classements stricts garantissent des casinos fiables et sûrs." width="135" height="30" /></a>
 				</div>
 
