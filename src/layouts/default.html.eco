@@ -72,6 +72,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://givemeboost.com/" target="_blank"><img src="/i/sponsors/givemeboost.png" alt="Social Media Marketing, Powered by AI" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://topnoaccountcasinos.com/cz/" target="_blank"><img src="/i/sponsors/topnoaccountcasinos.png" alt="Online casina v České republic" width="135" height="30" /></a>
 				</div>
 
