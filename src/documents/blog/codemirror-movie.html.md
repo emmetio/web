@@ -61,6 +61,5 @@ A scenario is a *list* of commands to be executed. Each command is written on a 
     wait: 1000
     tooltip: CodeMirror rocks!
 
-[You can even use similar step-by-step scripts to create printable invitations.](https://www.adobe.com/express/create/print/invitation)
 
 For more info about all available scenario commands and examples visit [plugin page](https://github.com/sergeche/codemirror-movie). You can use this plugin whatever you like (MIT license). It looks especially great in JS-based presentation engines like [impress.js](http://bartaz.github.com/impress.js/) or [reveal.js](http://lab.hakim.se/reveal-js/). I hope you’ll enjoy it!
