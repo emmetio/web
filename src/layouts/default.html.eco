@@ -72,6 +72,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://playfortuna.com/en" target="_blank"><img src="/i/sponsors/playfortuna.png" alt="Online entertainment" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://superluxuryreps.com/product-category/Rolex-Super-Clone/" target="_blank"><img src="/i/sponsors/superluxuryreps.png" alt="Rolex Super Clone" width="135" height="30" /></a>
 				</div>
 
