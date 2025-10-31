@@ -71,6 +71,10 @@ js: "/js/main.js"
 					<a href="https://www.bairesdev.com/sponsoring-open-source-projects/" target="_blank"><img src="/i/sponsors/bairesdev.png" alt="We are the leading Nearshore Technology Solutions company. We architect and engineer scalable and high-performing software solutions." width="135" height="35" /></a>
 				</div>
 
+				<div class="sponsor__item">
+					<a href="https://finance.yahoo.com/news/best-website-super-clone-watches-073500706.html" target="_blank"><img src="/i/sponsors/super-clone-rolex.png" alt="Best Website for Super Clone Watches" width="135" height="30" /></a>
+				</div>
+
 				<div class="sponsor__item sponsor__item_text">
 					<a href="https://fi.parhaatuudetkasinot.com/" target="_blank">uudet kasinot</a>
 				</div>
