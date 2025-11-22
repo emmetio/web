@@ -72,6 +72,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://prestigewatches.co/" target="_blank"><img src="/i/sponsors/prestigewatches.png" alt="super clone watches" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://wazamba.com/hu/" target="_blank"><img src="/i/sponsors/wazamba.png" alt="magyar online casino" width="135" height="30" /></a>
 				</div>
 
