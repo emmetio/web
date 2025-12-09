@@ -208,10 +208,6 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
-					<a href="https://www.favbet.ro/" target="_blank"><img src="/i/sponsors/favbet-ro.png" alt="Favbet casă de pariuri" width="135" height="30" /></a>
-				</div>
-
-				<div class="sponsor__item">
 					<a href="https://kaszinomagyar.net/" target="_blank"><img src="/i/sponsors/kaszinomagyar.png" alt="Casino Magyar" width="135" height="30" /></a>
 				</div>
 				<div class="sponsor__item">
