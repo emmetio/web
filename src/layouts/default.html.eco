@@ -72,6 +72,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://au.trustpilot.com/review/pokiesgambler.com" target="_blank"><img src="/i/sponsors/pokiesgambler.png" alt="Pokies Reviews" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://www.outfame.com/" target="_blank"><img src="/i/sponsors/outfame.png" alt="AI-powered Instagram growth. Real followers, 24/7. No password required. 150,000+ creators trust Outfame. Try free for 14 days." width="135" height="30" /></a>
 				</div>
 
