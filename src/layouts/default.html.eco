@@ -72,6 +72,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://litslink.com/" target="_blank"><img src="/i/sponsors/litslink.png" alt="Custom Software Development Company to Empower You with AI" width="135" height="35" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://au.trustpilot.com/review/pokiesgambler.com" target="_blank"><img src="/i/sponsors/pokiesgambler.png" alt="Pokies Reviews" width="135" height="30" /></a>
 				</div>
 
