@@ -76,6 +76,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://www.educatransparencia.cl/" target="_blank"><img src="/i/sponsors/educatransparencia.png" alt="Transparencia en Casinos Online" width="135" height="35" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://www.fun88vnu.com/vn/" target="_blank"><img src="/i/sponsors/fun88.png" alt="Best online sorts betting company in Vietnam" width="135" height="35" /></a>
 				</div>
 
