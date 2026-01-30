@@ -72,6 +72,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://www.fun88tha.com/th/" target="_blank"><img src="/i/sponsors/fun88-th.png" alt="Best online sports betting company in Thailand" width="135" height="35" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://nl.trustpilot.com/review/bestecasinozondercruks.online" target="_blank"><img src="/i/sponsors/bestecasinozondercruks.png" alt="Beste casino zonder cruks " width="135" height="35" /></a>
 				</div>
 
