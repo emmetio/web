@@ -72,6 +72,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://nl.trustpilot.com/review/idealcasinos.co.com" target="_blank"><img src="/i/sponsors/ideal-casinos.png" alt="iDEAL Casinos voor Nederlanders " width="135" height="35" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://global.fun88.com/" target="_blank"><img src="/i/sponsors/fun88-global.png" alt="Best online sports betting company" width="135" height="35" /></a>
 				</div>
 
