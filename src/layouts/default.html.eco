@@ -72,6 +72,14 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://www.fun88asiath.com/" target="_blank"><img src="/i/sponsors/fun88-th.png" alt="FUN88 Thailand" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
+					<a href="https://www.fun88vnplay.com/" target="_blank"><img src="/i/sponsors/fun88-vietnam.png" alt="FUN88 Vietnam" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://www.trustpilot.com/review/plinkoplay.top" target="_blank"><img src="/i/sponsors/plinkoplay.png" alt="Plinko Game in India" width="135" height="30" /></a>
 				</div>
 
