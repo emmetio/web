@@ -72,6 +72,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://pl.topkasynoonline.com/" target="_blank"><img src="/i/sponsors/topkasynoonline.png" alt="Legalne Polskie Kasyno Online" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://www.fun88asiath.com/" target="_blank"><img src="/i/sponsors/fun88-th.png" alt="FUN88 Thailand" width="135" height="30" /></a>
 				</div>
 
