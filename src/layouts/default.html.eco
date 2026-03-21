@@ -72,6 +72,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://buy.fans/" target="_blank"><img src="/i/sponsors/buy-fans.png" alt="Create the most suitable order for your target audience from Buy.Fans, the world's most reliable and most preferred social media service platform for 12 years, and strengthen your page!" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://www.instant-famous.com/collections/buy-facebook-views" target="_blank"><img src="/i/sponsors/instant-famous.png" alt="Buy Facebook Views with Fast Delivery" width="135" height="30" /></a>
 				</div>
 
