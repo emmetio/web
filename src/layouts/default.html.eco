@@ -72,6 +72,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://www.movavi.com" target="_blank"><img src="/i/sponsors/movavi.png" alt="3-in-1 bundle for every video task – video editor with automatic tools, fast converter, and handy screen recorder" width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://slotsjudge-pl.com" target="_blank"><img src="/i/sponsors/slotsjudge-pl.png" alt="Slotsjudge polskie kasyna" width="135" height="30" /></a>
 				</div>
 
