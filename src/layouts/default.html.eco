@@ -72,6 +72,14 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://www.jbo579.com/th/" target="_blank"><img src="/i/sponsors/jbo-thailand.png" alt="JBO Thailand คือแพลตฟอร์มความบันเทิงออนไลน์ครบวงจร ให้บริการการเดิมพันกีฬา อีสปอร์ต คาสิโนสด และเกมยอดนิยม ผ่านระบบทันสมัย ใช้งานง่าย รองรับทุกอุปกรณ์ พร้อมมอบประสบการณ์ที่มีคุณภาพ ปลอดภัย และน่าเชื่อถือสำหรับผู้ใช้งานชาวไทย." width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
+					<a href="https://www.jbo88b.com/vn/" target="_blank"><img src="/i/sponsors/jbo-vietnam.png" alt="JBO Vietnam là thương hiệu giải trí trực tuyến nổi bật tại Việt Nam, cung cấp cá cược thể thao, esports, casino trực tuyến và nhiều trò chơi hấp dẫn khác." width="135" height="30" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://www.movavi.com" target="_blank"><img src="/i/sponsors/movavi.png" alt="3-in-1 bundle for every video task – video editor with automatic tools, fast converter, and handy screen recorder" width="135" height="30" /></a>
 				</div>
 
