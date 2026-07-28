@@ -15,7 +15,7 @@
     "docpad-plugin-marked": "^2.5.0",
     "docpad-plugin-menu": "^3.0.0",
     "docpad-plugin-partials": "^2.13.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-gzip": "^1.4.2",
     "gulp-minify-css": "^1.2.4",
     "html-transform": "git+https://github.com/sergeche/html-transform.git#v3.0.0",
