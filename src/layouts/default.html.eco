@@ -72,6 +72,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://opencollective.com/sweepico-promo-code" target="_blank"><img src="/i/sponsors/sweepico.webp" alt="Sweepico Promo Code" width="135" height="35" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://socialboom.io" target="_blank"><img src="/i/sponsors/socialboom2.webp" alt="Buy YouTube Subscribers to grow your channel" width="135" height="35" /></a>
 				</div>
 
