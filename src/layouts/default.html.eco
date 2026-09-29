@@ -72,6 +72,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://essayservice.com/" target="_blank"><img src="/i/sponsors/essayservice.webp" alt="Looking to hit your deadlines without the extra stress? Rely on a professional essay writing service to get high-quality, custom-written papers tailored to your exact academic needs." width="135" height="35" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://mrfollows.com" target="_blank"><img src="/i/sponsors/mrfollows.webp" alt="Buy followers, likes and views on every platform that matters." width="135" height="35" /></a>
 				</div>
 
