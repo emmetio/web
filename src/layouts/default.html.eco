@@ -72,6 +72,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://youviews.com/" target="_blank"><img src="/i/sponsors/youviews.webp" alt="YouViews delivers YouTube views, subscribers, likes, watch hours, comments and more with secure checkout and no password required, so you can grow your channel while tracking every order." width="135" height="35" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://www.socialboosting.com" target="_blank"><img src="/i/sponsors/social-boosting.png" alt="Buy Instagram and TikTok followers on SocialBoosting!" width="135" height="30" /></a>
 				</div>
 
