@@ -26,7 +26,7 @@
     "node": "~10.13.0"
   },
   "dependencies": {
-    "codemirror": "^5.0.0",
+    "codemirror": "^5.58.2",
     "codemirror-movie": "^1.2.1",
     "emmet-codemirror": "^1.2.4"
   }
