@@ -72,6 +72,10 @@ js: "/js/main.js"
 				</div>
 
 				<div class="sponsor__item">
+					<a href="https://fypok.com/" target="_blank"><img src="/i/sponsors/fypok.webp" alt="See which posts outperform your usual results, compare public accounts, and choose what to test next. Start with a TikTok username or profile link." width="135" height="35" /></a>
+				</div>
+
+				<div class="sponsor__item">
 					<a href="https://likewave.io/buy-instagram-views" target="_blank"><img src="/i/sponsors/likewave.webp" alt="Buy Instagram Views in 2026: 5 Sites Compared for Reels & Videos" width="135" height="35" /></a>
 				</div>
 
